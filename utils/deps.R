@@ -1,4 +1,5 @@
 library(lintr)
+library(quarto)
 library(styler)
 library(rprojroot)
 library(rstudioapi)
