@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+.ipynb_checkpoints/
+.vscode/
+.spyproject/
+# R/RStudio
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+# local R/RStudio project environment variables
+.Renviron.R
+# data directory
+/data
+# R Markdown
+*.nb.html
+*_cache
+# Quarto
+#/_freeze/
+/.quarto-cli/
+.quarto/
+# User RStudio & R Markdown to preview markdown files before on remote repo
+/README.html
+README_files/
+/CONTRIBUTING.html
+# A personal note directory - add your notes in here
+/notes
+# Vim
+*.swp
+# OS
+.DS_Store
+/.quarto/

@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: _site
+  execute-dir: project
+  post-render:
+    - touch _site/.nojekyll
+execute:
+  freeze: auto
+website: 
+  title: prncevince 
+  author: Vincent Clemson
+  repo-url: https://github.com/prncevince/prncevince.github.io
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/prncevince
+      - icon: twitter
+        href: https://twitter.com/prncevincecares
+format: 
+  html:
+    code-fold: true
+    code-link: true
+    css: assets/css/style.css
+    grid:
+      body-width: 1100px
+      sidebar-width: 300px
+      margin-width: 300px
+      gutter-width: 1.5rem
+    toc: true
+    toc-depth: 6
+
