@@ -1,0 +1,36 @@
+name: Publish Site to GH Pages
+on:
+  push:
+    branches: [main]
+    paths: ['_site/**']
+  pull_request:
+    branches: [main]
+    paths: ['_site/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  quarto-site:
+    runs-on: ${{ matrix.os  }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest]
+        r: ['release']
+        r-repo: ['https://cloud.r-project.org']
+    # Only runs PR jobs concurrently & uses same group as other ghpages jobs
+    # PR jobs run in their own branch & do not deploy anything - so we assume they can run concurrently
+    concurrency:
+      group: ghpages-${{ github.event_name != 'pull_request' || github.run_id }}
+    env:
+      RENV_CONFIG_REPOS_OVERRIDE: ${{ matrix.r-repo }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy site to GitHub pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.event_name != 'pull_request'
+        with:
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          destination_dir: .
