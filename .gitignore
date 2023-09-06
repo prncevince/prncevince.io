@@ -16,7 +16,7 @@ __pycache__/
 *.nb.html
 *_cache
 # Quarto
-#/_freeze/
+/_freeze/
 /.quarto-cli/
 .quarto/
 # User RStudio & R Markdown to preview markdown files before on remote repo

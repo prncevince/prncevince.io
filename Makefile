@@ -1,9 +1,18 @@
-.PHONY: docs docs-dev docs-preview docs-preview-python conda-env-export conda-env-create
+.PHONY: docs docs-dev docs-site docs-md docs-preview docs-preview-python conda-env-export conda-env-create
 
 CONDA_ENV = environment.yml
 
-docs:
-	quarto render
+docs: docs-site docs-md
+
+#docs:
+#	quarto render --profile site
+#	quarto render --profile md --to gfm
+
+docs-site:
+	quarto render --profile site
+
+docs-md:
+	quarto render --profile md --to gfm
 
 docs-dev:
 	quarto preview

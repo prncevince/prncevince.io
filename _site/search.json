@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "SETUP.html",
+    "href": "SETUP.html",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Here’s all the setup.\n\nSetup quarto-shims.\nThen, run below to install & setup quarto. wget is required in your shell environment, can be installed on Mac via homebrew.\n./utils/download-quarto.sh\n\nSetup r-shims.\nCreate RStudio project within RStudio.\n\nrstudioapi::initializeProject()\n\nInitialize the renv environment. Important packages can be discovered in utils/deps.R.\n\nrenv::init()\n\n\nExplode on paper."
+  },
+  {
+    "objectID": "SETUP.html#quarto",
+    "href": "SETUP.html#quarto",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Setup quarto-shims.\nThen, run below to install & setup quarto. wget is required in your shell environment, can be installed on Mac via homebrew.\n./utils/download-quarto.sh"
+  },
+  {
+    "objectID": "SETUP.html#r",
+    "href": "SETUP.html#r",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Setup r-shims.\nCreate RStudio project within RStudio.\n\nrstudioapi::initializeProject()\n\nInitialize the renv environment. Important packages can be discovered in utils/deps.R.\n\nrenv::init()"
+  },
+  {
+    "objectID": "SETUP.html#start",
+    "href": "SETUP.html#start",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Explode on paper."
+  }
+]

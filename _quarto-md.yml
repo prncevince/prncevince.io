@@ -1,0 +1,6 @@
+project:
+  render:
+    - SETUP.qmd
+format: 
+  gfm:
+    preview-mode: raw
