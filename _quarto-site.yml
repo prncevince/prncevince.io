@@ -4,8 +4,8 @@ project:
   execute-dir: project
   post-render:
     - touch _site/.nojekyll
-website: 
-  title: prncevince 
+website:
+  title: prncevince
   site-url: https://prncevince.github.io/
   description: ''
   repo-branch: main
@@ -19,7 +19,7 @@ website:
         href: https://github.com/prncevince
       - icon: twitter
         href: https://twitter.com/prncevincecares
-format: 
+format:
   html:
     code-fold: true
     code-link: true
@@ -29,9 +29,8 @@ format:
       sidebar-width: 300px
       margin-width: 300px
       gutter-width: 1.5rem
-    theme: 
+    theme:
       light: [flatly]
       dark: [darkly]
     toc: true
     toc-depth: 6
-
