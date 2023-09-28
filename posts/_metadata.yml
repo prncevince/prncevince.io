@@ -1,2 +1,9 @@
 author: Vincent Clemson
-title-block-banner: true
+title-block-banner: false
+listing:
+  categories: true
+code-tools:
+  source: repo
+date-modified: last-modified
+include-after-body:
+  text: <script src='/assets/js/posts.js'></script>

@@ -1,12 +1,8 @@
-.PHONY: docs docs-dev docs-site docs-md docs-preview docs-preview-python conda-env-export conda-env-create
+.PHONY: docs docs-dev docs-site docs-md docs-preview docs-preview-python conda-env-export conda-env-create proxy
 
 CONDA_ENV = environment.yml
 
 docs: docs-site docs-md
-
-#docs:
-#	quarto render --profile site
-#	quarto render --profile md --to gfm
 
 docs-site:
 	quarto render --profile site
@@ -15,7 +11,7 @@ docs-md:
 	quarto render --profile md --to gfm
 
 docs-dev:
-	quarto preview
+	quarto preview --profile site
 
 docs-preview:
 	Rscript -e "servr::httw(dir = '_site')"
@@ -29,3 +25,6 @@ conda-env-export:
 
 conda-env-create:
 	mamba env create -f $(CONDA_ENV)
+
+proxy:
+	python -m http.server
