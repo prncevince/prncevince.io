@@ -1,10 +1,11 @@
 author: Vincent Clemson
 title-block-banner: false
+date-format: long
+date-modified: last-modified
 listing:
   categories: true
 code-tools:
   source: repo
-date-modified: last-modified
 include-after-body:
   text: <script src='/assets/js/posts.js'></script>
 comments:

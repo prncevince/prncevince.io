@@ -1,8 +1,24 @@
 ---
+title: Big & [tiny]{style='font-size:0.75rem;vertical-align:middle;'} spatial thoughts
+subtitle: \
+  [[{{< fa solid earth-oceania >}}]{style='font-size:1.25em'}
+   [{{< fa solid earth-asia >}}]{style='font-size:1.5em'}
+   [{{< fa solid earth-africa >}}]{style='font-size:1.75em'}
+   [{{< fa solid earth-europe >}}]{style='font-size:2em'}
+   [{{< fa solid earth-americas >}}]{style='font-size:2.25em'}
+  ]{style='color:rgba(47,79,58);'}
+  [💭]{style='font-size:2em;vertical-align:0.4em;'}
+  [{{< fa regular moon >}}]{style='color:#80629b;font-size:1.25em;vertical-align:1.5em;'}
 listing:
-  type: table
+  type: grid
   categories: true
   feed: true
-  sort: date
-  fields: [image, date, title, subtitle, reading-time, categories, description]
+  sort: date desc
+  fields: [image, date, title, file-modified, subtitle, reading-time, categories, description]
+  field-display-names:
+    file-modified: "Updated"
+  sort-ui: [date, file-modified]
+author: ''
+date-modified: ''
+comments: false
 ---

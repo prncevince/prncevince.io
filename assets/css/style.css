@@ -10,6 +10,17 @@ main {
   margin: auto;
 }
 
+/*-- Posts --*/
+.card-attribution .listing-date {
+  text-transform: none;
+}
+.card-attribution .listing-date:before {
+  content: "Published: ";
+}
+.card-file-modified p:before {
+  content: "Last Updated: ";
+}
+
 /*-- Navbar --*/
 .navbar .quarto-code-tools {
   order: 4;

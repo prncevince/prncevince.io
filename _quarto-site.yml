@@ -6,7 +6,7 @@ project:
   post-render:
     - touch _site/.nojekyll
 website:
-  title: prncevince
+  title: Vincent Clemson
   site-url: https://prncevince.github.io
   description: ''
   repo-branch: main
@@ -14,7 +14,7 @@ website:
   page-navigation: true
   navbar:
     right:
-      - text: Blog
+      - text: Posts
         href: posts/index.qmd
       - text: About
         href: about/index.qmd
