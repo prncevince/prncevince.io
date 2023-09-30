@@ -7,7 +7,7 @@ project:
     - touch _site/.nojekyll
 website:
   title: prncevince
-  site-url: https://prncevince.github.io/
+  site-url: https://prncevince.github.io
   description: ''
   repo-branch: main
   repo-url: https://github.com/prncevince/prncevince.github.io

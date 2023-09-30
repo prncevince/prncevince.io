@@ -1,12 +1,16 @@
+/*-- General Styling --*/
 main {
   font-size: 0.9em;
 }
-
 .figure-caption {
   text-align: center;
 }
+.table {
+  width: unset;
+  margin: auto;
+}
 
-/* Navbar */
+/*-- Navbar --*/
 .navbar .quarto-code-tools {
   order: 4;
 }
@@ -22,14 +26,12 @@ main {
 .navbar-title-container {
   order: 3;
 }
-
 @media (max-width: 992px) {
   .navbar-title-container {
     visibility: collapse;
     height: 0;
   }
 }
-
 /* for Chrome */
 .navbar-container.container-fluid {
   flex-wrap: nowrap;
@@ -40,7 +42,6 @@ main {
 .navbar {
   --bs-navbar-padding-y: 0.5rem;
 }
-
 .navbar-title-container .nav-link:hover {
   color: var(--bs-nav-link-color);
 }
@@ -64,7 +65,6 @@ main {
 .btn:focus-visible, .btn.active:focus-visible, .btn.show:focus-visible {
   --bs-btn-hover-color: #fdfdfd;
 }
-
 .code-tools-button > .bi::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(253,253,253)" viewBox="0 0 16 16"><path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/></svg>');
 }

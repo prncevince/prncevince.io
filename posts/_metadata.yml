@@ -7,3 +7,15 @@ code-tools:
 date-modified: last-modified
 include-after-body:
   text: <script src='/assets/js/posts.js'></script>
+comments:
+  giscus:
+    repo: prncevince/prncevince.github.io
+    repo-id: R_kgDOKP3DoA
+    category: Comments
+    category-id: DIC_kwDOKP3DoM4CZv-L
+    mapping: title
+    reactions-enabled: true
+    loading: lazy
+    input-position: top
+    theme: preferred_color_scheme
+    language: en
