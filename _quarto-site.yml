@@ -15,11 +15,11 @@ website:
   repo-url: https://github.com/prncevince/prncevince.github.io
   page-navigation: true
   open-graph:
-    image: assets/img/logo-og.png
+    image: /assets/img/logo-og.png
   twitter-card:
     creator: "@prncevincecares"
     site: "@prncevincecares"
-    image: assets/img/logo-og.png
+    image: /assets/img/logo-og.png
   navbar:
     right:
       - text: Posts
