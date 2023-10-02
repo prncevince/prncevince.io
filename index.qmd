@@ -1,0 +1,12 @@
+---
+include-after-body:
+  text: <script src='/assets/js/site.js'></script>
+---
+
+# 👋 Welcome to my site
+
+- You can learn about me [here](/about).
+- You can find my posts on spatial analytics [here](/posts).
+- My [YouTube](https://youtube.com/@prncevince){.external target="_blank"}
+
+# Thanks for stopping by ✌

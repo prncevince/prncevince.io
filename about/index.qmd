@@ -1,3 +1,35 @@
 ---
-title: "Vincent Clemson"
+title: Vincent Clemson
+image: profile.jpg
+about:
+  template: trestles
+  links:
+    - icon: github
+      href: https://github.com/prncevince
+    - icon: twitter
+      href: https://twitter.com/prncevincecares
+    - icon: linkedin
+      href: https://www.linkedin.com/in/vincentclemson/
+    - icon: mastodon
+      href: https://fosstodon.org/@prncevince
+    - icon: youtube
+      href: https://youtube.com/@prncevince
+include-after-body:
+  text: <script src='/assets/js/site.js'></script>
 ---
+
+👋 I'm Vince. In 2017, I received my Bachelor of Science in mathematics & a minor in statistics from <a href="https://www.psu.edu" style="color: #1e407c">Penn State</a>. Afterward, I worked 5+ years for what is now [Peraton](https://www.peraton.com) working a few Geospatial Intelligence data science missions on the [NGA's](https://www.nga.mil) enterprise systems engineering contract. Currently, I'm an AI Engineer at Booz Allen. 
+
+I'm always searching for my next [big]{style='font-size:1.1em'} (or [tiny]{style='font-size:0.75em'}) data science adventure.
+
+I enjoy spatial analytics. I hope that I can help shed some light on spatial topics to those who are also interested with this site. It's built with [Quarto](https://quarto.org).
+
+When I'm not head down in geeky stuff, I enjoy salsa dancing, sports (go birds 🦅), and jumping out of aircraft (did it once - was fun & a bit terrifying).
+
+If you're interesting in learning more about my career, here's a web version of my [résumé](/resume){.external target='_blank'}.
+
+Also, feel free to contact me at vincent.clemson{@}gmail.com. 
+
+Thanks for stopping by. ✌️ 
+
+

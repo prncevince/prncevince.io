@@ -6,7 +6,7 @@ subtitle: \
    [{{< fa solid earth-africa >}}]{style='font-size:1.75em'}
    [{{< fa solid earth-europe >}}]{style='font-size:2em'}
    [{{< fa solid earth-americas >}}]{style='font-size:2.25em'}
-  ]{style='color:rgba(47,79,58);'}
+  ]{style='color:rgb(78,115,77);'}
   [💭]{style='font-size:2em;vertical-align:0.4em;'}
   [{{< fa regular moon >}}]{style='color:#80629b;font-size:1.25em;vertical-align:1.5em;'}
 listing:

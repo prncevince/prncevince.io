@@ -11,6 +11,7 @@ __pycache__/
 # local R/RStudio project environment variables
 .Renviron.R
 # data directory
+data/
 /data
 # R Markdown
 *.nb.html
@@ -24,6 +25,7 @@ __pycache__/
 README_files/
 /CONTRIBUTING.html
 # A personal note directory - add your notes in here
+notes/
 /notes
 # Vim
 *.swp

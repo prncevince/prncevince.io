@@ -4,6 +4,7 @@ project:
   execute-dir: project
   render: ["*.qmd", "*.ipynb", "*.md", "*.Rmd", "!notes/"]
   post-render:
+    - cp -a resume _site/.
     - touch _site/.nojekyll
 website:
   title: Vincent Clemson
@@ -19,13 +20,30 @@ website:
       - text: About
         href: about/index.qmd
       - icon: github
-        href: https://github.com/prncevince
+        menu:
+          - text: GitHub
+            url:  https://github.com/prncevince
+            target: _blank
+          - text: Source Code 💻
+            url:  https://github.com/prncevince/prncevince.github.io
+            target: _blank
+          - text: Discussions 🗣
+            url:  https://github.com/prncevince/prncevince.github.io/discussions
+            target: _blank
       - icon: twitter
-        href: https://twitter.com/prncevincecares
+        menu:
+          - text: News & Science & Code 🚀
+            url: https://twitter.com/prncevincecares
+            target: _blank
+          - text: Sports 🎾
+            url: https://twitter.com/prncevincestats
+            target: _blank
 format:
   html:
     code-fold: true
     code-link: true
+    link-external-icon: true
+    link-external-newwindow: true
     css: [assets/css/style.css]
     grid:
       body-width: 1100px
@@ -34,6 +52,4 @@ format:
       gutter-width: 1.5rem
     theme:
       light: [flatly, 'assets/scss/light.scss']
-      dark: [darkly, 'assets/scss/dark.scss']
-    toc: true
-    toc-depth: 6
+

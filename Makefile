@@ -14,7 +14,7 @@ docs-dev:
 	quarto preview --profile site
 
 docs-preview:
-	Rscript -e "servr::httw(dir = '_site')"
+	Rscript -e "servr::httw(dir = '_site', hosturl = function(host) if (host == '127.0.0.1') 'localhost' else host)"
 
 docs-preview-python:
 	python -m http.server -d _site

@@ -20,3 +20,5 @@ comments:
     input-position: top
     theme: preferred_color_scheme
     language: en
+toc: true
+toc-depth: 6
