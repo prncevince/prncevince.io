@@ -8,11 +8,16 @@ project:
     - touch _site/.nojekyll
 website:
   title: Vincent Clemson
+  favicon: assets/img/favicon.png
   site-url: https://prncevince.github.io
   description: ''
   repo-branch: main
   repo-url: https://github.com/prncevince/prncevince.github.io
   page-navigation: true
+  open-graph: true
+  twitter-card:
+    creator: "@prncevincecares"
+    site: "@prncevincecares"
   navbar:
     right:
       - text: Posts
