@@ -2,10 +2,8 @@
 title: Big & [tiny]{style='font-size:0.75rem;vertical-align:middle;'} spatial thoughts
 twitter-card:
   description: A collection of unique spatial data science content
-  image: ../assets/img/posts.png
 open-graph:
   description: A collection of unique spatial data science content
-  image: ../assets/img/posts.png
 subtitle: \
   [[{{< fa solid earth-oceania >}}]{style='font-size:1.25em'}
    [{{< fa solid earth-asia >}}]{style='font-size:1.5em'}
