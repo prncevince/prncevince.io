@@ -3,13 +3,14 @@ open-graph:
   description: A collection of unique spatial data science content
 twitter-card:
   description: A collection of unique spatial data science content
+  title: Vincent Clemson
 include-after-body:
   text: <script src='/assets/js/site.js'></script>
 ---
 
 # 👋 Welcome to my site
 
-- You can learn about me [here](/about).
+- You can learn more about me [here](/about).
 - You can find my posts on spatial analytics [here](/posts).
 - My [YouTube](https://youtube.com/@prncevince){.external target="_blank"}
 
