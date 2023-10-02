@@ -1,4 +1,7 @@
 ---
+open-graph:
+  description: A collection of unique spatial data science content
+  image: assets/img/logo-og.png
 include-after-body:
   text: <script src='/assets/js/site.js'></script>
 ---

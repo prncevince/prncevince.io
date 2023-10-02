@@ -14,7 +14,7 @@ subtitle: \
    [{{< fa solid earth-americas >}}]{style='font-size:2.25em'}
   ]{style='color:rgb(78,115,77);'}
   [💭]{style='font-size:2em;vertical-align:0.4em;'}
-  [{{< fa regular moon >}}]{style='color:#80629b;font-size:1.25em;vertical-align:1.5em;'}
+  [{{< iconify fluent-emoji-high-contrast crescent-moon >}}]{style='color:#80629b;font-size:1.25em;vertical-align:1.5em;'}
 listing:
   type: grid
   categories: true
