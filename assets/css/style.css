@@ -10,6 +10,11 @@ main {
   margin: auto;
 }
 
+/* About */
+.about-contents {
+  text-align: justify;
+}
+
 /*-- Posts --*/
 .card-attribution .listing-date {
   text-transform: none;
