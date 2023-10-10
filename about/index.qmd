@@ -1,5 +1,6 @@
 ---
 title: Vincent Clemson
+pagetitle: 'About - Vincent Clemson'
 image: profile.jpg
 about:
   template: trestles

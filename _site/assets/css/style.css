@@ -28,16 +28,11 @@ main {
 
 /*-- Navbar --*/
 nav .nav-item:not(.compact) {
-    padding-top: unset;
-    font-size: 1.1em;
+  padding-top: unset;
+  font-size: 1.1em;
 }
 .navbar .quarto-code-tools {
   order: 4;
-}
-@media (max-width: 992px) {
-  .navbar .quarto-code-tools {
-    order: 4;
-  }
 }
 #navbarCollapse {
   flex-basis: unset;
@@ -47,6 +42,13 @@ nav .nav-item:not(.compact) {
   order: 3;
 }
 @media (max-width: 992px) {
+  /* give room for dropdown when viewing on mobile */
+  .navbar .navbar-collapse {
+    order: 3;
+  }
+  .navbar .quarto-code-tools {
+    order: 4;
+  }
   .navbar-title-container {
     visibility: collapse;
     height: 0;

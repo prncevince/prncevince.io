@@ -1,9 +1,8 @@
 author: Vincent Clemson
+pagetitle: '{{< meta title >}} | Vincent Clemson'
 title-block-banner: false
 date-format: long
 date-modified: last-modified
-listing:
-  categories: true
 code-tools:
   source: repo
 include-after-body:

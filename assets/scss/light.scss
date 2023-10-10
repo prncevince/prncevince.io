@@ -7,12 +7,14 @@ $body-color: #505457; /*#7e848a;*/
 $primary: $blue;*/
 $primary: rgba(78, 115, 77);
 $link-color: #528672;
+$base-dropdown-link-hover-bg: #ecc187;
+$base-navbar-bg: #376550;
 /*$link-color: $primary;*/
 /*$navbar-color: #2f4f3a;*/
 /*$navbar-dark-color*/
 $navbar-bg: rgba($primary, 0.95);
-$dropdown-bg: rgba(#ecc187, 0.90);
-$dropdown-link-hover-bg: rgba(#376550, 0.70);
+$dropdown-bg: rgba($base-dropdown-link-hover-bg, 0.90);
+$dropdown-link-hover-bg: rgba($base-navbar-bg, 0.70);
 $card-border-color: $body-color;
 
 /*-- scss:rules --*/
@@ -33,4 +35,11 @@ h1, h2, h3, h4, h5, h6 {
 .card-footer {
   color: darken($body-bg, 5%);
   background-color: lighten($navbar-bg, 2%);
+}
+/* categories */
+.quarto-categories {
+  color: $base-navbar-bg;
+}
+.quarto-category:hover {
+  background: $base-dropdown-link-hover-bg;
 }

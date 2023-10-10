@@ -1,24 +1,8 @@
 [
   {
-    "listing": "/posts/geo/natural-disasters-maxar-open-data/index.html",
-    "items": []
-  },
-  {
     "listing": "/posts/index.html",
     "items": [
       "/posts/geo/natural-disasters-maxar-open-data/index.html"
     ]
-  },
-  {
-    "listing": "/posts/geo/encoding-decoding-images/index.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/geo/rgb-satellite-images-in-R/index.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/geo/image-collections-with-geemap/index.html",
-    "items": []
   }
 ]
