@@ -32,3 +32,6 @@ notes/
 # OS
 .DS_Store
 /.quarto/
+# pnpm
+node_modules/
+.vercel/

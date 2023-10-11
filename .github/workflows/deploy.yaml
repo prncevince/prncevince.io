@@ -1,4 +1,4 @@
-name: Publish Site to GH Pages
+name: Publish Site to Vercel
 on:
   push:
     branches: [main]
@@ -18,19 +18,23 @@ jobs:
         os: [macos-latest]
         r: ['release']
         r-repo: ['https://cloud.r-project.org']
-    # Only runs PR jobs concurrently & uses same group as other ghpages jobs
+    # Only runs PR jobs concurrently & uses same group as other vercel- jobs
     # PR jobs run in their own branch & do not deploy anything - so we assume they can run concurrently
     concurrency:
-      group: ghpages-${{ github.event_name != 'pull_request' || github.run_id }}
+      group: vercel-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       RENV_CONFIG_REPOS_OVERRIDE: ${{ matrix.r-repo }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - uses: actions/checkout@v3
-      - name: Deploy site to GitHub pages 🚀
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Install pnpm
+        run: brew install pnpm
+      - name: Install Node dependencies
+        run: pnpm i
+      - name: Deploy site to Vercel 🚀
         if: github.event_name != 'pull_request'
-        with:
-          publish_branch: gh-pages
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          destination_dir: .
+        run: |
+          pnpm vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+          pnpm vercel deploy _site --prod --token=${{ secrets.VERCEL_TOKEN }}
+
