@@ -18,7 +18,7 @@ listing:
   categories: true
   feed: true
   sort: date desc
-  fields: [image, date, title, file-modified, subtitle, reading-time, categories, description]
+  fields: [image, date, title, file-modified, subtitle, reading-time, description]
   field-display-names:
     file-modified: "Updated"
   sort-ui: [date, file-modified]

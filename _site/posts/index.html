@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-file-modified','listing-subtitle','listing-reading-time','listing-categories','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-file-modified','listing-subtitle','listing-reading-time','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
@@ -257,35 +257,6 @@ Visualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Pro
 </h5>
 <div class="listing-reading-time card-text text-muted">
 13 min
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Geospatial'); return false;">
-Geospatial
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Maxar'); return false;">
-Maxar
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Natural Disasters'); return false;">
-Natural Disasters
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('COG'); return false;">
-COG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('STAC'); return false;">
-STAC
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Tiling'); return false;">
-Tiling
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
-Python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Leaflet'); return false;">
-Leaflet
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Development Seed'); return false;">
-Development Seed
-</div>
 </div>
 <div class="card-text listing-description">
 A deep dive into visualizing satellite imagery from Maxar’s ODP on-the-fly using STAC, dynamic tiling, and Leaflet.
