@@ -11,14 +11,14 @@
     "href": "posts/geo/north-india-floods-2023/index.html#tldr",
     "title": "North India Floods of October 2023",
     "section": "TLDR",
-    "text": "TLDR\nI quickly visualize Maxar’s recent release in response to the flooding events in the northern Himalayan region of Sikkim, India in October of 2023. You can check out a technical deep dive that covers the tooling behind these techniques in my previous post. You can use Figure 3 to interact with the web map for yourself."
+    "text": "TLDR\nI quickly visualize Maxar’s recent release in response to the flooding events in the northern Himalayan region of Sikkim, India in October of 2023. Figure 4 displays a demo of this. You can use Figure 3 to interact with the web map for yourself.\nMy previous post is a technical deep dive that covers the tooling used behind these techniques."
   },
   {
     "objectID": "posts/geo/north-india-floods-2023/index.html#intro",
     "href": "posts/geo/north-india-floods-2023/index.html#intro",
     "title": "North India Floods of October 2023",
     "section": "Intro",
-    "text": "Intro\nOn the morning of October 12th, 2023, Maxar released an activation alert within their Open Data Program on the recent flooding that devastated Sikkim, India in the Indian Himalayan Region. It has been reported that the flooding was caused by a Glacial Lake Outburst Flood (GLOF) from a melting glacier at South Lhonak Lake. Ultimately, the flooding triggered from the glacier lake area destroyed the Chungthang Dam and it’s surrounding town miles away downstream.\nFigure 2 captures the area between the South Lhonak Lake (the glacier lake) and the Chungthang Dam.\n\n\n\nFigure 2: Google Maps view from South Lhonak Lake (upper left) to Chungthang Dam (bottom right). Source\n\n\nHere I use open source technologies to build a web map that displays the released satellite imagery over the region. In particular, Figure 3 is a web map that showcases before and after the GLOF took place to help make visual comparisons of the disaster.\nAdditionally, Dan Shugar previously released an in-depth thread of the GLOF that triggered the flooding using Planet Labs imagery from the SuperDove satellites. It’s a great resource (below) to understand the chain of events that happened during the floods."
+    "text": "Intro\nOn the morning of October 12th, 2023, Maxar released an activation alert within their Open Data Program on the recent flooding that devastated Sikkim, India in the Indian Himalayan Region last week on Wednesday October 4th. It has been reported that the flooding was caused by a Glacial Lake Outburst Flood (GLOF) from a melting glacier at South Lhonak Lake. Ultimately, the flooding triggered from the glacier lake area destroyed the Chungthang Dam and it’s surrounding town miles away downstream.\nFigure 2 captures the area between the South Lhonak Lake (the glacier lake) and the Chungthang Dam.\n\n\n\nFigure 2: Google Maps view from South Lhonak Lake (upper left) to Chungthang Dam (bottom right). Source\n\n\nHere I use open source technologies to build a web map that displays the released satellite imagery over the region. In particular, Figure 3 is a web map that showcases before and after the GLOF took place to help make visual comparisons of the disaster.\nAdditionally, Dan Shugar previously released an in-depth thread of the GLOF that triggered the flooding using Planet Labs imagery from the SuperDove satellites. It’s a great resource (below) to understand the chain of events that happened during the floods."
   },
   {
     "objectID": "posts/geo/north-india-floods-2023/index.html#data-aggregation",
@@ -46,7 +46,7 @@
     "href": "posts/geo/north-india-floods-2023/index.html#wrap-up",
     "title": "North India Floods of October 2023",
     "section": "Wrap-up",
-    "text": "Wrap-up\nIf you have any thoughts or questions, feel free to let me know what you think in the comments below. You’ll need to sign in to your GitHub account to do so. Like my work? Feel free to reach out.\nWe only have one rock, and it’s a beautiful one. Thanks for reading! ✌️🌍"
+    "text": "Wrap-up\nIf you have any thoughts or questions, feel free to let me know what you think in the comments below. You’ll need to sign in to your GitHub account to do so. Like my work? Feel free to reach out.\nWe only have one rock, and it’s a beautiful one. Thanks for reading! ✌️🌍\n\n\n\nFigure 4: 2023 South Lhonak Lake Sikkim, India - Maxar Open Data Program Leaflet Split Map"
   },
   {
     "objectID": "index.html",
@@ -95,7 +95,7 @@
     "href": "posts/index.html",
     "title": "Big & tiny spatial thoughts",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Updated - Oldest\n        \n         \n          Updated - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nNorth India Floods of October 2023\n\n\n2 min\n\n\nA quick turn analysis to visually compare events caused by the Glacial Lake Outburst Flood in the Indian Himalayan Region of Sikkim during early October of 2023.\n\n\n\nOctober 12, 2023\n\n\n\n\n\nOctober 12, 2023\n\n\n\n\n\n\n\n\n\n\n\nVisualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program\n\n\n13 min\n\n\nA deep dive into visualizing satellite imagery from Maxar’s ODP on-the-fly using STAC, dynamic tiling, and Leaflet.\n\n\n\nOctober 2, 2023\n\n\n\n\n\nOctober 12, 2023\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Updated - Oldest\n        \n         \n          Updated - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nNorth India Floods of October 2023\n\n\n3 min\n\n\nA quick turn analysis to visually compare events caused by the Glacial Lake Outburst Flood in the Indian Himalayan Region of Sikkim during early October of 2023.\n\n\n\nOctober 12, 2023\n\n\n\n\n\nOctober 12, 2023\n\n\n\n\n\n\n\n\n\n\n\nVisualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program\n\n\n13 min\n\n\nA deep dive into visualizing satellite imagery from Maxar’s ODP on-the-fly using STAC, dynamic tiling, and Leaflet.\n\n\n\nOctober 2, 2023\n\n\n\n\n\nOctober 12, 2023\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/geo/natural-disasters-maxar-open-data/index.html",
