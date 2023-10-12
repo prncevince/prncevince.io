@@ -1,5 +1,103 @@
 [
   {
+    "objectID": "posts/geo/north-india-floods-2023/index.html",
+    "href": "posts/geo/north-india-floods-2023/index.html",
+    "title": "North India Floods of October 2023",
+    "section": "",
+    "text": "Figure 1: A split web map displaying avalanche damage to South Lhonak Lake (a glacier lake) in the Indian Himalayan Region. The pre & post event satellite imagery was obtained from Maxar’s Open Data Program."
+  },
+  {
+    "objectID": "posts/geo/north-india-floods-2023/index.html#tldr",
+    "href": "posts/geo/north-india-floods-2023/index.html#tldr",
+    "title": "North India Floods of October 2023",
+    "section": "TLDR",
+    "text": "TLDR\nI quickly visualize Maxar’s recent release in response to the flooding events in the northern Himalayan region of Sikkim, India in October of 2023. You can check out a technical deep dive that covers the tooling behind these techniques in my previous post. You can use Figure 3 to interact with the web map for yourself."
+  },
+  {
+    "objectID": "posts/geo/north-india-floods-2023/index.html#intro",
+    "href": "posts/geo/north-india-floods-2023/index.html#intro",
+    "title": "North India Floods of October 2023",
+    "section": "Intro",
+    "text": "Intro\nOn the morning of October 12th, 2023, Maxar released an activation alert within their Open Data Program on the recent flooding that devastated Sikkim, India in the Indian Himalayan Region. It has been reported that the flooding was caused by a Glacial Lake Outburst Flood (GLOF) from a melting glacier at South Lhonak Lake. Ultimately, the flooding triggered from the glacier lake area destroyed the Chungthang Dam and it’s surrounding town miles away downstream.\nFigure 2 captures the area between the South Lhonak Lake (the glacier lake) and the Chungthang Dam.\n\n\n\nFigure 2: Google Maps view from South Lhonak Lake (upper left) to Chungthang Dam (bottom right). Source\n\n\nHere I use open source technologies to build a web map that displays the released satellite imagery over the region. In particular, Figure 3 is a web map that showcases before and after the GLOF took place to help make visual comparisons of the disaster.\nAdditionally, Dan Shugar previously released an in-depth thread of the GLOF that triggered the flooding using Planet Labs imagery from the SuperDove satellites. It’s a great resource (below) to understand the chain of events that happened during the floods."
+  },
+  {
+    "objectID": "posts/geo/north-india-floods-2023/index.html#data-aggregation",
+    "href": "posts/geo/north-india-floods-2023/index.html#data-aggregation",
+    "title": "North India Floods of October 2023",
+    "section": "Data Aggregation",
+    "text": "Data Aggregation\n\n\nNorth India Flood Event Image Tile Aggregation - Maxar’s Open Data Program\nimport time\nimport numpy as np\nimport pandas as pd\nimport geopandas as gpd\n\nstart = time.time()\n\np_datasets = 'https://raw.githubusercontent.com/opengeos/maxar-open-data/master/datasets.csv'\nd_maxar = pd.read_csv(p_datasets)\np_top = 'https://raw.githubusercontent.com/opengeos/maxar-open-data/master/datasets/'\np_bottom = '.geojson'\n\nevent = 'India-Floods-Oct-2023'\nd_event = d_maxar[d_maxar.dataset == event]\nl_gdf = [gpd.read_file(p_top+d+p_bottom).assign(event = d) for d in d_event['dataset'].to_list()]\nd_tiles = (pd.concat(l_gdf, ignore_index=True))\n# changes column order - puts event & geometry first\nd_tiles = d_tiles[d_tiles.columns[-2::][::-1].append(d_tiles.columns[:-2])]\n\ndict_event = {\n    'India-Floods-Oct-2023': ['2023-10-04 00:00:00', 'https://www.maxar.com/open-data/india-floods-oct-2023'],\n}\n\nd_event = pd.DataFrame.from_dict(dict_event, orient='index', columns=['t_event', 'source'])\nd_event = (d_event\n .reset_index(names='event')\n .assign(t_event = pd.to_datetime(d_event.t_event, utc=True).to_list())\n .sort_values('t_event', ascending=False)\n .reset_index(drop=True)\n)\n\n# right join removes old datasets stored in opengeos/maxar-open-data\nd_tiles = pd.merge(left=d_tiles, right=d_event, how='right', left_on='event', right_on='event')\nd_tiles = d_tiles.assign(pre_post = np.where(d_tiles.datetime &lt; d_tiles.t_event, 'pre', 'post'))\nd_tiles.insert(1, 'pre_post', d_tiles.pop('pre_post'))\n# sort by latest event date \nd_tiles = (d_tiles\n .assign(latest = d_tiles.groupby('event')['t_event'].transform('max'))\n .sort_values(['latest','datetime'], ascending=False)\n .drop('latest', axis=1)\n .reset_index(drop=True)\n)\n\nend = time.time()\n\nprint(str(round(end-start, 2))+' seconds')\n\n\n0.29 seconds\n\n\n\n\nPre & Post Event MosaicJSON Creation\nimport os\nfrom cogeo_mosaic.mosaic import MosaicJSON\nfrom cogeo_mosaic.backends import MosaicBackend\n\nfor e in np.unique(d_tiles.event):\n    start = time.time()\n    d = d_tiles[d_tiles.event == e].reset_index(drop=True)\n    # write output\n    os.makedirs('data/'+e, exist_ok=True)\n    for i in ['pre', 'post']:\n        images = d[d.pre_post == i].reset_index(drop=True).visual.tolist()\n        if len(images) &gt; 0:\n            mosaic = MosaicJSON.from_urls(images)\n            with MosaicBackend('data/'+e+'/mosaic-tiles-'+i+'.json', mosaic_def=mosaic) as f:\n                f.write(overwrite=True)\n    end = time.time()\n    print(e+' Pre/Post MosaicJSON Time: '+str(round(end-start, 2))+'s')\n\n\nIndia-Floods-Oct-2023 Pre/Post MosaicJSON Time: 66.61s\n\n\n\n\nImage Footprint Metadata Aggregation\ncols_tile = [\n    'visual', 'tile:data_area', 'tile:clouds_area', 'tile:clouds_percent',\n    'view:off_nadir', 'view:azimuth', 'view:incidence_angle', 'view:sun_azimuth', 'view:sun_elevation',\n    'gsd', 'proj:bbox', 'quadkey', 'utm_zone', 'grid:code'\n]\n# create bounding box from image footprint instead of these\ncols_drop = ['proj:bbox', 'quadkey', 'grid:code']\n\ncols_tile_unique = ['utm_zone', 'tile:clouds_area']\ncols_tile_mean = ['gsd', 'tile:clouds_percent', 'view:off_nadir', 'view:azimuth', 'view:incidence_angle', 'view:sun_azimuth', 'view:sun_elevation']\ncols_tile_footprint = ['event', 'pre_post', 'catalog_id']\n\nd_agg = (d_tiles[cols_tile_footprint+cols_tile_unique]\n .groupby(cols_tile_footprint)\n .agg({\n     'utm_zone': lambda x: np.unique(x).tolist(),\n     'tile:clouds_area': lambda x: round(sum(x), 2),\n })\n)\nd_agg_mean = (d_tiles[cols_tile_footprint+cols_tile_mean]\n .groupby(cols_tile_footprint)\n .agg(lambda x: round(np.mean(x), 2))\n)\n\nd_foot = (d_tiles[d_tiles.columns.difference(cols_drop+cols_tile_unique+cols_tile_mean).to_list()]\n .dissolve(cols_tile_footprint, aggfunc = 'first')\n # same index - can left join aggregates on index by default\n .join(d_agg).join(d_agg_mean)\n # add index back to dataframe\n .reset_index()\n)\n# split because `d` carries from original when chaining\nd_foot = (d_foot\n .assign(\n     # uses equal area projection - converts km^2 original units \n     footprint_data_area = lambda d: round(d.geometry.to_crs(epsg=6933).area/1e6, 2),\n     bbox = d_foot.geometry.bounds.applymap(lambda x: round(np.mean(x), 2)).values.tolist()\n )\n .sort_values(['t_event', 'datetime'], ascending=False)\n .reset_index(drop=True)\n .rename(columns={\n     'tile:clouds_area': 'footprint:clouds_area', 'tile:clouds_percent': 'footprint:clouds_percent',\n     'footprint_data_area': 'footprint:data_area'\n })\n)"
+  },
+  {
+    "objectID": "posts/geo/north-india-floods-2023/index.html#analysis",
+    "href": "posts/geo/north-india-floods-2023/index.html#analysis",
+    "title": "North India Floods of October 2023",
+    "section": "Analysis",
+    "text": "Analysis\nWe see that there are currently 5 images acquisitions (image footprints) released from before the flooding and 1 image acquisition taken after the flooding.\n\n\nCode\nd = pd.DataFrame(\n  (d_foot\n  .groupby(['event', 'pre_post'])\n  ).size(),\n  columns=['count']\n).reset_index()\nd = (d[d.event == event]\n .reset_index(drop=True)\n)\nd.style.hide(axis=\"index\")\n\n\n\n\n\n\n\nevent\npre_post\ncount\n\n\n\n\nIndia-Floods-Oct-2023\npost\n1\n\n\nIndia-Floods-Oct-2023\npre\n5"
+  },
+  {
+    "objectID": "posts/geo/north-india-floods-2023/index.html#web-map",
+    "href": "posts/geo/north-india-floods-2023/index.html#web-map",
+    "title": "North India Floods of October 2023",
+    "section": "Web Map",
+    "text": "Web Map\n\n\nSplit Web Map of North India Floods\nimport re\nimport leafmap\nimport leafmap.foliumap\nfrom folium import Element\nfrom leafmap2 import add_geojson2, add_gdf2\nleafmap.foliumap.Map.add_geojson2 = add_geojson2\nleafmap.foliumap.Map.add_gdf2 = add_gdf2\n\n# 'p' for path | 'm' for mosaic | 'f' for footprint\nevent = 'India-Floods-Oct-2023'\npm_top = 'https://raw.githubusercontent.com/prncevince/mosaicjson-examples/main/maxar-open-data/'\npm_end_pre = '/mosaic-tiles-pre.json'\npm_end_post = '/mosaic-tiles-post.json'\n\ncols_drop = ['source', 'proj:epsg', 't_event']\nd = d_foot[d_foot.event == event]\nd.drop(cols_drop, axis=1, inplace=True)\n\nm = leafmap.foliumap.Map()\ndef style_footprints(color, fillOpacity, weight):\n    style = {\n        'color': color, 'fillOpacity': fillOpacity, 'weight': weight\n    }\n    return style\nbasemap = {  \n  \"url\": \"https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}\",\n  \"attribution\": \"Google\",\n  \"name\": \"Google Satellite\",\n}\nm.add_tile_layer(**basemap, shown=True)\nm.add_stac_layer(pm_top+event+pm_end_pre, name=\"Pre-Event - Mosaic\", attribution=\"Maxar Technologies\", shown=True)\nm.add_stac_layer(pm_top+event+pm_end_post, name=\"Post-Event - Mosaic\", attribution=\"Maxar Technologies\")\nm.add_gdf2(\n    d[d.pre_post == 'pre'], \"Pre Event - Image Footprints\",\n    style=style_footprints('blue', 0, 1.5), info_mode='both',\n    tooltip_fields_remove=['visual'], kwargs_tooltip={'sticky': False}\n)\nm.add_gdf2(\n    d[d.pre_post == 'post'], \"Post Event - Image Footprints\",\n    style=style_footprints('red', 0, 1.5), info_mode='both',\n    tooltip_fields_remove=['visual'], kwargs_tooltip={'sticky': False}\n)\nwith open('./popup-fix.js') as f: js_po = f.read()\nwith open('./side-by-side.js') as f: js_sbs = f.read()\nwith open('./split-map-layout.css') as f: css_sbs_l = f.read()\nwith open('./split-map-range.css') as f: css_sbs_r = f.read()\n#with open('./split-map.js') as f: js_sm = f.read()\n# must render 1st to add script after - otherwise adds JS before Leaflet L.Map assignment\nm.get_root().render()\n# add map & geojson layer variables to script\nvar_map = m.get_name()\nvar_geojson_lgs = str([i for i in m._children.keys() if re.search('^geo_json_', i) is not None]).replace(\"'\", \"\")\ntile_layers = [i for i in m._children.keys() if re.search('^tile_layer_', i) is not None]\n# need to know the order of your tiles for adding as split map\n# an area of multiple layers can be passed to left & right arguments of L.control.sideBySide\n# however, it's pretty buggy when passing more than one layer\ni_all = [0,1,2] # a basemap, pre, & post event\ni_left = [2]\ni_right = [0]\nl_lleft = str([j for i, j in enumerate(tile_layers) if i in i_left]).replace(\"'\", \"\")\nl_lright = str([j for i, j in enumerate(tile_layers) if i in i_right]).replace(\"'\", \"\")\nm.get_root().header.add_child(Element('&lt;style&gt;'+css_sbs_l+'&lt;/style&gt;'))\nm.get_root().header.add_child(Element('&lt;style&gt;'+css_sbs_r+'&lt;/style&gt;'))\nm.get_root().script.add_child(Element(js_po.format(m=var_map, lg_geo=var_geojson_lgs)))\nm.get_root().script.add_child(Element(js_sbs))\nm.get_root().script.add_child(Element('L.control.sideBySide({l_lleft}, {l_lright}).addTo({m});'.format(l_lleft=l_lleft, l_lright=l_lright, m=var_map)))\n\n\n\n\n\n\nFigure 3: A split web map of Pre/Post Event Imagery after the Flooding in Northern India. Sources: opengeos/maxar-open-data Github & Maxar Open Data Program STAC"
+  },
+  {
+    "objectID": "posts/geo/north-india-floods-2023/index.html#wrap-up",
+    "href": "posts/geo/north-india-floods-2023/index.html#wrap-up",
+    "title": "North India Floods of October 2023",
+    "section": "Wrap-up",
+    "text": "Wrap-up\nIf you have any thoughts or questions, feel free to let me know what you think in the comments below. You’ll need to sign in to your GitHub account to do so. Like my work? Feel free to reach out.\nWe only have one rock, and it’s a beautiful one. Thanks for reading! ✌️🌍"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "👋 Welcome to my site",
+    "section": "",
+    "text": "👋 Welcome to my site\n\nYou can learn more about me here.\nYou can find my posts on spatial analytics here.\nMy YouTube\n\n\n\nThanks for stopping by ✌"
+  },
+  {
+    "objectID": "SETUP.html",
+    "href": "SETUP.html",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Here’s all the setup.\n\nSetup quarto-shims.\nThen, run below to install & setup quarto. wget is required in your shell environment, can be installed on Mac via homebrew.\n./utils/download-quarto.sh\n\nSetup r-shims.\nCreate RStudio project within RStudio.\n\nrstudioapi::initializeProject()\n\nInitialize the renv environment. Important packages can be discovered in utils/deps.R.\n\nrenv::init()\n\n\nExplode on paper."
+  },
+  {
+    "objectID": "SETUP.html#quarto",
+    "href": "SETUP.html#quarto",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Setup quarto-shims.\nThen, run below to install & setup quarto. wget is required in your shell environment, can be installed on Mac via homebrew.\n./utils/download-quarto.sh"
+  },
+  {
+    "objectID": "SETUP.html#r",
+    "href": "SETUP.html#r",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Setup r-shims.\nCreate RStudio project within RStudio.\n\nrstudioapi::initializeProject()\n\nInitialize the renv environment. Important packages can be discovered in utils/deps.R.\n\nrenv::init()"
+  },
+  {
+    "objectID": "SETUP.html#start",
+    "href": "SETUP.html#start",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Explode on paper."
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "Vincent Clemson",
+    "section": "",
+    "text": "👋 I’m Vince. In 2017, I received my Bachelor of Science in mathematics & a minor in statistics from Penn State. Afterward, I worked 5+ years for what is now Peraton working a few Geospatial Intelligence data science missions on the NGA’s enterprise systems engineering contract. Currently, I’m an AI Engineer at Booz Allen.\nI’m always searching for my next big (or tiny) data science adventure.\nI enjoy spatial analytics. I hope that I can help shed some light on spatial topics to those who are also interested with this site. It’s built with Quarto.\nWhen I’m not head down in geeky stuff, I enjoy salsa dancing, sports (go birds 🦅), and jumping out of aircraft (did it once - was fun & a bit terrifying).\nIf you’re interesting in learning more about my career, here’s a web version of my résumé.\nAlso, feel free to contact me at vincent.clemson{@}gmail.com.\nThanks for stopping by. ✌️"
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Big & tiny spatial thoughts",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Updated - Oldest\n        \n         \n          Updated - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nNorth India Floods of October 2023\n\n\n2 min\n\n\nA quick turn analysis to visually compare events caused by the Glacial Lake Outburst Flood in the Indian Himalayan Region of Sikkim during early October of 2023.\n\n\n\nOctober 12, 2023\n\n\n\n\n\nOctober 12, 2023\n\n\n\n\n\n\n\n\n\n\n\nVisualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program\n\n\n13 min\n\n\nA deep dive into visualizing satellite imagery from Maxar’s ODP on-the-fly using STAC, dynamic tiling, and Leaflet.\n\n\n\nOctober 2, 2023\n\n\n\n\n\nOctober 12, 2023\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "posts/geo/natural-disasters-maxar-open-data/index.html",
     "href": "posts/geo/natural-disasters-maxar-open-data/index.html",
     "title": "Visualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program",
@@ -54,54 +152,5 @@
     "title": "Visualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program",
     "section": "Wrap-up",
     "text": "Wrap-up\nAlthough it may be difficult to claim that there is an overall increase in the number of natural disasters over the course of recent history, it is clear that the amount of recorded data that we as a society have on natural disasters is increasing. As this rate across our world increases and as the level of damage and destruction becomes more severe on Earth, there’s an ever growing need to analyze satellite sensor data to help respond to these events. Hopefully, more satellite imagery providers can follow the trend of continuing to release critical imagery to those who need it most in critical times of need.\nIf you have any thoughts or questions, feel free to let me know what you think in the comments below. You’ll need to sign in to your GitHub account to do so. Like my work? Feel free to reach out.\nWe only have one rock, and it’s a beautiful one. Thanks for reading! ✌️🌍\n\n\n\nFigure 10: 2023 Morocco Earthquake - Leaflet Split Map Example"
-  },
-  {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Big & tiny spatial thoughts",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Updated - Oldest\n        \n         \n          Updated - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nVisualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program\n\n\n13 min\n\n\nA deep dive into visualizing satellite imagery from Maxar’s ODP on-the-fly using STAC, dynamic tiling, and Leaflet.\n\n\n\nOctober 2, 2023\n\n\n\n\n\nOctober 3, 2023\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "Vincent Clemson",
-    "section": "",
-    "text": "👋 I’m Vince. In 2017, I received my Bachelor of Science in mathematics & a minor in statistics from Penn State. Afterward, I worked 5+ years for what is now Peraton working a few Geospatial Intelligence data science missions on the NGA’s enterprise systems engineering contract. Currently, I’m an AI Engineer at Booz Allen.\nI’m always searching for my next big (or tiny) data science adventure.\nI enjoy spatial analytics. I hope that I can help shed some light on spatial topics to those who are also interested with this site. It’s built with Quarto.\nWhen I’m not head down in geeky stuff, I enjoy salsa dancing, sports (go birds 🦅), and jumping out of aircraft (did it once - was fun & a bit terrifying).\nIf you’re interesting in learning more about my career, here’s a web version of my résumé.\nAlso, feel free to contact me at vincent.clemson{@}gmail.com.\nThanks for stopping by. ✌️"
-  },
-  {
-    "objectID": "SETUP.html",
-    "href": "SETUP.html",
-    "title": "Quarto Site Environment Setup",
-    "section": "",
-    "text": "Here’s all the setup.\n\nSetup quarto-shims.\nThen, run below to install & setup quarto. wget is required in your shell environment, can be installed on Mac via homebrew.\n./utils/download-quarto.sh\n\nSetup r-shims.\nCreate RStudio project within RStudio.\n\nrstudioapi::initializeProject()\n\nInitialize the renv environment. Important packages can be discovered in utils/deps.R.\n\nrenv::init()\n\n\nExplode on paper."
-  },
-  {
-    "objectID": "SETUP.html#quarto",
-    "href": "SETUP.html#quarto",
-    "title": "Quarto Site Environment Setup",
-    "section": "",
-    "text": "Setup quarto-shims.\nThen, run below to install & setup quarto. wget is required in your shell environment, can be installed on Mac via homebrew.\n./utils/download-quarto.sh"
-  },
-  {
-    "objectID": "SETUP.html#r",
-    "href": "SETUP.html#r",
-    "title": "Quarto Site Environment Setup",
-    "section": "",
-    "text": "Setup r-shims.\nCreate RStudio project within RStudio.\n\nrstudioapi::initializeProject()\n\nInitialize the renv environment. Important packages can be discovered in utils/deps.R.\n\nrenv::init()"
-  },
-  {
-    "objectID": "SETUP.html#start",
-    "href": "SETUP.html#start",
-    "title": "Quarto Site Environment Setup",
-    "section": "",
-    "text": "Explode on paper."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "👋 Welcome to my site",
-    "section": "",
-    "text": "👋 Welcome to my site\n\nYou can learn more about me here.\nYou can find my posts on spatial analytics here.\nMy YouTube\n\n\n\nThanks for stopping by ✌"
   }
 ]
