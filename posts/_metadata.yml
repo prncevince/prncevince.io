@@ -13,10 +13,10 @@ open-graph:
   image: ../assets/img/posts.png
 comments:
   giscus:
-    repo: prncevince/prncevince.github.io
-    repo-id: R_kgDOKP3DoA
+    repo: prncevince/prncevince.io
+    repo-id: R_kgDOKfrJMA
     category: Comments
-    category-id: DIC_kwDOKP3DoM4CZv-L
+    category-id: DIC_kwDOKfrJMM4CaFyh
     mapping: title
     reactions-enabled: true
     loading: lazy

@@ -28,14 +28,14 @@ website:
         href: about/index.qmd
       - icon: github
         menu:
-          - text: GitHub
+          - text: GitHub Profile {{< fa brands github-alt >}}
             url:  https://github.com/prncevince
             target: _blank
-          - text: Source Code 💻
-            url:  https://github.com/prncevince/prncevince.github.io
+          - text: Site Source Code 💻
+            url:  https://github.com/prncevince/prncevince.io
             target: _blank
-          - text: Discussions 🗣
-            url:  https://github.com/prncevince/prncevince.github.io/discussions
+          - text: Site Discussions 🗣
+            url:  https://github.com/prncevince/prncevince.io/discussions
             target: _blank
       - icon: twitter
         menu:
