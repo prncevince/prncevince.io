@@ -9,10 +9,10 @@ project:
 website:
   title: Vincent Clemson
   favicon: assets/img/favicon.png
-  site-url: https://prncevince.github.io
+  site-url: https://prncevince.io
   description: 'A collection of unique spatial data science content'
   repo-branch: main
-  repo-url: https://github.com/prncevince/prncevince.github.io
+  repo-url: https://github.com/prncevince/prncevince.io
   page-navigation: true
   open-graph:
     image: /assets/img/logo-og.png
