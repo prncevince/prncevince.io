@@ -12,6 +12,9 @@ permissions:
 jobs:
   vercel-deploy:
     runs-on: ${{ matrix.os  }}
+    environment:
+      name: vercel-production
+      url: https://prncevince.io
     strategy:
       fail-fast: false
       matrix:
