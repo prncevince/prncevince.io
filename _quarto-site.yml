@@ -5,7 +5,6 @@ project:
   render: ["*.qmd", "*.ipynb", "*.md", "*.Rmd", "!notes/"]
   post-render:
     - cp -a resume _site/.
-    - touch _site/.nojekyll
 website:
   title: Vincent Clemson
   favicon: assets/img/favicon.png
@@ -57,6 +56,8 @@ format:
       sidebar-width: 300px
       margin-width: 300px
       gutter-width: 1.5rem
+    template: _pandoc/template.html
+    template-partials: [_pandoc/vercel.html]
     theme:
       light: [flatly, 'assets/scss/light.scss']
 

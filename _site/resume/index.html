@@ -2174,7 +2174,7 @@
 			this.layoutMethod = new Layout(this.area, this.hooks, maxChars);
 
 			let newBreakToken = await this.layoutMethod.renderTo(this.wrapper, contents, breakToken);
-			
+
 			this.addListeners(contents);
 
 			this.endToken = newBreakToken;
@@ -23657,7 +23657,7 @@
 	    parse: function() {
 	        var children = this.createList();
 
-	        
+
 	        while (!this.scanner.eof) {
 	            switch (this.scanner.tokenType) {
 	                case WHITESPACE$6:
@@ -24541,7 +24541,7 @@
 	        var children = this.createList();
 	        var child;
 
-	        
+
 	        while (!this.scanner.eof) {
 	            switch (this.scanner.tokenType) {
 	                case WHITESPACE$8:
@@ -29539,7 +29539,7 @@
 		onRule(ruleNode, ruleItem, rulelist) {
 			let selector = lib.generate(ruleNode.prelude);
 			if (selector.match(/:(first|last|nth)-of-type/)) {
-				
+
 				let declarations = lib.generate(ruleNode.block);
 				declarations = declarations.replace(/[{}]/g,"");
 
@@ -29594,7 +29594,7 @@
 		onRule(ruleNode, ruleItem, rulelist) {
 			let selector = lib.generate(ruleNode.prelude);
 			if (selector.match(/\+/)) {
-				
+
 				let declarations = lib.generate(ruleNode.block);
 				declarations = declarations.replace(/[{}]/g,"");
 
@@ -29897,11 +29897,11 @@
 
 			this.stringSetSelectors = {};
 			this.type;
-			// pageLastString = last string variable defined on the page 
+			// pageLastString = last string variable defined on the page
 			this.pageLastString;
 
 		}
-		
+
 		onDeclaration(declaration, dItem, dList, rule) {
 			if (declaration.property === "string-set") {
 				let selector = lib.generate(rule.ruleNode.prelude);
@@ -29932,7 +29932,7 @@
 				funcNode.name = "var";
 				funcNode.children = new lib.List();
 
-	 
+
 				if(this.type === "first" || this.type === "last" || this.type === "start" || this.type === "first-except"){
 					funcNode.children.append(
 						funcNode.children.createItem({
@@ -29955,15 +29955,15 @@
 
 		afterPageLayout(fragment) {
 
-		
+
 			if ( this.pageLastString === undefined )
 			{
 				this.pageLastString = {};
 			}
-		
-			
+
+
 			for (let name of Object.keys(this.stringSetSelectors)) {
-		
+
 				let set = this.stringSetSelectors[name];
 				let selected = fragment.querySelectorAll(set.selector);
 
@@ -29983,11 +29983,11 @@
 					selected.forEach((sel) => {
 						// push each content into the array to define in the variable the first and the last element of the page.
 						this.pageLastString[name] = selected[selected.length - 1].textContent;
-					
-					});	
+
+					});
 
 					/* FIRST */
-		
+
 					varFirst = selected[0].textContent;
 
 
@@ -29998,7 +29998,7 @@
 
 					/* START */
 
-					// Hack to find if the sel. is the first elem of the page / find a better way 
+					// Hack to find if the sel. is the first elem of the page / find a better way
 					let selTop = selected[0].getBoundingClientRect().top;
 					let pageContent = selected[0].closest(".pagedjs_page_content");
 					let pageContentTop = pageContent.getBoundingClientRect().top;
@@ -30012,18 +30012,18 @@
 					/* FIRST EXCEPT */
 
 					varFirstExcept = "";
-					
+
 				}
 
 				fragment.style.setProperty(`--pagedjs-string-first-${name}`, `"${cleanPseudoContent(varFirst)}`);
 				fragment.style.setProperty(`--pagedjs-string-last-${name}`, `"${cleanPseudoContent(varLast)}`);
 				fragment.style.setProperty(`--pagedjs-string-start-${name}`, `"${cleanPseudoContent(varStart)}`);
 				fragment.style.setProperty(`--pagedjs-string-first-except-${name}`, `"${cleanPseudoContent(varFirstExcept)}`);
-				
-		
+
+
 			}
 		}
-		
+
 
 	}
 
@@ -30262,7 +30262,7 @@
 							if (split.length > 1) {
 								psuedo += "::" + split[1];
 							}
-							
+
 							if (target.style === "before" || target.style === "after") {
 								const pseudoType = `${target.style}Content`;
 								textContent = cleanPseudoContent(this[pseudoType]);
@@ -32021,14 +32021,14 @@ position: absolute; }
 .main {
 display: grid;
 
- 
+
 grid-template-rows: 1fr;
 grid-template-columns: 50% 50%;
 }
 .section.level1 {
 grid-column: 1 / 3;
 grid-row: 1 / 2;
- 
+
 }
 div.page2-end {
 grid-row: 2 / 3;
@@ -32160,7 +32160,7 @@ line-height: 1.45;
 ul.os > li {
 padding: 0 0 0 24.5px;
 background-position: 0% 55%;
-background-size: 18px; 
+background-size: 18px;
 background-repeat: no-repeat;
 }
 ul > li.content {
@@ -32614,5 +32614,9 @@ document.addEventListener('servr:reload', function(e) {
   sessionStorage.setItem('pagedown-scroll', window.scrollY);
 });
 </script>
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
