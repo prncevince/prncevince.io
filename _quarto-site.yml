@@ -57,7 +57,7 @@ format:
       margin-width: 300px
       gutter-width: 1.5rem
     template: _pandoc/template.html
-    template-partials: [_pandoc/vercel.html]
+    template-partials: [_pandoc/vercel.html, _pandoc/plausible.html]
     theme:
       light: [flatly, 'assets/scss/light.scss']
 
