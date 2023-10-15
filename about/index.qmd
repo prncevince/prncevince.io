@@ -18,7 +18,8 @@ about:
 include-after-body:
   text: |
     <script src='/assets/js/site.js'></script>
-    <script src='/assets/js/nonposts.js'></script>
+    <script src='/assets/js/non-posts.js'></script>
+css: [/assets/css/non-posts.css]
 ---
 
 👋 I'm Vince. In 2017, I received my Bachelor of Science in mathematics & a minor in statistics from <a href="https://www.psu.edu" style="color: #1e407c">Penn State</a>. Afterward, I worked 5+ years for what is now [Peraton](https://www.peraton.com) working a few Geospatial Intelligence data science missions on the [NGA's](https://www.nga.mil) enterprise systems engineering contract. Currently, I'm an AI Engineer at Booz Allen. 

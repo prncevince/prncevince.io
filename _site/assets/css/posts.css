@@ -1,0 +1,13 @@
+@media (max-width: 1352px) {
+  .navbar-brand > .navbar-title {
+    display: inline-block;
+    color: transparent;
+    width: 0;
+  }
+}
+@media (max-width: 757px) {
+  .navbar-title-container {
+    font-size: 0;
+    width: 0;
+  }
+}

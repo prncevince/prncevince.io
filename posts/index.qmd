@@ -14,6 +14,12 @@ subtitle: \
   [💭]{style='font-size:2em;vertical-align:0.4em;'}
   [{{< iconify fluent-emoji-high-contrast crescent-moon >}}]{style='color:#80629b;font-size:1.25em;vertical-align:1.5em;'}
 image: /assets/img/posts.png
+include-after-body:
+  text: |
+    <script src='/assets/js/posts-listing.js'></script>
+    <script src='/assets/js/site.js'></script>
+    <script src='/assets/js/posts.js'></script>
+css: [/assets/css/posts-listing.css]
 listing:
   type: grid
   categories: true

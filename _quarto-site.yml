@@ -52,7 +52,7 @@ format:
     code-link: true
     link-external-icon: true
     link-external-newwindow: true
-    css: [assets/css/style.css]
+    css: [assets/css/site.css]
     grid:
       body-width: 1100px
       sidebar-width: 300px

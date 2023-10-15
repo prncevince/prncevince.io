@@ -1,0 +1,99 @@
+/*-- General Styling --*/
+main {
+  font-size: 0.9em;
+}
+.figure-caption {
+  text-align: center;
+}
+.table {
+  width: unset;
+  margin: auto;
+}
+
+/* About */
+.about-contents {
+  text-align: justify;
+}
+
+/*-- Posts --*/
+.card-attribution .listing-date {
+  text-transform: none;
+}
+.card-attribution .listing-date:before {
+  content: "Published: ";
+}
+.card-file-modified p:before {
+  content: "Last Updated: ";
+}
+
+/*-- Navbar --*/
+.nav-link {
+  --bs-nav-link-padding-y: 0.3125rem;
+}
+nav .nav-item:not(.compact) {
+  padding-top: unset;
+  font-size: 1.1em;
+}
+.navbar .quarto-code-tools {
+  order: 21;
+}
+#navbarCollapse {
+  flex-basis: unset;
+  flex-grow: unset;
+  line-height: initial;
+}
+a.navbar-brand {
+  --bs-navbar-brand-hover-color: var(--bs-navbar-hover-color);
+  margin: 0;
+}
+.navbar-title-container {
+  order: 3;
+}
+.navbar #quarto-search {
+  order: 999;
+}
+.navbar .quarto-navbar-tools {
+  order: 900;
+  flex: none;
+}
+a.navbar-brand {
+  background-image: url('../img/favicon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 36.633px;
+}
+/* tools */
+.quarto-navbar-tools > div.nav-item {
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  --bs-nav-link-color: var(--bs-navbar-color);
+  --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+}
+.rss > .fa-rss {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg,#f87900 0%,#fe4f45 51%,#e419ba 100%);
+  -webkit-text-fill-color: transparent;
+}
+.rss > .fa-rss:hover {
+  background-image: linear-gradient(-90deg,#f87900 0%,#fe4f45 51%,#e419ba 100%);
+}
+/* for Chrome */
+.navbar-container.container-fluid {
+  flex-wrap: nowrap;
+}
+.navbar-brand-container {
+  display: block;
+  flex: none;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.navbar {
+  --bs-navbar-padding-y: 0.5rem;
+}
+
+/*-- external link style --*/
+a.external:after {
+  font-size: 0.75em;
+  vertical-align: top;
+}
