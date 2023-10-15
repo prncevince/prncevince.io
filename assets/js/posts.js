@@ -1,5 +1,3 @@
-brandContainer = document.querySelector('.navbar-brand-container')
-brandContainer.classList.remove('mx-auto')
 title = document.querySelector('.quarto-title-block .title').innerHTML
 codeTools = document.querySelectorAll('#quarto-code-tools-menu, #quarto-code-tools-menu+.dropdown-menu')
 if (codeTools.length > 0) {

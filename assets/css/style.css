@@ -27,6 +27,9 @@ main {
 }
 
 /*-- Navbar --*/
+.nav-link {
+  --bs-nav-link-padding-y: 0.3125rem;
+}
 nav .nav-item:not(.compact) {
   padding-top: unset;
   font-size: 1.1em;
@@ -41,6 +44,12 @@ nav .nav-item:not(.compact) {
 .navbar-title-container {
   order: 3;
 }
+.navbar #quarto-search {
+  order: 999;
+}
+.navbar .quarto-navbar-tools {
+  order: 900;
+}
 @media (max-width: 992px) {
   /* give room for dropdown when viewing on mobile */
   .navbar .navbar-collapse {
@@ -50,9 +59,24 @@ nav .nav-item:not(.compact) {
     order: 4;
   }
   .navbar-title-container {
-    visibility: collapse;
-    height: 0;
+    font-size: 0;
   }
+}
+/* tools */
+.quarto-navbar-tools > div.nav-item {
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  --bs-nav-link-color: var(--bs-navbar-color);
+  --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+}
+.rss > .fa-rss {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg,#f87900 0%,#fe4f45 51%,#e419ba 100%);
+  -webkit-text-fill-color: transparent;
+}
+.rss > .fa-rss:hover {
+  background-image: linear-gradient(-90deg,#f87900 0%,#fe4f45 51%,#e419ba 100%);
 }
 /* for Chrome */
 .navbar-container.container-fluid {

@@ -5,7 +5,9 @@ twitter-card:
   description: A collection of unique spatial data science content
   title: Vincent Clemson
 include-after-body:
-  text: <script src='/assets/js/site.js'></script>
+  text: |
+    <script src='/assets/js/site.js'></script>
+    <script src='/assets/js/nonposts.js'></script>
 ---
 
 # 👋 Welcome to my site
@@ -14,4 +16,4 @@ include-after-body:
 - You can find my posts on spatial analytics [here](/posts).
 - My [YouTube](https://youtube.com/@prncevince){.external target="_blank"}
 
-# Thanks for stopping by ✌
+# Thanks for stopping by ✌️

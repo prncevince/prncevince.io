@@ -11,7 +11,7 @@ docs-md:
 	quarto render --profile md --to gfm
 
 docs-dev:
-	quarto preview --profile site
+	quarto preview --profile site --port 4321 --no-browser
 
 docs-preview:
 	Rscript -e "servr::httw(dir = '_site', hosturl = function(host) if (host == '127.0.0.1') 'localhost' else host)"

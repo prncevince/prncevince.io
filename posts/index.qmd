@@ -13,10 +13,13 @@ subtitle: \
   ]{style='color:rgb(78,115,77);'}
   [💭]{style='font-size:2em;vertical-align:0.4em;'}
   [{{< iconify fluent-emoji-high-contrast crescent-moon >}}]{style='color:#80629b;font-size:1.25em;vertical-align:1.5em;'}
+image: /assets/img/posts.png
 listing:
   type: grid
   categories: true
-  feed: true
+  feed:
+    title: Big & tiny Spatial Thoughts
+    items: 100
   sort: date desc
   fields: [image, date, title, file-modified, subtitle, reading-time, description]
   field-display-names:
@@ -25,4 +28,5 @@ listing:
 author: ''
 date-modified: ''
 comments: false
+code-tools: false
 ---

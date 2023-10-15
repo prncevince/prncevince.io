@@ -1,16 +1,19 @@
 author: Vincent Clemson
 pagetitle: '{{< meta title >}} | Vincent Clemson'
 title-block-banner: false
+twitter-card:
+  image: /assets/img/posts.png
+open-graph:
+  image: /assets/img/posts.png
 date-format: long
 date-modified: last-modified
 code-tools:
   source: repo
+  caption: none
 include-after-body:
-  text: <script src='/assets/js/posts.js'></script>
-twitter-card:
-  image: ../assets/img/posts.png
-open-graph:
-  image: ../assets/img/posts.png
+  text: |
+    <script src='/assets/js/site.js'></script>
+    <script src='/assets/js/posts.js'></script>
 comments:
   giscus:
     repo: prncevince/prncevince.io
