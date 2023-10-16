@@ -1,6 +1,5 @@
 project:
-  render:
-    - SETUP.qmd
+  render: [SETUP.qmd, LICENSE.qmd]
 format:
   gfm:
     preview-mode: raw

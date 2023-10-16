@@ -1,6 +1,6 @@
 brandContainer = document.querySelector('.navbar-brand-container')
 brandContainer.classList.remove('mx-auto')
-tools = document.querySelectorAll('[id$="quarto-navbar-tools-item"], .nav-link[href$="index.xml"]')
+tools = document.querySelectorAll('[id$="quarto-navbar-tools-item"], .navbar .nav-link[href$="index.xml"]')
 if (tools.length > 0) {
   // if a tool is already added, this places the rest before them
   tools = [...tools].reverse()

@@ -70,13 +70,13 @@ a.navbar-brand {
   --bs-nav-link-color: var(--bs-navbar-color);
   --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
 }
-.rss > .fa-rss {
+.rss > .fa-rss, .rss > .fa-square-rss {
   background-clip: text;
   -webkit-background-clip: text;
   background-image: linear-gradient(90deg,#f87900 0%,#fe4f45 51%,#e419ba 100%);
   -webkit-text-fill-color: transparent;
 }
-.rss > .fa-rss:hover {
+.rss > .fa-rss:hover, .rss > .fa-square-rss:hover {
   background-image: linear-gradient(-90deg,#f87900 0%,#fe4f45 51%,#e419ba 100%);
 }
 /* for Chrome */
@@ -100,8 +100,47 @@ a.navbar-brand {
   outline: none;
 }
 
+/* footer */
+.nav-footer a:hover > i.bi, .nav-footer a:hover i.fa-brands, .nav-footer a:hover iconify-icon {
+  color: #747474;
+}
+.nav-footer a:hover i.fa-solid {
+  background-color: #747474;
+  background-image: unset;
+}
+.footer .fa-heart-pulse:hover {
+  color: #bd112a;
+}
+.footer .bi-github {
+  color: #000000;
+}
+.footer .bi-linkedin {
+  color: #0a66c2;
+}
+.footer .bi-mastodon {
+  color: #5e64f8;
+}
+.footer [icon^="ph:tennis-ball-fill"] {
+  color: #d3e92a;
+}
+.footer .fa-twitter {
+  color: #1d9bf0;
+}
+.footer .fa-rocket {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg,#f87900 0%,#fe4f45 51%,#e419ba 100%);
+  -webkit-text-fill-color: transparent;
+}
+.footer .bi-youtube {
+  color: #ff0000;
+}
+
 /*-- external link style --*/
 a.external:after {
   font-size: 0.75em;
   vertical-align: top;
+}
+.nav-footer a.external:after {
+  font-size: 0;
 }

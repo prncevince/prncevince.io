@@ -62,6 +62,10 @@ div.callout-note.callout-style-default>.callout-header {
 .navbar-title-container .nav-link:hover {
   color: var(--bs-nav-link-color);
 }
+/* footer */
+.footer .fa-heart-pulse {
+  color: $primary;
+}
 /* buttons */
 .btn {
   --bs-btn-color: #{$body-bg};
