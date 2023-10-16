@@ -101,6 +101,17 @@ a.navbar-brand {
 }
 
 /* footer */
+@media (max-width: 593px) {
+  .nav-footer {
+    flex-direction: column;
+  }
+}
+.nav-footer {
+  align-items: center;
+}
+.nav-footer-center {
+  margin: 0;
+}
 .nav-footer a:hover > i.bi, .nav-footer a:hover i.fa-brands, .nav-footer a:hover iconify-icon {
   color: #747474;
 }
@@ -144,3 +155,4 @@ a.external:after {
 .nav-footer a.external:after {
   font-size: 0;
 }
+
