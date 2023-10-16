@@ -30,6 +30,7 @@ website:
           - text: GitHub Profile {{< fa brands github-alt >}}
             url:  https://github.com/prncevince
             target: _blank
+            rel: me
           - text: Site Source Code 💻
             url:  https://github.com/prncevince/prncevince.io
             target: _blank
@@ -41,9 +42,11 @@ website:
           - text: News & Science & Code 🚀
             url: https://twitter.com/prncevincecares
             target: _blank
+            rel: me
           - text: Sports 🎾
             url: https://twitter.com/prncevincestats
             target: _blank
+            rel: me
       - text: "[{{< fa solid rss >}}]{class='rss quarto-navbar-tools-item'}"
         href: posts/index.xml
   page-footer:
@@ -53,23 +56,29 @@ website:
       - text: "{{< fa brands twitter >}} {{< fa solid rocket >}}"
         href: https://twitter.com/prncevincecares
         target: _blank
+        rel: me
       - icon: linkedin
         href: https://www.linkedin.com/in/vincentclemson/
         target: _blank
+        rel: me
       - icon: github
         href: https://github.com/prncevince
         target: _blank
+        rel: me
       - text: "[{{< fa solid square-rss >}}]{class='rss'}"
         href: posts/index.xml
       - icon: mastodon
         href: https://fosstodon.org/@prncevince
         target: _blank
+        rel: me
       - icon: youtube
         href: https://youtube.com/@prncevince
         target: _blank
+        rel: me
       - text: "{{< fa brands twitter >}} {{< iconify ph tennis-ball-fill >}}"
         href: https://twitter.com/prncevincestats
         target: _blank
+        rel: me
     right: |
       <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0 <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a>
 format:
