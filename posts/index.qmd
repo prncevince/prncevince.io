@@ -25,6 +25,7 @@ listing:
   categories: true
   feed:
     title: Big & tiny Spatial Thoughts
+    type: partial
     items: 100
   sort: date desc
   fields: [image, date, title, file-modified, subtitle, reading-time, description]
