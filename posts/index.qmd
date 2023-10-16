@@ -27,6 +27,7 @@ listing:
     title: Big & tiny Spatial Thoughts
     type: partial
     items: 100
+    image: /assets/img/posts-rss.png
   sort: date desc
   fields: [image, date, title, file-modified, subtitle, reading-time, description]
   field-display-names:

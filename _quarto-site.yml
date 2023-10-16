@@ -9,7 +9,7 @@ website:
   title: Vincent Clemson
   favicon: /assets/img/favicon.png
   site-url: https://prncevince.io
-  description: 'A collection of unique spatial data science content'
+  description: 'A collection of unique spatial data science content by Vincent Clemson'
   repo-branch: main
   repo-url: https://github.com/prncevince/prncevince.io
   page-navigation: true
@@ -93,7 +93,7 @@ format:
       sidebar-width: 300px
       margin-width: 300px
       gutter-width: 1.5rem
-    resources: [assets/img/posts.png]
+    resources: [assets/img/posts.png, assets/img/posts-rss.png]
     template: _pandoc/template.html
     template-partials: [_pandoc/vercel.html, _pandoc/plausible.html]
     theme:
