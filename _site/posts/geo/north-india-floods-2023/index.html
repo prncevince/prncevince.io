@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.339">
+<meta name="generator" content="quarto-1.4.424">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,7 +11,7 @@
 <meta name="description" content="A quick turn analysis to visually compare events caused by the Glacial Lake Outburst Flood in the Indian Himalayan Region of Sikkim during early October of 2023.">
 
 <title>North India Floods of October 2023 | Vincent Clemson</title>
-<script src="../../../stats/js/script.js" data-api="/stats/api/event/" data-domain="prncevince.io"></script><script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../stats/js/script.js" data-api="/stats/api/event/" data-domain="prncevince.io"></script><script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer="" src="../../../_vercel/insights/script.js"></script>
@@ -29,7 +29,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -89,12 +89,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
@@ -277,10 +278,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div id="fig-north-india-flood" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="india-north-flood-3x-3fps-1080w-80lossy-O3.gif" class="img-fluid figure-img" width="1080"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: A split web map displaying avalanche damage to South Lhonak Lake (a <a href="https://en.wikipedia.org/wiki/Glacial_lake">glacier lake</a>) in the Indian Himalayan Region. <br>The pre &amp; post event satellite imagery was obtained from Maxar’s Open Data Program.</figcaption>
+<div id="fig-north-india-flood" class="quarto-figure quarto-figure-center anchored" data-fig-align="center" width="1080px">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-north-india-flood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="india-north-flood-3x-3fps-1080w-80lossy-O3.gif" class="img-fluid quarto-figure-center figure-img" width="1080">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-north-india-flood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A split web map displaying avalanche damage to South Lhonak Lake (a <a href="https://en.wikipedia.org/wiki/Glacial_lake">glacier lake</a>) in the Indian Himalayan Region. <br>The pre &amp; post event satellite imagery was obtained from Maxar’s Open Data Program.
+</figcaption>
 </figure>
 </div>
 <section id="tldr" class="level2">
@@ -292,16 +297,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <p>On the morning of October 12th, 2023, Maxar released an activation alert within their Open Data Program on the recent flooding that devastated Sikkim, India in the Indian Himalayan Region last week on Wednesday October 4th. It has <a href="https://www.nytimes.com/2023/10/06/world/asia/india-flood-sikkim-climate-change.html">been reported</a> that the flooding was caused by a Glacial Lake Outburst Flood (<a href="https://en.wikipedia.org/wiki/Glacial_lake_outburst_flood">GLOF</a>) from a melting glacier at <a href="https://en.wikipedia.org/wiki/South_Lhonak_Lake">South Lhonak Lake</a>. Ultimately, the flooding triggered from the glacier lake area destroyed the Chungthang Dam and it’s surrounding town miles away downstream.</p>
 <p><a href="#fig-gmaps-lake-dam" class="quarto-xref">Figure&nbsp;2</a> captures the area between the <a href="https://maps.app.goo.gl/kJwEHhW4HgVtZtHj8">South Lhonak Lake</a> (the glacier lake) and the <a href="https://maps.app.goo.gl/cwTN1khAJraHy9L8A">Chungthang Dam</a>.</p>
-<div id="fig-gmaps-lake-dam" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="gmaps-lake-dam.jpg" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Google Maps view from South Lhonak Lake (upper left) to Chungthang Dam (bottom right). <a href="https://www.google.com/maps/dir/South+Lhonak+lake,+Sikkim/Chungthang+Dam,+HMX2%2BCFV,+Chungthang,+Sikkim+737120,+India/@27.7729263,88.3462132,59112m/data=!3m1!1e3!4m13!4m12!1m5!1m1!1s0x39e6ffd803a064a5:0xefd14b702b0bc933!2m2!1d88.3324332!2d27.9456049!1m5!1m1!1s0x39e6c97f25058d91:0xba8a162a84b81f12!2m2!1d88.6511597!2d27.5986205?entry=ttu">Source</a></figcaption>
+<div id="fig-gmaps-lake-dam" class="quarto-figure quarto-figure-center anchored" width="480px">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gmaps-lake-dam-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="gmaps-lake-dam.jpg" class="img-fluid figure-img" width="480">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-gmaps-lake-dam-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Google Maps view from South Lhonak Lake (upper left) to Chungthang Dam (bottom right). <a href="https://www.google.com/maps/dir/South+Lhonak+lake,+Sikkim/Chungthang+Dam,+HMX2%2BCFV,+Chungthang,+Sikkim+737120,+India/@27.7729263,88.3462132,59112m/data=!3m1!1e3!4m13!4m12!1m5!1m1!1s0x39e6ffd803a064a5:0xefd14b702b0bc933!2m2!1d88.3324332!2d27.9456049!1m5!1m1!1s0x39e6c97f25058d91:0xba8a162a84b81f12!2m2!1d88.6511597!2d27.5986205?entry=ttu">Source</a>
+</figcaption>
 </figure>
 </div>
 <p>Here I use open source technologies to build a web map that displays the released satellite imagery over the region. In particular, <a href="#fig-split-india-floods" class="quarto-xref">Figure&nbsp;3</a> is a web map that showcases before and after the GLOF took place to help make visual comparisons of the disaster.</p>
 <p>Additionally, Dan Shugar previously released an in-depth thread of the GLOF that triggered the flooding using <a href="https://www.planet.com/">Planet Labs</a> imagery from the SuperDove satellites. It’s a great resource (below) to understand the chain of events that happened during the floods.</p>
-<p></p><div id="tweet-14444"></div><script>tweet={"url":"https:\/\/twitter.com\/Maxar\/status\/1712458332890386858","author_name":"Maxar Technologies","author_url":"https:\/\/twitter.com\/Maxar","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDEA8 Open Data Program Activation Alert\u003Cbr\u003E\uD83C\uDF0D Event: Flooding in North India \u003Cbr\u003E✅ Access the latest satellite imagery\u003Cbr\u003E➡️ \u003Ca href=\"https:\/\/t.co\/DmFdNZpNeE\"\u003Ehttps:\/\/t.co\/DmFdNZpNeE\u003C\/a\u003E\u003C\/p\u003E&mdash; Maxar Technologies (@Maxar) \u003Ca href=\"https:\/\/twitter.com\/Maxar\/status\/1712458332890386858?ref_src=twsrc%5Etfw\"\u003EOctober 12, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-14444").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-80038"></div><script>tweet={"url":"https:\/\/twitter.com\/WaterSHEDLab\/status\/1711559785173438674","author_name":"Dan Shugar","author_url":"https:\/\/twitter.com\/WaterSHEDLab","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EToday \u003Ca href=\"https:\/\/twitter.com\/planet?ref_src=twsrc%5Etfw\"\u003E@planet\u003C\/a\u003E acquired a mostly cloud-free SuperDove satellite image of \u003Ca href=\"https:\/\/twitter.com\/hashtag\/SouthLhonakLake?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#SouthLhonakLake\u003C\/a\u003E to \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Chungthang?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Chungthang\u003C\/a\u003E dam (\u003Ca href=\"https:\/\/twitter.com\/hashtag\/Teesta3HEP?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Teesta3HEP\u003C\/a\u003E), giving us the first good view of the devastation caused by the Glacial Lake Outburst Flood (\u003Ca href=\"https:\/\/twitter.com\/hashtag\/GLOF?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#GLOF\u003C\/a\u003E). 1\/n \u003Ca href=\"https:\/\/t.co\/BpgAHyh33n\"\u003Epic.twitter.com\/BpgAHyh33n\u003C\/a\u003E\u003C\/p\u003E&mdash; Dan Shugar (@WaterSHEDLab) \u003Ca href=\"https:\/\/twitter.com\/WaterSHEDLab\/status\/1711559785173438674?ref_src=twsrc%5Etfw\"\u003EOctober 10, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-80038").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-66531"></div><script>tweet={"url":"https:\/\/twitter.com\/Maxar\/status\/1712458332890386858","author_name":"Maxar Technologies","author_url":"https:\/\/twitter.com\/Maxar","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDEA8 Open Data Program Activation Alert\u003Cbr\u003E\uD83C\uDF0D Event: Flooding in North India \u003Cbr\u003E✅ Access the latest satellite imagery\u003Cbr\u003E➡️ \u003Ca href=\"https:\/\/t.co\/DmFdNZpNeE\"\u003Ehttps:\/\/t.co\/DmFdNZpNeE\u003C\/a\u003E\u003C\/p\u003E&mdash; Maxar Technologies (@Maxar) \u003Ca href=\"https:\/\/twitter.com\/Maxar\/status\/1712458332890386858?ref_src=twsrc%5Etfw\"\u003EOctober 12, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-66531").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-50467"></div><script>tweet={"url":"https:\/\/twitter.com\/WaterSHEDLab\/status\/1711559785173438674","author_name":"Dan Shugar","author_url":"https:\/\/twitter.com\/WaterSHEDLab","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EToday \u003Ca href=\"https:\/\/twitter.com\/planet?ref_src=twsrc%5Etfw\"\u003E@planet\u003C\/a\u003E acquired a mostly cloud-free SuperDove satellite image of \u003Ca href=\"https:\/\/twitter.com\/hashtag\/SouthLhonakLake?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#SouthLhonakLake\u003C\/a\u003E to \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Chungthang?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Chungthang\u003C\/a\u003E dam (\u003Ca href=\"https:\/\/twitter.com\/hashtag\/Teesta3HEP?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Teesta3HEP\u003C\/a\u003E), giving us the first good view of the devastation caused by the Glacial Lake Outburst Flood (\u003Ca href=\"https:\/\/twitter.com\/hashtag\/GLOF?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#GLOF\u003C\/a\u003E). 1\/n \u003Ca href=\"https:\/\/t.co\/BpgAHyh33n\"\u003Epic.twitter.com\/BpgAHyh33n\u003C\/a\u003E\u003C\/p\u003E&mdash; Dan Shugar (@WaterSHEDLab) \u003Ca href=\"https:\/\/twitter.com\/WaterSHEDLab\/status\/1711559785173438674?ref_src=twsrc%5Etfw\"\u003EOctober 10, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-50467").innerHTML = tweet["html"];</script><p></p>
 </section>
 <section id="data-aggregation" class="level2">
 <h2 class="anchored" data-anchor-id="data-aggregation">Data Aggregation</h2>
@@ -553,9 +562,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>m.get_root().script.add_child(Element(<span class="st">'L.control.sideBySide(</span><span class="sc">{l_lleft}</span><span class="st">, </span><span class="sc">{l_lright}</span><span class="st">).addTo(</span><span class="sc">{m}</span><span class="st">);'</span>.<span class="bu">format</span>(l_lleft<span class="op">=</span>l_lleft, l_lright<span class="op">=</span>l_lright, m<span class="op">=</span>var_map)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-fig-split-india-floods" class="cell page-columns page-full" data-execution_count="28">
-<div id="fig-split-india-floods" class="quarto-figure quarto-figure-center column-body-outset anchored">
-<figure class="figure">
+<div id="cell-fig-split-india-floods" class="cell column-body-outset" data-execution_count="28">
+<div id="fig-split-india-floods" class="cell-output cell-output-display quarto-figure quarto-figure-center anchored" data-execution_count="28">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-split-india-floods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe srcdoc="<!DOCTYPE html>
 <html>
 <head>
@@ -1330,7 +1340,10 @@ L.control.sideBySide = function (leftLayers, rightLayers, options) {
         
 </script>
 </html>" width="100%" height="600" style="border:none !important;" "allowfullscreen"="" "webkitallowfullscreen"="" "mozallowfullscreen"=""></iframe>
-<figcaption class="figure-caption">Figure&nbsp;3: A split web map of Pre/Post Event Imagery after the Flooding in Northern India.<br> Sources: <a href="https://github.com/opengeos/maxar-open-data">opengeos/maxar-open-data</a> Github &amp; <a href="https://stacindex.org/catalogs/maxar-open-data-catalog-ard-format">Maxar Open Data Program STAC</a></figcaption>
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-split-india-floods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: A split web map of Pre/Post Event Imagery after the Flooding in Northern India.<br> Sources: <a href="https://github.com/opengeos/maxar-open-data">opengeos/maxar-open-data</a> Github &amp; <a href="https://stacindex.org/catalogs/maxar-open-data-catalog-ard-format">Maxar Open Data Program STAC</a>
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1340,9 +1353,13 @@ L.control.sideBySide = function (leftLayers, rightLayers, options) {
 <p>If you have any thoughts or questions, feel free to let me know what you think in the comments below. You’ll need to sign in to your GitHub account to do so. Like my work? Feel free to <a href="../../../about/">reach out</a>.</p>
 <p>We only have one rock, and it’s a beautiful one. Thanks for reading! ✌️🌍</p>
 <div id="fig-video-demo" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-video-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/9WKJcHAwTRw" title="2023 South Lhonak Lake Sikkim, India - Maxar Open Data Program Leaflet Split Map" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<figcaption class="figure-caption">Figure&nbsp;4: 2023 South Lhonak Lake Sikkim, India - Maxar Open Data Program Leaflet Split Map</figcaption>
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-video-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: 2023 South Lhonak Lake Sikkim, India - Maxar Open Data Program Leaflet Split Map
+</figcaption>
 </figure>
 </div>
 
@@ -1529,15 +1546,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
         for (let i = 0; i < 2; i++) {
           container.appendChild(note.children[i].cloneNode(true));
         }
+        typesetMath(container);
         return container.innerHTML
       } else {
+        typesetMath(note);
         return note.innerHTML;
       }
     } else {
@@ -1546,6 +1586,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
+      typesetMath(note);
       return note.innerHTML;
     }
   }
@@ -1588,6 +1629,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -1663,7 +1727,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
@@ -1744,9 +1807,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/prncevince\.io");
     var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
  	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
@@ -1755,13 +1819,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (!isInternal(link.href)) {
           // target, if specified
           link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
           // default icon
           link.classList.add("external");
       }
     }
 });
 </script>
-<script src="https://giscus.app/client.js" data-repo="prncevince/prncevince.io" data-repo-id="R_kgDOKfrJMA" data-category="Comments" data-category-id="DIC_kwDOKfrJMM4CaFyh" data-mapping="title" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+<script src="https://giscus.app/client.js" data-repo="prncevince/prncevince.io" data-repo-id="R_kgDOKfrJMA" data-category="Comments" data-category-id="DIC_kwDOKfrJMM4CaFyh" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="preferred_color_scheme">
 <input type="hidden" id="giscus-alt-theme" value="preferred_color_scheme">

@@ -2,6 +2,11 @@
 format:
   html:
     code-fold: false
+    include-after-body:
+      text: |
+        <script src='/assets/js/site.js'></script>
+        <script src='/assets/js/non-posts.js'></script>
+    css: [/assets/css/non-posts.css]
 ---
 
 # Quarto Site Environment Setup 

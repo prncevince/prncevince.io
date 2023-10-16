@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: _site
   execute-dir: project
-  render: ["*.qmd", "*.ipynb", "*.md", "*.Rmd", "!notes/"]
+  render: ["*.qmd", "*.ipynb", "*.Rmd", "*.md", "!SETUP.md", "!notes/"]
   post-render:
     - cp -a resume _site/.
 website:
