@@ -1,4 +1,9 @@
-@media (max-width: 781px) {
+@media (max-width: 768px) {
+  .navbar-title-container .nav-link {
+    --bs-nav-link-padding-x: 0.5rem;
+  }
+}
+@media (max-width: 765px) {
   .navbar-brand > .navbar-title {
     display: inline-block;
     color: transparent;

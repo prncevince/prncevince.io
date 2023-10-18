@@ -28,6 +28,11 @@ figcaption.figure {
 }
 
 /*-- Navbar --*/
+.navbar-container.container-fluid {
+  flex-wrap: nowrap; /* for Chrome */
+  padding-left: 0;
+  padding-right: 0;
+}
 .nav-link {
   --bs-nav-link-padding-y: 0.3125rem;
 }
@@ -61,7 +66,7 @@ a.navbar-brand {
   background-image: url('../img/favicon.png');
   background-size: contain;
   background-repeat: no-repeat;
-  padding-left: 36.633px;
+  padding-left: 45px;
 }
 /* tools */
 .quarto-navbar-tools > div.nav-item {
@@ -78,10 +83,6 @@ a.navbar-brand {
 }
 .rss > .fa-rss:hover, .rss > .fa-square-rss:hover {
   background-image: linear-gradient(-90deg,#f87900 0%,#fe4f45 51%,#e419ba 100%);
-}
-/* for Chrome */
-.navbar-container.container-fluid {
-  flex-wrap: nowrap;
 }
 .navbar-brand-container {
   display: block;

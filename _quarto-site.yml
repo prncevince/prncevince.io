@@ -31,11 +31,11 @@ website:
             url:  https://github.com/prncevince
             target: _blank
             rel: me
-          - text: Site Source Code 💻
-            url:  https://github.com/prncevince/prncevince.io
-            target: _blank
           - text: Site Discussions 🗣
             url:  https://github.com/prncevince/prncevince.io/discussions
+            target: _blank
+          - text: Site Source Code 💻
+            url:  https://github.com/prncevince/prncevince.io
             target: _blank
       - text: "[{{< fa brands twitter >}}]{class='quarto-navbar-tools-item'}"
         menu:
@@ -61,6 +61,7 @@ website:
         href: https://www.linkedin.com/in/vincentclemson/
         target: _blank
         rel: me
+        aria-label: My LinkedIn
       - icon: github
         href: https://github.com/prncevince
         target: _blank
