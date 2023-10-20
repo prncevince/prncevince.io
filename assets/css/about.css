@@ -1,0 +1,8 @@
+.usa {
+  background-image: url('../../about/usapop.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-left: 2em;
+  font-size: 4em;
+  background-position: center;
+}
