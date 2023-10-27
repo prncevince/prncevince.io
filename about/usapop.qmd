@@ -1,0 +1,16 @@
+---
+include-in-header:
+  text: |
+    <script src='/assets/js/usapop.js'></script>
+include-after-body:
+  text: |
+    <script src='/assets/js/site.js'></script>
+    <script src='/assets/js/non-posts.js'></script>
+css: [/assets/css/non-posts.css]
+resources: [usapop.svg]
+---
+
+::: {.column-screen style='text-align:center;'}
+<object id="usapop" data="usapop.svg"/></object>
+:::
+

@@ -1,0 +1,17 @@
+g.borders > path.hover {
+  stroke-width: 0.5 !important;
+  stroke: rgb(226, 226, 226) !important;
+}
+g.tooltip {
+  visibility: hidden;
+}
+g.tooltip rect {
+  fill: rgba(255, 255, 255, 0.7);
+  rx: 2px;
+  ry: 2px;
+}
+g.tooltip text {
+  font-size: 16px;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
