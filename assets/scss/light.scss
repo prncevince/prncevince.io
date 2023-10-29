@@ -37,6 +37,7 @@ div.sourceCode {
 }
 div > details > summary {
   color: $source-code;
+  border-color: $source-code;
   background-color: rgba(219,219,219,.8);
 }
 /* Title Headers */
@@ -51,6 +52,9 @@ h1, h2, h3, h4, h5, h6 {
 /* categories */
 .quarto-categories {
   color: $base-navbar-bg;
+}
+.quarto-category {
+  box-shadow: 0.10rem 0.10rem .35rem $base-navbar-bg;
 }
 .quarto-category:hover {
   background: $base-dropdown-link-hover-bg;

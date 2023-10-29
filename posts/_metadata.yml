@@ -28,6 +28,7 @@ comments:
     language: en
 toc: true
 toc-depth: 6
+toc-expand: 3
 citation: true
 appendix-cite-as: display
 license:

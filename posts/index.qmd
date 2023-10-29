@@ -39,4 +39,5 @@ comments: false
 code-tools: false
 citation: false
 license: ''
+back-to-top-navigation: false
 ---

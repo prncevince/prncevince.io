@@ -22,3 +22,4 @@ if (tools.length > 0) {
     'beforeend', d
   )
 }
+document.querySelector('#quarto-back-to-top').setAttribute('onclick', 'window.scrollTo({top: 0, left: 0, behavior: "smooth"})')
