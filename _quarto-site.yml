@@ -84,6 +84,8 @@ website:
       <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0 <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a>
 format:
   html:
+    filters:
+      - add-code-files
     code-fold: true
     code-link: true
     link-external-icon: true
@@ -97,6 +99,7 @@ format:
     resources: [assets/img/posts.png, assets/img/posts-rss.png]
     template: _pandoc/template.html
     template-partials: [_pandoc/vercel.html, _pandoc/plausible.html]
+    highlight-style: assets/highlight/zenburn-new.theme
     theme:
       light: [flatly, 'assets/scss/light.scss']
 

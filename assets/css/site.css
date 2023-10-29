@@ -68,6 +68,30 @@ a.navbar-brand {
   background-repeat: no-repeat;
   padding-left: 45px;
 }
+/* Source Code */
+div.sourceCode::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+div.sourceCode {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  border-width: 2px;
+  border-style: solid;
+  border-radius: .5rem;
+  margin-top: .5rem;
+}
+div > details > summary {
+  padding: 0.1rem 0.7rem 0.2rem 0.7rem;
+  width: max-content;
+  border: var(--quarto-border-width) solid var(--quarto-border-color);
+  border-radius: var(--quarto-border-radius);
+}
+pre.sourceCode > .code-copy-button > .bi::before, pre.sourceCode:hover > .code-copy-button > .bi::before {
+  content: "";
+  height: 1.5rem;
+  width: 1.5rem;
+  background-size: 1.5rem 1.5rem;
+}
 /* tools */
 .quarto-navbar-tools > div.nav-item {
   padding-left: 0.25em;

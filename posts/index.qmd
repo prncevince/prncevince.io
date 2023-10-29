@@ -37,4 +37,6 @@ author: ''
 date-modified: ''
 comments: false
 code-tools: false
+citation: false
+license: ''
 ---

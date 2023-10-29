@@ -1,7 +1,7 @@
 /* https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/html/bootstrap/themes/flatly.scss */
 
 /*-- scss:defaults --*/
-$body-bg: #fdfdfd;
+$body-bg: #fdfbf7;
 $body-color: #505457;
 $primary: rgba(78, 115, 77);
 $link-color: #528672;
@@ -12,6 +12,8 @@ $navbar-bg: rgba($primary, 0.95);
 $dropdown-bg: rgba($base-dropdown-link-hover-bg, 0.90);
 $dropdown-link-hover-bg: rgba($base-navbar-bg, 0.70);
 $card-border-color: $body-color;
+$card-bg: $body-bg;
+$source-code: #770505;
 
 /*-- scss:rules --*/
 :root {
@@ -22,6 +24,20 @@ $card-border-color: $body-color;
 }
 .quarto-title-banner {
   box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.5);
+}
+/* Highlight Style */
+pre.sourceCode > .code-copy-button > .bi::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(127, 159, 127)" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>') !important;
+}
+pre.sourceCode:hover >.code-copy-button:hover > .bi::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(232 173 95)" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>') !important;
+}
+div.sourceCode {
+  border-color: $source-code;
+}
+div > details > summary {
+  color: $source-code;
+  background-color: rgba(219,219,219,.8);
 }
 /* Title Headers */
 h1, h2, h3, h4, h5, h6 {
@@ -48,12 +64,12 @@ div.callout-note.callout-titled .callout-icon::before {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(236,193,135);" class="bi bi-info-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>');
 }
 div.callout-note.callout {
-  border-left-color: rgba(78,115,77,0.8);
+  border-left-color: rgba($primary, 0.8);
   border-left-width: 5px;
   border-left-style: solid;
 }
-div.callout-note.callout-style-default>.callout-header {
-  background-color: rgba(78,115,77,0.95);
+div.callout-note.callout-style-default > .callout-header {
+  background-color: rgba($primary, 0.95);
 }
 .callout-note .callout-header {
   color: var(--bs-btn-active-border-color);

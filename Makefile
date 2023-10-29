@@ -1,6 +1,7 @@
 .PHONY: docs docs-dev docs-site docs-md docs-preview docs-preview-python conda-env-export conda-env-create proxy
 
 CONDA_ENV = environment.yml
+IP = $(shell ipconfig getifaddr en0)
 
 docs: docs-site docs-md
 
@@ -28,3 +29,6 @@ conda-env-create:
 
 proxy:
 	python -m http.server
+
+proxy-subnet:
+	python -m http.server --bind $(IP) -d $(D)
