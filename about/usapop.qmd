@@ -8,6 +8,7 @@ include-after-body:
     <script src='/assets/js/non-posts.js'></script>
 css: [/assets/css/non-posts.css]
 resources: [usapop.svg]
+back-to-top-navigation: false
 ---
 
 <!-- column-screen is necessary to remove sidebar -->

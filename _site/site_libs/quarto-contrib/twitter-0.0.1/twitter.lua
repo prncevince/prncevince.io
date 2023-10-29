@@ -39,8 +39,8 @@ function tweet(args, kwargs)
         
         local mt, api_resp = pandoc.mediabag.fetch(tweet_embed)
         
-        -- generate a random number to append to the html div ID to avoid re-use
-        local id = math.random(10000, 99999)
+        -- set html div ID to unique value to avoid re-use
+        local id = status_id
 
         local tweet_data = '<div id="tweet-'
             .. id 

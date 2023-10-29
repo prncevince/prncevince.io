@@ -66,6 +66,10 @@ website:
         href: https://github.com/prncevince
         target: _blank
         rel: me
+      - text: "[{{< fa brands square-instagram >}}]{class='instagram'}"
+        href: https://instagram.com/prncemaps/
+        target: _blank
+        rel: me
       - text: "[{{< fa solid square-rss >}}]{class='rss'}"
         href: posts/index.xml
       - icon: mastodon

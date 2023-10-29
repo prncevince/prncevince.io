@@ -23,6 +23,3 @@ if (tools.length > 0) {
   )
 }
 scrollElement = document.querySelector('#quarto-back-to-top')
-if (scrollElement) {
-  scrollElement.setAttribute('onclick', 'window.scrollTo({top: 0, left: 0, behavior: "smooth"})')
-}
