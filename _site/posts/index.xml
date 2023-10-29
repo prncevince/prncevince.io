@@ -15,7 +15,24 @@
 <link>https://prncevince.io/posts/</link>
 </image>
 <generator>quarto-1.4.424</generator>
-<lastBuildDate>Thu, 12 Oct 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 29 Oct 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Aesthetic maps built in R with ggplot2 &amp; svglite</title>
+  <dc:creator>Vincent Clemson</dc:creator>
+  <link>https://prncevince.io/posts/geo/maps-ggplot-svglite/</link>
+  <description><![CDATA[ I show off how to use R packages in the <a href="../../../posts/#category=rspatial" target="_blank">#rspatial</a> &amp; <a href="../../../posts/#category=tidyverse" target="_blank">tidyverse</a> ecosystems to build both aesthetic &amp; interactive maps. I also use some slightly advanced web dev &amp; scraping techniques to create the finished product: Figure&nbsp;4. ]]></description>
+  <category>ggplot2</category>
+  <category>R</category>
+  <category>Geospatial</category>
+  <category>svglite</category>
+  <category>SVG</category>
+  <category>JavaScript</category>
+  <category>rspatial</category>
+  <category>tidyverse</category>
+  <category>30DayMapChallenge</category>
+  <guid>https://prncevince.io/posts/geo/maps-ggplot-svglite/</guid>
+  <pubDate>Sun, 29 Oct 2023 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>North India Floods of October 2023</title>
   <dc:creator>Vincent Clemson</dc:creator>

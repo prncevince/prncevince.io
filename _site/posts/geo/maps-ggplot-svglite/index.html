@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.424">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Vincent Clemson">
+<meta name="dcterms.date" content="2023-10-29">
+<meta name="description" content="A method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).">
+<title>Aesthetic maps built in R with ggplot2 &amp; svglite | Vincent Clemson</title>
+<script src="../../../stats/js/script.js" data-api="/stats/api/event/" data-domain="prncevince.io"></script><script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script><script defer="" src="../../../_vercel/insights/script.js"></script><style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//assets/img/favicon.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-contrib/iconify-1.0.7/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link rel="stylesheet" href="../../../assets/css/site.css">
+<link rel="stylesheet" href="../../../assets/css/posts.css">
+<meta property="og:title" content="Aesthetic maps built in R with ggplot2 &amp; svglite | Vincent Clemson">
+<meta property="og:description" content="A method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).">
+<meta property="og:image" content="https://prncevince.io/assets/img/posts.png">
+<meta property="og:site_name" content="Vincent Clemson">
+<meta property="og:image:height" content="1378">
+<meta property="og:image:width" content="2500">
+<meta name="twitter:title" content="Aesthetic maps built in R with ggplot2 &amp; svglite | Vincent Clemson">
+<meta name="twitter:description" content="A method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).">
+<meta name="twitter:image" content="https://prncevince.io/assets/img/posts.png">
+<meta name="twitter:creator" content="@prncevincecares">
+<meta name="twitter:site" content="@prncevincecares">
+<meta name="twitter:image-height" content="1378">
+<meta name="twitter:image-width" content="2500">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Vincent Clemson</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../../posts/index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about/index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-fa-brands-github-classquarto-navbar-tools-item" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text"><span class="quarto-navbar-tools-item"><i class="fa-brands fa-github" aria-label="github"></i></span></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-fa-brands-github-classquarto-navbar-tools-item">
+<li>
+    <a class="dropdown-item" href="https://github.com/prncevince" rel="me" target="_blank">
+ <span class="dropdown-text">GitHub Profile <i class="fa-brands fa-github-alt" aria-label="github-alt"></i></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/prncevince/prncevince.io/discussions" target="_blank">
+ <span class="dropdown-text">Site Discussions 🗣</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/prncevince/prncevince.io" target="_blank">
+ <span class="dropdown-text">Site Source Code 💻</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-fa-brands-twitter-classquarto-navbar-tools-item" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text"><span class="quarto-navbar-tools-item"><i class="fa-brands fa-twitter" aria-label="twitter"></i></span></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-fa-brands-twitter-classquarto-navbar-tools-item">
+<li>
+    <a class="dropdown-item" href="https://twitter.com/prncevincecares" rel="me" target="_blank">
+ <span class="dropdown-text">News &amp; Science &amp; Code 🚀</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://twitter.com/prncevincestats" rel="me" target="_blank">
+ <span class="dropdown-text">Sports 🎾</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../posts/index.xml"> 
+<span class="menu-text"><span class="rss quarto-navbar-tools-item"><i class="fa-solid fa-rss" aria-label="rss"></i></span></span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#tldr" id="toc-tldr" class="nav-link active" data-scroll-target="#tldr">TLDR</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#thoughts-on-data-driven-javascript-visuals" id="toc-thoughts-on-data-driven-javascript-visuals" class="nav-link" data-scroll-target="#thoughts-on-data-driven-javascript-visuals">Thoughts on Data Driven JavaScript Visuals</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
+  <li><a href="#the-ggplot" id="toc-the-ggplot" class="nav-link" data-scroll-target="#the-ggplot">The ggplot</a></li>
+  <li>
+<a href="#svg-xml-editting" id="toc-svg-xml-editting" class="nav-link" data-scroll-target="#svg-xml-editting">SVG &amp; XML Editting</a>
+  <ul>
+<li><a href="#adding-iteractivity" id="toc-adding-iteractivity" class="nav-link" data-scroll-target="#adding-iteractivity">Adding Iteractivity</a></li>
+  <li><a href="#the-whole-game" id="toc-the-whole-game" class="nav-link" data-scroll-target="#the-whole-game">The Whole Game</a></li>
+  </ul>
+</li>
+  <li><a href="#finished-product" id="toc-finished-product" class="nav-link" data-scroll-target="#finished-product">Finished Product</a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap-up</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Aesthetic maps built in R with ggplot2 &amp; svglite</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i></button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/prncevince/prncevince.io/blob/main/posts/geo/maps-ggplot-svglite/index.qmd">View Source</a></li></ul></div></div>
+  <div class="quarto-categories">
+    <div class="quarto-category">ggplot2</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Geospatial</div>
+    <div class="quarto-category">svglite</div>
+    <div class="quarto-category">SVG</div>
+    <div class="quarto-category">JavaScript</div>
+    <div class="quarto-category">rspatial</div>
+    <div class="quarto-category">tidyverse</div>
+    <div class="quarto-category">30DayMapChallenge</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Vincent Clemson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 29, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">October 29, 2023</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header><div id="fig-usapop-gif" class="quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-usapop-gif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="usapop-ggplot-svglite-3x-3fps-1920w-80lossy-O3.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-usapop-gif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A choropleth map of the population of the continental Unite States in 2015. <br><br> The map was designed using <a href="https://ggplot2-book.org">ggplot2</a>. Saving the map using <a href="https://svglite.r-lib.org">svglite</a> and editing the output has the potential to create beautiful interactive &amp; lightweight maps.
+</figcaption></figure>
+</div>
+<section id="tldr" class="level2"><h2 class="anchored" data-anchor-id="tldr">TLDR</h2>
+<p>I show off how to use R packages in the <a href="../../../posts/#category=rspatial" target="_blank">#rspatial</a> &amp; <a href="../../../posts/#category=tidyverse" target="_blank">tidyverse</a> ecosystems to build both aesthetic &amp; interactive maps. I also use some slightly advanced web dev &amp; scraping techniques to create the finished product: <a href="#fig-usapop-svg" class="quarto-xref">Figure&nbsp;4</a>.</p>
+</section><section id="intro" class="level2"><h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>At the end of November, I plan on packing up my belongings and trekking 6,500 miles across the continental United States out to the West coast (🗣️ roadtrip 🛣️).</p>
+<p>Being who I am, I figured it’d be a great idea to plot out the journey using R. Additionally, the <a href="https://30daymapchallenge.com/">#30DayMapChallenge</a> is approaching, so I figured that it was a great time to create a new thing in preparation for the challenge. Most of my time went into development over the past week, so the next steps for me are the trip planning, but I think the proof of concept is a great start!</p>
+</section><section id="thoughts-on-data-driven-javascript-visuals" class="level2"><h2 class="anchored" data-anchor-id="thoughts-on-data-driven-javascript-visuals">Thoughts on Data Driven JavaScript Visuals</h2>
+<p>Plots &amp; maps are cool, and interactive plots can be even cooler, but the bloat of adding external JavaScript libraries can sometimes create a performance hit to a users’ experience on the web. A typically approach within the <a href="../../../posts/#category=R" target="_blank">R</a> user community to embed data driven interactive graphics in web content involves using the incredible <a href="http://htmlwidgets.org">htmlwidgets</a> package. There are <a href="http://www.htmlwidgets.org/showcase_leaflet.html">several</a> HTML widget R packages. These packages work by using {htmlwidgets} to bind &amp; format data as JSON input to their respective JavaScript visualization libraries and then to output the results as an HTML element.</p>
+<p>My biggest gripe with HTML widgets is that they embed the entire JavaScript library passed to them. So, if you say want <strong>2</strong> unique HTML widgets on your web page that are created from the same {htmlwidgets} binding R package, then you’ll have <strong>2</strong> identical copies of the same JavaScript library downloaded to your web browser. Having the option to embed the library in say your web pages <code>&lt;head&gt;</code> element could help cut down on some of this bloat.</p>
+<p>Aside from this, I think that being able to create data driven interactive graphics without the need for external JavaScript libraries has a lot of potential when it comes to creating beautiful plots in the browser. Building plots with SVG has been conquered by <a href="https://d3js.org">D3.js</a> as well as many others that have taken significant influence from D3, such as <a href="https://plotly.com">plotly</a> &amp; <a href="https://jkunst.com/highcharter/">highcharter</a>. Additionally, <a href="https://observablehq.com/about">Observable</a> has changed the game when it comes to quickly prototyping &amp; sharing new data visuals in the browser. Making it easier than ever before to collaborate &amp; maximize one’s reach when developing a new dataviz powered by web technologies. In particular, its lead by Mike Bostock, one who I would call a super human with <a href="https://bost.ocks.org/mike/algorithms/">eons</a> of data visualization expertise. At Observable, they’re building the <a href="https://observablehq.com/plot">Observable Plot</a> library to help folks efficiently visualize tabluar data in the browser.</p>
+<p>Plot is inspired by <a href="http://vita.had.co.nz/papers/layered-grammar.pdf"><strong>the grammar of graphics</strong></a> style, which is the foundation that {ggplot2} was built upon. I think that the ability to turn a ggplot into a an interactive graphic can be extremely powerful and can open up many new doors into the world of dataviz. Using plotly and the incredible <a href="https://blog.cpsievert.me/2018/01/30/learning-improving-ggplotly-geom-sf"><code>plotly::ggplotly</code></a> designed by Carson Sievert is an htmlwidgets approach to doing this. The approach to use {svglite} to save ggplot2 created plots and then post process these graphics allows you to keep the design portion of the dataviz mostly outside of the web browser and within the Plot pane of your IDE (i.e.&nbsp;RStudio). The choice to post process the SVG output within R allows one to minimize JavaScript library dependencies, but presents the challenge of making the SVG interactive.</p>
+<p>All in all, I’m excited to see where this goes.</p>
+</section><section id="the-data" class="level2"><h2 class="anchored" data-anchor-id="the-data">The data</h2>
+<p>I used the 2015 U.S. Census county population data stored within the <a href="https://usmap.dev">usmap</a> package. More updated U.S. Census data from the U.S Census Bureau can be accessed via the <a href="https://walker-data.com/tidycensus/">tidycencus</a> and <a href="https://www.hrecht.com/censusapi/">censusapi</a> R packages.</p>
+<p>As a precursor, I filtered out Alaska &amp; Hawaii because I am not planning to travel that far just yet, i.e.&nbsp;I want the focus of the plot to be on CONUS. I used the <a href="http://wiki.gis.com/wiki/index.php/Albers_equal-area_conic_projection">Albers equal area conic projection</a> centered on the US. The proj4 string of the projection was highlighted in a <a href="https://rud.is/b/2014/11/16/moving-the-earth-well-alaska-hawaii-with-r/">neat post</a> by Bob Rudis a few years back.</p>
+<p>The key variable that I create here for the visual is the percentage of the population per state for each county. I ultimately display this using a log scale in the color palette of the plot to better visualize large differences in the county population. Additionally, this percentage gets used as hover text in the interactive figure.</p>
+<div class="cell">
+<details><summary>usapop-data.R</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(usmap)</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># data load &amp; format ----</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>d <span class="ot">&lt;-</span> <span class="fu">left_join</span>(usmap<span class="sc">::</span><span class="fu">us_map</span>(<span class="at">regions=</span><span class="st">'county'</span>), usmap<span class="sc">::</span>countypop, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'fips'</span>, <span class="st">'abbr'</span>, <span class="st">'county'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># must create individual polygons first before entire counties of multiple polygons</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>d_sf <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">'x'</span>, <span class="st">'y'</span>), <span class="at">crs =</span> usmap<span class="sc">::</span><span class="fu">usmap_crs</span>()) <span class="sc">|&gt;</span> <span class="fu">st_transform</span>(<span class="dv">4326</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    <span class="at">geometry =</span> <span class="fu">st_combine</span>(geometry) <span class="sc">|&gt;</span> <span class="fu">st_cast</span>(<span class="st">'POLYGON'</span>),</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    <span class="fu">across</span>(<span class="fu">c</span>(abbr, pop_2015, full, county, fips), unique)</span>
+<span id="cb1-16"><a href="#cb1-16"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>  <span class="fu">group_by</span>(fips) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-19"><a href="#cb1-19"></a>    <span class="at">geometry =</span> <span class="fu">st_combine</span>(geometry),</span>
+<span id="cb1-20"><a href="#cb1-20"></a>    <span class="fu">across</span>(<span class="fu">c</span>(abbr, pop_2015, full, county), unique),</span>
+<span id="cb1-21"><a href="#cb1-21"></a>    <span class="at">l_group =</span> <span class="fu">list</span>(group)</span>
+<span id="cb1-22"><a href="#cb1-22"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>  <span class="fu">mutate</span>(<span class="at">pop_full =</span> <span class="fu">sum</span>(pop_2015, <span class="at">na.rm =</span> T), <span class="at">.by =</span> full) <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-25"><a href="#cb1-25"></a>    <span class="at">point =</span> <span class="fu">lapply</span>(geometry, <span class="cf">function</span>(p) p <span class="sc">|&gt;</span> <span class="fu">st_cast</span>(<span class="st">'POINT'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a>      <span class="fu">suppressWarnings</span>()) <span class="sc">|&gt;</span> <span class="fu">st_sfc</span>() <span class="sc">|&gt;</span> <span class="fu">st_set_crs</span>(<span class="dv">4326</span>),</span>
+<span id="cb1-27"><a href="#cb1-27"></a>    <span class="at">county =</span> <span class="fu">sub</span>(<span class="at">x =</span> county, <span class="at">pattern =</span> <span class="st">' County'</span>, <span class="at">replacement =</span> <span class="st">''</span>),</span>
+<span id="cb1-28"><a href="#cb1-28"></a>    <span class="at">pop_perc =</span> pop_2015<span class="sc">/</span>pop_full</span>
+<span id="cb1-29"><a href="#cb1-29"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-31"><a href="#cb1-31"></a>    <span class="at">text =</span> <span class="fu">paste0</span>(</span>
+<span id="cb1-32"><a href="#cb1-32"></a>      <span class="fu">sprintf</span>(<span class="fu">paste0</span>(county, <span class="st">', '</span>, full, <span class="st">' '</span>, <span class="st">'%.2f%%'</span>), <span class="dv">100</span><span class="sc">*</span>pop_perc),</span>
+<span id="cb1-33"><a href="#cb1-33"></a>      <span class="co"># for mapping SVG elements</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a>      <span class="st">'|'</span>, <span class="fu">lapply</span>(geometry, length) <span class="sc">|&gt;</span> <span class="fu">unlist</span>()</span>
+<span id="cb1-35"><a href="#cb1-35"></a>    )</span>
+<span id="cb1-36"><a href="#cb1-36"></a>  )</span>
+<span id="cb1-37"><a href="#cb1-37"></a></span>
+<span id="cb1-38"><a href="#cb1-38"></a><span class="co"># ggplot ----</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="do">## plot format objects ----</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a>proj <span class="ot">&lt;-</span> <span class="st">'+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +a=6370997 +b=6370997 +units=m +no_defs'</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a>d_sf_us <span class="ot">&lt;-</span> d_sf <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span> full <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Hawaii'</span>, <span class="st">'Alaska'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a>  <span class="fu">summarise</span>(<span class="at">geometry =</span> <span class="fu">st_combine</span>(geometry)) <span class="sc">|&gt;</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>  <span class="fu">mutate</span>(<span class="at">geometry =</span> geometry <span class="sc">|&gt;</span> <span class="fu">st_make_valid</span>() <span class="sc">|&gt;</span> <span class="fu">st_union</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a>  <span class="fu">st_transform</span>(proj)</span>
+<span id="cb1-45"><a href="#cb1-45"></a>d_sf_states <span class="ot">&lt;-</span> d_sf <span class="sc">|&gt;</span> <span class="fu">group_by</span>(full) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">geometry =</span> <span class="fu">st_combine</span>(geometry)) <span class="sc">|&gt;</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a>  <span class="fu">mutate</span>(<span class="at">geometry =</span> geometry <span class="sc">|&gt;</span> <span class="fu">st_make_valid</span>() <span class="sc">|&gt;</span> <span class="fu">st_union</span>(), <span class="at">.by =</span> full) <span class="sc">|&gt;</span></span>
+<span id="cb1-47"><a href="#cb1-47"></a>  <span class="fu">filter</span>(<span class="sc">!</span> full <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Hawaii'</span>, <span class="st">'Alaska'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a>  <span class="fu">st_transform</span>(proj)</span>
+<span id="cb1-49"><a href="#cb1-49"></a>d_sf_plot <span class="ot">&lt;-</span> d_sf <span class="sc">|&gt;</span></span>
+<span id="cb1-50"><a href="#cb1-50"></a>  <span class="fu">filter</span>(<span class="sc">!</span> full <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Hawaii'</span>, <span class="st">'Alaska'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>  <span class="fu">st_transform</span>(proj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="the-ggplot" class="level2"><h2 class="anchored" data-anchor-id="the-ggplot">The ggplot</h2>
+<p>I used the <a href="https://github.com/yixuan/showtext">showtext</a> package to use a custom font, <a href="https://fontsgeek.com/fonts/Black-Chancery-Regular">Black Chancery</a>. Additionally, to give the plot a bit of a 3D effect, I added shadow using <a href="https://ggfx.data-imaginist.com">ggfx</a>.</p>
+<p>When it came to trying to save an identical copy of the rendered ggplot graphic within the RStudio Plot pane programmatically, I’ve found this to be very challenging. The <code>ggplot::ggsave</code> function has <code>width</code>, <code>height</code>, <code>unit</code>, &amp; <code>dpi</code> parameters that can be specified. There’s also a great <a href="https://www.christophenicault.com/post/understand_size_dimension_ggplot2/">post by Christophe Nicault</a> on setting the text DPI via the <a href="https://github.com/yixuan/showtext">showtext</a> package to match the DPI used within <code>ggsave</code> by the PNG graphics device. However on my 14” MBP, these methods all seem to fall short, the with ggsave approach font being larger than font displayed in the Plot pane. It seems that the Plot pane does some magic when it comes to resizing. You can right click your image &amp; choose “Save image as…”, which allows you to save <strong><em>what you’re looking at</em></strong> to file.</p>
+<p>I think that there are benefits &amp; drawbacks to both approaches. Below I provide the ggplot code version of the map. The last line of the snippet includes a <code>ggsave</code> call that builds a plot with text slightly bigger than what’s expected. Additionally, the <a href="https://ggfx.data-imaginist.com">ggfx</a> shadow seems less prominent in the <code>ggsave</code> version, and the overall width / height of the plot content appear smaller as well.</p>
+<p>Thus, I’ve included both versions in <a href="#fig-usapop-ggplot" class="quarto-xref">Figure&nbsp;2</a> for comparison, the version that I saved from the RStudio plot pane, as well as the <code>ggsave</code> version. MacOS Preview app info on the <code>.png</code> tells me that the plot pane version ends up saving with 72 DPI.</p>
+<p>Even if we switch the <code>dpi</code> to 72, and calculate the same width / height of the RStudio pane version to get the same resolution image in the <code>ggsave</code> version, we get even smaller text and other distortions.</p>
+<div class="cell">
+<details><summary>usapop-ggplot.R</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(ggfx)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">library</span>(usmap)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="fu">library</span>(showtext)</span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co"># mbp 14" dpi / height / width in inches</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>dpi <span class="ot">&lt;-</span> <span class="dv">254</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>width <span class="ot">&lt;-</span> <span class="fl">11.90157</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>height <span class="ot">&lt;-</span> <span class="fl">7.437008</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="fu">showtext_opts</span>(<span class="at">dpi =</span> dpi)</span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="fu">showtext_auto</span>(<span class="at">enable =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="fu">font_add</span>(<span class="st">"Black Chancery"</span>, <span class="st">"BLKCHCRY.TTF"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> d_sf_plot) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a>  <span class="fu">with_shadow</span>(</span>
+<span id="cb2-20"><a href="#cb2-20"></a>    <span class="at">sigma =</span> <span class="dv">5</span>, <span class="at">x_offset =</span> <span class="dv">5</span>, <span class="at">y_offset =</span> <span class="dv">5</span>,</span>
+<span id="cb2-21"><a href="#cb2-21"></a>    <span class="fu">geom_sf</span>(<span class="at">data =</span> d_sf_states, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">'white'</span>)</span>
+<span id="cb2-22"><a href="#cb2-22"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>  <span class="fu">geom_sf</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">log</span>(pop_2015)), <span class="at">linewidth=</span><span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">low =</span> <span class="st">'yellow'</span>, <span class="at">high =</span> <span class="st">'darkgreen'</span>, <span class="at">na.value=</span><span class="st">'yellow'</span>, <span class="at">guide =</span> <span class="st">'none'</span>) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> d_sf_states, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">'transparent'</span>) <span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Population Across America'</span>) <span class="sc">+</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-29"><a href="#cb2-29"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"white"</span>),</span>
+<span id="cb2-30"><a href="#cb2-30"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family=</span><span class="st">'Black Chancery'</span>),</span>
+<span id="cb2-31"><a href="#cb2-31"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="fl">0.01</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">75</span>)</span>
+<span id="cb2-32"><a href="#cb2-32"></a>  )</span>
+<span id="cb2-33"><a href="#cb2-33"></a>gb <span class="ot">&lt;-</span> <span class="fu">ggplot_build</span>(g)</span>
+<span id="cb2-34"><a href="#cb2-34"></a></span>
+<span id="cb2-35"><a href="#cb2-35"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
+<span id="cb2-36"><a href="#cb2-36"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb2-37"><a href="#cb2-37"></a>    <span class="st">"text"</span>, <span class="at">label =</span> <span class="st">"© Vincent Clemson"</span>, <span class="at">family=</span><span class="st">'Black Chancery'</span>, <span class="at">size =</span> <span class="dv">14</span><span class="sc">/</span>.pt,</span>
+<span id="cb2-38"><a href="#cb2-38"></a>    <span class="at">x =</span> gb<span class="sc">$</span>layout<span class="sc">$</span>panel_params[[<span class="dv">1</span>]]<span class="sc">$</span>x_range[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">1100000</span>,</span>
+<span id="cb2-39"><a href="#cb2-39"></a>    <span class="at">y =</span> gb<span class="sc">$</span>layout<span class="sc">$</span>panel_params[[<span class="dv">1</span>]]<span class="sc">$</span>y_range[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">500000</span>,</span>
+<span id="cb2-40"><a href="#cb2-40"></a>  )</span>
+<span id="cb2-41"><a href="#cb2-41"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> g, <span class="at">width =</span> width, <span class="at">height =</span> height, <span class="at">unit =</span> <span class="st">'in'</span>, <span class="at">dpi =</span> dpi, <span class="at">filename =</span> <span class="st">'usapop-ggplot-ggsave.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="fig-usapop-ggplot" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-usapop-ggplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-usapop-ggplot" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-usapop-ggplot-rs" class="quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-usapop-ggplot-rs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="usapop-ggplot.png" class="img-fluid figure-img" data-ref-parent="fig-usapop-ggplot">
+</div>
+<figcaption class="figure quarto-subfloat-caption quarto-subfloat-fig" id="fig-usapop-ggplot-rs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) RStudio Plot Pane Version
+</figcaption></figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-usapop-ggplot" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-usapop-ggplot-gg" class="quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-usapop-ggplot-gg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="usapop-ggplot-ggsave.png" class="img-fluid figure-img" data-ref-parent="fig-usapop-ggplot">
+</div>
+<figcaption class="figure quarto-subfloat-caption quarto-subfloat-fig" id="fig-usapop-ggplot-gg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) ggsave Version
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-usapop-ggplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Two ggplot2 versions of the county population map to compare save methods.
+</figcaption></figure>
+</div>
+</section><section id="svg-xml-editting" class="level2"><h2 class="anchored" data-anchor-id="svg-xml-editting">SVG &amp; XML Editting</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/SVG">SVG</a> (Scalar Vector Graphics) is itself its own markup language, based in <a href="https://developer.mozilla.org/en-US/docs/Web/XML">XML</a> and similar to <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a>. The key difference between HTML &amp; SVG being that HTML specifies how text is displayed to the browser versus SVG describes how graphics are displayed.</p>
+<p>Because SVG files are written as XML, they can be loaded as objects and edited in scripting languages, similar to how commonly used web scraping tools work. Using the <a href="https://xml2.r-lib.org/">xml2</a> &amp; <a href="https://rvest.tidyverse.org/">rvest</a> packages in combination from the <a href="https://tidyverse.tidyverse.org">tidyverse</a> can help us run query selectors on the XML markup to add and remove XML element nodes as necessary.</p>
+<p>Using the <a href="https://svglite.r-lib.org">svglite</a> package/graphics device within <code>ggsave</code> function calls, we convert &amp; save ggplots to SVG elements, and even use our custom fonts. <code>showtext_auto(FALSE)</code> should be ran within interactive R sessions that have set <code>showtext_auto(enable = TRUE)</code> before saving ggplots via <code>ggsave</code> to <code>.svg</code>.</p>
+<section id="adding-iteractivity" class="level3"><h3 class="anchored" data-anchor-id="adding-iteractivity">Adding Iteractivity</h3>
+<p>Using vanilla JavaScript, I add a tooltip that reads the <code>title</code> attribute of each county boundary SVG <code>&lt;path&gt;</code> within the created choropleth group (<code>&lt;g&gt;</code>) element. The tooltip SVG element itself is a single <code>&lt;rect&gt;</code> &amp; <code>&lt;text&gt;</code> pair rapped in a group. JavaScript handles updating the text using event handlers on mouse movement. The tooltip was inspired by Lee Mason’s <a href="https://observablehq.com/@siliconjazz/basic-svg-tooltip">Basic SVG Tooltip</a> Observable Notebook.</p>
+<div data-add-from="../../../about/usapop.js" data-code-filename="usapop.js">
+<details><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a>svgChoro <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'svg.svglite &gt; g.choro'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>svgBords <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'svg.svglite &gt; g.borders'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>svgBordE <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'svg.svglite &gt; g.borders &gt; path.end'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>tooltipG <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'svg.svglite g.tooltip'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>tooltipR <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'svg.svglite g.tooltip rect'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>tooltipT <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'svg.svglite g.tooltip text'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>tooltipT<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">'A'</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="kw">const</span> pad <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="kw">const</span> xR <span class="op">=</span> <span class="fl">0.5</span> <span class="co">// for width of path</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="kw">const</span> yR <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="kw">let</span> tooltipTBox <span class="op">=</span> tooltipT<span class="op">.</span><span class="fu">getBBox</span>()</span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="kw">let</span> hT <span class="op">=</span> tooltipTBox<span class="op">.</span><span class="at">height</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="kw">let</span> wT <span class="op">=</span> tooltipTBox<span class="op">.</span><span class="at">width</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="kw">let</span> hR <span class="op">=</span> hT<span class="op">+</span>pad<span class="op">*</span><span class="dv">3</span><span class="op">+</span>xR</span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="kw">let</span> wR <span class="op">=</span> wT<span class="op">+</span>pad<span class="op">*</span><span class="fl">2.5</span><span class="op">+</span>yR</span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="kw">let</span> xT <span class="op">=</span> wR<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="kw">let</span> yT <span class="op">=</span> hR<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>tooltipR<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'x'</span><span class="op">,</span> xR)</span>
+<span id="cb3-19"><a href="#cb3-19"></a>tooltipR<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'y'</span><span class="op">,</span> yR)</span>
+<span id="cb3-20"><a href="#cb3-20"></a>tooltipT<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'x'</span><span class="op">,</span> xT)</span>
+<span id="cb3-21"><a href="#cb3-21"></a>tooltipT<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'y'</span><span class="op">,</span> yT)</span>
+<span id="cb3-22"><a href="#cb3-22"></a>tooltipR<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'width'</span><span class="op">,</span> <span class="vs">`</span><span class="sc">${</span>wR<span class="sc">}</span><span class="vs">px`</span>)</span>
+<span id="cb3-23"><a href="#cb3-23"></a>tooltipR<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'height'</span><span class="op">,</span> <span class="vs">`</span><span class="sc">${</span>hR<span class="sc">}</span><span class="vs">px`</span>)</span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="co">// right &amp; bottom pixel offseft</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="kw">const</span> mouseOffset <span class="op">=</span> [<span class="dv">0</span><span class="op">,</span><span class="dv">0</span>]</span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="kw">const</span> svgBox <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'svg.svglite'</span>)<span class="op">.</span><span class="fu">getBBox</span>()</span>
+<span id="cb3-27"><a href="#cb3-27"></a></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="co">// element to be replaced by hovered element</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a>svgBords<span class="op">.</span><span class="fu">insertAdjacentHTML</span>(<span class="st">'beforeend'</span><span class="op">,</span> <span class="st">'&lt;path class="end"&gt;&lt;/path&gt;'</span>)</span>
+<span id="cb3-30"><a href="#cb3-30"></a></span>
+<span id="cb3-31"><a href="#cb3-31"></a>svgChoro<span class="op">.</span><span class="at">onmouseover</span> <span class="op">=</span> <span class="kw">function</span>(e) {</span>
+<span id="cb3-32"><a href="#cb3-32"></a>  <span class="cf">if</span> (e<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">nodeName</span> <span class="op">==</span> <span class="st">'path'</span>) {</span>
+<span id="cb3-33"><a href="#cb3-33"></a>    <span class="kw">const</span> bbox <span class="op">=</span> e<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="fu">getBBox</span>()</span>
+<span id="cb3-34"><a href="#cb3-34"></a>    e<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">add</span>(<span class="st">'hover'</span><span class="op">,</span> <span class="st">'end'</span>)</span>
+<span id="cb3-35"><a href="#cb3-35"></a>    bordersGEnd <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'svg.svglite &gt; g.borders &gt; path.end'</span>)</span>
+<span id="cb3-36"><a href="#cb3-36"></a>    <span class="co">// replacement of elements</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a>    <span class="kw">const</span> dummy <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createComment</span>(<span class="st">''</span>)</span>
+<span id="cb3-38"><a href="#cb3-38"></a>    bordersGEnd<span class="op">.</span><span class="fu">replaceWith</span>(dummy)</span>
+<span id="cb3-39"><a href="#cb3-39"></a>    e<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="fu">replaceWith</span>(bordersGEnd)</span>
+<span id="cb3-40"><a href="#cb3-40"></a>    dummy<span class="op">.</span><span class="fu">replaceWith</span>(e<span class="op">.</span><span class="at">target</span>)</span>
+<span id="cb3-41"><a href="#cb3-41"></a>    <span class="fu">showTooltip</span>(bbox<span class="op">.</span><span class="at">x</span><span class="op">,</span> bbox<span class="op">.</span><span class="at">y</span><span class="op">,</span> bbox<span class="op">.</span><span class="at">width</span><span class="op">,</span> bbox<span class="op">.</span><span class="at">height</span><span class="op">,</span> e<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="fu">getAttribute</span>(<span class="st">'title'</span>))</span>
+<span id="cb3-42"><a href="#cb3-42"></a>    <span class="co">// remove hover and put path elements back in original groups</span></span>
+<span id="cb3-43"><a href="#cb3-43"></a>    e<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">onmouseout</span> <span class="op">=</span> <span class="kw">function</span>(e) {</span>
+<span id="cb3-44"><a href="#cb3-44"></a>      e<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">remove</span>(<span class="st">'hover'</span><span class="op">,</span> <span class="st">'end'</span>)</span>
+<span id="cb3-45"><a href="#cb3-45"></a>      svgChoro<span class="op">.</span><span class="fu">appendChild</span>(e<span class="op">.</span><span class="at">target</span>)</span>
+<span id="cb3-46"><a href="#cb3-46"></a>      svgBords<span class="op">.</span><span class="fu">appendChild</span>(bordersGEnd)</span>
+<span id="cb3-47"><a href="#cb3-47"></a>    }</span>
+<span id="cb3-48"><a href="#cb3-48"></a>  }</span>
+<span id="cb3-49"><a href="#cb3-49"></a>}</span>
+<span id="cb3-50"><a href="#cb3-50"></a></span>
+<span id="cb3-51"><a href="#cb3-51"></a>svgBords<span class="op">.</span><span class="at">onmouseleave</span> <span class="op">=</span> hideTooltip</span>
+<span id="cb3-52"><a href="#cb3-52"></a><span class="co">// Chrome compatibility</span></span>
+<span id="cb3-53"><a href="#cb3-53"></a>svgChoro<span class="op">.</span><span class="at">onmouseleave</span> <span class="op">=</span> hideTooltip</span>
+<span id="cb3-54"><a href="#cb3-54"></a></span>
+<span id="cb3-55"><a href="#cb3-55"></a><span class="kw">function</span> <span class="fu">hideTooltip</span>(e) {</span>
+<span id="cb3-56"><a href="#cb3-56"></a>  tooltipG<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">visibility</span> <span class="op">=</span> <span class="st">'hidden'</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a>}</span>
+<span id="cb3-58"><a href="#cb3-58"></a><span class="kw">function</span> <span class="fu">showTooltip</span>(x<span class="op">,</span> y<span class="op">,</span> w<span class="op">,</span> h<span class="op">,</span> text) {</span>
+<span id="cb3-59"><a href="#cb3-59"></a>  tooltipT<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> text</span>
+<span id="cb3-60"><a href="#cb3-60"></a>  tooltipTBox <span class="op">=</span> tooltipT<span class="op">.</span><span class="fu">getBBox</span>()</span>
+<span id="cb3-61"><a href="#cb3-61"></a>  hT <span class="op">=</span> tooltipTBox<span class="op">.</span><span class="at">height</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a>  wT <span class="op">=</span> tooltipTBox<span class="op">.</span><span class="at">width</span></span>
+<span id="cb3-63"><a href="#cb3-63"></a>  hR <span class="op">=</span> hT<span class="op">+</span>pad<span class="op">*</span><span class="dv">2</span></span>
+<span id="cb3-64"><a href="#cb3-64"></a>  wR <span class="op">=</span> wT<span class="op">+</span>pad<span class="op">*</span><span class="dv">2</span></span>
+<span id="cb3-65"><a href="#cb3-65"></a>  xT <span class="op">=</span> wR<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb3-66"><a href="#cb3-66"></a>  yT <span class="op">=</span> hR<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb3-67"><a href="#cb3-67"></a>  tooltipT<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'x'</span><span class="op">,</span> xT)</span>
+<span id="cb3-68"><a href="#cb3-68"></a>  tooltipT<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'y'</span><span class="op">,</span> yT)</span>
+<span id="cb3-69"><a href="#cb3-69"></a>  tooltipR<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'width'</span><span class="op">,</span> <span class="vs">`</span><span class="sc">${</span>wR<span class="sc">}</span><span class="vs">px`</span>)</span>
+<span id="cb3-70"><a href="#cb3-70"></a>  tooltipR<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'height'</span><span class="op">,</span> <span class="vs">`</span><span class="sc">${</span>hR<span class="sc">}</span><span class="vs">px`</span>)</span>
+<span id="cb3-71"><a href="#cb3-71"></a>  <span class="kw">const</span> bottom_target <span class="op">=</span> [x<span class="op">-</span>w<span class="op">/</span><span class="dv">2</span><span class="op">-</span>mouseOffset[<span class="dv">0</span>]<span class="op">,</span> y<span class="op">+</span>h<span class="op">+</span>mouseOffset[<span class="dv">1</span>]]</span>
+<span id="cb3-72"><a href="#cb3-72"></a>  <span class="kw">let</span> xG <span class="op">=</span> bottom_target[<span class="dv">0</span>]</span>
+<span id="cb3-73"><a href="#cb3-73"></a>  <span class="kw">let</span> yG <span class="op">=</span> bottom_target[<span class="dv">1</span>]</span>
+<span id="cb3-74"><a href="#cb3-74"></a>  <span class="kw">const</span> tooltipRBox <span class="op">=</span> tooltipR<span class="op">.</span><span class="fu">getBBox</span>()</span>
+<span id="cb3-75"><a href="#cb3-75"></a>  <span class="co">// uses max tooltip size to not going over right edge</span></span>
+<span id="cb3-76"><a href="#cb3-76"></a>  <span class="cf">if</span> (xG <span class="op">&gt;</span> svgBox<span class="op">.</span><span class="at">width</span> <span class="op">-</span> tooltipRBox<span class="op">.</span><span class="at">width</span>) { xG <span class="op">=</span> x <span class="op">-</span> (tooltipRBox<span class="op">.</span><span class="at">width</span> <span class="op">&lt;</span> <span class="dv">150</span> <span class="op">?</span> tooltipRBox<span class="op">.</span><span class="at">width</span> <span class="op">:</span> <span class="dv">150</span>) }</span>
+<span id="cb3-77"><a href="#cb3-77"></a>  <span class="co">// keeps from going over left edge</span></span>
+<span id="cb3-78"><a href="#cb3-78"></a>  <span class="cf">if</span> (xG <span class="op">&lt;</span> <span class="dv">0</span>) { xG <span class="op">=</span> <span class="dv">0</span> }</span>
+<span id="cb3-79"><a href="#cb3-79"></a>  <span class="co">// keeps from going over bottom</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a>  <span class="cf">if</span> (yG <span class="op">&gt;</span> svgBox<span class="op">.</span><span class="at">height</span> <span class="op">-</span> tooltipRBox<span class="op">.</span><span class="at">height</span>) { yG <span class="op">=</span> y <span class="op">-</span> tooltipRBox<span class="op">.</span><span class="at">height</span> <span class="op">-</span> mouseOffset[<span class="dv">1</span>] }</span>
+<span id="cb3-81"><a href="#cb3-81"></a>  <span class="co">// tooltips will always be under top</span></span>
+<span id="cb3-82"><a href="#cb3-82"></a>  tooltipG<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'transform'</span><span class="op">,</span> <span class="vs">`translate(</span><span class="sc">${</span>xG<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>yG<span class="sc">}</span><span class="vs">)`</span>)</span>
+<span id="cb3-83"><a href="#cb3-83"></a>  tooltipG<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">visibility</span> <span class="op">=</span> <span class="st">'visible'</span></span>
+<span id="cb3-84"><a href="#cb3-84"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Styling for the tooltip:</p>
+<div data-add-from="../../../about/usapop.css" data-code-filename="usapop.css">
+<details><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1"></a>g<span class="fu">.borders</span> <span class="op">&gt;</span> path<span class="fu">.hover</span> {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  stroke-width: <span class="dv">0.5</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  stroke: <span class="fu">rgb(</span><span class="dv">226</span><span class="op">,</span> <span class="dv">226</span><span class="op">,</span> <span class="dv">226</span><span class="fu">)</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>}</span>
+<span id="cb4-5"><a href="#cb4-5"></a>g<span class="fu">.tooltip</span> {</span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="kw">visibility</span>: <span class="dv">hidden</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8"></a>g<span class="fu">.tooltip</span> rect {</span>
+<span id="cb4-9"><a href="#cb4-9"></a>  <span class="kw">fill</span>: <span class="fu">rgba(</span><span class="dv">255</span><span class="op">,</span> <span class="dv">255</span><span class="op">,</span> <span class="dv">255</span><span class="op">,</span> <span class="dv">0.7</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>  rx: <span class="dv">2</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  ry: <span class="dv">2</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>}</span>
+<span id="cb4-13"><a href="#cb4-13"></a>g<span class="fu">.tooltip</span> text {</span>
+<span id="cb4-14"><a href="#cb4-14"></a>  <span class="kw">font-size</span>: <span class="dv">16</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>  <span class="kw">dominant-baseline</span>: <span class="dv">middle</span><span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>  text-anchor: <span class="dv">middle</span><span class="op">;</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="the-whole-game" class="level3"><h3 class="anchored" data-anchor-id="the-whole-game">The Whole Game</h3>
+<p>Combining all of these techniques involves quite a bit of prototyping. There’s a lot to pick apart, especially with mapping elements of the ggplot to the svg output correctly. <a href="#fig-usapop-outline" class="quarto-xref">Figure&nbsp;3</a> displays an outline of the core components of the script. You can dive deep into the full script below. I originally built this to add within the <a href="../../../about/">about</a> page/path of my site, so this is why paths are relative to the <code>about/</code> directory.</p>
+<div class="cell">
+<details><summary>usapop-svg.R</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">library</span>(ggfx)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">library</span>(xml2)</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">library</span>(usmap)</span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="fu">library</span>(tictoc)</span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="fu">library</span>(svglite)</span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="fu">library</span>(showtext)</span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="fu">library</span>(base64enc)</span>
+<span id="cb5-14"><a href="#cb5-14"></a></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="fu">tic</span>()</span>
+<span id="cb5-16"><a href="#cb5-16"></a></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="co"># data load &amp; format ----</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a>d <span class="ot">&lt;-</span> <span class="fu">left_join</span>(usmap<span class="sc">::</span><span class="fu">us_map</span>(<span class="at">regions=</span><span class="st">'county'</span>), usmap<span class="sc">::</span>countypop, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'fips'</span>, <span class="st">'abbr'</span>, <span class="st">'county'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="co"># must create individual polygons first before entire counties of multiple polygons</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>d_sf <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">'x'</span>, <span class="st">'y'</span>), <span class="at">crs =</span> usmap<span class="sc">::</span><span class="fu">usmap_crs</span>()) <span class="sc">|&gt;</span> <span class="fu">st_transform</span>(<span class="dv">4326</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-24"><a href="#cb5-24"></a>    <span class="at">geometry =</span> <span class="fu">st_combine</span>(geometry) <span class="sc">|&gt;</span> <span class="fu">st_cast</span>(<span class="st">'POLYGON'</span>),</span>
+<span id="cb5-25"><a href="#cb5-25"></a>    <span class="fu">across</span>(<span class="fu">c</span>(abbr, pop_2015, full, county, fips), unique)</span>
+<span id="cb5-26"><a href="#cb5-26"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a>  <span class="fu">group_by</span>(fips) <span class="sc">|&gt;</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-29"><a href="#cb5-29"></a>    <span class="at">geometry =</span> <span class="fu">st_combine</span>(geometry),</span>
+<span id="cb5-30"><a href="#cb5-30"></a>    <span class="fu">across</span>(<span class="fu">c</span>(abbr, pop_2015, full, county), unique),</span>
+<span id="cb5-31"><a href="#cb5-31"></a>    <span class="at">l_group =</span> <span class="fu">list</span>(group)</span>
+<span id="cb5-32"><a href="#cb5-32"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-33"><a href="#cb5-33"></a>  <span class="fu">mutate</span>(<span class="at">pop_full =</span> <span class="fu">sum</span>(pop_2015, <span class="at">na.rm =</span> T), <span class="at">.by =</span> full) <span class="sc">|&gt;</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-35"><a href="#cb5-35"></a>    <span class="at">point =</span> <span class="fu">lapply</span>(geometry, <span class="cf">function</span>(p) p <span class="sc">|&gt;</span> <span class="fu">st_cast</span>(<span class="st">'POINT'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-36"><a href="#cb5-36"></a>      <span class="fu">suppressWarnings</span>()) <span class="sc">|&gt;</span> <span class="fu">st_sfc</span>() <span class="sc">|&gt;</span> <span class="fu">st_set_crs</span>(<span class="dv">4326</span>),</span>
+<span id="cb5-37"><a href="#cb5-37"></a>    <span class="at">county =</span> <span class="fu">sub</span>(<span class="at">x =</span> county, <span class="at">pattern =</span> <span class="st">' County'</span>, <span class="at">replacement =</span> <span class="st">''</span>),</span>
+<span id="cb5-38"><a href="#cb5-38"></a>    <span class="at">pop_perc =</span> pop_2015<span class="sc">/</span>pop_full</span>
+<span id="cb5-39"><a href="#cb5-39"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-40"><a href="#cb5-40"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-41"><a href="#cb5-41"></a>    <span class="at">text =</span> <span class="fu">paste0</span>(</span>
+<span id="cb5-42"><a href="#cb5-42"></a>      <span class="fu">sprintf</span>(<span class="fu">paste0</span>(county, <span class="st">', '</span>, full, <span class="st">' '</span>, <span class="st">'%.2f%%'</span>), <span class="dv">100</span><span class="sc">*</span>pop_perc),</span>
+<span id="cb5-43"><a href="#cb5-43"></a>      <span class="co"># for mapping SVG elements</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a>      <span class="st">'|'</span>, <span class="fu">lapply</span>(geometry, length) <span class="sc">|&gt;</span> <span class="fu">unlist</span>()</span>
+<span id="cb5-45"><a href="#cb5-45"></a>    )</span>
+<span id="cb5-46"><a href="#cb5-46"></a>  )</span>
+<span id="cb5-47"><a href="#cb5-47"></a></span>
+<span id="cb5-48"><a href="#cb5-48"></a><span class="co"># ggplot ----</span></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="do">## plot format objects ----</span></span>
+<span id="cb5-50"><a href="#cb5-50"></a>proj <span class="ot">&lt;-</span> <span class="st">'+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +a=6370997 +b=6370997 +units=m +no_defs'</span></span>
+<span id="cb5-51"><a href="#cb5-51"></a>d_sf_us <span class="ot">&lt;-</span> d_sf <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span> full <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Hawaii'</span>, <span class="st">'Alaska'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-52"><a href="#cb5-52"></a>  <span class="fu">summarise</span>(<span class="at">geometry =</span> <span class="fu">st_combine</span>(geometry)) <span class="sc">|&gt;</span></span>
+<span id="cb5-53"><a href="#cb5-53"></a>  <span class="fu">mutate</span>(<span class="at">geometry =</span> geometry <span class="sc">|&gt;</span> <span class="fu">st_make_valid</span>() <span class="sc">|&gt;</span> <span class="fu">st_union</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a>  <span class="fu">st_transform</span>(proj)</span>
+<span id="cb5-55"><a href="#cb5-55"></a>d_sf_states <span class="ot">&lt;-</span> d_sf <span class="sc">|&gt;</span> <span class="fu">group_by</span>(full) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">geometry =</span> <span class="fu">st_combine</span>(geometry)) <span class="sc">|&gt;</span></span>
+<span id="cb5-56"><a href="#cb5-56"></a>  <span class="fu">mutate</span>(<span class="at">geometry =</span> geometry <span class="sc">|&gt;</span> <span class="fu">st_make_valid</span>() <span class="sc">|&gt;</span> <span class="fu">st_union</span>(), <span class="at">.by =</span> full) <span class="sc">|&gt;</span></span>
+<span id="cb5-57"><a href="#cb5-57"></a>  <span class="fu">filter</span>(<span class="sc">!</span> full <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Hawaii'</span>, <span class="st">'Alaska'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-58"><a href="#cb5-58"></a>  <span class="fu">st_transform</span>(proj)</span>
+<span id="cb5-59"><a href="#cb5-59"></a>d_sf_plot <span class="ot">&lt;-</span> d_sf <span class="sc">|&gt;</span></span>
+<span id="cb5-60"><a href="#cb5-60"></a>  <span class="fu">filter</span>(<span class="sc">!</span> full <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Hawaii'</span>, <span class="st">'Alaska'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-61"><a href="#cb5-61"></a>  <span class="fu">st_transform</span>(proj)</span>
+<span id="cb5-62"><a href="#cb5-62"></a><span class="do">## plot object ----</span></span>
+<span id="cb5-63"><a href="#cb5-63"></a>g0 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb5-64"><a href="#cb5-64"></a>  <span class="fu">geom_sf</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">log</span>(pop_2015)), <span class="at">linewidth=</span><span class="fl">0.1</span>),</span>
+<span id="cb5-65"><a href="#cb5-65"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">low =</span> <span class="st">'yellow'</span>, <span class="at">high =</span> <span class="st">'darkgreen'</span>, <span class="at">na.value=</span><span class="st">'yellow'</span>, <span class="at">guide =</span> <span class="st">'none'</span>),</span>
+<span id="cb5-66"><a href="#cb5-66"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> d_sf_states, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">'transparent'</span>),</span>
+<span id="cb5-67"><a href="#cb5-67"></a>  <span class="fu">geom_sf_text</span>(<span class="fu">aes</span>(<span class="at">geometry =</span> point, <span class="at">label =</span> text)),</span>
+<span id="cb5-68"><a href="#cb5-68"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Population Across America'</span>),</span>
+<span id="cb5-69"><a href="#cb5-69"></a>  <span class="fu">theme_void</span>(),</span>
+<span id="cb5-70"><a href="#cb5-70"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-71"><a href="#cb5-71"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family=</span><span class="st">'serif'</span>),</span>
+<span id="cb5-72"><a href="#cb5-72"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="fl">0.01</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">55</span>)<span class="co">#size = 75)</span></span>
+<span id="cb5-73"><a href="#cb5-73"></a>  )</span>
+<span id="cb5-74"><a href="#cb5-74"></a>)</span>
+<span id="cb5-75"><a href="#cb5-75"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> d_sf_plot) <span class="sc">+</span> g0</span>
+<span id="cb5-76"><a href="#cb5-76"></a>gb <span class="ot">&lt;-</span> <span class="fu">ggplot_build</span>(g)</span>
+<span id="cb5-77"><a href="#cb5-77"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
+<span id="cb5-78"><a href="#cb5-78"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb5-79"><a href="#cb5-79"></a>    <span class="st">"text"</span>, <span class="at">label =</span> <span class="st">"© Vincent Clemson"</span>, <span class="at">family=</span><span class="st">'serif'</span>, <span class="at">size =</span> <span class="dv">12</span><span class="sc">/</span>.pt,</span>
+<span id="cb5-80"><a href="#cb5-80"></a>    <span class="at">x =</span> gb<span class="sc">$</span>layout<span class="sc">$</span>panel_params[[<span class="dv">1</span>]]<span class="sc">$</span>x_range[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">1100000</span>,</span>
+<span id="cb5-81"><a href="#cb5-81"></a>    <span class="at">y =</span> gb<span class="sc">$</span>layout<span class="sc">$</span>panel_params[[<span class="dv">1</span>]]<span class="sc">$</span>y_range[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">500000</span>,</span>
+<span id="cb5-82"><a href="#cb5-82"></a>  )</span>
+<span id="cb5-83"><a href="#cb5-83"></a></span>
+<span id="cb5-84"><a href="#cb5-84"></a>gfx <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> d_sf_plot) <span class="sc">+</span></span>
+<span id="cb5-85"><a href="#cb5-85"></a>  <span class="fu">with_shadow</span>(</span>
+<span id="cb5-86"><a href="#cb5-86"></a>    <span class="at">sigma =</span> <span class="dv">3</span>, <span class="at">x_offset =</span> <span class="dv">3</span>, <span class="at">y_offset =</span> <span class="dv">3</span>,</span>
+<span id="cb5-87"><a href="#cb5-87"></a>    <span class="fu">geom_sf</span>(<span class="at">data =</span> d_sf_us, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">'white'</span>)</span>
+<span id="cb5-88"><a href="#cb5-88"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-89"><a href="#cb5-89"></a>  g0</span>
+<span id="cb5-90"><a href="#cb5-90"></a></span>
+<span id="cb5-91"><a href="#cb5-91"></a><span class="do">## save ggplot to svg ----</span></span>
+<span id="cb5-92"><a href="#cb5-92"></a><span class="co"># must write to file - uses {svglite}</span></span>
+<span id="cb5-93"><a href="#cb5-93"></a>fonts <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">serif =</span> <span class="fu">list</span>(<span class="at">plain =</span> <span class="fu">list</span>(<span class="at">alias =</span> <span class="st">'Black Chancery Regular'</span>, <span class="at">file =</span> <span class="st">'about/BLKCHCRY.TTF'</span>)))</span>
+<span id="cb5-94"><a href="#cb5-94"></a><span class="co"># mbp 14" height / width in inches</span></span>
+<span id="cb5-95"><a href="#cb5-95"></a>width <span class="ot">&lt;-</span> <span class="fl">11.88212</span></span>
+<span id="cb5-96"><a href="#cb5-96"></a>height <span class="ot">&lt;-</span> <span class="fl">7.465619</span></span>
+<span id="cb5-97"><a href="#cb5-97"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> g, <span class="at">width =</span> width, <span class="at">height =</span> height, <span class="at">filename =</span> <span class="st">'about/usapop.svg'</span>, <span class="at">user_fonts =</span> fonts)</span>
+<span id="cb5-98"><a href="#cb5-98"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> gfx, <span class="at">width =</span> width, <span class="at">height =</span> height, <span class="at">filename =</span> <span class="st">'about/usapopfx.svg'</span>)</span>
+<span id="cb5-99"><a href="#cb5-99"></a></span>
+<span id="cb5-100"><a href="#cb5-100"></a><span class="co"># svg editting ----</span></span>
+<span id="cb5-101"><a href="#cb5-101"></a><span class="do">## read svg as xml document for editting ----</span></span>
+<span id="cb5-102"><a href="#cb5-102"></a>doc <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">'about/usapop.svg'</span>)</span>
+<span id="cb5-103"><a href="#cb5-103"></a>docfx <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">'about/usapopfx.svg'</span>)</span>
+<span id="cb5-104"><a href="#cb5-104"></a>ns_d1 <span class="ot">&lt;-</span> <span class="fu">xml_ns</span>(doc) <span class="sc">|&gt;</span> <span class="fu">as.list</span>() <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="st">'d1'</span>)</span>
+<span id="cb5-105"><a href="#cb5-105"></a><span class="fu">xml_ns_strip</span>(doc)</span>
+<span id="cb5-106"><a href="#cb5-106"></a><span class="fu">xml_ns_strip</span>(docfx)</span>
+<span id="cb5-107"><a href="#cb5-107"></a><span class="do">## gather svg element data &amp; non-dummy data to edit ----</span></span>
+<span id="cb5-108"><a href="#cb5-108"></a><span class="co"># then move to new node &amp; remove moved elements</span></span>
+<span id="cb5-109"><a href="#cb5-109"></a>xn_g <span class="ot">&lt;-</span> doc <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">'g'</span>) <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="dv">2</span>)</span>
+<span id="cb5-110"><a href="#cb5-110"></a>xn_txt_use <span class="ot">&lt;-</span> xn_g <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">'text'</span>) <span class="sc">|&gt;</span> <span class="fu">rev</span>() <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="dv">1</span>)</span>
+<span id="cb5-111"><a href="#cb5-111"></a>xn_img <span class="ot">&lt;-</span> docfx <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">'image'</span>) <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="dv">1</span>)</span>
+<span id="cb5-112"><a href="#cb5-112"></a>doc <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">'g'</span>) <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="dv">3</span>) <span class="sc">|&gt;</span> <span class="fu">xml_add_child</span>(xn_txt_use)</span>
+<span id="cb5-113"><a href="#cb5-113"></a>doc <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">'g'</span>) <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">xml_add_child</span>(xn_img)</span>
+<span id="cb5-114"><a href="#cb5-114"></a><span class="fu">xml_remove</span>(xn_txt_use)</span>
+<span id="cb5-115"><a href="#cb5-115"></a>xn_g_path <span class="ot">&lt;-</span> xn_g <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">'path'</span>)</span>
+<span id="cb5-116"><a href="#cb5-116"></a>xn_g_txt <span class="ot">&lt;-</span> xn_g <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">'text'</span>)</span>
+<span id="cb5-117"><a href="#cb5-117"></a><span class="do">## hover / popup metadata ----</span></span>
+<span id="cb5-118"><a href="#cb5-118"></a>l_txt <span class="ot">&lt;-</span> xn_g_txt <span class="sc">|&gt;</span> <span class="fu">lapply</span>(<span class="cf">function</span>(i) <span class="fu">strsplit</span>(<span class="fu">html_text</span>(i), <span class="st">'</span><span class="sc">\\</span><span class="st">|'</span>) <span class="sc">|&gt;</span> <span class="fu">unlist</span>())</span>
+<span id="cb5-119"><a href="#cb5-119"></a>xby <span class="ot">&lt;-</span> l_txt <span class="sc">|&gt;</span> <span class="fu">lapply</span>(<span class="cf">function</span>(i) <span class="fu">pluck</span>(i, <span class="dv">2</span>)) <span class="sc">|&gt;</span> <span class="fu">unlist</span>() <span class="sc">|&gt;</span> <span class="fu">as.integer</span>()</span>
+<span id="cb5-120"><a href="#cb5-120"></a>txt <span class="ot">&lt;-</span> l_txt <span class="sc">|&gt;</span> <span class="fu">lapply</span>(<span class="cf">function</span>(i) <span class="fu">pluck</span>(i, <span class="dv">1</span>)) <span class="sc">|&gt;</span> <span class="fu">unlist</span>()</span>
+<span id="cb5-121"><a href="#cb5-121"></a>xby_expand <span class="ot">&lt;-</span> <span class="fu">lapply</span>(xby, <span class="cf">function</span>(x) <span class="fu">rep</span>(x, x)) <span class="sc">|&gt;</span> <span class="fu">unlist</span>()</span>
+<span id="cb5-122"><a href="#cb5-122"></a>txt_expand <span class="ot">&lt;-</span> <span class="fu">map2</span>(txt, xby, \(t, x) <span class="fu">rep</span>(t, x)) <span class="sc">|&gt;</span> <span class="fu">unlist</span>()</span>
+<span id="cb5-123"><a href="#cb5-123"></a>d_key <span class="ot">&lt;-</span> <span class="fu">tibble</span>(xby_expand, txt_expand) <span class="sc">|&gt;</span></span>
+<span id="cb5-124"><a href="#cb5-124"></a>  <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb5-125"><a href="#cb5-125"></a><span class="co"># identify county paths composed of more than 1 polygon</span></span>
+<span id="cb5-126"><a href="#cb5-126"></a>idx_1 <span class="ot">&lt;-</span> d_key <span class="sc">|&gt;</span> <span class="fu">filter</span>(xby_expand <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-127"><a href="#cb5-127"></a>  <span class="fu">reframe</span>(<span class="at">ID =</span> ID[<span class="dv">1</span>], <span class="at">.by =</span> txt_expand) <span class="sc">|&gt;</span> <span class="fu">pull</span>(ID)</span>
+<span id="cb5-128"><a href="#cb5-128"></a><span class="cf">for</span>(i <span class="cf">in</span> idx_1) {</span>
+<span id="cb5-129"><a href="#cb5-129"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(d_key <span class="sc">|&gt;</span> <span class="fu">filter</span>(ID <span class="sc">==</span> i) <span class="sc">|&gt;</span> <span class="fu">pull</span>(xby_expand) <span class="sc">-</span> <span class="dv">1</span>)) {</span>
+<span id="cb5-130"><a href="#cb5-130"></a>    d_at <span class="ot">&lt;-</span> xn_g_path[[i]] <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">'d'</span>)</span>
+<span id="cb5-131"><a href="#cb5-131"></a>    xn_g_path[[i]] <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">'d'</span>) <span class="ot">&lt;-</span> <span class="fu">paste</span>(d_at, xn_g_path[[i<span class="sc">+</span>j]] <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">'d'</span>))</span>
+<span id="cb5-132"><a href="#cb5-132"></a>  }</span>
+<span id="cb5-133"><a href="#cb5-133"></a>}</span>
+<span id="cb5-134"><a href="#cb5-134"></a><span class="do">## removal of dummy layers ----</span></span>
+<span id="cb5-135"><a href="#cb5-135"></a><span class="cf">for</span>(i <span class="cf">in</span> idx_1) {</span>
+<span id="cb5-136"><a href="#cb5-136"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(d_key <span class="sc">|&gt;</span> <span class="fu">filter</span>(ID <span class="sc">==</span> i) <span class="sc">|&gt;</span> <span class="fu">pull</span>(xby_expand) <span class="sc">-</span> <span class="dv">1</span>)) {</span>
+<span id="cb5-137"><a href="#cb5-137"></a>    <span class="fu">xml_remove</span>(xn_g_path[i<span class="sc">+</span>j])</span>
+<span id="cb5-138"><a href="#cb5-138"></a>  }</span>
+<span id="cb5-139"><a href="#cb5-139"></a>}</span>
+<span id="cb5-140"><a href="#cb5-140"></a>n_before <span class="ot">&lt;-</span> <span class="fu">length</span>(xn_g_path)</span>
+<span id="cb5-141"><a href="#cb5-141"></a><span class="do">## create new path list sets with updated nodes ----</span></span>
+<span id="cb5-142"><a href="#cb5-142"></a>xn_g_path <span class="ot">&lt;-</span> xn_g <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">'path'</span>)</span>
+<span id="cb5-143"><a href="#cb5-143"></a>n_after <span class="ot">&lt;-</span> <span class="fu">length</span>(xn_g_path)</span>
+<span id="cb5-144"><a href="#cb5-144"></a>n_removed <span class="ot">&lt;-</span> n_before <span class="sc">-</span> n_after</span>
+<span id="cb5-145"><a href="#cb5-145"></a>n_tobe <span class="ot">&lt;-</span> <span class="fu">length</span>(xn_g_txt)</span>
+<span id="cb5-146"><a href="#cb5-146"></a>n_other <span class="ot">&lt;-</span> n_before <span class="sc">-</span> n_removed <span class="sc">-</span> n_tobe</span>
+<span id="cb5-147"><a href="#cb5-147"></a>xn_g_path_1 <span class="ot">&lt;-</span> xn_g_path[<span class="dv">1</span><span class="sc">:</span>n_tobe]</span>
+<span id="cb5-148"><a href="#cb5-148"></a>xn_g_path_2 <span class="ot">&lt;-</span> xn_g_path[(n_tobe<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>(n_after)]</span>
+<span id="cb5-149"><a href="#cb5-149"></a><span class="do">## combine individual polygons into group ----</span></span>
+<span id="cb5-150"><a href="#cb5-150"></a><span class="co"># combines all polygons into same svg path element for counties</span></span>
+<span id="cb5-151"><a href="#cb5-151"></a><span class="fu">map2</span>(xn_g_path_1, txt, \(p, t) <span class="fu">xml_attr</span>(p, <span class="st">"title"</span>) <span class="ot">&lt;-</span> t) <span class="sc">|&gt;</span> <span class="fu">invisible</span>()</span>
+<span id="cb5-152"><a href="#cb5-152"></a><span class="fu">xml_remove</span>(xn_g_txt)</span>
+<span id="cb5-153"><a href="#cb5-153"></a>x_tooltip <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">'&lt;g class="tooltip"&gt;&lt;rect/&gt;&lt;text&gt;&lt;/text&gt;&lt;/g&gt;'</span>)</span>
+<span id="cb5-154"><a href="#cb5-154"></a><span class="do">## add separate layers to separate nodes ----</span></span>
+<span id="cb5-155"><a href="#cb5-155"></a>xb_g <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">'&lt;g class="borders"&gt;&lt;/g&gt;'</span>)</span>
+<span id="cb5-156"><a href="#cb5-156"></a><span class="fu">lapply</span>(xn_g_path_2, <span class="cf">function</span>(i) xb_g <span class="sc">|&gt;</span> <span class="fu">xml_add_child</span>(i)) <span class="sc">|&gt;</span> <span class="fu">invisible</span>()</span>
+<span id="cb5-157"><a href="#cb5-157"></a><span class="fu">xml_remove</span>(xn_g_path_2)</span>
+<span id="cb5-158"><a href="#cb5-158"></a><span class="do">## styling / javascript ----</span></span>
+<span id="cb5-159"><a href="#cb5-159"></a><span class="do">### gather near equivalent to &lt;head&gt; ----</span></span>
+<span id="cb5-160"><a href="#cb5-160"></a>x_def <span class="ot">&lt;-</span> doc <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">'defs'</span>) <span class="sc">|&gt;</span> <span class="fu">pluck</span>(<span class="dv">1</span>)</span>
+<span id="cb5-161"><a href="#cb5-161"></a>xn_g <span class="sc">|&gt;</span> <span class="fu">xml_attr</span>(<span class="st">'class'</span>) <span class="ot">&lt;-</span> <span class="st">'choro'</span></span>
+<span id="cb5-162"><a href="#cb5-162"></a><span class="do">### css styling ----</span></span>
+<span id="cb5-163"><a href="#cb5-163"></a>x_style <span class="ot">&lt;-</span> x_def <span class="sc">|&gt;</span> <span class="fu">html_element</span>(<span class="st">'style'</span>)</span>
+<span id="cb5-164"><a href="#cb5-164"></a>style_t <span class="ot">&lt;-</span> x_style <span class="sc">|&gt;</span> <span class="fu">html_text</span>()</span>
+<span id="cb5-165"><a href="#cb5-165"></a>style <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">'about/usapop.css'</span>) <span class="sc">|&gt;</span> <span class="fu">paste0</span>(<span class="at">collapse =</span> <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb5-166"><a href="#cb5-166"></a><span class="do">### fonts ----</span></span>
+<span id="cb5-167"><a href="#cb5-167"></a>fdata <span class="ot">&lt;-</span> <span class="fu">readBin</span>(fonts<span class="sc">$</span>serif<span class="sc">$</span>plain<span class="sc">$</span>file, <span class="at">what =</span> <span class="st">"raw"</span>, <span class="at">n =</span> <span class="fl">1e6</span>)</span>
+<span id="cb5-168"><a href="#cb5-168"></a>style_f <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">c</span>(</span>
+<span id="cb5-169"><a href="#cb5-169"></a>  <span class="st">'g.tooltip {'</span>,</span>
+<span id="cb5-170"><a href="#cb5-170"></a>  <span class="fu">paste0</span>(<span class="st">'font-family:'</span>, fonts<span class="sc">$</span>serif<span class="sc">$</span>plain<span class="sc">$</span>alias, <span class="st">';'</span>),</span>
+<span id="cb5-171"><a href="#cb5-171"></a>  <span class="st">'}'</span>,</span>
+<span id="cb5-172"><a href="#cb5-172"></a>  <span class="st">'@font-face {'</span>,</span>
+<span id="cb5-173"><a href="#cb5-173"></a>  <span class="fu">paste0</span>(<span class="st">'font-family:'</span>, fonts<span class="sc">$</span>serif<span class="sc">$</span>plain<span class="sc">$</span>alias, <span class="st">';'</span>),</span>
+<span id="cb5-174"><a href="#cb5-174"></a>  <span class="fu">paste0</span>(<span class="st">'src: url(data:font/ttf;base64,'</span>, <span class="fu">base64encode</span>(fdata), <span class="st">') format("truetype");'</span>),</span>
+<span id="cb5-175"><a href="#cb5-175"></a>  <span class="st">'}'</span></span>
+<span id="cb5-176"><a href="#cb5-176"></a>), <span class="at">collapse =</span> <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb5-177"><a href="#cb5-177"></a><span class="do">#### javascript ----</span></span>
+<span id="cb5-178"><a href="#cb5-178"></a>x_script <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">'&lt;script&gt;&lt;/script&gt;'</span>)</span>
+<span id="cb5-179"><a href="#cb5-179"></a>script <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">'about/usapop.js'</span>) <span class="sc">|&gt;</span> <span class="fu">paste0</span>(<span class="at">collapse =</span> <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb5-180"><a href="#cb5-180"></a><span class="do">## add all to xml ----</span></span>
+<span id="cb5-181"><a href="#cb5-181"></a><span class="do">### uncomment for testing ----</span></span>
+<span id="cb5-182"><a href="#cb5-182"></a><span class="co"># x_style_l &lt;- read_xml('&lt;link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="usapop.css"/&gt;')</span></span>
+<span id="cb5-183"><a href="#cb5-183"></a><span class="co"># doc |&gt; xml_add_child(x_style_l, .where = 0)</span></span>
+<span id="cb5-184"><a href="#cb5-184"></a><span class="co"># xml_text(x_style) &lt;- paste0(style_t, '\n', style_f)</span></span>
+<span id="cb5-185"><a href="#cb5-185"></a><span class="co"># x_script &lt;- read_xml('&lt;script xlink:href="usapop.js"&gt;&lt;/script&gt;')</span></span>
+<span id="cb5-186"><a href="#cb5-186"></a><span class="do">### for production - self-contained ----</span></span>
+<span id="cb5-187"><a href="#cb5-187"></a><span class="fu">xml_text</span>(x_style) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(style_t, <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>, style, <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>, style_f)</span>
+<span id="cb5-188"><a href="#cb5-188"></a><span class="fu">xml_text</span>(x_script) <span class="ot">&lt;-</span> script</span>
+<span id="cb5-189"><a href="#cb5-189"></a>doc <span class="sc">|&gt;</span> <span class="fu">xml_add_child</span>(xb_g)</span>
+<span id="cb5-190"><a href="#cb5-190"></a>doc <span class="sc">|&gt;</span> <span class="fu">xml_add_child</span>(x_tooltip)</span>
+<span id="cb5-191"><a href="#cb5-191"></a>doc <span class="sc">|&gt;</span> <span class="fu">xml_add_child</span>(x_script)</span>
+<span id="cb5-192"><a href="#cb5-192"></a><span class="do">## output &amp; cleanup ----</span></span>
+<span id="cb5-193"><a href="#cb5-193"></a><span class="co"># re-add namespace &amp; fix attribute unit</span></span>
+<span id="cb5-194"><a href="#cb5-194"></a><span class="fu">xml_attr</span>(doc, <span class="st">'xmlns'</span>) <span class="ot">&lt;-</span> ns_d1</span>
+<span id="cb5-195"><a href="#cb5-195"></a><span class="co"># unset to allow element to take full advantage of viewBox</span></span>
+<span id="cb5-196"><a href="#cb5-196"></a><span class="fu">xml_attr</span>(doc, <span class="st">'width'</span>) <span class="ot">&lt;-</span>  <span class="cn">NULL</span></span>
+<span id="cb5-197"><a href="#cb5-197"></a><span class="fu">xml_attr</span>(doc, <span class="st">'height'</span>) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb5-198"><a href="#cb5-198"></a><span class="fu">file.remove</span>(<span class="st">'about/usapopfx.svg'</span>)</span>
+<span id="cb5-199"><a href="#cb5-199"></a><span class="fu">write_xml</span>(doc, <span class="st">'about/usapop.svg'</span>)</span>
+<span id="cb5-200"><a href="#cb5-200"></a></span>
+<span id="cb5-201"><a href="#cb5-201"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="fig-usapop-outline" class="quarto-figure quarto-figure-center anchored" height="500px">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-usapop-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="usapop-outline.png" height="500" class="figure-img">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-usapop-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Outline within RStudio of the US population SVG graphic R script
+</figcaption></figure>
+</div>
+</section></section><section id="finished-product" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="finished-product">Finished Product</h2>
+<div id="fig-usapop-svg" class="column-screen quarto-figure quarto-figure-center anchored" style="text-align:center;">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-usapop-svg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<object id="usapop" data="/about/usapop.svg"></object>
+
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-usapop-svg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: The ggplot converted to SVG. A choropleth of the population of the continental United States in 2015.
+</figcaption></figure>
+</div>
+</section><section id="wrap-up" class="level2"><h2 class="anchored" data-anchor-id="wrap-up">Wrap-up</h2>
+<p>If you have any thoughts or questions, feel free to let me know what you think in the comments below. You’ll need to sign in to your GitHub account to do so. Like my work? Feel free to <a href="../../../about/">reach out</a>.</p>
+<p>We only have one rock, and it’s a beautiful one. Thanks for reading! ✌️🌍</p>
+
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div>© 2023 Vincent Clemson | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;</div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-clemson2023" class="csl-entry quarto-appendix-citeas" role="listitem">
+Clemson, Vincent. 2023. <span>“Aesthetic Maps Built in R with Ggplot2
+&amp; Svglite.”</span> October 29, 2023. <a href="https://prncevince.io/posts/geo/maps-ggplot-svglite">https://prncevince.io/posts/geo/maps-ggplot-svglite</a>.
+</div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/prncevince\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script><script src="https://giscus.app/client.js" data-repo="prncevince/prncevince.io" data-repo-id="R_kgDOKfrJMA" data-category="Comments" data-category-id="DIC_kwDOKfrJMM4CaFyh" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script><input type="hidden" id="giscus-base-theme" value="preferred_color_scheme"><input type="hidden" id="giscus-alt-theme" value="preferred_color_scheme">
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="../../../LICENSE.html">©</a> 2023 by <a href="../../../about/">Vincent Clemson</a> | built with <i class="fa-solid fa-heart-pulse" aria-label="heart-pulse"></i> &amp; Quarto</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+<li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/prncevincecares" rel="me" target="_blank">
+<p><i class="fa-brands fa-twitter" aria-label="twitter"></i> <i class="fa-solid fa-rocket" aria-label="rocket"></i></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vincentclemson/" rel="me" target="_blank">
+      <i class="bi bi-linkedin" role="img" aria-label="My LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/prncevince" rel="me" target="_blank">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../posts/index.xml">
+<p><span class="rss"><i class="fa-solid fa-square-rss" aria-label="square-rss"></i></span></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://fosstodon.org/@prncevince" rel="me" target="_blank">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://youtube.com/@prncevince" rel="me" target="_blank">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/prncevincestats" rel="me" target="_blank">
+<p><i class="fa-brands fa-twitter" aria-label="twitter"></i> <iconify-icon inline="" icon="ph:tennis-ball-fill"></iconify-icon></p>
+</a>
+  </li>  
+</ul>
+</div>
+    <div class="nav-footer-right">
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0 <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
+</div>
+  </div>
+</footer><script src="../../../assets/js/site.js"></script><script src="../../../assets/js/posts.js"></script>
+
+
+<script src="../../../site_libs/quarto-contrib/add-code-files-1.0.0/add-code-files.js"></script>
+</body></html>
