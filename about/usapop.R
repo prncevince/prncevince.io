@@ -9,6 +9,7 @@ library(tibble)
 library(tictoc)
 library(ggplot2)
 library(svglite)
+library(showtext)
 library(base64enc)
 
 tic()

@@ -1,0 +1,128 @@
+---
+title: Aesthetic maps built in R with ggplot2 & svglite
+date: 10/29/23
+draft: false
+categories: [ggplot2, R, Geospatial, svglite, SVG, JavaScript, rspatial, tidyverse, 30DayMapChallenge]
+description: A method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).
+resources: [/about/usapop.svg]
+code-line-numbers: true
+---
+
+![
+A choropleth map of the population of the continental Unite States in 2015.
+<br><br>
+The map was designed using [ggplot2](https://ggplot2-book.org). Saving the map using `{svglite}` and editing the output has the potential to create beautiful interactive & lightweight maps.
+](usapop-ggplot-svglite-3x-3fps-1920w-80lossy-O3.gif){#fig-usapop-gif}
+
+## TLDR
+
+I show off how to use R packages in the [#rspatial](/posts/#category=rspatial){target="_blank"} & [tidyverse](/posts/#category=tidyverse){target="_blank"} ecosystems to build both aesthetic & interactive maps. I also use some slightly advanced web dev & scraping techniques to create the finished product: @fig-usapop-svg.
+
+## Intro
+
+At the end of November, I plan on packing up my belongings and trekking 6,500 miles across the continental United States out to the West coast (🗣️ roadtrip 🛣️).
+
+Being who I am, I figured it'd be a great idea to plot out the journey using R. Additionally, the [#30DayMapChallenge](https://30daymapchallenge.com/) is approaching, so I figured that it was a great time to create a new thing in preparation for the challenge. Most of my time went into development over the past week, so the next steps for me are the trip planning, but I think the proof of concept is a great start! 
+
+## Thoughts on Data Driven JavaScript Visuals
+
+Plots & maps are cool, and interactive plots can be even cooler, but the bloat of adding external JavaScript libraries can sometimes create a performance hit to a users' experience on the web. A typically approach within the [R](/posts/#category=R){target="_blank"} user community to embed data driven interactive graphics in web content involves using the incredible [htmlwidgets](http://htmlwidgets.org) package. There are [several](http://www.htmlwidgets.org/showcase_leaflet.html) HTML widget R packages. These packages work by using {htmlwidgets} to bind & format data as JSON input to their respective JavaScript visualization libraries and then to output the results as an HTML element. 
+
+My biggest gripe with HTML widgets is that they embed the entire JavaScript library passed to them. So, if you say want __2__ unique HTML widgets on your web page that are created from the same {htmlwidgets} binding R package, then you'll have __2__ identical copies of the same JavaScript library downloaded to your web browser. Having the option to embed the library in say your web pages `<head>` element could help cut down on some of this bloat. 
+
+Aside from this, I think that being able to create data driven interactive graphics without the need for external JavaScript libraries has a lot of potential when it comes to creating beautiful plots in the browser. Building plots with SVG has been conquered by [D3.js](https://d3js.org) as well as many others that have taken significant influence from D3, such as [plotly](https://plotly.com) & [highcharter](https://jkunst.com/highcharter/). Additionally, [Observable](https://observablehq.com/about) has changed the game when it comes to quickly prototyping & sharing new data visuals in the browser. Making it easier than ever before to collaborate & maximize one's reach when developing a new dataviz powered by web technologies. In particular, its lead by Mike Bostock, one who I would call a super human with [eons](https://bost.ocks.org/mike/algorithms/) of data visualization expertise. At Observable, they're building the [Observable Plot](https://observablehq.com/plot) library to help folks efficiently visualize tabluar data in the browser. 
+
+Plot is inspired by [__the grammar of graphics__](http://vita.had.co.nz/papers/layered-grammar.pdf) style, which is the foundation that {ggplot2} was built upon. I think that the ability to turn a ggplot into a an interactive graphic can be extremely powerful and can open up many new doors into the world of dataviz. Using plotly and the incredible [`plotly::ggplotly`](https://blog.cpsievert.me/2018/01/30/learning-improving-ggplotly-geom-sf) designed by Carson Sievert is an htmlwidgets approach to doing this. The approach to use {svglite} to save ggplot2 created plots and then post process these graphics allows you to keep the design portion of the dataviz mostly outside of the web browser and within the Plot pane of your IDE (i.e. RStudio). The choice to post process the SVG output within R allows one to minimize JavaScript library dependencies, but presents the challenge of making the SVG interactive. 
+
+All in all, I'm excited to see where this goes. 
+
+## The data
+
+I used the 2015 U.S. Census county population data stored within the `{usmap}` package. More updated U.S. Census data from the U.S Census Bureau can be accessed via the [tidycencus](https://walker-data.com/tidycensus/) and [censusapi](https://www.hrecht.com/censusapi/) R packages.
+
+As a precursor, I filtered out Alaska & Hawaii because I am not planning to travel that far just yet, i.e. I want the focus of the plot to be on CONUS. I used the [Albers equal area conic projection](http://wiki.gis.com/wiki/index.php/Albers_equal-area_conic_projection) centered on the US. The proj4 string of the projection was highlighted in a [neat post](https://rud.is/b/2014/11/16/moving-the-earth-well-alaska-hawaii-with-r/) by Bob Rudis a few years back.
+
+The key variable that I create here for the visual is the percentage of the population per state for each county. I ultimately display this using a log scale in the color palette of the plot to better visualize large differences in the county population. Additionally, this percentage gets used as hover text in the interactive figure. 
+
+```{r}
+#| eval: false
+#| file: posts/geo/maps-ggplot-svglite/usapop-data.R
+#| code-summary: usapop-data.R
+```
+
+## The ggplot
+
+I used the `{showtext}` package to use a custom font, [Black Chancery](https://fontsgeek.com/fonts/Black-Chancery-Regular). Additionally, to give the plot a bit of a 3D effect, I added shadow using `{ggfx}`.
+
+When it came to trying to save an identical copy of the rendered ggplot graphic within the RStudio Plot pane programmatically, I've found this to be very challenging. The `ggplot::ggsave` function has `width`, `height`, `unit`, & `dpi` parameters that can be specified. There's also a great [post by Christophe Nicault](https://www.christophenicault.com/post/understand_size_dimension_ggplot2/) on setting the text DPI via the `{showtext}` package to match the DPI used within `ggsave` by the PNG graphics device. However on my 14" MBP, these methods all seem to fall short, the with ggsave approach font being larger than font displayed in the Plot pane. It seems that the Plot pane does some magic when it comes to resizing. You can right click your image & choose "Save image as...", which allows you to save ___what you're looking at___ to file. 
+
+I think that there are benefits & drawbacks to both approaches. Below I provide the ggplot code version of the map. The last line of the snippet includes a `ggsave` call that builds a plot with text slightly bigger than what's expected. Additionally, the `{ggfx}` shadow seems less prominent in the `ggsave` version, and the overall width / height of the plot content appear smaller as well.
+
+Thus, I've included both versions in @fig-usapop-ggplot for comparison, the version that I saved from the RStudio plot pane, as well as the `ggsave` version. MacOS Preview app info on the `.png` tells me that the plot pane version ends up saving with 72 DPI. 
+
+Even if we switch the `dpi` to 72, and calculate the same width / height of the RStudio pane version to get the same resolution image in the `ggsave` version, we get even smaller text and other distortions. 
+
+```{r}
+#| eval: false
+#| file: posts/geo/maps-ggplot-svglite/usapop-ggplot.R
+#| code-summary: usapop-ggplot.R
+```
+
+::: {#fig-usapop-ggplot .column-screen layout-ncol=2}
+
+![RStudio Plot Pane Version](usapop-ggplot.png){#fig-usapop-ggplot-rs}
+
+![ggsave Version](usapop-ggplot-ggsave.png){#fig-usapop-ggplot-gg}
+
+Two ggplot2 versions of the county population map to compare save methods.
+:::
+
+## SVG & XML Editting
+
+[SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) (Scalar Vector Graphics) is itself its own markup language, based in [XML](https://developer.mozilla.org/en-US/docs/Web/XML) and similar to [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML). The key difference between HTML & SVG being that HTML specifies how text is displayed to the browser versus SVG describes how graphics are displayed. 
+
+Because SVG files are written as XML, they can be loaded as objects and edited in scripting languages, similar to how commonly used web scraping tools work. Using the `{xml2}` & `{rvest}` packages in combination from the `{tidyverse}` can help us run query selectors on the XML markup to add and remove XML element nodes as necessary. 
+
+Using the `{svglite}` package/graphics device within `ggsave` function calls, we convert & save ggplots to SVG elements, and even use our custom fonts. `showtext_auto(FALSE)` should be ran within interactive R sessions that have set `showtext_auto(enable = TRUE)` before saving ggplots via `ggsave` to `.svg`. 
+
+### Adding Iteractivity
+
+Using vanilla JavaScript, I add a tooltip that reads the `title` attribute of each county boundary SVG `<path>` within the created choropleth group (`<g>`) element. The tooltip SVG element itself is a single `<rect>` & `<text>` pair rapped in a group. JavaScript handles updating the text using event handlers on mouse movement. The tooltip was inspired by Lee Mason's [Basic SVG Tooltip](https://observablehq.com/@siliconjazz/basic-svg-tooltip) Observable Notebook. 
+
+::: {add-from='../../../about/usapop.js' code-filename='usapop.js'}
+```{.javascript}
+```
+:::
+
+Styling for the tooltip:
+
+::: {add-from='../../../about/usapop.css' code-filename='usapop.css'}
+```{.css}
+```
+:::
+
+### The Whole Game
+
+Combining all of these techniques involves quite a bit of prototyping. There's a lot to pick apart, especially with mapping elements of the ggplot to the svg output correctly. @fig-usapop-outline displays an outline of the core components of the script. You can dive deep into the full script below. I originally built this to add within the [about](/about/) page/path of my site, so this is why paths are relative to the `about/` directory. 
+
+```{r}
+#| eval: false
+#| file: about/usapop.R
+#| code-summary: usapop-svg.R
+```
+
+![Outline within RStudio of the US population SVG graphic R script](usapop-outline.png){#fig-usapop-outline height='500px'}
+
+## Finished Product
+
+::: {#fig-usapop-svg .column-screen style='text-align:center;'}
+<object id="usapop" data="/about/usapop.svg"/></object>
+
+The ggplot converted to SVG. A choropleth of the population of the continental United States in 2015.
+:::
+
+## Wrap-up
+
+If you have any thoughts or questions, feel free to let me know what you think in the comments below. You’ll need to sign in to your GitHub account to do so. Like my work? Feel free to [reach out](/about/).
+
+We only have one rock, and it’s a beautiful one. Thanks for reading! ✌️🌍

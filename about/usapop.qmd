@@ -10,7 +10,7 @@ css: [/assets/css/non-posts.css]
 resources: [usapop.svg]
 ---
 
+<!-- column-screen is necessary to remove sidebar -->
 ::: {.column-screen style='text-align:center;'}
 <object id="usapop" data="usapop.svg"/></object>
 :::
-
