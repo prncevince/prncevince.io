@@ -83,8 +83,11 @@ div.sourceCode {
 div > details > summary {
   padding: 0.1rem 0.7rem 0.2rem 0.7rem;
   width: max-content;
-  border: var(--quarto-border-width) solid var(--quarto-border-color);
+  max-width: fit-content;
+  border-width: var(--quarto-border-width);
+  border-style: solid;
   border-radius: var(--quarto-border-radius);
+  box-shadow: 0 .2rem .5rem #6c757d,0 0 .05rem #6c757d;
 }
 pre.sourceCode > .code-copy-button > .bi::before, pre.sourceCode:hover > .code-copy-button > .bi::before {
   content: "";

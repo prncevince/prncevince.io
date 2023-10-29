@@ -7,7 +7,7 @@
 <meta name="author" content="Vincent Clemson">
 <meta name="dcterms.date" content="2023-10-29">
 <meta name="description" content="A method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).">
-<title>Aesthetic maps built in R with ggplot2 &amp; svglite | Vincent Clemson</title>
+<title>Designing aesthetic maps in R with ggplot2 &amp; svglite | Vincent Clemson</title>
 <script src="../../../stats/js/script.js" data-api="/stats/api/event/" data-domain="prncevince.io"></script><script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script><script defer="" src="../../../_vercel/insights/script.js"></script><style>
@@ -104,13 +104,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script><link rel="stylesheet" href="../../../assets/css/site.css">
 <link rel="stylesheet" href="../../../assets/css/posts.css">
-<meta property="og:title" content="Aesthetic maps built in R with ggplot2 &amp; svglite | Vincent Clemson">
+<meta property="og:title" content="Designing aesthetic maps in R with ggplot2 &amp; svglite | Vincent Clemson">
 <meta property="og:description" content="A method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).">
 <meta property="og:image" content="https://prncevince.io/assets/img/posts.png">
 <meta property="og:site_name" content="Vincent Clemson">
 <meta property="og:image:height" content="1378">
 <meta property="og:image:width" content="2500">
-<meta name="twitter:title" content="Aesthetic maps built in R with ggplot2 &amp; svglite | Vincent Clemson">
+<meta name="twitter:title" content="Designing aesthetic maps in R with ggplot2 &amp; svglite | Vincent Clemson">
 <meta name="twitter:description" content="A method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).">
 <meta name="twitter:image" content="https://prncevince.io/assets/img/posts.png">
 <meta name="twitter:creator" content="@prncevincecares">
@@ -189,7 +189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3"><h2 id="toc-title">On this page</h2>
    
   <ul>
 <li><a href="#tldr" id="toc-tldr" class="nav-link active" data-scroll-target="#tldr">TLDR</a></li>
@@ -210,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Aesthetic maps built in R with ggplot2 &amp; svglite</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i></button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/prncevince/prncevince.io/blob/main/posts/geo/maps-ggplot-svglite/index.qmd">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Designing aesthetic maps in R with ggplot2 &amp; svglite</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i></button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/prncevince/prncevince.io/blob/main/posts/geo/maps-ggplot-svglite/index.qmd">View Source</a></li></ul></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">ggplot2</div>
     <div class="quarto-category">R</div>
@@ -267,9 +267,10 @@ Figure&nbsp;1: A choropleth map of the population of the continental Unite State
 </figcaption></figure>
 </div>
 <section id="tldr" class="level2"><h2 class="anchored" data-anchor-id="tldr">TLDR</h2>
-<p>I show off how to use R packages in the <a href="../../../posts/#category=rspatial" target="_blank">#rspatial</a> &amp; <a href="../../../posts/#category=tidyverse" target="_blank">tidyverse</a> ecosystems to build both aesthetic &amp; interactive maps. I also use some slightly advanced web dev &amp; scraping techniques to create the finished product: <a href="#fig-usapop-svg" class="quarto-xref">Figure&nbsp;4</a>.</p>
+<p>I show off how to use R packages in the <a href="../../../posts/#category=rspatial" target="_blank">#rspatial</a> &amp; <a href="../../../posts/#category=tidyverse" target="_blank">tidyverse</a> ecosystems to build both aesthetic &amp; interactive maps. I also use some slightly advanced web dev &amp; scraping techniques to create the finished product.</p>
+<p>Interact with it yourself: <a href="#fig-usapop-svg" class="quarto-xref">Figure&nbsp;4</a>.</p>
 </section><section id="intro" class="level2"><h2 class="anchored" data-anchor-id="intro">Intro</h2>
-<p>At the end of November, I plan on packing up my belongings and trekking 6,500 miles across the continental United States out to the West coast (🗣️ roadtrip 🛣️).</p>
+<p>At the end of November, I plan on packing up my belongings and trekking 6,500 miles across the continental United States from Virginia out to the West coast (🗣️ roadtrip 🛣️).</p>
 <p>Being who I am, I figured it’d be a great idea to plot out the journey using R. Additionally, the <a href="https://30daymapchallenge.com/">#30DayMapChallenge</a> is approaching, so I figured that it was a great time to create a new thing in preparation for the challenge. Most of my time went into development over the past week, so the next steps for me are the trip planning, but I think the proof of concept is a great start!</p>
 </section><section id="thoughts-on-data-driven-javascript-visuals" class="level2"><h2 class="anchored" data-anchor-id="thoughts-on-data-driven-javascript-visuals">Thoughts on Data Driven JavaScript Visuals</h2>
 <p>Plots &amp; maps are cool, and interactive plots can be even cooler, but the bloat of adding external JavaScript libraries can sometimes create a performance hit to a users’ experience on the web. A typically approach within the <a href="../../../posts/#category=R" target="_blank">R</a> user community to embed data driven interactive graphics in web content involves using the incredible <a href="http://htmlwidgets.org">htmlwidgets</a> package. There are <a href="http://www.htmlwidgets.org/showcase_leaflet.html">several</a> HTML widget R packages. These packages work by using {htmlwidgets} to bind &amp; format data as JSON input to their respective JavaScript visualization libraries and then to output the results as an HTML element.</p>
@@ -335,12 +336,12 @@ Figure&nbsp;1: A choropleth map of the population of the continental Unite State
 <span id="cb1-51"><a href="#cb1-51"></a>  <span class="fu">st_transform</span>(proj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="the-ggplot" class="level2"><h2 class="anchored" data-anchor-id="the-ggplot">The ggplot</h2>
-<p>I used the <a href="https://github.com/yixuan/showtext">showtext</a> package to use a custom font, <a href="https://fontsgeek.com/fonts/Black-Chancery-Regular">Black Chancery</a>. Additionally, to give the plot a bit of a 3D effect, I added shadow using <a href="https://ggfx.data-imaginist.com">ggfx</a>.</p>
+</section><section id="the-ggplot" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="the-ggplot">The ggplot</h2>
+<p>With the <a href="https://github.com/yixuan/showtext">showtext</a> package, I used a custom font that I downloaded from Fontsgeek, <a href="https://fontsgeek.com/fonts/Black-Chancery-Regular">Black Chancery</a>. Additionally, to give the plot a bit of a 3D effect, I added shadow using <a href="https://ggfx.data-imaginist.com">ggfx</a>. It adds some <a href="https://www.data-imaginist.com/2021/say-goodbye-to-good-taste/">good taste</a> IMO.</p>
 <p>When it came to trying to save an identical copy of the rendered ggplot graphic within the RStudio Plot pane programmatically, I’ve found this to be very challenging. The <code>ggplot::ggsave</code> function has <code>width</code>, <code>height</code>, <code>unit</code>, &amp; <code>dpi</code> parameters that can be specified. There’s also a great <a href="https://www.christophenicault.com/post/understand_size_dimension_ggplot2/">post by Christophe Nicault</a> on setting the text DPI via the <a href="https://github.com/yixuan/showtext">showtext</a> package to match the DPI used within <code>ggsave</code> by the PNG graphics device. However on my 14” MBP, these methods all seem to fall short, the with ggsave approach font being larger than font displayed in the Plot pane. It seems that the Plot pane does some magic when it comes to resizing. You can right click your image &amp; choose “Save image as…”, which allows you to save <strong><em>what you’re looking at</em></strong> to file.</p>
 <p>I think that there are benefits &amp; drawbacks to both approaches. Below I provide the ggplot code version of the map. The last line of the snippet includes a <code>ggsave</code> call that builds a plot with text slightly bigger than what’s expected. Additionally, the <a href="https://ggfx.data-imaginist.com">ggfx</a> shadow seems less prominent in the <code>ggsave</code> version, and the overall width / height of the plot content appear smaller as well.</p>
-<p>Thus, I’ve included both versions in <a href="#fig-usapop-ggplot" class="quarto-xref">Figure&nbsp;2</a> for comparison, the version that I saved from the RStudio plot pane, as well as the <code>ggsave</code> version. MacOS Preview app info on the <code>.png</code> tells me that the plot pane version ends up saving with 72 DPI.</p>
-<p>Even if we switch the <code>dpi</code> to 72, and calculate the same width / height of the RStudio pane version to get the same resolution image in the <code>ggsave</code> version, we get even smaller text and other distortions.</p>
+<p>Thus, I’ve included both versions in <a href="#fig-usapop-ggplot" class="quarto-xref">Figure&nbsp;2</a> for comparison, the version that I saved from the RStudio plot pane, as well as the <code>ggsave</code> version. MacOS Preview app info on the <code>.png</code> tells me that the plot pane version ends up saving with <code>72</code> dpi (dots per inch), while the <code>ggsave</code> version has <code>254</code> as I’ve specified. Both files have near equivalent pixel size dimensions (<code>3023 × 1889</code>), with the key difference being the dpi.</p>
+<p>Even if we switch the <code>dpi</code> to <code>72</code>, and calculate the same width / height of the RStudio pane version to get the same resolution image in the <code>ggsave</code> version, i.e.&nbsp;both dpi &amp; pixel width/height match amongst both files, we get even smaller text and other distortions.</p>
 <div class="cell">
 <details><summary>usapop-ggplot.R</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(ggfx)</span>
@@ -385,9 +386,10 @@ Figure&nbsp;1: A choropleth map of the population of the continental Unite State
 <span id="cb2-41"><a href="#cb2-41"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> g, <span class="at">width =</span> width, <span class="at">height =</span> height, <span class="at">unit =</span> <span class="st">'in'</span>, <span class="at">dpi =</span> dpi, <span class="at">filename =</span> <span class="st">'usapop-ggplot-ggsave.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="fig-usapop-ggplot" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-usapop-ggplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="page-columns page-full">
+<div id="fig-usapop-ggplot" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full"><div aria-describedby="fig-usapop-ggplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<div class="quarto-layout-row quarto-layout-valign-top column-screen">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-usapop-ggplot" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-usapop-ggplot-rs" class="quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-usapop-ggplot-rs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -411,15 +413,29 @@ Figure&nbsp;1: A choropleth map of the population of the continental Unite State
 </div>
 </div>
 <figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-usapop-ggplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Two ggplot2 versions of the county population map to compare save methods.
+Figure&nbsp;2: Two ggplot versions of the county population map to compare save methods.
 </figcaption></figure>
+</div>
 </div>
 </section><section id="svg-xml-editting" class="level2"><h2 class="anchored" data-anchor-id="svg-xml-editting">SVG &amp; XML Editting</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/SVG">SVG</a> (Scalar Vector Graphics) is itself its own markup language, based in <a href="https://developer.mozilla.org/en-US/docs/Web/XML">XML</a> and similar to <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a>. The key difference between HTML &amp; SVG being that HTML specifies how text is displayed to the browser versus SVG describes how graphics are displayed.</p>
 <p>Because SVG files are written as XML, they can be loaded as objects and edited in scripting languages, similar to how commonly used web scraping tools work. Using the <a href="https://xml2.r-lib.org/">xml2</a> &amp; <a href="https://rvest.tidyverse.org/">rvest</a> packages in combination from the <a href="https://tidyverse.tidyverse.org">tidyverse</a> can help us run query selectors on the XML markup to add and remove XML element nodes as necessary.</p>
-<p>Using the <a href="https://svglite.r-lib.org">svglite</a> package/graphics device within <code>ggsave</code> function calls, we convert &amp; save ggplots to SVG elements, and even use our custom fonts. <code>showtext_auto(FALSE)</code> should be ran within interactive R sessions that have set <code>showtext_auto(enable = TRUE)</code> before saving ggplots via <code>ggsave</code> to <code>.svg</code>.</p>
+<p>Using the <a href="https://svglite.r-lib.org">svglite</a> package/graphics device within <code>ggsave</code> function calls, we can convert &amp; save ggplots to SVG elements, and even use our custom fonts within them.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>showtext_auto(FALSE)</code> should be ran within interactive R sessions that have set <code>showtext_auto(enable = TRUE)</code> before saving ggplots via <code>ggsave</code> to <code>.svg</code>.</p>
+</div>
+</div>
 <section id="adding-iteractivity" class="level3"><h3 class="anchored" data-anchor-id="adding-iteractivity">Adding Iteractivity</h3>
-<p>Using vanilla JavaScript, I add a tooltip that reads the <code>title</code> attribute of each county boundary SVG <code>&lt;path&gt;</code> within the created choropleth group (<code>&lt;g&gt;</code>) element. The tooltip SVG element itself is a single <code>&lt;rect&gt;</code> &amp; <code>&lt;text&gt;</code> pair rapped in a group. JavaScript handles updating the text using event handlers on mouse movement. The tooltip was inspired by Lee Mason’s <a href="https://observablehq.com/@siliconjazz/basic-svg-tooltip">Basic SVG Tooltip</a> Observable Notebook.</p>
+<p>Using vanilla JavaScript, I add a tooltip that reads the <code>title</code> attribute of each county boundary SVG <code>&lt;path&gt;</code> within the created choropleth group (<code>&lt;g&gt;</code>) element, e.g <code>&lt;g class="tooltip"&gt;&lt;rect/&gt;&lt;text&gt;&lt;/text&gt;&lt;/g&gt;</code>. The tooltip SVG element itself is a single <code>&lt;rect&gt;</code> &amp; <code>&lt;text&gt;</code> pair rapped in a group. When creating the SVG/XML document in R, I add it as the <em>last</em> graphic element in the <code>&lt;svg&gt;</code> container so that it displays on top of everything else. JavaScript handles updating the content of the <code>&lt;text&gt;</code> using event handlers on mouse movement. The tooltip was inspired by Lee Mason’s <a href="https://observablehq.com/@siliconjazz/basic-svg-tooltip">Basic SVG Tooltip</a> Observable notebook. It differs in that it’s implemented as native SVG, rather than using a <code>&lt;div&gt;</code> wrapped in a <code>&lt;foreignObject&gt;</code>, which is incompatible in all browsers.</p>
 <div data-add-from="../../../about/usapop.js" data-code-filename="usapop.js">
 <details><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a>svgChoro <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'svg.svglite &gt; g.choro'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2"></a>svgBords <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'svg.svglite &gt; g.borders'</span>)</span>
@@ -530,6 +546,7 @@ Figure&nbsp;2: Two ggplot2 versions of the county population map to compare save
 </div>
 </section><section id="the-whole-game" class="level3"><h3 class="anchored" data-anchor-id="the-whole-game">The Whole Game</h3>
 <p>Combining all of these techniques involves quite a bit of prototyping. There’s a lot to pick apart, especially with mapping elements of the ggplot to the svg output correctly. <a href="#fig-usapop-outline" class="quarto-xref">Figure&nbsp;3</a> displays an outline of the core components of the script. You can dive deep into the full script below. I originally built this to add within the <a href="../../../about/">about</a> page/path of my site, so this is why paths are relative to the <code>about/</code> directory.</p>
+<p>When it comes to prototyping CSS/JavaScript, I created 2 methods to add styles and scripts. For testing purposes, I setup the CSS/JavaScript to source external scripts. This allows you to set breakpoints on script files sourced by the SVG in Developer Tools, as well as edit stylesheets natively in the Sources/Styling Editor. For ‘production’, I keep the graphic entirely <strong>self-contained</strong>, e.g.&nbsp;not sourcing any external scripts. This means that the SVG element can be downloaded and used in any browser context, without the need for the external <code>.css</code>/<code>.js</code> dependencies. Additionally, I embed the external <code>.ttf</code> font as base64 encoded data.</p>
 <div class="cell">
 <details><summary>usapop-svg.R</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="fu">library</span>(ggfx)</span>
@@ -734,15 +751,16 @@ Figure&nbsp;2: Two ggplot2 versions of the county population map to compare save
 <span id="cb5-201"><a href="#cb5-201"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="fig-usapop-outline" class="quarto-figure quarto-figure-center anchored" height="500px">
+<div id="fig-usapop-outline" class="quarto-figure quarto-figure-center anchored" style="max-height: 500px">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-usapop-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="usapop-outline.png" height="500" class="figure-img">
+<img src="usapop-outline.png" class="img-fluid figure-img" style="max-height: 500px">
 </div>
 <figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-usapop-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: Outline within RStudio of the US population SVG graphic R script
 </figcaption></figure>
 </div>
 </section></section><section id="finished-product" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="finished-product">Finished Product</h2>
+<p>Enjoy the viz!</p>
 <div id="fig-usapop-svg" class="column-screen quarto-figure quarto-figure-center anchored" style="text-align:center;">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-usapop-svg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <object id="usapop" data="/about/usapop.svg"></object>
@@ -757,9 +775,9 @@ Figure&nbsp;4: The ggplot converted to SVG. A choropleth of the population of th
 <p>We only have one rock, and it’s a beautiful one. Thanks for reading! ✌️🌍</p>
 
 
-</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div>© 2023 Vincent Clemson | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;</div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-clemson2023" class="csl-entry quarto-appendix-citeas" role="listitem">
-Clemson, Vincent. 2023. <span>“Aesthetic Maps Built in R with Ggplot2
-&amp; Svglite.”</span> October 29, 2023. <a href="https://prncevince.io/posts/geo/maps-ggplot-svglite">https://prncevince.io/posts/geo/maps-ggplot-svglite</a>.
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div>© 2023 Vincent Clemson | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;</div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-clemson2023" class="csl-entry quarto-appendix-citeas" role="listitem">
+Clemson, Vincent. 2023. <span>“Designing Aesthetic Maps in R with
+Ggplot2 &amp; Svglite.”</span> October 29, 2023. <a href="https://prncevince.io/posts/geo/maps-ggplot-svglite">https://prncevince.io/posts/geo/maps-ggplot-svglite</a>.
 </div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
