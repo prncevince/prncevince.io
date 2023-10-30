@@ -102,7 +102,7 @@
     "href": "posts/geo/maps-ggplot-svglite/index.html",
     "title": "Designing aesthetic maps in R with ggplot2 & svglite",
     "section": "",
-    "text": "Figure 1: A choropleth map of the population of the continental Unite States in 2015.  The map was designed using ggplot2. Saving the map using svglite and editing the output has the potential to create beautiful interactive & lightweight maps."
+    "text": "Figure 1: A choropleth map of the population within each county of the continental United States in 2015.  The map was designed using ggplot2. Saving the map using svglite and editing the output has the potential to create beautiful interactive & lightweight maps."
   },
   {
     "objectID": "posts/geo/maps-ggplot-svglite/index.html#tldr",
@@ -165,7 +165,7 @@
     "href": "posts/index.html",
     "title": "Big & tiny spatial thoughts",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Updated - Oldest\n        \n         \n          Updated - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nDesigning aesthetic maps in R with ggplot2 & svglite\n\n\n9 min\n\n\nA method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).\n\n\n\nOctober 29, 2023\n\n\n\n\n\nOctober 29, 2023\n\n\n\n\n\n\n\n\n\n\n\nNorth India Floods of October 2023\n\n\n3 min\n\n\nA quick turn analysis to visually compare events caused by the Glacial Lake Outburst Flood in the Indian Himalayan Region of Sikkim during early October of 2023.\n\n\n\nOctober 12, 2023\n\n\n\n\n\nOctober 14, 2023\n\n\n\n\n\n\n\n\n\n\n\nVisualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program\n\n\n13 min\n\n\nA deep dive into visualizing satellite imagery from Maxar’s ODP on-the-fly using STAC, dynamic tiling, and Leaflet.\n\n\n\nOctober 2, 2023\n\n\n\n\n\nOctober 12, 2023\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Updated - Oldest\n        \n         \n          Updated - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nDesigning aesthetic maps in R with ggplot2 & svglite\n\n\n9 min\n\n\nA method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).\n\n\n\nOctober 29, 2023\n\n\n\n\n\nOctober 30, 2023\n\n\n\n\n\n\n\n\n\n\n\nNorth India Floods of October 2023\n\n\n3 min\n\n\nA quick turn analysis to visually compare events caused by the Glacial Lake Outburst Flood in the Indian Himalayan Region of Sikkim during early October of 2023.\n\n\n\nOctober 12, 2023\n\n\n\n\n\nOctober 14, 2023\n\n\n\n\n\n\n\n\n\n\n\nVisualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program\n\n\n13 min\n\n\nA deep dive into visualizing satellite imagery from Maxar’s ODP on-the-fly using STAC, dynamic tiling, and Leaflet.\n\n\n\nOctober 2, 2023\n\n\n\n\n\nOctober 12, 2023\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/geo/natural-disasters-maxar-open-data/index.html",

@@ -9,7 +9,7 @@ code-line-numbers: true
 ---
 
 ![
-A choropleth map of the population of the continental Unite States in 2015.
+A choropleth map of the population within each county of the continental United States in 2015.
 <br><br>
 The map was designed using [ggplot2](https://ggplot2-book.org). Saving the map using `{svglite}` and editing the output has the potential to create beautiful interactive & lightweight maps.
 ](usapop-ggplot-svglite-3x-3fps-1920w-80lossy-O3.gif){#fig-usapop-gif}
