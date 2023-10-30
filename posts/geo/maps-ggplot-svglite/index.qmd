@@ -60,9 +60,9 @@ When it came to trying to save an identical copy of the rendered ggplot graphic 
 
 I think that there are benefits & drawbacks to both approaches. Below I provide the ggplot code version of the map. The last line of the snippet includes a `ggsave` call that builds a plot with text slightly bigger than what's expected. Additionally, the ggfx shadow seems less prominent in the `ggsave` version, and the overall width / height of the plot content appear smaller as well.
 
-Thus, I've included both versions in @fig-usapop-ggplot for comparison, the version that I saved from the RStudio plot pane, as well as the `ggsave` version. MacOS Preview app info on the `.png` tells me that the plot pane version ends up saving with `72` dpi (dots per inch), while the `ggsave` version has `254` as I've specified. Both files have near equivalent pixel size dimensions (`3023 × 1889`), with the key difference being the dpi.
-
 [Even if we switch the `dpi` to `72`, and calculate the same width / height of the RStudio pane version to get the same resolution image in the `ggsave` version, i.e. both dpi & pixel width/height match amongst both files, we get even smaller text and other distortions.]{.aside}
+
+Thus, I've included both versions in @fig-usapop-ggplot for comparison, the version that I saved from the RStudio plot pane, as well as the `ggsave` version. MacOS Preview app info on the `.png` tells me that the plot pane version ends up saving with `72` dpi (dots per inch), while the `ggsave` version has `254` as I've specified. Both files have near equivalent pixel size dimensions (`3023 × 1889`), with the key difference being the dpi.
 
 ```{r}
 #| eval: false
