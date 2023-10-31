@@ -143,6 +143,15 @@ pre.sourceCode > .code-copy-button > .bi::before, pre.sourceCode:hover > .code-c
   .nav-footer {
     flex-direction: column;
   }
+  .nav-footer > .nav-footer-left {
+    order: 2;
+  }
+  .nav-footer > .nav-footer-center {
+    order: 1;
+  }
+  .nav-footer > .nav-footer-right {
+    order: 3;
+  }
 }
 .nav-footer {
   align-items: center;
@@ -186,9 +195,6 @@ pre.sourceCode > .code-copy-button > .bi::before, pre.sourceCode:hover > .code-c
   color: #d3e92a;
 }
 
-
-
-
 /*-- external link style --*/
 a.external:after {
   font-size: 0.75em;
@@ -196,5 +202,12 @@ a.external:after {
 }
 .nav-footer a.external:after {
   font-size: 0;
+}
+
+#quarto-back-to-top {
+  bottom: 1.5em;
+}
+#scroll-padding {
+  padding: 1.5em;
 }
 

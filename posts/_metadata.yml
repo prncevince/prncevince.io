@@ -12,6 +12,7 @@ code-tools:
   caption: none
 include-after-body:
   text: |
+    <div id="scroll-padding"></div>
     <script src='/assets/js/site.js'></script>
     <script src='/assets/js/posts.js'></script>
 comments:

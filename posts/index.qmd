@@ -16,6 +16,7 @@ subtitle: \
 image: /assets/img/posts.png
 include-after-body:
   text: |
+    <div id="scroll-padding"></div>
     <script src='/assets/js/posts-listing.js'></script>
     <script src='/assets/js/site.js'></script>
     <script src='/assets/js/posts.js'></script>
@@ -39,5 +40,4 @@ comments: false
 code-tools: false
 citation: false
 license: ''
-back-to-top-navigation: false
 ---

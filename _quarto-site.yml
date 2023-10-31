@@ -51,7 +51,7 @@ website:
         href: posts/index.xml
   page-footer:
     left: |
-      [©](/LICENSE.html) 2023 by [Vincent Clemson](/about/) | built with {{< fa solid heart-pulse >}} & Quarto
+      [©](/LICENSE.html) 2023 [Vincent Clemson](/about/) | built with {{< fa solid heart-pulse >}} & [Quarto](https://quarto.org)
     center:
       - text: "{{< fa brands twitter >}} {{< fa solid rocket >}}"
         href: https://twitter.com/prncevincecares
