@@ -1,0 +1,9 @@
+h1, h2, h3 {
+  font-family: Palatino;
+}
+body {
+  font-family: Optima;
+}
+code.sourceCode {
+  font-family: "Lucida Console";
+}

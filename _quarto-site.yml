@@ -95,7 +95,7 @@ format:
     code-link: true
     link-external-icon: true
     link-external-newwindow: true
-    css: [assets/css/site.css]
+    css: [assets/css/site.css, assets/css/font.css]
     grid:
       body-width: 1100px
       sidebar-width: 300px
