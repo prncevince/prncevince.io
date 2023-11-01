@@ -19,7 +19,6 @@ include-after-body:
     <div id="scroll-padding"></div>
     <script src='/assets/js/posts-listing.js'></script>
     <script src='/assets/js/site.js'></script>
-    <script src='/assets/js/posts.js'></script>
 css: [/assets/css/posts-listing.css]
 listing:
   type: grid
