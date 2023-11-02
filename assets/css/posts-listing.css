@@ -79,6 +79,9 @@ h1.title {
   }
 }
 /*-- Listing --*/
+.quarto-listing-cols-3 {
+  grid-template-columns: repeat(auto-fit, minmax(241.25px, 1fr));
+}
 .card-attribution .listing-date {
   text-transform: none;
 }
