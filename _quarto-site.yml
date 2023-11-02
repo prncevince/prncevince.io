@@ -93,7 +93,7 @@ format:
       - add-code-files
     code-fold: true
     code-link: true
-    link-external-icon: true
+    link-external-icon: false
     link-external-newwindow: true
     css: [assets/css/site.css, assets/css/font.css]
     grid:

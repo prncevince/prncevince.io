@@ -13,6 +13,21 @@ figcaption.figure {
   width: unset;
   margin: auto;
 }
+/* Links */
+a {
+  text-decoration-line: unset;
+}
+a:hover {
+  text-decoration-line: underline;
+}
+/*-- external link style --*/
+a.external:after {
+  font-size: 0.75em;
+  vertical-align: top;
+}
+.nav-footer a.external:after {
+  font-size: 0;
+}
 
 /* About */
 .about-contents {
@@ -182,15 +197,6 @@ pre.sourceCode > .code-copy-button > .bi::before, pre.sourceCode:hover > .code-c
 }
 .footer [icon^="ph:tennis-ball-fill"] {
   color: #d3e92a;
-}
-
-/*-- external link style --*/
-a.external:after {
-  font-size: 0.75em;
-  vertical-align: top;
-}
-.nav-footer a.external:after {
-  font-size: 0;
 }
 
 #quarto-back-to-top {
