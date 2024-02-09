@@ -1,12 +1,19 @@
 /*@import 'https://fonts.googleapis.com/css?family=Old+Standard+TT';*/
 
+h1 > .fa-rocket {
+  font-style: italic;
+}
 h1 {
   text-align: center;
-  color: #00A3E2;
+  /*color: #00A3E2;*/
+  color: #4e734d;
   font-size: 30px;
   font-family: Garamond;
   font-weight: unset;
   margin: unset;
+}
+h2, h3 {
+  color: black;
 }
 h2 {
   text-align: center;
@@ -39,6 +46,7 @@ h3::after {
 body {
   font-family: 'Helvetica Neue';
   font-weight: 200;
+  color: #505457;
 }
 /*body {
   font-family: 'Old Standard TT', Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, 'source-han-serif-sc', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif TC', 'Source Han Serif TW', 'Source Han Serif', 'Songti SC', 'Microsoft YaHei', serif;
@@ -51,4 +59,17 @@ code {
 }
 pre, code {
   font-size: .95em;
+}
+sup {
+  color: #770505;
+  font-weight: bolder;
+}
+a.footnote-ref {
+  text-decoration: none;
+}
+a.footnote-back {
+  color: #770505;
+}
+.footer .fa-heart-pulse {
+  color: #770505;
 }
