@@ -1,0 +1,42 @@
+/* safari */
+:root {
+  /*--li-reg-s: '';*/
+  --li-disaster-s: '';
+  --li-earth-s: '';
+  --li-sat-s: '';
+  --li-dish-s: '';
+  --li-rocket-s: '';
+  --li-map-s: '';
+  --li-mac-s: '';
+}
+.content::before {
+  /*content: '';*/
+  left: 0;
+  position: absolute;
+  font-size: 14px;
+  padding-top: 1.5px;
+}
+/*ul:not(.os) > li::before {
+  content: var(--li-reg-s);
+}*/
+li.li-disaster::before {
+  content: var(--li-disaster-s);
+}
+li.li-earth::before {
+  content: var(--li-earth-s);
+}
+li.li-sat::before {
+  content: var(--li-sat-s);
+}
+li.li-dish::before {
+  content: var(--li-dish-s);
+}
+li.li-rocket::before {
+  content: var(--li-rocket-s);
+}
+li.li-map::before {
+  content: var(--li-map-s);
+}
+li.li-mac::before {
+  content: var(--li-mac-s);
+}

@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Lucida Console Web';
+  src: url('../font/Lucida-Console.ttf.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Optima Web';
+  src: url('../font/Optima-Roman.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+h1, h2, h3 {
+  font-family: 'Palatino', 'Palatino Linotype', serif;
+  font-weight: 400;
+}
+body {
+  font-family: Optima, 'Optima Web', sans-serif;
+}
+code.sourceCode {
+  font-family: 'Lucida Console', 'Lucida Console Web', monospace;
+}

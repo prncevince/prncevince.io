@@ -197,10 +197,10 @@ ul:not(.os) {
   padding: 0 0 0 14px;
 }
 
+/* for safari browser - change all ::marker to use :before with javascript */
 ul:not(.os) > li::marker {
   content: '–  ';
 }
-
 li.li-disaster::marker {
   content: '🌪️';
 }
