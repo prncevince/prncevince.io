@@ -17,7 +17,7 @@ figcaption.figure {
 a {
   text-decoration-line: unset;
 }
-a:hover {
+#quarto-content a:hover {
   text-decoration-line: underline;
 }
 /*-- external link style --*/
@@ -27,11 +27,6 @@ a.external:after {
 }
 .nav-footer a.external:after {
   font-size: 0;
-}
-
-/* About */
-.about-contents {
-  text-align: justify;
 }
 
 /*-- Navbar --*/
