@@ -1,17 +1,32 @@
 @import 'https://fonts.googleapis.com/css?family=Questrial';
 
-h1 > .fa-rocket {
-  font-style: italic;
+.pagedjs_margin-top-left {
+  font-size: 14px;
 }
+.pagedjs_margin-top-right {
+  font-size: 12px;
+}
+.pagedjs_margin-bottom-center > .pagedjs_margin-content {
+  font-size: 10px;
+}
+
 h1 {
   text-align: center;
-  /*color: #00A3E2;*/
   color: #4e734d;
   font-size: 30px;
   font-family: Garamond;
   font-weight: unset;
-  margin: unset;
+  /*margin: unset;*/
+  margin: 0;
+  /*display: inline;*/
+  -webkit-text-fill-color: transparent;
+  /*background-image: linear-gradient(45deg,#4e734d,#ecc187,#770505);*/
+  /*background-image: linear-gradient(90deg, #4e734d, #4e734d, #4e734d, #ecc187, #770505, #770505, #770505);*/
+  /*background-image: linear-gradient(45deg,#4e734d,#4e734d,#4e734d,#4e734d,#4e734d,#ecc187,#770505,#770505,#770505,#770505,#770505)*/;
+  background-image: linear-gradient(45deg,#4e734d 45%,#ecc187 50%, #770505 55%);
+  -webkit-background-clip: text;
 }
+
 h2, h3 {
   color: black;
 }
@@ -72,6 +87,9 @@ a.footnote-back {
 }
 .footer .fa-heart-pulse {
   color: #770505;
+}
+.fa-heart-pulse:hover {
+  color: #4e734d;
 }
 a[target="_blank"]:hover {
   color: #770505;

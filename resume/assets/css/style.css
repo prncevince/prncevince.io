@@ -3,6 +3,9 @@
   size: letter;
   /*size: 6in 9in;*/
   margin: 0.25in 0.25in 0.5in 0.25in;
+  @top-right {
+    content: element(updateRunning);
+  }
   @bottom-right {
     content: counter(page);
   }
@@ -10,9 +13,30 @@
     content: element(footerRunning);
   }
 }
+@page:nth(1) {
+  @top-left {
+    content: element(clearanceRunning);
+  }
+}
+
+.update {
+  position: running(updateRunning);
+}
+
+.clearance {
+  position: running(clearanceRunning);
+}
+
 .footer {
   position: running(footerRunning);
 }
+/* allows links in footer to come through when covered by element */
+.pagedjs_margin.pagedjs_margin-bottom-center.hasContent {
+  z-index: 1;
+}
+/*.footnotes, .page2-end {
+  z-index: 2;
+}*/
 
 /* grids */
 /* grid page 1 */
@@ -59,10 +83,13 @@ div.page2-end img {
   grid-column: 1 / 2;
   font-size: 90%;
 }
-/* grid bottom */
+/* grid margin top */
+.pagedjs_margin-top {
+  padding-top: 8px;
+}
+/* grid margin bottom */
 .pagedjs_margin-bottom-center > .pagedjs_margin-content {
   padding-top: 10px;
-  font-size: 10px;
 }
 .pagedjs_left_page .pagedjs_margin-bottom {
   grid-template-columns: .85fr 1.15fr 1fr !important;
@@ -144,7 +171,7 @@ h2 ~ center ~ ul:not(.os) {
 
 p {
   margin: 0;
-  line-height: 12px;
+  line-height: 8px;
 }
 
 .footnotes > ol {
