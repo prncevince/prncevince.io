@@ -81,7 +81,7 @@ div.page2-end img {
 .footnotes {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
-  font-size: 90%;
+  font-size: 80%;
 }
 /* grid margin top */
 .pagedjs_margin-top {
@@ -251,13 +251,13 @@ li.li-mac::marker {
 }
 
 div.booz > h3::after {
-  content: '(February 2023 – October 2023)';
+  content: 'Remote - February 2023 – October 2023';
 }
 div.peraton > h3::after {
-  content: '(June 2017 – December 2022)';
+  content: 'Chantilly, VA - June 2017 – December 2022';
 }
 div.jpmc h3::after {
-  content: '(June 2016 – August 2016)';
+  content: 'Newark, DE - June 2016 – August 2016';
 }
 div.psu h3::after {
   content: '(January 2016 – October 2016)';
