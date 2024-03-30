@@ -14,12 +14,14 @@ $dropdown-link-hover-bg: rgba($base-navbar-bg, 0.70);
 $card-border-color: $body-color;
 $card-bg: $body-bg;
 $source-code: #770505;
+$code-color: $source-code;
+$code-padding: .1em .2em;
 
 /*-- scss:rules --*/
 :root {
   --bs-btn-active-border-color: #{$btn-active-border-color};
 }
-a:hover, .nav-footer a:hover {
+a:hover, .nav-footer a:hover, .quarto-listing-category > .category:hover {
   color: $source-code;
 }
 .nav-footer-left a {
@@ -33,10 +35,13 @@ a:hover, .nav-footer a:hover {
   box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.5);
 }
 /* Code Highlight Style */
+code:not(.sourceCode) {
+  border: 1px solid $code-color;
+}
 pre.sourceCode > .code-copy-button > .bi::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(127, 159, 127)" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>') !important;
 }
-pre.sourceCode:hover >.code-copy-button:hover > .bi::before {
+pre.sourceCode:hover > .code-copy-button:hover > .bi::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(232 173 95)" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>') !important;
 }
 div.sourceCode {

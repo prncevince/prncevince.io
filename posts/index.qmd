@@ -22,6 +22,7 @@ include-after-body:
 css: [/assets/css/posts-listing.css]
 listing:
   type: grid
+  grid-columns: 3
   categories: true
   feed:
     title: Big & tiny Spatial Thoughts

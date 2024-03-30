@@ -51,7 +51,7 @@ website:
         href: posts/index.xml
   page-footer:
     left: |
-      [©](/LICENSE.html) 2023 [Vincent Clemson](/about/) | built with {{< fa solid heart-pulse >}} & [Quarto](https://quarto.org)
+      [©](/LICENSE.html) 2024 [Vincent Clemson](/about/) | built with {{< fa solid heart-pulse >}} & [Quarto](https://quarto.org)
     center:
       - text: "{{< fa brands twitter >}} {{< fa solid rocket >}}"
         href: https://twitter.com/prncevincecares
@@ -104,7 +104,7 @@ format:
     resources: [assets/img/posts.png, assets/img/posts-rss.png]
     template: _pandoc/template.html
     template-partials: [_pandoc/vercel.html, _pandoc/plausible.html]
-    highlight-style: assets/highlight/zenburn-new.theme
+    highlight-style: assets/highlight/a11y-light-new.theme
     theme:
       light: [flatly, 'assets/scss/light.scss']
 

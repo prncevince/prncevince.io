@@ -17,8 +17,11 @@ figcaption.figure {
 a {
   text-decoration-line: unset;
 }
-#quarto-content a:hover {
+#quarto-content a:hover, .quarto-listing-category > .category:hover {
   text-decoration-line: underline;
+}
+#quarto-content .quarto-categories > .quarto-category > a:hover {
+  text-decoration-line: none;
 }
 /*-- external link style --*/
 a.external:after {
@@ -96,6 +99,9 @@ pre.sourceCode > .code-copy-button > .bi::before, pre.sourceCode:hover > .code-c
   height: 1.5rem;
   width: 1.5rem;
   background-size: 1.5rem 1.5rem;
+}
+.cell-output code {
+  border: none;
 }
 /* tools */
 .quarto-navbar-tools > div.nav-item {

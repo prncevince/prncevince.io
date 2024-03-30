@@ -87,7 +87,7 @@ a.quarto-grid-link:hover .card-body h5 {
 }
 
 .quarto-listing-cols-3 {
-  grid-template-columns: repeat(auto-fit, minmax(241.25px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(245.25px, 1fr));
 }
 .card-attribution .listing-date {
   text-transform: none;
