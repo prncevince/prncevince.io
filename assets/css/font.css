@@ -20,3 +20,12 @@ body {
 code.sourceCode {
   font-family: 'Lucida Console', 'Lucida Console Web', monospace;
 }
+main {
+  font-size: 0.95em;
+}
+.sourceCode {
+  font-size: 0.95em;
+}
+code {
+  font-size: 0.8em;
+}
