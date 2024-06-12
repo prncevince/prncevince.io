@@ -2,9 +2,6 @@
 html {
   scroll-behavior: smooth;
 }
-main {
-  font-size: 0.95em;
-}
 figcaption.figure {
   display: block;
   text-align: center;
