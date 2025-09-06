@@ -1,47 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://prncevince.io/posts/geo/north-india-floods-2023/index.html</loc>
+    <loc>https://prncevince.xyz/posts/geo/north-india-floods-2023/index.html</loc>
     <lastmod>2024-02-19T07:28:51.834Z</lastmod>
   </url>
   <url>
-    <loc>https://prncevince.io/posts/index.html</loc>
+    <loc>https://prncevince.xyz/posts/index.html</loc>
     <lastmod>2024-03-29T23:27:07.054Z</lastmod>
   </url>
   <url>
-    <loc>https://prncevince.io/about/usapop.html</loc>
-    <lastmod>2023-10-29T20:27:01.964Z</lastmod>
-  </url>
-  <url>
-    <loc>https://prncevince.io/SETUP.html</loc>
-    <lastmod>2023-10-16T02:30:47.618Z</lastmod>
-  </url>
-  <url>
-    <loc>https://prncevince.io/LICENSE.html</loc>
-    <lastmod>2024-03-29T06:37:30.867Z</lastmod>
-  </url>
-  <url>
-    <loc>https://prncevince.io/about/index.html</loc>
-    <lastmod>2024-06-12T20:15:28.154Z</lastmod>
-  </url>
-  <url>
-    <loc>https://prncevince.io/index.html</loc>
-    <lastmod>2023-10-31T02:17:31.044Z</lastmod>
-  </url>
-  <url>
-    <loc>https://prncevince.io/posts/geo/maps-ggplot-svglite/index.html</loc>
+    <loc>https://prncevince.xyz/posts/geo/maps-ggplot-svglite/index.html</loc>
     <lastmod>2023-10-31T06:37:00.356Z</lastmod>
   </url>
   <url>
-    <loc>https://prncevince.io/posts/geo/natural-disasters-maxar-open-data/index.html</loc>
-    <lastmod>2023-10-12T23:20:19.645Z</lastmod>
+    <loc>https://prncevince.xyz/index.html</loc>
+    <lastmod>2023-10-31T02:17:31.044Z</lastmod>
+  </url>
+  <url>
+    <loc>https://prncevince.xyz/about/index.html</loc>
+    <lastmod>2024-06-12T20:15:28.154Z</lastmod>
   </url>
   <url>
     <loc>https://prncevince.xyz/LICENSE.html</loc>
     <lastmod>2025-09-06T22:02:28.244Z</lastmod>
   </url>
   <url>
-    <loc>https://prncevince.xyz/index.html</loc>
-    <lastmod>2023-10-31T02:17:31.044Z</lastmod>
+    <loc>https://prncevince.xyz/SETUP.html</loc>
+    <lastmod>2023-10-16T02:30:47.618Z</lastmod>
+  </url>
+  <url>
+    <loc>https://prncevince.xyz/about/usapop.html</loc>
+    <lastmod>2023-10-29T20:27:01.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://prncevince.xyz/posts/geo/natural-disasters-maxar-open-data/index.html</loc>
+    <lastmod>2023-10-12T23:20:19.645Z</lastmod>
   </url>
 </urlset>

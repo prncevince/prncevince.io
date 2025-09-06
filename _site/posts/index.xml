@@ -6,20 +6,20 @@
       version="2.0">
 <channel>
 <title>Big &amp; tiny Spatial Thoughts</title>
-<link>https://prncevince.io/posts/</link>
-<atom:link href="https://prncevince.io/posts/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://prncevince.xyz/posts/</link>
+<atom:link href="https://prncevince.xyz/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description>A collection of unique spatial data science content by Vincent Clemson</description>
 <image>
-<url>https://prncevince.io/assets/img/posts-rss.png</url>
+<url>https://prncevince.xyz/assets/img/posts-rss.png</url>
 <title>Big &amp; tiny Spatial Thoughts</title>
-<link>https://prncevince.io/posts/</link>
+<link>https://prncevince.xyz/posts/</link>
 </image>
 <generator>quarto-1.4.424</generator>
-<lastBuildDate>Sun, 29 Oct 2023 07:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 29 Oct 2023 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Designing aesthetic maps in R with ggplot2 &amp; svglite</title>
   <dc:creator>Vincent Clemson</dc:creator>
-  <link>https://prncevince.io/posts/geo/maps-ggplot-svglite/</link>
+  <link>https://prncevince.xyz/posts/geo/maps-ggplot-svglite/</link>
   <description><![CDATA[ I show off how to use R packages in the <a href="../../../posts/#category=rspatial" target="_blank">#rspatial</a> &amp; <a href="../../../posts/#category=tidyverse" target="_blank">tidyverse</a> ecosystems to build both aesthetic &amp; interactive maps. I also use some slightly advanced web dev &amp; scraping techniques to create the finished product. ]]></description>
   <category>ggplot2</category>
   <category>R</category>
@@ -30,13 +30,13 @@
   <category>rspatial</category>
   <category>tidyverse</category>
   <category>30DayMapChallenge</category>
-  <guid>https://prncevince.io/posts/geo/maps-ggplot-svglite/</guid>
-  <pubDate>Sun, 29 Oct 2023 07:00:00 GMT</pubDate>
+  <guid>https://prncevince.xyz/posts/geo/maps-ggplot-svglite/</guid>
+  <pubDate>Sun, 29 Oct 2023 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>North India Floods of October 2023</title>
   <dc:creator>Vincent Clemson</dc:creator>
-  <link>https://prncevince.io/posts/geo/north-india-floods-2023/</link>
+  <link>https://prncevince.xyz/posts/geo/north-india-floods-2023/</link>
   <description><![CDATA[ I quickly visualize Maxar’s recent release in response to the flooding events in the northern Himalayan region of Sikkim, India in October of 2023. Figure&nbsp;4 displays a demo of this. You can use Figure&nbsp;3 to interact with the web map for yourself. ]]></description>
   <category>Geospatial</category>
   <category>Maxar</category>
@@ -50,14 +50,14 @@
   <category>Open Data</category>
   <category>Flood</category>
   <category>Landslide</category>
-  <guid>https://prncevince.io/posts/geo/north-india-floods-2023/</guid>
-  <pubDate>Thu, 12 Oct 2023 07:00:00 GMT</pubDate>
+  <guid>https://prncevince.xyz/posts/geo/north-india-floods-2023/</guid>
+  <pubDate>Thu, 12 Oct 2023 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Visualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program</title>
   <dc:creator>Vincent Clemson</dc:creator>
-  <link>https://prncevince.io/posts/geo/natural-disasters-maxar-open-data/</link>
-  <description><![CDATA[ <img src="https://prncevince.io/posts/geo/natural-disasters-maxar-open-data/morocco-eq-30s-3x-2fps-1080w-80lossy-O3.gif" class="img-fluid figure-img" width="1080"> ]]></description>
+  <link>https://prncevince.xyz/posts/geo/natural-disasters-maxar-open-data/</link>
+  <description><![CDATA[ <img src="https://prncevince.xyz/posts/geo/natural-disasters-maxar-open-data/morocco-eq-30s-3x-2fps-1080w-80lossy-O3.gif" class="img-fluid figure-img" width="1080"> ]]></description>
   <category>Geospatial</category>
   <category>Maxar</category>
   <category>Natural Disasters</category>
@@ -69,8 +69,8 @@
   <category>Development Seed</category>
   <category>Open Data</category>
   <category>Earthquake</category>
-  <guid>https://prncevince.io/posts/geo/natural-disasters-maxar-open-data/</guid>
-  <pubDate>Mon, 02 Oct 2023 07:00:00 GMT</pubDate>
+  <guid>https://prncevince.xyz/posts/geo/natural-disasters-maxar-open-data/</guid>
+  <pubDate>Mon, 02 Oct 2023 06:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -53,56 +53,7 @@
     "href": "posts/index.html",
     "title": "Big & tiny spatial thoughts",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Updated - Oldest\n        \n         \n          Updated - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nDesigning aesthetic maps in R with ggplot2 & svglite\n\n\n9 min\n\n\nA method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).\n\n\n\nOctober 29, 2023\n\n\n\n\n\nOctober 30, 2023\n\n\n\n\n\n\n\n\n\n\n\nNorth India Floods of October 2023\n\n\n3 min\n\n\nA quick turn analysis to visually compare events caused by the Glacial Lake Outburst Flood in the Indian Himalayan Region of Sikkim during early October of 2023.\n\n\n\nOctober 12, 2023\n\n\n\n\n\nFebruary 18, 2024\n\n\n\n\n\n\n\n\n\n\n\nVisualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program\n\n\n13 min\n\n\nA deep dive into visualizing satellite imagery from Maxar’s ODP on-the-fly using STAC, dynamic tiling, and Leaflet.\n\n\n\nOctober 2, 2023\n\n\n\n\n\nOctober 12, 2023\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
-    "objectID": "SETUP.html",
-    "href": "SETUP.html",
-    "title": "Quarto Site Environment Setup",
-    "section": "",
-    "text": "Here’s all the setup.\n\nSetup quarto-shims.\nThen, run below to install & setup quarto. wget is required in your shell environment, can be installed on Mac via homebrew.\n./utils/download-quarto.sh\n\nSetup r-shims.\nCreate RStudio project within RStudio.\n\nrstudioapi::initializeProject()\n\nInitialize the renv environment. Important packages can be discovered in utils/deps.R.\n\nrenv::init()\n\n\nExplode on paper."
-  },
-  {
-    "objectID": "SETUP.html#quarto",
-    "href": "SETUP.html#quarto",
-    "title": "Quarto Site Environment Setup",
-    "section": "",
-    "text": "Setup quarto-shims.\nThen, run below to install & setup quarto. wget is required in your shell environment, can be installed on Mac via homebrew.\n./utils/download-quarto.sh"
-  },
-  {
-    "objectID": "SETUP.html#r",
-    "href": "SETUP.html#r",
-    "title": "Quarto Site Environment Setup",
-    "section": "",
-    "text": "Setup r-shims.\nCreate RStudio project within RStudio.\n\nrstudioapi::initializeProject()\n\nInitialize the renv environment. Important packages can be discovered in utils/deps.R.\n\nrenv::init()"
-  },
-  {
-    "objectID": "SETUP.html#start",
-    "href": "SETUP.html#start",
-    "title": "Quarto Site Environment Setup",
-    "section": "",
-    "text": "Explode on paper."
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "Creative Commons License",
-    "section": "",
-    "text": "Creative Commons License\nhttps://prncevince.xyz © 2024 by Vincent Clemson is licensed under CC BY-NC-SA 4.0.\nTo view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "Vincent Clemson",
-    "section": "",
-    "text": "👋 I’m Vince. In 2017, I received my Bachelor of Science in mathematics & a minor in statistics from Penn State. Afterward, I spent 5+ years at what is now Peraton working a few Geospatial Intelligence data science missions on the NGA’s enterprise systems engineering contract. Recently, I was an AI Engineer at Booz Allen where I conducted statistical performance analyses against Earth observing satellite imagery object detection algorithms.\nI recently traveled ~13,000 miles by car across  to the West coast. I plan to continue to travel. I’m always searching for my next big (or tiny) adventure.\nI enjoy spatial analytics. I hope that I can help shed some light on spatial topics to those who are also interested with this site. It’s built with Quarto.\nWhen I’m not head down in geeky stuff, I enjoy salsa dancing, sports (go birds 🦅), and jumping out of aircraft (did it once - was fun & a bit terrifying).\nIf you’re interesting in learning more about my career, here’s a web version of my résumé.\nAlso, feel free to contact me at vincent.clemson{@}gmail.com.\nThanks for stopping by. ✌️\n\n\n Back to top"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "👋 Welcome to my site",
-    "section": "",
-    "text": "👋 Welcome to my site\n\nYou can learn more about me here.\nYou can find my posts on spatial analytics here.\n\n\n\nThanks for stopping by ✌️"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Updated - Oldest\n        \n         \n          Updated - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nDesigning aesthetic maps in R with ggplot2 & svglite\n\n\n9 min\n\n\nA method to create beautiful lightweight interactive maps in R using ggplot2 and SVG (Scalar Vector Graphics).\n\n\n\nOctober 29, 2023\n\n\n\n\n\nOctober 31, 2023\n\n\n\n\n\n\n\n\n\n\n\nNorth India Floods of October 2023\n\n\n3 min\n\n\nA quick turn analysis to visually compare events caused by the Glacial Lake Outburst Flood in the Indian Himalayan Region of Sikkim during early October of 2023.\n\n\n\nOctober 12, 2023\n\n\n\n\n\nFebruary 19, 2024\n\n\n\n\n\n\n\n\n\n\n\nVisualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program\n\n\n13 min\n\n\nA deep dive into visualizing satellite imagery from Maxar’s ODP on-the-fly using STAC, dynamic tiling, and Leaflet.\n\n\n\nOctober 2, 2023\n\n\n\n\n\nOctober 12, 2023\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "posts/geo/maps-ggplot-svglite/index.html",
@@ -166,6 +117,55 @@
     "title": "Designing aesthetic maps in R with ggplot2 & svglite",
     "section": "Wrap-up",
     "text": "Wrap-up\nIf you have any thoughts or questions, feel free to let me know what you think in the comments below. You’ll need to sign in to your GitHub account to do so. Like my work? Feel free to reach out.\nWe only have one rock, and it’s a beautiful one. Thanks for reading! ✌️🌍"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "👋 Welcome to my site",
+    "section": "",
+    "text": "👋 Welcome to my site\n\nYou can learn more about me here.\nYou can find my posts on spatial analytics here.\n\n\n\nThanks for stopping by ✌️"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "Vincent Clemson",
+    "section": "",
+    "text": "👋 I’m Vince. In 2017, I received my Bachelor of Science in mathematics & a minor in statistics from Penn State. Afterward, I spent 5+ years at what is now Peraton working a few Geospatial Intelligence data science missions on the NGA’s enterprise systems engineering contract. Recently, I was an AI Engineer at Booz Allen where I conducted statistical performance analyses against Earth observing satellite imagery object detection algorithms.\nI recently traveled ~13,000 miles by car across  to the West coast. I plan to continue to travel. I’m always searching for my next big (or tiny) adventure.\nI enjoy spatial analytics. I hope that I can help shed some light on spatial topics to those who are also interested with this site. It’s built with Quarto.\nWhen I’m not head down in geeky stuff, I enjoy salsa dancing, sports (go birds 🦅), and jumping out of aircraft (did it once - was fun & a bit terrifying).\nIf you’re interesting in learning more about my career, here’s a web version of my résumé.\nAlso, feel free to contact me at vincent.clemson{@}gmail.com.\nThanks for stopping by. ✌️\n\n\n Back to top"
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "Creative Commons License",
+    "section": "",
+    "text": "Creative Commons License\nhttps://prncevince.xyz © 2024 by Vincent Clemson is licensed under CC BY-NC-SA 4.0.\nTo view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "SETUP.html",
+    "href": "SETUP.html",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Here’s all the setup.\n\nSetup quarto-shims.\nThen, run below to install & setup quarto. wget is required in your shell environment, can be installed on Mac via homebrew.\n./utils/download-quarto.sh\n\nSetup r-shims.\nCreate RStudio project within RStudio.\n\nrstudioapi::initializeProject()\n\nInitialize the renv environment. Important packages can be discovered in utils/deps.R.\n\nrenv::init()\n\n\nExplode on paper."
+  },
+  {
+    "objectID": "SETUP.html#quarto",
+    "href": "SETUP.html#quarto",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Setup quarto-shims.\nThen, run below to install & setup quarto. wget is required in your shell environment, can be installed on Mac via homebrew.\n./utils/download-quarto.sh"
+  },
+  {
+    "objectID": "SETUP.html#r",
+    "href": "SETUP.html#r",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Setup r-shims.\nCreate RStudio project within RStudio.\n\nrstudioapi::initializeProject()\n\nInitialize the renv environment. Important packages can be discovered in utils/deps.R.\n\nrenv::init()"
+  },
+  {
+    "objectID": "SETUP.html#start",
+    "href": "SETUP.html#start",
+    "title": "Quarto Site Environment Setup",
+    "section": "",
+    "text": "Explode on paper."
   },
   {
     "objectID": "posts/geo/natural-disasters-maxar-open-data/index.html",
