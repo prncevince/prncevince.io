@@ -8,7 +8,7 @@ project:
 website:
   title: Vincent Clemson
   favicon: /assets/img/favicon.png
-  site-url: https://prncevince.io
+  site-url: https://prncevince.xyz
   description: 'A collection of unique spatial data science content by Vincent Clemson'
   repo-branch: main
   repo-url: https://github.com/prncevince/prncevince.io

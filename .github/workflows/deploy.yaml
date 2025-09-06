@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os  }}
     environment:
       name: vercel-production
-      url: https://prncevince.io
+      url: https://prncevince.xyz
     strategy:
       fail-fast: false
       matrix:
