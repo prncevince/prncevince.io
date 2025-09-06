@@ -1,7 +1,7 @@
 
 # Creative Commons License
 
-<https://prncevince.xyz> © 2024 by [Vincent Clemson](./about) is
+<https://prncevince.xyz> © 2025 by [Vincent Clemson](./about) is
 licensed under [CC BY-NC-SA
 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
