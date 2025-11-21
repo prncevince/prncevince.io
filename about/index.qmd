@@ -27,7 +27,11 @@ css: [/assets/css/non-posts.css, /assets/css/about.css]
 
 👋 I'm Vince. In 2017, I received my Bachelor of Science in mathematics & a minor in statistics from <a href="https://www.psu.edu" style="color: #1e407c">Penn State</a>. Afterward, I spent 5+ years at what is now [Peraton](https://www.peraton.com) working a few Geospatial Intelligence data science missions on the [NGA's](https://www.nga.mil) enterprise systems engineering contract. Recently, I was an AI Engineer at Booz Allen where I conducted statistical performance analyses against Earth observing satellite imagery object detection algorithms. 
 
-I recently traveled ~13,000 miles by car across <a class="usa" href="usapop.html" target="_blank"></a> to the West coast. I plan to continue to travel. I'm always searching for my next [big]{style='font-size:1.1em'} (or [tiny]{style='font-size:0.75em'}) adventure.
+I've been traveling a lot lately. 
+
+Over the past year and a half I've added 23 new countries to my personal list.
+
+Before this, I traveled ~13,000 miles by car across the United States <a class="usa" href="usapop.html" target="_blank"></a> from the East to the West coast. I'm always searching for my next [big]{style='font-size:1.1em'} (or [tiny]{style='font-size:0.75em'}) adventure.
 
 I enjoy spatial analytics. I hope that I can help shed some light on spatial topics to those who are also interested with this site. It's built with [Quarto](https://quarto.org).
 

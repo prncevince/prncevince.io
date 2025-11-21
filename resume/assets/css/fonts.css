@@ -85,7 +85,7 @@ a.footnote-ref {
 a.footnote-back {
   color: #770505;
 }
-.footer .fa-heart-pulse {
+.footer .fa-heart-pulse, .pagedjs_margin-top .fa-heart-pulse {
   color: #770505;
 }
 .fa-heart-pulse:hover {

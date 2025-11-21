@@ -15,7 +15,7 @@
 <link>https://prncevince.xyz/posts/</link>
 </image>
 <generator>quarto-1.4.424</generator>
-<lastBuildDate>Sun, 29 Oct 2023 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 29 Oct 2023 05:00:00 GMT</lastBuildDate>
 <item>
   <title>Designing aesthetic maps in R with ggplot2 &amp; svglite</title>
   <dc:creator>Vincent Clemson</dc:creator>
@@ -31,7 +31,7 @@
   <category>tidyverse</category>
   <category>30DayMapChallenge</category>
   <guid>https://prncevince.xyz/posts/geo/maps-ggplot-svglite/</guid>
-  <pubDate>Sun, 29 Oct 2023 06:00:00 GMT</pubDate>
+  <pubDate>Sun, 29 Oct 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>North India Floods of October 2023</title>
@@ -51,7 +51,7 @@
   <category>Flood</category>
   <category>Landslide</category>
   <guid>https://prncevince.xyz/posts/geo/north-india-floods-2023/</guid>
-  <pubDate>Thu, 12 Oct 2023 06:00:00 GMT</pubDate>
+  <pubDate>Thu, 12 Oct 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Visualizing Natural Disasters through Dynamic Tiling and Maxar’s Open Data Program</title>
@@ -70,7 +70,7 @@
   <category>Open Data</category>
   <category>Earthquake</category>
   <guid>https://prncevince.xyz/posts/geo/natural-disasters-maxar-open-data/</guid>
-  <pubDate>Mon, 02 Oct 2023 06:00:00 GMT</pubDate>
+  <pubDate>Mon, 02 Oct 2023 05:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
