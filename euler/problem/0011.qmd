@@ -12,7 +12,7 @@ categories: []
 #| file: euler/utils/setup.R
 ```
 
-![ 
+![
   Top down view of Sigiriya Fortress - Lion Rock & surrounding lake & grounds.
   <br>
   Sigirya, Sri Lanka - May 2nd, 2025

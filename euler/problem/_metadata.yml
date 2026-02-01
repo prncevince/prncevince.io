@@ -1,5 +1,6 @@
-css: [/assets/css/posts.css, /assets/css/sidebar.css]
+css: [/assets/css/posts.css, /assets/css/sidebar.css, /assets/css/lightbox.css]
 page-navigation: true
+lightbox: true
 include-after-body:
   text: |
     <div id="scroll-padding"></div>

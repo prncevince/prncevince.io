@@ -4,7 +4,7 @@ project:
   execute-dir: project
   render: ["*.qmd", "*.ipynb", "*.Rmd", "*.md", "!SETUP.md", "!LICENSE.md", "!.notes/"]
   post-render:
-    - cp -a resume _site/.
+    - /opt/homebrew/bin/gcp -au resume _site/.
 website:
   draft-mode: gone
   title: Vincent Clemson

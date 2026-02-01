@@ -78,7 +78,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script src="../../site_libs/quarto-contrib/iconify-1.0.7/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
+<script src="../../site_libs/quarto-contrib/iconify-1.0.7/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -109,6 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../assets/css/sourceCode.css">
 <link rel="stylesheet" href="../../assets/css/posts.css">
 <link rel="stylesheet" href="../../assets/css/sidebar.css">
+<link rel="stylesheet" href="../../assets/css/lightbox.css">
 <meta property="og:title" content="Problem 2 - Even Fibonacci Numbers">
 <meta property="og:description" content="A collection of unique spatial data science content by Vincent Clemson">
 <meta property="og:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250426083343_0654_D.jpg">
@@ -346,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../assets/img/DJI_20250426083343_0654_D.jpg" class="img-fluid figure-img"></p>
+<figure class="figure"><p><a href="../assets/img/DJI_20250426083343_0654_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Mirissa, Sri Lanka - April 26th, 2025"><img src="../assets/img/DJI_20250426083343_0654_D.jpg" class="img-fluid figure-img" alt="Mirissa, Sri Lanka - April 26th, 2025"></a></p>
 <figcaption>Mirissa, Sri Lanka - April 26th, 2025</figcaption></figure>
 </div>
 <p>
@@ -964,7 +968,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer><div id="scroll-padding"></div>
-<script src="../../assets/js/sidebar.js"></script><script src="../../assets/js/site.js"></script><script src="../../assets/js/posts.js"></script><script src="../../assets/js/sourceCode.js"></script><script src="../../assets/js/euler.js"></script>
+<script src="../../assets/js/sidebar.js"></script><script src="../../assets/js/site.js"></script><script src="../../assets/js/posts.js"></script><script src="../../assets/js/sourceCode.js"></script><script src="../../assets/js/euler.js"></script><script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":false,"openEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 </body></html>
