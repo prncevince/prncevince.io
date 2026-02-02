@@ -4,7 +4,7 @@ date: 01/15/26
 draft: false
 link: <https://projecteuler.net/problem=2>{.link-euler}
 image: ../assets/img/DJI_20250426083343_0654_D.jpg
-categories: [Fibonacci, divisors, remainder]
+categories: ["Sri Lanka", Fibonacci, divisors, remainder]
 ---
 
 ```{r}

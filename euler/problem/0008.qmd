@@ -4,7 +4,7 @@ date: 01/19/26
 draft: false
 link: <https://projecteuler.net/problem=8>{.link-euler}
 image: ../assets/img/DJI_20250502210006_0864_D.jpg
-categories: ["product"]
+categories: ["Sri Lanka", "product"]
 ---
 
 ```{r}

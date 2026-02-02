@@ -4,7 +4,7 @@ date: 02/01/26
 draft: false
 link: <https://projecteuler.net/problem=11>{.link-euler}
 image: ../assets/img/DJI_20250502210025_0867_D.jpg
-categories: ['product', 'grid search']
+categories: ["Sri Lanka", "product", "grid search"]
 ---
 
 ```{r}

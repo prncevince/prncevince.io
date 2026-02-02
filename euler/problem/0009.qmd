@@ -4,7 +4,7 @@ date: January 21, 2026
 draft: false
 link: <https://projecteuler.net/problem=9>{.link-euler}
 image: ../assets/img/DJI_20250429081028_0768_D.jpg
-categories: ["Pythagorean", "Euclid's formula", "inequality", "bounds"]
+categories: ["Sri Lanka", "Pythagorean", "Euclid's formula", "inequality", "bounds"]
 ---
 
 ```{r}

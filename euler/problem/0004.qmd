@@ -4,7 +4,7 @@ date: 01/17/26
 draft: false
 link: <https://projecteuler.net/problem=4>{.link-euler}
 image: ../assets/img/DJI_20250429081018_0767_D.jpg
-categories: [palindrome, product, 'brute force', text]
+categories: ["Sri Lanka", palindrome, product, 'brute force', text]
 ---
 
 ```{r}

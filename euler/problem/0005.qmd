@@ -4,7 +4,7 @@ date: 01/17/26
 draft: false
 link: <https://projecteuler.net/problem=5>{.link-euler}
 image: ../assets/img/DJI_20250430211849_0811_D.jpg
-categories: ["least common multiple", "primes", "prime factorization", "factors", "multiples"]
+categories: ["Sri Lanka", "least common multiple", "primes", "prime factorization", "factors", "multiples"]
 css: [/assets/css/tables-left-aligned.css]
 ---
 

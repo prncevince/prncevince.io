@@ -4,7 +4,7 @@ date: 01/15/26
 draft: false
 link: <https://projecteuler.net/problem=3>{.link-euler}
 image: ../assets/img/DJI_20250502212800_0890_D.jpg
-categories: [primes, factors, divisors, remainder]
+categories: ["Sri Lanka", primes, factors, divisors, remainder]
 ---
 
 ```{r}

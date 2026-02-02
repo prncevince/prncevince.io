@@ -4,7 +4,7 @@ date: 01/28/26
 draft: false
 link: <https://projecteuler.net/problem=10>{.link-euler}
 image: ../assets/img/DJI_20250430213311_0834_D.jpg
-categories: ["primes", "Sieve of Eratosthenes", "summation"]
+categories: ["Sri Lanka", "primes", "Sieve of Eratosthenes", "summation"]
 ---
 
 ```{r}

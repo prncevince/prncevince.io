@@ -47,4 +47,4 @@ Here you'll find me working through answering the Project Euler problems using b
 
 I'm treating R as a first class citizen, a feat that I think is a bit novel as the majority of members have answered using Python, C/C++, Java, & C#.
 
-[Code Languages](https://projecteuler.net/languages) used by Project Euler members.
+You can checkout stats on the [Code Languages](https://projecteuler.net/languages) used by Project Euler members. Each problem showcases my original travel photography. Enjoy ***:)***

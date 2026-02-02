@@ -4,7 +4,7 @@ date: 02/02/26
 draft: false
 link: <https://projecteuler.net/problem=12>{.link-euler}
 image: ../assets/img/DJI_20250502214919_0909_D.jpg
-categories: ["triangular numbers", "Sieve of Eratosthenes", "prime factorization", "divisors"]
+categories: ["Sri Lanka", "triangular numbers", "Sieve of Eratosthenes", "prime factorization", "divisors"]
 ---
 
 ```{r}
