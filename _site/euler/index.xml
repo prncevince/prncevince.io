@@ -15,14 +15,29 @@
 <link>https://prncevince.xyz/euler/</link>
 </image>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Fri, 30 Jan 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 02 Feb 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Problem 12 - Highly Divisible Triangular Number</title>
+  <dc:creator>Vincent Clemson</dc:creator>
+  <link>https://prncevince.xyz/euler/problem/0012.html</link>
+  <description><![CDATA[ <a href="../assets/img/DJI_20250502214919_0909_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The giant triangular shaped Pidurangala Rock located north of &amp; adjacent to Sigiriya Lion Rock   Sigiriya, Sri Lanka - May 2nd, 2025"><img src="https://prncevince.xyz/euler/assets/img/DJI_20250502214919_0909_D.jpg" class="img-fluid figure-img" alt="The giant triangular shaped Pidurangala Rock located north of &amp; adjacent to Sigiriya Lion Rock   Sigiriya, Sri Lanka - May 2nd, 2025"></a> ]]></description>
+  <category>triangular numbers</category>
+  <category>Sieve of Eratosthenes</category>
+  <category>prime factorization</category>
+  <category>divisors</category>
+  <guid>https://prncevince.xyz/euler/problem/0012.html</guid>
+  <pubDate>Mon, 02 Feb 2026 03:00:00 GMT</pubDate>
+  <media:content url="https://prncevince.xyz/euler/assets/img/DJI_20250502214919_0909_D.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Problem 11 - Largest Product in a Grid</title>
   <dc:creator>Vincent Clemson</dc:creator>
   <link>https://prncevince.xyz/euler/problem/0011.html</link>
-  <description><![CDATA[ <a href="../assets/img/DJI_20250502210025_0867_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Top down view of Sigiriya Fortress - Lion Rock &amp; surrounding lake &amp; grounds.   Sigirya, Sri Lanka - May 2nd, 2025"><img src="https://prncevince.xyz/euler/assets/img/DJI_20250502210025_0867_D.jpg" class="img-fluid figure-img" alt="Top down view of Sigiriya Fortress - Lion Rock &amp; surrounding lake &amp; grounds.   Sigirya, Sri Lanka - May 2nd, 2025"></a> ]]></description>
+  <description><![CDATA[ <a href="../assets/img/DJI_20250502210025_0867_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Top down view of Sigiriya Fortress - Lion Rock with surrounding grounds, garden, &amp; nearby lake.   Sigirya, Sri Lanka - May 2nd, 2025"><img src="https://prncevince.xyz/euler/assets/img/DJI_20250502210025_0867_D.jpg" class="img-fluid figure-img" alt="Top down view of Sigiriya Fortress - Lion Rock with surrounding grounds, garden, &amp; nearby lake.   Sigirya, Sri Lanka - May 2nd, 2025"></a> ]]></description>
+  <category>product</category>
+  <category>grid search</category>
   <guid>https://prncevince.xyz/euler/problem/0011.html</guid>
-  <pubDate>Fri, 30 Jan 2026 03:00:00 GMT</pubDate>
+  <pubDate>Sun, 01 Feb 2026 03:00:00 GMT</pubDate>
   <media:content url="https://prncevince.xyz/euler/assets/img/DJI_20250502210025_0867_D.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -66,7 +81,7 @@
   <dc:creator>Vincent Clemson</dc:creator>
   <link>https://prncevince.xyz/euler/problem/0008.html</link>
   <description><![CDATA[ <a href="../assets/img/DJI_20250502210006_0864_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Top down view of Sigiriya Fortress - Lion Rock   Sigirya, Sri Lanka - May 2nd, 2025"><img src="https://prncevince.xyz/euler/assets/img/DJI_20250502210006_0864_D.jpg" class="img-fluid figure-img" alt="Top down view of Sigiriya Fortress - Lion Rock   Sigirya, Sri Lanka - May 2nd, 2025"></a> ]]></description>
-  <category>max product</category>
+  <category>product</category>
   <guid>https://prncevince.xyz/euler/problem/0008.html</guid>
   <pubDate>Mon, 19 Jan 2026 03:00:00 GMT</pubDate>
   <media:content url="https://prncevince.xyz/euler/assets/img/DJI_20250502210006_0864_D.jpg" medium="image" type="image/jpeg"/>

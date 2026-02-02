@@ -1,0 +1,16 @@
+## Python
+
+### Answer 1
+
+```{python}
+import time
+
+def function(n: int) -> int:
+  return(None)
+
+t0 = time.perf_counter()
+print(function(1))
+t1 = time.perf_counter()
+t = t1 - t0
+print(f'{t:.3f} sec elapsed')
+```

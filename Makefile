@@ -1,4 +1,4 @@
-.PHONY: docs docs-dev docs-site docs-md docs-preview docs-preview-python conda-env-export conda-env-create proxy
+.PHONY: docs docs-dev docs-site docs-md docs-preview docs-preview-python conda-env-export conda-env-create proxy proxy-subnet euler-new-post
 
 CONDA_ENV = environment.yml
 IP = $(shell ipconfig getifaddr en0)
@@ -32,3 +32,6 @@ proxy:
 
 proxy-subnet:
 	python -m http.server --bind $(IP) -d $(D)
+
+euler-new-post:
+	euler/utils/new-post.sh -P $(P)
