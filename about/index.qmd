@@ -36,7 +36,9 @@ Before this, I traveled ~13,000 miles by car across the United States <a class="
 
 I enjoy spatial analytics. I hope that I can help shed some light on spatial topics to those who are also interested with this site. It's built with [Quarto](https://quarto.org).
 
-When I'm not head down in geeky stuff, I enjoy salsa dancing, sports (go birds 🦅), and jumping out of aircraft (did it once - was fun & a bit terrifying).
+As I've been traveling, I've dabbled in content creation through cinematic story telling, photography, & drone piloting. I've logged 220 drone missions spanning 500km & 60 hours of flight time.
+
+When I'm not head down in geeky stuff, I also enjoy salsa dancing, sports (go birds 🦅), and jumping out of aircraft (did it once - was fun & a bit terrifying).
 
 If you're interesting in learning more about my career, here's a web version of my [résumé](/resume){.external target='_blank'}.
 
