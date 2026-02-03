@@ -150,15 +150,6 @@ a.navbar-brand {
 }
 
 /*-- Sidebar --*/
-@media (max-width: 991.98px) {
-  nav.quarto-secondary-nav {
-    background-color: rgba(253, 251, 247, 0.90);
-    border-bottom: unset;
-  }
-}
-div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
-  background-color: rgba(253, 251, 247, 0.90);
-}
 .sidebar-item {
   margin-top: 0.7rem;
 }

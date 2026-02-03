@@ -1,14 +1,20 @@
 /* https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/html/bootstrap/themes/flatly.scss */
 
 /*-- scss:defaults --*/
-$body-bg: #fdfbf7;
+$body-bg: #f8f2e7;
+$body-bg-2: #fbf7f1;
+$body-bg-3: #fdfbf7;
 $body-color: #505457;
 $primary: rgba(78, 115, 77);
 $link-color: #528672;
 $base-dropdown-link-hover-bg: #ecc187;
 $btn-active-border-color: $base-dropdown-link-hover-bg;
+// Navbar
 $base-navbar-bg: #376550;
 $navbar-bg: rgba(58, 100, 57, .90);
+$navbar-color: $body-bg;
+$navbar-brand-color: $navbar-color;
+$navbar-hover-color: rgba(145, 177, 128, .88); 
 // $dropdown-bg: rgba($base-dropdown-link-hover-bg, 0.90);
 // $dropdown-link-hover-bg: rgba($base-navbar-bg, 0.70);
 // $dropdown-bg: unset;
@@ -38,14 +44,30 @@ a:hover, .nav-footer a:hover, .quarto-listing-category > .category:hover {
 }
 
 /* Sidebar  */
+@media (max-width: 991.98px) {
+  nav.quarto-secondary-nav {
+    background-color: rgba($body-bg, 0.90);
+    border-bottom: unset;
+  }
+}
+div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
+  background-color: rgba($body-bg, 0.90);
+}
+#quarto-sidebar #sidebar-input::placeholder {
+  color: $base-navbar-bg;
+}
+#quarto-sidebar div.sidebar-search {
+  border-radius: .25rem;
+  opacity: 0.65;
+}
 #quarto-sidebar #sidebar-input:focus-within {
-  box-shadow: rgba($primary, 0.6) 0 0 0 1px;
+  box-shadow: .1rem .1rem .35rem $base-navbar-bg;
   outline: none;
 }
 #quarto-sidebar #sidebar-input {
   align-items: center;
-  background-color: $body-bg;
-  border: 1px solid #dee2e6;
+  background-color: #{$body-bg-3};
+  border: 1px solid $base-navbar-bg;
   border-radius: 0.25rem;
   color: $body-color;
   display: flex;
@@ -65,11 +87,22 @@ a:hover, .nav-footer a:hover, .quarto-listing-category > .category:hover {
 }
 
 /* Header / Navbar */
+// quarto does not set these variables in boostrap - so we force them to be set here with higher specificity
+#quarto-header .navbar {
+  --bs-navbar-color: #{$navbar-color};
+  --bs-navbar-brand-color: #{$navbar-brand-color};
+}
 #quarto-header {
   box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.5);
 }
 .quarto-title-banner {
   box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.5);
+}
+#quarto-header #quarto-search svg.aa-SubmitIcon {
+  color: $navbar-color;
+}
+#quarto-header #quarto-search svg.aa-SubmitIcon:hover {
+  color: $navbar-hover-color;
 }
 // keeps page title color same on hover
 .navbar-title-container .nav-link:hover {
@@ -113,12 +146,22 @@ div > details > summary {
   border-color: $source-code;
   background-color: rgba(219,219,219,.8);
 }
+
 /* Title Headers */
 h1, h2, h3, h4, h5, h6 {
   color: $primary;
 }
+
 /* Listing Posts */
 // for Euler listing 
+.form-select, .form-control {
+  background-color: $body-bg-2;
+}
+.form-select:focus, .form-control:focus {
+  background-color: $body-bg-2;
+  box-shadow: .1rem .1rem .35rem $base-navbar-bg;
+  border-color: rgba($base-navbar-bg, 0.2);
+}
 div.card-attribution.end.euler {
   color: darken($body-bg, 5%);
   background-color: lighten($navbar-bg, 2%);
@@ -138,6 +181,7 @@ div.card-attribution.end.euler {
 }
 .quarto-category {
   box-shadow: 0.10rem 0.10rem .35rem $base-navbar-bg;
+  background-color: #{$body-bg-3};
 }
 .quarto-category:hover {
   // background: $base-dropdown-link-hover-bg;
@@ -161,6 +205,23 @@ div.callout-note.callout-style-default > .callout-header {
 }
 .callout-note .callout-header {
   color: var(--bs-btn-active-border-color);
+}
+/* pagination */
+#listing-pagination .page-item.active .page-link {
+  background-color: lighten($navbar-bg, 2%);
+  color: #fff;
+}
+#listing-pagination .page-link:hover {
+  background-color: lighten($navbar-bg, 2%);
+  color: #fff;
+}
+#listing-pagination .page-link {
+  background-color: $body-bg-2;
+  border: 1px solid lighten($navbar-bg, 2%);
+  box-shadow: .1rem .1rem .35rem $base-navbar-bg;
+  color: lighten($navbar-bg, 2%);
+  opacity: .8;
+  padding: calc(var(--bs-pagination-padding-y) - 1px) calc(var(--bs-pagination-padding-x) - 1px);
 }
 
 /* footer */

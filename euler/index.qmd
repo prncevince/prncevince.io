@@ -10,6 +10,7 @@ listing:
   contents: problem
   type: grid
   grid-columns: 3
+  page-size: 12
   image-lazy-loading: true
   image-height: unset
   categories: true
