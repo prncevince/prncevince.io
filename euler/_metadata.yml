@@ -16,7 +16,7 @@ include-after-body:
     <script src='/assets/js/euler.js'></script>
 comments:
   giscus:
-    repo: prncevince/prncevince.io
+    repo: prncevince/prncevince.xyz
     repo-id: R_kgDOKfrJMA
     category: Comments
     category-id: DIC_kwDOKfrJMM4CaFyh

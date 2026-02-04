@@ -12,7 +12,7 @@ website:
   site-url: https://prncevince.xyz
   description: 'A collection of unique spatial data science content by Vincent Clemson'
   repo-branch: main
-  repo-url: https://github.com/prncevince/prncevince.io
+  repo-url: https://github.com/prncevince/prncevince.xyz
   open-graph:
     image: /assets/img/logo-og.png
   twitter-card:
@@ -55,10 +55,10 @@ website:
             target: _blank
             rel: me
           - text: Site Discussions 🗣
-            url:  https://github.com/prncevince/prncevince.io/discussions
+            url:  https://github.com/prncevince/prncevince.xyz/discussions
             target: _blank
           - text: Site Source Code 💻
-            url:  https://github.com/prncevince/prncevince.io
+            url:  https://github.com/prncevince/prncevince.xyz
             target: _blank
   page-footer:
     left: |
