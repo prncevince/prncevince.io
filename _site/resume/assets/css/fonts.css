@@ -42,11 +42,11 @@ h3 {
   font-size: 16.5px;
   font-family: 'Century Gothic', 'Questrial';
   font-weight: unset;
-  margin: 0px 0px 4px 0px;
+  margin: 2px 0px 2px 0px;
 }
 h3::after {
   float: right;
-  margin: 0 20px 0 0px;
+  margin: 0 0px 0 0px;
   font-size: 10px;
   padding-top: 4px;
   font-weight: bold;
@@ -62,6 +62,7 @@ body {
   font-family: 'Helvetica Neue';
   font-weight: 220;
   color: #505457;
+  font-size: 14.5px;
 }
 /*body {
   font-family: 'Old Standard TT', Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, 'source-han-serif-sc', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif TC', 'Source Han Serif TW', 'Source Han Serif', 'Songti SC', 'Microsoft YaHei', serif;

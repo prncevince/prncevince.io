@@ -94,9 +94,11 @@ div.page2-end img {
 .pagedjs_left_page .pagedjs_margin-bottom {
   grid-template-columns: .85fr 1.15fr 1fr !important;
 }
+/*
+Aligns footer 
 .pagedjs_left_page .pagedjs_margin-bottom-center > .pagedjs_margin-content {
   text-align: left;
-}
+}*/
 
 div.education > h2 {
   background-image: url(../img/nittany-lion.png);
@@ -105,10 +107,13 @@ div.education > h2 {
   background-size: 30px;
   padding-top: 4px;
 }
-.top a {
-  color: black !important;
+div.top a {
+  color: black;
   text-decoration: none;
 }
+/*div.top a:hover {
+  color: #770505;
+}*/
 a:not(.footnote-ref) {
   /*color: #00A3E2;*/
   color: #528672;
@@ -120,12 +125,15 @@ a:not(.footnote-ref) {
   background-size: 20px;
   padding-right: 20px;
 }
-.top .github a {
+/*.top .github a {
   background-image: url(../img/github.png);
   background-repeat: no-repeat;
   background-position: right;
   background-size: 24px;
   padding-right: 24px;
+}*/
+.top .github a i {
+  font-size: 19px;
 }
 .top .linkedin a {
   background-image: url(../img/linkedin.png);
@@ -142,10 +150,11 @@ a:not(.footnote-ref) {
   padding-left: 20px;
 }
 .top .twitter a {
-  background-image: url(../img/twitter.png);
+  /* background-image: url(../img/twitter.png); */
+  background-image: url(../img/x-twitter-brands-solid-full.svg);
   background-repeat: no-repeat;
   background-position: left 50%;
-  background-size: 18px;
+  background-size: 20px;
   padding-left: 22px;
 }
 
@@ -221,7 +230,7 @@ ul > li.content {
 }
 
 ul:not(.os) {
-  padding: 0 0 0 14px;
+  padding: 0 0 0 20px;
 }
 
 /* for safari browser - change all ::marker to use :before with javascript */
@@ -260,11 +269,11 @@ div.jpmc h3::after {
   content: 'Newark, DE - June 2016 – August 2016';
 }
 div.psu h3::after {
-  content: '(January 2016 – October 2016)';
+  content: 'January 2016 – October 2016';
 }
 
 :root {
-  --background: whitesmoke;
+  --background: #f8f2e7;
   --pagedjs-width: 6in;
   --pagedjs-height: 9in;
   /* color=paper overridden by background-image */

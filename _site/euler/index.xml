@@ -172,14 +172,5 @@
   <pubDate>Thu, 15 Jan 2026 03:00:00 GMT</pubDate>
   <media:content url="https://prncevince.xyz/euler/assets/img/DJI_20250502212800_0890_D.jpg" medium="image" type="image/jpeg"/>
 </item>
-<item>
-  <title>Problem 0 -</title>
-  <dc:creator>Vincent Clemson</dc:creator>
-  <link>https://prncevince.xyz/euler/problem/0013.html</link>
-  <description><![CDATA[ <a href="../assets/img/.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="description   town, country - month #th, 2025"><img src="https://prncevince.xyz/euler/assets/img/.png" class="img-fluid figure-img" alt="description   town, country - month #th, 2025"></a> ]]></description>
-  <guid>https://prncevince.xyz/euler/problem/0013.html</guid>
-  <pubDate>Thu, 01 Jan 2026 03:00:00 GMT</pubDate>
-  <media:content url="https://prncevince.xyz/euler/assets/img/" medium="image"/>
-</item>
 </channel>
 </rss>
