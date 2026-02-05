@@ -1,5 +1,6 @@
 ---
-title: Project Euler
+title: "Project Euler <text style='font-size: smaller;'>(OY-<text class='ler' style='font-style: italic;'>lər</text>)</text>"
+pagetitle: Project Euler
 image: /assets/img/Leonhard_Euler_2.jpg
 twitter-card:
   description: Working through answering all of Project Euler using both R & Python (& Math of course)!

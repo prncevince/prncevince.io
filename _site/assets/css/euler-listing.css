@@ -1,9 +1,6 @@
-/* header#title-block-header {
-  background-image: url('../img/Leonhard_Euler_2.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right;
-} */
+#quarto-header .navbar-title-container .nav-link > text {
+  display: none;
+}
 .quarto-title img.euler {
   float: right;
   height: 160px;
