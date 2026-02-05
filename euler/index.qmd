@@ -44,7 +44,7 @@ license: ''
 
 ![](/assets/img/Leonhard_Euler_2.jpg){.euler}
 
-Here you'll find me working through answering the Project Euler problems using both R & Python (& Math of course)!
+Here you'll find me working through answering the [Project Euler](https://projecteuler.net) problems using both R & Python (& Math of course)!
 
 I'm treating R as a first class citizen, a feat that I think is a bit novel as the majority of members have answered using Python, C/C++, Java, & C#.
 
