@@ -135,13 +135,21 @@ a:not(.footnote-ref) {
 .top .github a i {
   font-size: 19px;
 }
-.top .linkedin a {
-  background-image: url(../img/linkedin.png);
-  background-repeat: no-repeat;
-  background-position: left 0%;
-  background-size: 17px;
-  padding-left: 21px;
+.top .linkedin a i {
+  font-size: 19px;
+  color: #4e734d;
 }
+.top .linkedin a:hover i {
+  color: #770505;
+}
+/*.top .linkedin a {
+  background-image: url(../img/linkedin-brands-solid-full.svg);
+  background-repeat: no-repeat;
+  background-position: left 70%;
+  background-size: 21px;
+  padding-left: 21px;
+  overflow: visible;
+}*/
 .top .email a {
   background-image: url(../img/email.png);
   background-repeat: no-repeat;
