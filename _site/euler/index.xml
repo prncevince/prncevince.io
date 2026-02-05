@@ -15,7 +15,19 @@
 <link>https://prncevince.xyz/euler/</link>
 </image>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Mon, 02 Feb 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 05 Feb 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Problem 13 - Large Sum</title>
+  <dc:creator>Vincent Clemson</dc:creator>
+  <link>https://prncevince.xyz/euler/problem/0013.html</link>
+  <description><![CDATA[ <a href="../assets/img/DJI_20250121054635_0139_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Sunset above the clouds of Ba Na Hills &amp; the French Village   Ba Na Hills, Vietnam - January 21st, 2025"><img src="https://prncevince.xyz/euler/assets/img/DJI_20250121054635_0139_D.jpg" class="img-fluid figure-img" alt="Sunset above the clouds of Ba Na Hills &amp; the French Village   Ba Na Hills, Vietnam - January 21st, 2025"></a> ]]></description>
+  <category>Vietnam</category>
+  <category>sequence</category>
+  <category>summation</category>
+  <guid>https://prncevince.xyz/euler/problem/0013.html</guid>
+  <pubDate>Thu, 05 Feb 2026 03:00:00 GMT</pubDate>
+  <media:content url="https://prncevince.xyz/euler/assets/img/DJI_20250121054635_0139_D.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Problem 12 - Highly Divisible Triangular Number</title>
   <dc:creator>Vincent Clemson</dc:creator>
@@ -88,6 +100,7 @@
   <description><![CDATA[ <a href="../assets/img/DJI_20250502210006_0864_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Top down view of Sigiriya Fortress - Lion Rock   Sigirya, Sri Lanka - May 2nd, 2025"><img src="https://prncevince.xyz/euler/assets/img/DJI_20250502210006_0864_D.jpg" class="img-fluid figure-img" alt="Top down view of Sigiriya Fortress - Lion Rock   Sigirya, Sri Lanka - May 2nd, 2025"></a> ]]></description>
   <category>Sri Lanka</category>
   <category>product</category>
+  <category>sequence</category>
   <guid>https://prncevince.xyz/euler/problem/0008.html</guid>
   <pubDate>Mon, 19 Jan 2026 03:00:00 GMT</pubDate>
   <media:content url="https://prncevince.xyz/euler/assets/img/DJI_20250502210006_0864_D.jpg" medium="image" type="image/jpeg"/>

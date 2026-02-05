@@ -88,7 +88,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-description','listing-file-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
+      page: 12,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
@@ -203,7 +204,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(12)</span></div><div class="category" data-category="Euclids formula">Euclids formula <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Fibonacci">Fibonacci <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Pythagorean">Pythagorean <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Sieve of Eratosthenes">Sieve of Eratosthenes <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Sri Lanka">Sri Lanka <span class="quarto-category-count">(12)</span></div><div class="category" data-category="bounds">bounds <span class="quarto-category-count">(1)</span></div><div class="category" data-category="brute force">brute force <span class="quarto-category-count">(1)</span></div><div class="category" data-category="divisors">divisors <span class="quarto-category-count">(4)</span></div><div class="category" data-category="factors">factors <span class="quarto-category-count">(2)</span></div><div class="category" data-category="grid search">grid search <span class="quarto-category-count">(1)</span></div><div class="category" data-category="inequality">inequality <span class="quarto-category-count">(1)</span></div><div class="category" data-category="least common multiple">least common multiple <span class="quarto-category-count">(1)</span></div><div class="category" data-category="multiples">multiples <span class="quarto-category-count">(2)</span></div><div class="category" data-category="palindrome">palindrome <span class="quarto-category-count">(1)</span></div><div class="category" data-category="prime factorization">prime factorization <span class="quarto-category-count">(2)</span></div><div class="category" data-category="primes">primes <span class="quarto-category-count">(4)</span></div><div class="category" data-category="product">product <span class="quarto-category-count">(3)</span></div><div class="category" data-category="remainder">remainder <span class="quarto-category-count">(3)</span></div><div class="category" data-category="sum of squares">sum of squares <span class="quarto-category-count">(1)</span></div><div class="category" data-category="summation">summation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="text">text <span class="quarto-category-count">(1)</span></div><div class="category" data-category="triangular numbers">triangular numbers <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(13)</span></div><div class="category" data-category="Euclids formula">Euclids formula <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Fibonacci">Fibonacci <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Pythagorean">Pythagorean <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Sieve of Eratosthenes">Sieve of Eratosthenes <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Sri Lanka">Sri Lanka <span class="quarto-category-count">(12)</span></div><div class="category" data-category="Vietnam">Vietnam <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bounds">bounds <span class="quarto-category-count">(1)</span></div><div class="category" data-category="brute force">brute force <span class="quarto-category-count">(1)</span></div><div class="category" data-category="divisors">divisors <span class="quarto-category-count">(4)</span></div><div class="category" data-category="factors">factors <span class="quarto-category-count">(2)</span></div><div class="category" data-category="grid search">grid search <span class="quarto-category-count">(1)</span></div><div class="category" data-category="inequality">inequality <span class="quarto-category-count">(1)</span></div><div class="category" data-category="least common multiple">least common multiple <span class="quarto-category-count">(1)</span></div><div class="category" data-category="multiples">multiples <span class="quarto-category-count">(2)</span></div><div class="category" data-category="palindrome">palindrome <span class="quarto-category-count">(1)</span></div><div class="category" data-category="prime factorization">prime factorization <span class="quarto-category-count">(2)</span></div><div class="category" data-category="primes">primes <span class="quarto-category-count">(4)</span></div><div class="category" data-category="product">product <span class="quarto-category-count">(3)</span></div><div class="category" data-category="remainder">remainder <span class="quarto-category-count">(3)</span></div><div class="category" data-category="sequence">sequence <span class="quarto-category-count">(2)</span></div><div class="category" data-category="sum of squares">sum of squares <span class="quarto-category-count">(1)</span></div><div class="category" data-category="summation">summation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="text">text <span class="quarto-category-count">(1)</span></div><div class="category" data-category="triangular numbers">triangular numbers <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -454,7 +455,7 @@ January 19, 2026
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="Sri Lanka,product" data-listing-date-sort="1768791600000" data-listing-file-modified-sort="1770177433043" data-listing-date-modified-sort="1770177433000" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
+<div class="g-col-1" data-index="7" data-categories="Sri Lanka,product,sequence" data-listing-date-sort="1768791600000" data-listing-file-modified-sort="1770321489824" data-listing-date-modified-sort="1770321489000" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
 <a href="../euler/problem/0008.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -475,7 +476,7 @@ January 19, 2026
 </div>
 <div class="card-footer">
 <div class="card-file-modified listing-file-modified">
-<p>February 4, 2026</p>
+<p>February 5, 2026</p>
 </div>
 </div>
 </div>
@@ -589,10 +590,40 @@ February 2, 2026
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="12" data-categories="Vietnam,sequence,summation" data-listing-date-sort="1770260400000" data-listing-file-modified-sort="1770331927474" data-listing-date-modified-sort="1770331927000" data-listing-reading-time-sort="1" data-listing-word-count-sort="137">
+<a href="../euler/problem/0013.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" data-src="../euler/assets/img/DJI_20250121054635_0139_D.jpg" class="thumbnail-image card-img" style="height: unset;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Problem 13 - Large Sum
+</h5>
+<div class="card-text listing-description">
+Work out the first ten digits of the sum of the following one-hundred <span class="math inline">\(50\)</span>-digit numbers.
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+February 5, 2026
+</div>
+</div>
+</div>
+<div class="card-footer">
+<div class="card-file-modified listing-file-modified">
+<p>February 5, 2026</p>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

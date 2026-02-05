@@ -5,8 +5,8 @@
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Vincent Clemson">
-<meta name="dcterms.date" content="2026-01-19">
-<title>Problem 8 - Largest Product in a Series | Vincent Clemson</title>
+<meta name="dcterms.date" content="2026-02-05">
+<title>Problem 13 - Large Sum | Vincent Clemson</title>
 <script src="../../stats/js/script.js" data-api="/stats/api/event/" data-domain="prncevince.xyz"></script><script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script><script defer="" src="../../_vercel/insights/script.js"></script><style>
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../euler/problem/0009.html" rel="next">
-<link href="../../euler/problem/0007.html" rel="prev">
+<link href="../../euler/problem/0012.html" rel="prev">
 <link href="../..//assets/img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -113,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../assets/css/posts.css">
 <link rel="stylesheet" href="../../assets/css/sidebar.css">
 <link rel="stylesheet" href="../../assets/css/lightbox.css">
-<meta property="og:title" content="Problem 8 - Largest Product in a Series">
+<meta property="og:title" content="Problem 13 - Large Sum">
 <meta property="og:description" content="A collection of unique spatial data science content by Vincent Clemson">
-<meta property="og:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250502210006_0864_D.jpg">
+<meta property="og:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250121054635_0139_D.jpg">
 <meta property="og:site_name" content="Vincent Clemson">
-<meta name="twitter:title" content="Problem 8 - Largest Product in a Series">
+<meta name="twitter:title" content="Problem 13 - Large Sum">
 <meta name="twitter:description" content="A collection of unique spatial data science content by Vincent Clemson">
-<meta name="twitter:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250502210006_0864_D.jpg">
+<meta name="twitter:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250121054635_0139_D.jpg">
 <meta name="twitter:creator" content="@prncevincecares">
 <meta name="twitter:site" content="@prncevincecares">
 <meta name="twitter:card" content="summary_large_image">
@@ -195,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Problem 8 - Largest Product in a Series</h1>
+          <h1 class="quarto-secondary-nav-title">Problem 13 - Large Sum</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -263,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../euler/problem/0008.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../euler/problem/0008.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem 8 - Largest Product in a Series</span></a>
   </div>
 </li>
@@ -289,6 +288,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../euler/problem/0012.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem 12 - Highly Divisible Triangular Number</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../euler/problem/0013.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Problem 13 - Large Sum</span></a>
   </div>
 </li>
       </ul>
@@ -318,11 +323,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Problem 8 - Largest Product in a Series</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i></button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/prncevince/prncevince.xyz/blob/main/euler/problem/0008.qmd">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Problem 13 - Large Sum</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i></button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/prncevince/prncevince.xyz/blob/main/euler/problem/0013.qmd">View Source</a></li></ul></div></div>
   <div class="quarto-categories">
-    <div class="quarto-category">Sri Lanka</div>
-    <div class="quarto-category">product</div>
+    <div class="quarto-category">Vietnam</div>
     <div class="quarto-category">sequence</div>
+    <div class="quarto-category">summation</div>
   </div>
   </div>
 
@@ -340,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 19, 2026</p>
+      <p class="date">February 5, 2026</p>
     </div>
   </div>
   
@@ -356,110 +361,272 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="../assets/img/DJI_20250502210006_0864_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Top down view of Sigiriya Fortress - Lion Rock   Sigirya, Sri Lanka - May 2nd, 2025"><img src="../assets/img/DJI_20250502210006_0864_D.jpg" class="img-fluid figure-img" alt="Top down view of Sigiriya Fortress - Lion Rock   Sigirya, Sri Lanka - May 2nd, 2025"></a></p>
-<figcaption>Top down view of Sigiriya Fortress - Lion Rock <br> Sigirya, Sri Lanka - May 2nd, 2025</figcaption></figure>
+<figure class="figure"><p><a href="../assets/img/DJI_20250121054635_0139_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Sunset above the clouds of Ba Na Hills &amp; the French Village   Ba Na Hills, Vietnam - January 21st, 2025"><img src="../assets/img/DJI_20250121054635_0139_D.jpg" class="img-fluid figure-img" alt="Sunset above the clouds of Ba Na Hills &amp; the French Village   Ba Na Hills, Vietnam - January 21st, 2025"></a></p>
+<figcaption>Sunset above the clouds of Ba Na Hills &amp; the French Village <br> Ba Na Hills, Vietnam - January 21st, 2025</figcaption></figure>
 </div>
-<p>The four adjacent digits in the <span class="math inline">\(1000\)</span>-digit number that have the greatest product are <span class="math inline">\(9 \times 9 \times 8 \times 9 = 5832\)</span>.</p>
-<p style="text-align: center">
-73167176531330624919225119674426574742355349194934<br> 96983520312774506326239578318016984801869478851843<br> 85861560789112949495459501737958331952853208805511<br> 12540698747158523863050715693290963295227443043557<br> 66896648950445244523161731856403098711121722383113<br> 62229893423380308135336276614282806444486645238749<br> 30358907296290491560440772390713810515859307960866<br> 70172427121883998797908792274921901699720888093776<br> 65727333001053367881220235421809751254540594752243<br> 52584907711670556013604839586446706324415722155397<br> 53697817977846174064955149290862569321978468622482<br> 83972241375657056057490261407972968652414535100474<br> 82166370484403199890008895243450658541227588666881<br> 16427171479924442928230863465674813919123162824586<br> 17866458359124566529476545682848912883142607690042<br> 24219022671055626321111109370544217506941658960408<br> 07198403850962455444362981230987879927244284909188<br> 84580156166097919133875499200524063689912560717606<br> 05886116467109405077541002256983155200055935729725<br> 71636269561882670428252483600823257530420752963450<br></p>
-<p>Find the thirteen adjacent digits in the <span class="math inline">\(1000\)</span>-digit number that have the greatest product. What is the value of this product?</p>
-<p><a href="https://projecteuler.net/problem=8" class="link-euler">https://projecteuler.net/problem=8</a></p>
+<p>Work out the first ten digits of the sum of the following one-hundred <span class="math inline">\(50\)</span>-digit numbers.</p>
+<p style="text-align: center; font-size: 13px; line-height: 14px;">
+37107287533902102798797998220837590246510135740250<br> 46376937677490009712648124896970078050417018260538<br> 74324986199524741059474233309513058123726617309629<br> 91942213363574161572522430563301811072406154908250<br> 23067588207539346171171980310421047513778063246676<br> 89261670696623633820136378418383684178734361726757<br> 28112879812849979408065481931592621691275889832738<br> 44274228917432520321923589422876796487670272189318<br> 47451445736001306439091167216856844588711603153276<br> 70386486105843025439939619828917593665686757934951<br> 62176457141856560629502157223196586755079324193331<br> 64906352462741904929101432445813822663347944758178<br> 92575867718337217661963751590579239728245598838407<br> 58203565325359399008402633568948830189458628227828<br> 80181199384826282014278194139940567587151170094390<br> 35398664372827112653829987240784473053190104293586<br> 86515506006295864861532075273371959191420517255829<br> 71693888707715466499115593487603532921714970056938<br> 54370070576826684624621495650076471787294438377604<br> 53282654108756828443191190634694037855217779295145<br> 36123272525000296071075082563815656710885258350721<br> 45876576172410976447339110607218265236877223636045<br> 17423706905851860660448207621209813287860733969412<br> 81142660418086830619328460811191061556940512689692<br> 51934325451728388641918047049293215058642563049483<br> 62467221648435076201727918039944693004732956340691<br> 15732444386908125794514089057706229429197107928209<br> 55037687525678773091862540744969844508330393682126<br> 18336384825330154686196124348767681297534375946515<br> 80386287592878490201521685554828717201219257766954<br> 78182833757993103614740356856449095527097864797581<br> 16726320100436897842553539920931837441497806860984<br> 48403098129077791799088218795327364475675590848030<br> 87086987551392711854517078544161852424320693150332<br> 59959406895756536782107074926966537676326235447210<br> 69793950679652694742597709739166693763042633987085<br> 41052684708299085211399427365734116182760315001271<br> 65378607361501080857009149939512557028198746004375<br> 35829035317434717326932123578154982629742552737307<br> 94953759765105305946966067683156574377167401875275<br> 88902802571733229619176668713819931811048770190271<br> 25267680276078003013678680992525463401061632866526<br> 36270218540497705585629946580636237993140746255962<br> 24074486908231174977792365466257246923322810917141<br> 91430288197103288597806669760892938638285025333403<br> 34413065578016127815921815005561868836468420090470<br> 23053081172816430487623791969842487255036638784583<br> 11487696932154902810424020138335124462181441773470<br> 63783299490636259666498587618221225225512486764533<br> 67720186971698544312419572409913959008952310058822<br> 95548255300263520781532296796249481641953868218774<br> 76085327132285723110424803456124867697064507995236<br> 37774242535411291684276865538926205024910326572967<br> 23701913275725675285653248258265463092207058596522<br> 29798860272258331913126375147341994889534765745501<br> 18495701454879288984856827726077713721403798879715<br> 38298203783031473527721580348144513491373226651381<br> 34829543829199918180278916522431027392251122869539<br> 40957953066405232632538044100059654939159879593635<br> 29746152185502371307642255121183693803580388584903<br> 41698116222072977186158236678424689157993532961922<br> 62467957194401269043877107275048102390895523597457<br> 23189706772547915061505504953922979530901129967519<br> 86188088225875314529584099251203829009407770775672<br> 11306739708304724483816533873502340845647058077308<br> 82959174767140363198008187129011875491310547126581<br> 97623331044818386269515456334926366572897563400500<br> 42846280183517070527831839425882145521227251250327<br> 55121603546981200581762165212827652751691296897789<br> 32238195734329339946437501907836945765883352399886<br> 75506164965184775180738168837861091527357929701337<br> 62177842752192623401942399639168044983993173312731<br> 32924185707147349566916674687634660915035914677504<br> 99518671430235219628894890102423325116913619626622<br> 73267460800591547471830798392868535206946944540724<br> 76841822524674417161514036427982273348055556214818<br> 97142617910342598647204516893989422179826088076852<br> 87783646182799346313767754307809363333018982642090<br> 10848802521674670883215120185883543223812876952786<br> 71329612474782464538636993009049310363619763878039<br> 62184073572399794223406235393808339651327408011116<br> 66627891981488087797941876876144230030984490851411<br> 60661826293682836764744779239180335110989069790714<br> 85786944089552990653640447425576083659976645795096<br> 66024396409905389607120198219976047599490197230297<br> 64913982680032973156037120041377903785566085089252<br> 16730939319872750275468906903707539413042652315011<br> 94809377245048795150954100921645863754710598436791<br> 78639167021187492431995700641917969777599028300699<br> 15368713711936614952811305876380278410754449733078<br> 40789923115535562561142322423255033685442488917353<br> 44889911501440648020369068063960672322193204149535<br> 41503128880339536053299340368006977710650566631954<br> 81234880673210146739058568557934581403627822703280<br> 82616570773948327592232845941706525094512325230608<br> 22918802058777319719839450180888072429661980811197<br> 77158542502016545090413245809786882778948721859617<br> 72107838435069186155435662884062257473692284509516<br> 20849603980134001723930671666823555245252804609722<br> 53503534226472524250874054075591789781264330331690<br></p>
+<p><a href="https://projecteuler.net/problem=13" class="link-euler">https://projecteuler.net/problem=13</a></p>
 <section id="development" class="level2"><h2 class="anchored" data-anchor-id="development">Development</h2>
-<p>This is straightforward. We can loop through all consecutive 13-digit sequences in the long number, calculate the products, and then find the max.</p>
 </section><section id="r" class="level2"><h2 class="anchored" data-anchor-id="r">R</h2>
 <section id="answer-1" class="level3"><h3 class="anchored" data-anchor-id="answer-1">Answer 1</h3>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
-<span><span class="st">73167176531330624919225119674426574742355349194934</span></span>
-<span><span class="st">96983520312774506326239578318016984801869478851843</span></span>
-<span><span class="st">85861560789112949495459501737958331952853208805511</span></span>
-<span><span class="st">12540698747158523863050715693290963295227443043557</span></span>
-<span><span class="st">66896648950445244523161731856403098711121722383113</span></span>
-<span><span class="st">62229893423380308135336276614282806444486645238749</span></span>
-<span><span class="st">30358907296290491560440772390713810515859307960866</span></span>
-<span><span class="st">70172427121883998797908792274921901699720888093776</span></span>
-<span><span class="st">65727333001053367881220235421809751254540594752243</span></span>
-<span><span class="st">52584907711670556013604839586446706324415722155397</span></span>
-<span><span class="st">53697817977846174064955149290862569321978468622482</span></span>
-<span><span class="st">83972241375657056057490261407972968652414535100474</span></span>
-<span><span class="st">82166370484403199890008895243450658541227588666881</span></span>
-<span><span class="st">16427171479924442928230863465674813919123162824586</span></span>
-<span><span class="st">17866458359124566529476545682848912883142607690042</span></span>
-<span><span class="st">24219022671055626321111109370544217506941658960408</span></span>
-<span><span class="st">07198403850962455444362981230987879927244284909188</span></span>
-<span><span class="st">84580156166097919133875499200524063689912560717606</span></span>
-<span><span class="st">05886116467109405077541002256983155200055935729725</span></span>
-<span><span class="st">71636269561882670428252483600823257530420752963450</span></span>
-<span><span class="st">"</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">strsplit</span>, <span class="st">""</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="st">'\n'</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fl">13</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">m</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">p</span>, <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="op">(</span><span class="va">i</span><span class="op">-</span><span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">:</span><span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Ingest</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
+<span><span class="st">37107287533902102798797998220837590246510135740250</span></span>
+<span><span class="st">46376937677490009712648124896970078050417018260538</span></span>
+<span><span class="st">74324986199524741059474233309513058123726617309629</span></span>
+<span><span class="st">91942213363574161572522430563301811072406154908250</span></span>
+<span><span class="st">23067588207539346171171980310421047513778063246676</span></span>
+<span><span class="st">89261670696623633820136378418383684178734361726757</span></span>
+<span><span class="st">28112879812849979408065481931592621691275889832738</span></span>
+<span><span class="st">44274228917432520321923589422876796487670272189318</span></span>
+<span><span class="st">47451445736001306439091167216856844588711603153276</span></span>
+<span><span class="st">70386486105843025439939619828917593665686757934951</span></span>
+<span><span class="st">62176457141856560629502157223196586755079324193331</span></span>
+<span><span class="st">64906352462741904929101432445813822663347944758178</span></span>
+<span><span class="st">92575867718337217661963751590579239728245598838407</span></span>
+<span><span class="st">58203565325359399008402633568948830189458628227828</span></span>
+<span><span class="st">80181199384826282014278194139940567587151170094390</span></span>
+<span><span class="st">35398664372827112653829987240784473053190104293586</span></span>
+<span><span class="st">86515506006295864861532075273371959191420517255829</span></span>
+<span><span class="st">71693888707715466499115593487603532921714970056938</span></span>
+<span><span class="st">54370070576826684624621495650076471787294438377604</span></span>
+<span><span class="st">53282654108756828443191190634694037855217779295145</span></span>
+<span><span class="st">36123272525000296071075082563815656710885258350721</span></span>
+<span><span class="st">45876576172410976447339110607218265236877223636045</span></span>
+<span><span class="st">17423706905851860660448207621209813287860733969412</span></span>
+<span><span class="st">81142660418086830619328460811191061556940512689692</span></span>
+<span><span class="st">51934325451728388641918047049293215058642563049483</span></span>
+<span><span class="st">62467221648435076201727918039944693004732956340691</span></span>
+<span><span class="st">15732444386908125794514089057706229429197107928209</span></span>
+<span><span class="st">55037687525678773091862540744969844508330393682126</span></span>
+<span><span class="st">18336384825330154686196124348767681297534375946515</span></span>
+<span><span class="st">80386287592878490201521685554828717201219257766954</span></span>
+<span><span class="st">78182833757993103614740356856449095527097864797581</span></span>
+<span><span class="st">16726320100436897842553539920931837441497806860984</span></span>
+<span><span class="st">48403098129077791799088218795327364475675590848030</span></span>
+<span><span class="st">87086987551392711854517078544161852424320693150332</span></span>
+<span><span class="st">59959406895756536782107074926966537676326235447210</span></span>
+<span><span class="st">69793950679652694742597709739166693763042633987085</span></span>
+<span><span class="st">41052684708299085211399427365734116182760315001271</span></span>
+<span><span class="st">65378607361501080857009149939512557028198746004375</span></span>
+<span><span class="st">35829035317434717326932123578154982629742552737307</span></span>
+<span><span class="st">94953759765105305946966067683156574377167401875275</span></span>
+<span><span class="st">88902802571733229619176668713819931811048770190271</span></span>
+<span><span class="st">25267680276078003013678680992525463401061632866526</span></span>
+<span><span class="st">36270218540497705585629946580636237993140746255962</span></span>
+<span><span class="st">24074486908231174977792365466257246923322810917141</span></span>
+<span><span class="st">91430288197103288597806669760892938638285025333403</span></span>
+<span><span class="st">34413065578016127815921815005561868836468420090470</span></span>
+<span><span class="st">23053081172816430487623791969842487255036638784583</span></span>
+<span><span class="st">11487696932154902810424020138335124462181441773470</span></span>
+<span><span class="st">63783299490636259666498587618221225225512486764533</span></span>
+<span><span class="st">67720186971698544312419572409913959008952310058822</span></span>
+<span><span class="st">95548255300263520781532296796249481641953868218774</span></span>
+<span><span class="st">76085327132285723110424803456124867697064507995236</span></span>
+<span><span class="st">37774242535411291684276865538926205024910326572967</span></span>
+<span><span class="st">23701913275725675285653248258265463092207058596522</span></span>
+<span><span class="st">29798860272258331913126375147341994889534765745501</span></span>
+<span><span class="st">18495701454879288984856827726077713721403798879715</span></span>
+<span><span class="st">38298203783031473527721580348144513491373226651381</span></span>
+<span><span class="st">34829543829199918180278916522431027392251122869539</span></span>
+<span><span class="st">40957953066405232632538044100059654939159879593635</span></span>
+<span><span class="st">29746152185502371307642255121183693803580388584903</span></span>
+<span><span class="st">41698116222072977186158236678424689157993532961922</span></span>
+<span><span class="st">62467957194401269043877107275048102390895523597457</span></span>
+<span><span class="st">23189706772547915061505504953922979530901129967519</span></span>
+<span><span class="st">86188088225875314529584099251203829009407770775672</span></span>
+<span><span class="st">11306739708304724483816533873502340845647058077308</span></span>
+<span><span class="st">82959174767140363198008187129011875491310547126581</span></span>
+<span><span class="st">97623331044818386269515456334926366572897563400500</span></span>
+<span><span class="st">42846280183517070527831839425882145521227251250327</span></span>
+<span><span class="st">55121603546981200581762165212827652751691296897789</span></span>
+<span><span class="st">32238195734329339946437501907836945765883352399886</span></span>
+<span><span class="st">75506164965184775180738168837861091527357929701337</span></span>
+<span><span class="st">62177842752192623401942399639168044983993173312731</span></span>
+<span><span class="st">32924185707147349566916674687634660915035914677504</span></span>
+<span><span class="st">99518671430235219628894890102423325116913619626622</span></span>
+<span><span class="st">73267460800591547471830798392868535206946944540724</span></span>
+<span><span class="st">76841822524674417161514036427982273348055556214818</span></span>
+<span><span class="st">97142617910342598647204516893989422179826088076852</span></span>
+<span><span class="st">87783646182799346313767754307809363333018982642090</span></span>
+<span><span class="st">10848802521674670883215120185883543223812876952786</span></span>
+<span><span class="st">71329612474782464538636993009049310363619763878039</span></span>
+<span><span class="st">62184073572399794223406235393808339651327408011116</span></span>
+<span><span class="st">66627891981488087797941876876144230030984490851411</span></span>
+<span><span class="st">60661826293682836764744779239180335110989069790714</span></span>
+<span><span class="st">85786944089552990653640447425576083659976645795096</span></span>
+<span><span class="st">66024396409905389607120198219976047599490197230297</span></span>
+<span><span class="st">64913982680032973156037120041377903785566085089252</span></span>
+<span><span class="st">16730939319872750275468906903707539413042652315011</span></span>
+<span><span class="st">94809377245048795150954100921645863754710598436791</span></span>
+<span><span class="st">78639167021187492431995700641917969777599028300699</span></span>
+<span><span class="st">15368713711936614952811305876380278410754449733078</span></span>
+<span><span class="st">40789923115535562561142322423255033685442488917353</span></span>
+<span><span class="st">44889911501440648020369068063960672322193204149535</span></span>
+<span><span class="st">41503128880339536053299340368006977710650566631954</span></span>
+<span><span class="st">81234880673210146739058568557934581403627822703280</span></span>
+<span><span class="st">82616570773948327592232845941706525094512325230608</span></span>
+<span><span class="st">22918802058777319719839450180888072429661980811197</span></span>
+<span><span class="st">77158542502016545090413245809786882778948721859617</span></span>
+<span><span class="st">72107838435069186155435662884062257473692284509516</span></span>
+<span><span class="st">20849603980134001723930671666823555245252804609722</span></span>
+<span><span class="st">53503534226472524250874054075591789781264330331690</span></span>
+<span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details open="" class="code-fold"><summary>Answer</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">strsplit</span>, <span class="st">""</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="va">x</span> <span class="op">!=</span> <span class="st">'\n'</span><span class="op">]</span></span>
+<span><span class="va">first_n_md</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">m</span>, <span class="va">n</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">/</span><span class="va">m</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">l</span>, <span class="va">x</span><span class="op">[</span><span class="op">(</span><span class="op">(</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">*</span><span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">:</span><span class="op">(</span><span class="va">i</span><span class="op">*</span><span class="va">m</span><span class="op">)</span><span class="op">]</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span>collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="va">s</span> <span class="op">&lt;-</span> <span class="va">l</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">as.double</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span>scientific <span class="op">=</span> <span class="cn">F</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">strsplit</span>, <span class="st">""</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">s</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">]</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span>collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
-<span><span class="va">i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
-<span><span class="va">ans</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span>, digits <span class="op">=</span> <span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">:</span><span class="op">(</span><span class="va">i</span><span class="op">+</span><span class="va">m</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="va">ans</span><span class="op">$</span><span class="va">digits</span><span class="op">)</span> <span class="op">==</span> <span class="va">ans</span><span class="op">$</span><span class="va">max</span></span>
-<span><span class="va">ans</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span></span>
+<span><span class="fu">tic</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">first_n_md</span><span class="op">(</span><span class="va">x</span>, m <span class="op">=</span> <span class="fl">50</span>, n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="fu">toc</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE
-$max
-[1] 23514624000
-
-$digits
- [1] 5 5 7 6 6 8 9 6 6 4 8 9 5</code></pre>
+<pre><code>[1] "5537376230"
+0.006 sec elapsed</code></pre>
 </div>
 </div>
 </section></section><section id="python" class="level2"><h2 class="anchored" data-anchor-id="python">Python</h2>
 <section id="answer-1-1" class="level3"><h3 class="anchored" data-anchor-id="answer-1-1">Answer 1</h3>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> prod</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">73167176531330624919225119674426574742355349194934</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">96983520312774506326239578318016984801869478851843</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">85861560789112949495459501737958331952853208805511</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">12540698747158523863050715693290963295227443043557</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">66896648950445244523161731856403098711121722383113</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st">62229893423380308135336276614282806444486645238749</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="st">30358907296290491560440772390713810515859307960866</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">70172427121883998797908792274921901699720888093776</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="st">65727333001053367881220235421809751254540594752243</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="st">52584907711670556013604839586446706324415722155397</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="st">53697817977846174064955149290862569321978468622482</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="st">83972241375657056057490261407972968652414535100474</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="st">82166370484403199890008895243450658541227588666881</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="st">16427171479924442928230863465674813919123162824586</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="st">17866458359124566529476545682848912883142607690042</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">24219022671055626321111109370544217506941658960408</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="st">07198403850962455444362981230987879927244284909188</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="st">84580156166097919133875499200524063689912560717606</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="st">05886116467109405077541002256983155200055935729725</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="st">71636269561882670428252483600823257530420752963450</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="bu">int</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">list</span>(x) <span class="cf">if</span> i <span class="op">!=</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>]</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">13</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> []</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">13</span>, <span class="bu">len</span>(x)):</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  p.append(prod(x[i<span class="op">-</span>m:i]))</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> p.index(<span class="bu">max</span>(p))</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>ans <span class="op">=</span> {<span class="st">'max'</span>: <span class="bu">max</span>(p), <span class="st">'digits'</span>: x[i:i<span class="op">+</span>m]}</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(prod(ans[<span class="st">'digits'</span>]) <span class="op">==</span> ans[<span class="st">'max'</span>])</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Ingest</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">37107287533902102798797998220837590246510135740250</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">46376937677490009712648124896970078050417018260538</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">74324986199524741059474233309513058123726617309629</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">91942213363574161572522430563301811072406154908250</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">23067588207539346171171980310421047513778063246676</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">89261670696623633820136378418383684178734361726757</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">28112879812849979408065481931592621691275889832738</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">44274228917432520321923589422876796487670272189318</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">47451445736001306439091167216856844588711603153276</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">70386486105843025439939619828917593665686757934951</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="st">62176457141856560629502157223196586755079324193331</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="st">64906352462741904929101432445813822663347944758178</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="st">92575867718337217661963751590579239728245598838407</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="st">58203565325359399008402633568948830189458628227828</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="st">80181199384826282014278194139940567587151170094390</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="st">35398664372827112653829987240784473053190104293586</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="st">86515506006295864861532075273371959191420517255829</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="st">71693888707715466499115593487603532921714970056938</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="st">54370070576826684624621495650076471787294438377604</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="st">53282654108756828443191190634694037855217779295145</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="st">36123272525000296071075082563815656710885258350721</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="st">45876576172410976447339110607218265236877223636045</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="st">17423706905851860660448207621209813287860733969412</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="st">81142660418086830619328460811191061556940512689692</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="st">51934325451728388641918047049293215058642563049483</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="st">62467221648435076201727918039944693004732956340691</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="st">15732444386908125794514089057706229429197107928209</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="st">55037687525678773091862540744969844508330393682126</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="st">18336384825330154686196124348767681297534375946515</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="st">80386287592878490201521685554828717201219257766954</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="st">78182833757993103614740356856449095527097864797581</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="st">16726320100436897842553539920931837441497806860984</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="st">48403098129077791799088218795327364475675590848030</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="st">87086987551392711854517078544161852424320693150332</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="st">59959406895756536782107074926966537676326235447210</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="st">69793950679652694742597709739166693763042633987085</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="st">41052684708299085211399427365734116182760315001271</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="st">65378607361501080857009149939512557028198746004375</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="st">35829035317434717326932123578154982629742552737307</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="st">94953759765105305946966067683156574377167401875275</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="st">88902802571733229619176668713819931811048770190271</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="st">25267680276078003013678680992525463401061632866526</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="st">36270218540497705585629946580636237993140746255962</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="st">24074486908231174977792365466257246923322810917141</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="st">91430288197103288597806669760892938638285025333403</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="st">34413065578016127815921815005561868836468420090470</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="st">23053081172816430487623791969842487255036638784583</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="st">11487696932154902810424020138335124462181441773470</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="st">63783299490636259666498587618221225225512486764533</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="st">67720186971698544312419572409913959008952310058822</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="st">95548255300263520781532296796249481641953868218774</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="st">76085327132285723110424803456124867697064507995236</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="st">37774242535411291684276865538926205024910326572967</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="st">23701913275725675285653248258265463092207058596522</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="st">29798860272258331913126375147341994889534765745501</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="st">18495701454879288984856827726077713721403798879715</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="st">38298203783031473527721580348144513491373226651381</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="st">34829543829199918180278916522431027392251122869539</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="st">40957953066405232632538044100059654939159879593635</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="st">29746152185502371307642255121183693803580388584903</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="st">41698116222072977186158236678424689157993532961922</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="st">62467957194401269043877107275048102390895523597457</span></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="st">23189706772547915061505504953922979530901129967519</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="st">86188088225875314529584099251203829009407770775672</span></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="st">11306739708304724483816533873502340845647058077308</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a><span class="st">82959174767140363198008187129011875491310547126581</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="st">97623331044818386269515456334926366572897563400500</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="st">42846280183517070527831839425882145521227251250327</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="st">55121603546981200581762165212827652751691296897789</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a><span class="st">32238195734329339946437501907836945765883352399886</span></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="st">75506164965184775180738168837861091527357929701337</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a><span class="st">62177842752192623401942399639168044983993173312731</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="st">32924185707147349566916674687634660915035914677504</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="st">99518671430235219628894890102423325116913619626622</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="st">73267460800591547471830798392868535206946944540724</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="st">76841822524674417161514036427982273348055556214818</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="st">97142617910342598647204516893989422179826088076852</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="st">87783646182799346313767754307809363333018982642090</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="st">10848802521674670883215120185883543223812876952786</span></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a><span class="st">71329612474782464538636993009049310363619763878039</span></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a><span class="st">62184073572399794223406235393808339651327408011116</span></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a><span class="st">66627891981488087797941876876144230030984490851411</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="st">60661826293682836764744779239180335110989069790714</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="st">85786944089552990653640447425576083659976645795096</span></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a><span class="st">66024396409905389607120198219976047599490197230297</span></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a><span class="st">64913982680032973156037120041377903785566085089252</span></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a><span class="st">16730939319872750275468906903707539413042652315011</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="st">94809377245048795150954100921645863754710598436791</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a><span class="st">78639167021187492431995700641917969777599028300699</span></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a><span class="st">15368713711936614952811305876380278410754449733078</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a><span class="st">40789923115535562561142322423255033685442488917353</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a><span class="st">44889911501440648020369068063960672322193204149535</span></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a><span class="st">41503128880339536053299340368006977710650566631954</span></span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a><span class="st">81234880673210146739058568557934581403627822703280</span></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a><span class="st">82616570773948327592232845941706525094512325230608</span></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a><span class="st">22918802058777319719839450180888072429661980811197</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="st">77158542502016545090413245809786882778948721859617</span></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a><span class="st">72107838435069186155435662884062257473692284509516</span></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="st">20849603980134001723930671666823555245252804609722</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a><span class="st">53503534226472524250874054075591789781264330331690</span></span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details open="" class="code-fold"><summary>Answer</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="bu">int</span>(i) <span class="cf">for</span> i <span class="kw">in</span> x.split()]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> first_n_md(x: <span class="bu">list</span>[<span class="bu">int</span>], n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span>(<span class="bu">str</span>(<span class="bu">sum</span>(x))[<span class="dv">0</span>:n])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> time.perf_counter()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first_n_md(x, n <span class="op">=</span> <span class="dv">10</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> time.perf_counter()</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> t1 <span class="op">-</span> t0</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>t<span class="sc">:.3f}</span><span class="ss"> sec elapsed'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>True
-{'max': 23514624000, 'digits': [5, 5, 7, 6, 6, 8, 9, 6, 6, 4, 8, 9, 5]}</code></pre>
+<pre><code>5537376230
+0.002 sec elapsed</code></pre>
 </div>
 </div>
 
 
 </section></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>© 2023-2026 Vincent Clemson | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-clemson2026" class="csl-entry quarto-appendix-citeas" role="listitem">
-Clemson, Vincent. 2026. <span>“Problem 8 - Largest Product in a
-Series.”</span> January 19, 2026. <a href="https://prncevince.xyz/euler/problem/0008.html">https://prncevince.xyz/euler/problem/0008.html</a>.
+Clemson, Vincent. 2026. <span>“Problem 13 - Large Sum.”</span> February
+5, 2026. <a href="https://prncevince.xyz/euler/problem/0013.html">https://prncevince.xyz/euler/problem/0013.html</a>.
 </div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -970,14 +1137,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><script src="https://giscus.app/client.js" data-repo="prncevince/prncevince.xyz" data-repo-id="R_kgDOKfrJMA" data-category="Comments" data-category-id="DIC_kwDOKfrJMM4CaFyh" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
 </script><input type="hidden" id="giscus-base-theme" value="preferred_color_scheme"><input type="hidden" id="giscus-alt-theme" value="preferred_color_scheme"><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../euler/problem/0007.html" class="pagination-link" aria-label="Problem 7 - 10,001st Prime">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problem 7 - 10,001st Prime</span>
+      <a href="../../euler/problem/0012.html" class="pagination-link" aria-label="Problem 12 - Highly Divisible Triangular Number">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problem 12 - Highly Divisible Triangular Number</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../euler/problem/0009.html" class="pagination-link" aria-label="Problem 9 - Special Pythagorean Triplet">
-        <span class="nav-page-text">Problem 9 - Special Pythagorean Triplet</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1038,7 +1202,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer><div id="scroll-padding"></div>
-<script src="../../assets/js/sidebar.js"></script><script src="../../assets/js/site.js"></script><script src="../../assets/js/posts.js"></script><script src="../../assets/js/sourceCode.js"></script><script src="../../assets/js/euler.js"></script><script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
+<script src="../../assets/js/sidebar.js"></script><script src="../../assets/js/site.js"></script><script src="../../assets/js/posts.js"></script><script src="../../assets/js/sourceCode.js"></script><script src="../../assets/js/euler.js"></script><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
