@@ -34,4 +34,4 @@ proxy-subnet:
 	python -m http.server --bind $(IP) -d $(D)
 
 euler-new-post:
-	euler/utils/new-post.sh -P $(P)
+	euler/utils/new-post.sh -P $(P) -N $(N)

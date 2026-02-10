@@ -1,0 +1,38 @@
+---
+title: Problem {{ l.p }} - {{ l.n }}
+order: {{ l.p }}
+date: {{ l.d }}
+draft: true
+link: <https://projecteuler.net/problem={{ l.p }}>{.link-euler}
+image: ../../assets/img/
+categories: []
+---
+
+```{r}
+#| include: false
+#| file: euler/utils/setup.R
+```
+
+![ 
+  description
+  <br>
+  town, country - month #th, 2025
+](../../assets/img/)
+
+{{ "{{< meta link >}}" }}
+
+## Development
+
+## R
+
+### Answer 1
+
+```{r}
+f <- function(){}
+
+tic()
+f()
+toc()
+```
+
+{{ "{{< include _index.qmd >}}" }}

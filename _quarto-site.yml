@@ -28,7 +28,7 @@ website:
       contents: 
         - section: Project Euler
           href: euler/index.qmd
-          contents: euler/problem/*
+          contents: euler/problem/**
   navbar:
     collapse-below: lg
     right:

@@ -1,0 +1,187 @@
+---
+title: Problem 9 - Special Pythagorean Triplet
+order: 9
+date: January 21, 2026
+draft: false
+link: <https://projecteuler.net/problem=9>{.link-euler}
+image: ../../assets/img/DJI_20250429081028_0768_D.jpg
+categories: ["Sri Lanka", "Pythagorean", "Euclids formula", "inequality", "bounds"]
+---
+
+```{r}
+#| include: false
+#| file: euler/utils/setup.R
+```
+
+![ 
+  The foggy, mountainous countriside surrounding the railway over Black Bridge & the Kuda Ravana waterfall
+  <br>
+  Ella, Sri Lanka - April 29th, 2025
+](../../assets/img/DJI_20250429081028_0768_D.jpg)
+
+A Pythagorean triplet is a set of three natural numbers, $a \lt b \lt c$, for which,
+$$a^2 + b^2 = c^2.$$
+
+For example, $3^2 + 4^2 = 9 + 16 = 25 = 5^2$.
+
+There exists exactly one Pythagorean triplet for which $a + b + c = 1000$.
+
+Find the product $abc$.
+
+{{< meta link >}}
+
+## R
+
+We can brute force this problem by trying every combination of $a, b, c$ since there is exactly one triplet.
+
+### Answer 1 - Brute Force
+
+```{r}
+#| cache: true
+brute <- function(p) {
+  for (i in 1:p) {
+    for (j in 1:p) {
+      for (k in 1:p) {
+        l <- list(a = i, b = j, c = k)
+        if (l$a^2 + l$b^2 == l$c^2 & sum(l$a, l$b, l$c) == p) {
+          return(c(l, prod=prod(unlist(l))))
+        }
+      }
+    }
+  }
+}
+
+tic()
+brute(1000)
+toc()
+```
+
+Repetitive assignments are very, very, slow in R ... below is 8 times faster. 
+
+```{r}
+#| cache: true
+brute2 <- function(p) {
+  for (i in 1:p) {
+    for (j in 1:p) {
+      for (k in 1:p) {
+        if (i^2 + j^2 == k^2 & i+j+k == p) {
+          return(c(a = i, b = j, c = k, prod = i*j*k))
+        }
+      }
+    }
+  }
+}
+
+tic()
+brute2(1000)
+toc()
+```
+
+### Answer 2 - Inequality Bounds
+
+We can limit the number of looping iterations by setting bounds for our variables.
+
+Resources:
+
+- <https://martin-ueding.de/posts/project-euler-solution-9-special-pythagorean-triplet/>
+
+Since $c > b > a$ and $c = 1000 - a - b$, combining these gives us:
+$$1000 - a - b > b;\: 1000 - a > 2b;\: b < 500 - \frac{a}{2}$$
+
+Additionally, since $a < b < c$ & $c = 1000 - a - b$ & $a = 1000 - b - c$, then
+$$1000 - a - c \lt c; \: 1000 - a \lt 2c; \:\frac{1000 - a}{2}\lt c$$
+
+We can use these bounds on $b$ & $c$ to search for the answer faster than the brute force method.
+
+```{r}
+#| cache: true
+bounds <- function(p) {
+  for (i in 1:p) {
+    for (j in i:floor((p - i)/2)) {
+      for (k in floor((p - i)/2):p) {
+        if (i^2 + j^2 == k^2 & i+j+k == p) {
+          return(c(a = i, b = j, c = k, prod = i*j*k))
+        }
+      }
+    }
+  }
+}
+
+tic()
+bounds(1000)
+toc()
+```
+
+### Answer 3 - Euclid's Formula
+
+We can use [Euclid's formula](https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple).
+
+Resources:
+
+- <https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple>
+- <https://www.cuemath.com/pythagorean-triples-formula/>
+- <https://math.stackexchange.com/a/3378595>
+
+Euclid's formula states that for $a^2 + b^2 = c^2$, there exists $0 < n < m$ such that:
+$$a = m^2 - n^2, b = 2mn, c = m^2+n^2$$
+
+Since Euclid's formula states that $a = m^2 - n^2, b = 2mn, c = m^2+n^2$, we can also say for $a + b + c = 1000 = P$ that:
+$$P = m^2 - n^2 + 2mn + m^2 + n^2 = 2m^2 + 2mn$$
+
+Thus, we can solve for $n$:
+$$\frac{P - 2m^2}{2m} = n$$
+
+Because $m > n > 0$, we can define limits to ***search*** for $m$. 
+
+To find the lower limit such that $n < m$:
+$$\frac{P - 2m^2}{2m} = n \lt m ;\: P - 2m^2 < 2m^2; \: P \lt 4m^2 ;\: \frac{\sqrt{P}}{2} \lt m$$
+
+To find the upper limit such that $n > 0$
+$$\frac{P - 2m^2}{2m} = n \gt 0 ;\: P - 2m^2 > 0; \: P \gt 2m^2; \: m \lt \sqrt{\frac{P}{2}}$$
+
+Thus,
+$$\frac{\sqrt{P}}{2} \lt m \lt \sqrt{\frac{P}{2}}$$
+
+And because $m$ is a whole number:
+$$ \lceil{\frac{\sqrt{P}}{2}\rceil} \leq m \leq \lfloor{ \sqrt{\frac{P}{2}}}\rfloor$$
+
+Replacing $P$ with $1000$
+$$ \lceil{\frac{\sqrt{1000}}{2}\rceil} \leq m \leq \lfloor{ \sqrt{\frac{1000}{2}}}\rfloor$$
+
+So $$16 \leq m \leq 22$$
+
+#### No Code
+
+We have enough information here to try a few combinations to find our answer.
+
+Since $\frac{P - 2m^2}{2m} = n; \: \frac{500 - m^2}{m} = n$ & $n$ must be an integer, the only value of $m$ for $16 \leq m \leq 22$ is $m=20$ where $n = \frac{1000-2*20^2}{2*20} = (2*20)*\frac{25-20}{2*20} = 25 - 20 = 5$
+
+Thus, $$n = 5, m = 20$$ 
+& $$a = 2*5*20 = 200,\: b = 20^2-5^2 = 375; \: c = 5^2 + 20^2 = 425$$
+
+Where $$a*b*c = 200*375*425 = 31875000$$
+
+#### Code
+
+The [No Code](#no-code) solution above can be written as code simply via:
+
+```{r}
+#| cache: true
+p <- 1000
+m1 <- ceiling(sqrt(p)/2)
+m2 <- floor(sqrt(p/2))
+m <- m1:m2
+# can use this because n = (p-2m^2)/(2m) & n is an integer
+m <- m[(p - 2*m^2) %% (2*m) == 0]
+n <- (p - 2*m^2)/(2*m)
+l <- list(
+  # switch a & b here b/c 2mn > m^2 - n^2 | they can be interchanged b/c a^2+b^2 = b^2+a^2 = c^2
+  a = 2 * m * n,
+  b = m^2 - n^2,
+  c = m^2 + n^2
+)
+l
+unlist(l) |> prod()
+```
+
+{{< include _index.qmd >}}

@@ -1,0 +1,73 @@
+---
+title: Problem 7 - 10,001st Prime
+order: 7
+date: 01/19/26
+draft: false
+link: <https://projecteuler.net/problem=7>{.link-euler}
+image: ../../assets/img/DJI_20250502204837_0840_D.jpg
+categories: ["Sri Lanka", "primes", "Sieve of Eratosthenes"]
+---
+
+```{r}
+#| include: false
+#| file: euler/utils/setup.R
+```
+
+![
+  Landscape aerial view overlooking Lion Rock & surroundings from above Pidurangala
+  <br>
+  Sigiriya, Sri Lanka - May 2nd, 2025
+](../../assets/img/DJI_20250502204837_0840_D.jpg)
+
+By listing the first six prime numbers: $2, 3, 5, 7, 11, 13$, we can see that the 6th prime is $13$. 
+<br>
+What is the $10,001$st prime number?
+
+{{< meta link >}}
+
+## Development
+
+The Sieve of Eratosthenes is important here. Resource:
+
+- <https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html>
+
+It is said that $n * ln(n)$ is a good ***estimate*** of the $n$^th^ prime.
+
+Thus, we implement the logic below as a crude implementation of the sieve where we pre-generate a sequence of values: setting our lower bound to 2, and our upper bound to $2 * n * ln(n)$ where $n$ is the $n$^th^ prime.
+
+In the sieve, we eliminate values incremntally from the pre-generated set by conducting remainder division to reach the next prime until we reach the $n$^th^ prime. This pattern allows us to conduct divisibility by the lowest prime of 2, then 3, 5, 7, etc., & we do not even need to check for primeness. 
+
+The sieve is pretty neat!
+
+## R
+
+### Answer 1
+
+```{r}
+n <- 10001
+
+sieve <- function(n) {
+  n1 <- 2
+  n2 <- 2*ceiling(n*log(n))
+  p <- n1:n2
+  for(i in 2:n) {
+    # incremental elimination
+    p <- p[p %% p[1] != 0]
+  }
+  return(c(p[1], max=n2))
+}
+
+tic()
+sieve(n)
+toc()
+```
+
+### Answer 2
+
+```{r}
+tic()
+primes::nth_prime(10001)
+toc()
+```
+
+{{< include _index.qmd >}}

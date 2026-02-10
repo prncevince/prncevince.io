@@ -1,0 +1,61 @@
+---
+title: Problem 1 - Multiples of 3 or 5
+order: 1
+date: 01/15/26
+draft: false
+link: <https://projecteuler.net/problem=1>{.link-euler}
+image: ../../assets/img/DJI_20250426080623_0634_D.jpg
+categories: ["Sri Lanka", multiples, divisors, remainder]
+---
+
+```{r}
+#| include: false
+#| file: euler/utils/setup.R
+```
+
+![Mirissa, Sri Lanka - April 26th, 2025](../../assets/img/DJI_20250426080623_0634_D.jpg)
+
+If we list all the natural numbers below $10$ that are multiples of $3$ or $5$, we get $3, 5, 6$ and $9$. The sum of these multiples is $23$. 
+Find the sum of all the multiples of $3$ or $5$ below $1000$.
+
+{{< meta link >}}
+
+## R
+
+### Development
+
+We can start with the the first statement, as it eases us into the problem solving.
+
+Finding the sum of all the multiples of $3$ or $5$ in the set of natural numbers below $10$:
+
+```{r}
+threes <- 0
+fives <- 0
+for (i in 1:10 - 1) {
+  if (i %% 5 == 0) fives <- c(fives, i)
+  if (i %% 3 == 0) threes <- c(threes, i)
+}
+sum(unique(c(threes, fives)))
+```
+
+### Answer 1
+
+The sum of all the multiples of $3$ or $5$ in the set of natural numbers below $1000$:
+
+```{r}
+threes <- 0
+fives <- 0
+for (i in 1:1000 - 1) {
+  if (i %% 5 == 0) fives <- c(fives, i)
+  if (i %% 3 == 0) threes <- c(threes, i)
+}
+sum(unique(c(threes, fives)))
+```
+
+### Answer 2
+
+```{r}
+x <- seq(1, 999)
+sum(x[x %% 5 == 0 | x %% 3 == 0])
+```
+{{< include _index.qmd >}}

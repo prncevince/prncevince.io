@@ -19,7 +19,7 @@ listing:
     title: Project Euler
     type: partial
     items: 100
-  sort: filename
+  sort: date
   fields: [image, date, title, subtitle, description, file-modified]
   field-display-names:
     date: "Published"

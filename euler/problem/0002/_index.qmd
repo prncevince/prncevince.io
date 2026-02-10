@@ -1,0 +1,10 @@
+## Python
+
+### Answer 1
+
+```{python}
+x = [1,2]
+while x[-1] < 4e6:
+  x.append(sum(x[-2:]))
+sum([i for i in x if i % 2 == 0])
+```

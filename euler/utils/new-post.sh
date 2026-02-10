@@ -2,20 +2,24 @@
 
 HELP=$(cat <<'EOF'
 Template script to create new Project Euler problem directory file structure.
-Ran via `euler/utils/new-post.sh P=#` or `make euler-new-post P=#`
-# where P is the problem number as an integer
+Ran via `euler/utils/new-post.sh # "problem title"` or `make euler-new-post P=# N="problem title"`
+P: problem number as an integer
+N: problem title name - quoted
 EOF
 )
 
 usage() {
-  echo "Usage: new-post.sh -P <problem integer> [-h for help]"
+  echo "Usage: new-post.sh -P <problem integer> -N <quoted problem title> [-h for help]"
 }
 
-while getopts ":P:h" opt; do
+while getopts ":NP:h" opt; do
   case $opt in
 	P)
-  	echo "$OPTARG"
-    exit 0
+  	P="$OPTARG"
+    break
+  	;;
+	N)
+  	N="$OPTARG"
   	;;
 	h)
   	echo "$HELP"
@@ -34,6 +38,11 @@ while getopts ":P:h" opt; do
     ;;
   esac
 done
+
+if [ -n "$P" ]; then
+  Rscript euler/utils/new-post.R "$P" "$N"
+  exit 0
+fi
 
 # if no options are set - run help message
 echo "$HELP"

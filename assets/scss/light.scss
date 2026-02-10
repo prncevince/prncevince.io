@@ -31,6 +31,8 @@ $code-color: $source-code;
 $code-padding: .1em .2em;
 // Listing 
 $card-title-color: $primary;
+// Sidebar
+$link-color-sidebar-active: #28634c;
 
 /*-- scss:rules --*/
 :root {
@@ -49,6 +51,9 @@ a:hover, .nav-footer a:hover, .quarto-listing-category > .category:hover {
     background-color: rgba($body-bg, 0.90);
     border-bottom: unset;
   }
+}
+div.sidebar-item-container .active {
+  color: $link-color-sidebar-active;
 }
 div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
   background-color: rgba($body-bg, 0.90);
