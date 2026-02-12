@@ -5,8 +5,8 @@
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Vincent Clemson">
-<meta name="dcterms.date" content="2026-01-21">
-<title>Problem 9 - Special Pythagorean Triplet | Vincent Clemson</title>
+<meta name="dcterms.date" content="2026-02-10">
+<title>Problem 14 - Longest Collatz Sequence | Vincent Clemson</title>
 <script src="../../../stats/js/script.js" data-api="/stats/api/event/" data-domain="prncevince.xyz"></script><script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script><script defer="" src="../../../_vercel/insights/script.js"></script><style>
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../euler/problem/0010/index.html" rel="next">
-<link href="../../../euler/problem/0008/index.html" rel="prev">
+<link href="../../../euler/problem/0013/index.html" rel="prev">
 <link href="../../..//assets/img/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -113,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../../assets/css/posts.css">
 <link rel="stylesheet" href="../../../assets/css/sidebar.css">
 <link rel="stylesheet" href="../../../assets/css/lightbox.css">
-<meta property="og:title" content="Problem 9 - Special Pythagorean Triplet">
+<meta property="og:title" content="Problem 14 - Longest Collatz Sequence">
 <meta property="og:description" content="A collection of unique spatial data science content by Vincent Clemson">
-<meta property="og:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250429081028_0768_D.jpg">
+<meta property="og:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250109052027_0030_D.jpg">
 <meta property="og:site_name" content="Vincent Clemson">
-<meta name="twitter:title" content="Problem 9 - Special Pythagorean Triplet">
+<meta name="twitter:title" content="Problem 14 - Longest Collatz Sequence">
 <meta name="twitter:description" content="A collection of unique spatial data science content by Vincent Clemson">
-<meta name="twitter:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250429081028_0768_D.jpg">
+<meta name="twitter:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250109052027_0030_D.jpg">
 <meta name="twitter:creator" content="@prncevincecares">
 <meta name="twitter:site" content="@prncevincecares">
 <meta name="twitter:card" content="summary_large_image">
@@ -195,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Problem 9 - Special Pythagorean Triplet</h1>
+          <h1 class="quarto-secondary-nav-title">Problem 14 - Longest Collatz Sequence</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -269,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../euler/problem/0009/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../euler/problem/0009/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem 9 - Special Pythagorean Triplet</span></a>
   </div>
 </li>
@@ -299,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../euler/problem/0014/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../euler/problem/0014/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Problem 14 - Longest Collatz Sequence</span></a>
   </div>
 </li>
@@ -313,16 +312,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li>
-<a href="#r" id="toc-r" class="nav-link active" data-scroll-target="#r">R</a>
-  <ul>
-<li><a href="#answer-1---brute-force" id="toc-answer-1---brute-force" class="nav-link" data-scroll-target="#answer-1---brute-force">Answer 1 - Brute Force</a></li>
-  <li><a href="#answer-2---inequality-bounds" id="toc-answer-2---inequality-bounds" class="nav-link" data-scroll-target="#answer-2---inequality-bounds">Answer 2 - Inequality Bounds</a></li>
+<li><a href="#development" id="toc-development" class="nav-link active" data-scroll-target="#development">Development</a></li>
   <li>
-<a href="#answer-3---euclids-formula" id="toc-answer-3---euclids-formula" class="nav-link" data-scroll-target="#answer-3---euclids-formula">Answer 3 - Euclid’s Formula</a>
+<a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a>
   <ul>
-<li><a href="#no-code" id="toc-no-code" class="nav-link" data-scroll-target="#no-code">No Code</a></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+<li>
+<a href="#answer-1---brute-force" id="toc-answer-1---brute-force" class="nav-link" data-scroll-target="#answer-1---brute-force">Answer 1 - Brute Force</a>
+  <ul>
+<li><a href="#list-concatenation" id="toc-list-concatenation" class="nav-link" data-scroll-target="#list-concatenation">List Concatenation</a></li>
+  <li><a href="#nd-attempt" id="toc-nd-attempt" class="nav-link" data-scroll-target="#nd-attempt">2nd Attempt</a></li>
   </ul>
 </li>
   </ul>
@@ -331,21 +329,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a>
   <ul>
 <li><a href="#answer-1---brute-force-1" id="toc-answer-1---brute-force-1" class="nav-link" data-scroll-target="#answer-1---brute-force-1">Answer 1 - Brute Force</a></li>
-  <li><a href="#answer-2---inequality-bounds-1" id="toc-answer-2---inequality-bounds-1" class="nav-link" data-scroll-target="#answer-2---inequality-bounds-1">Answer 2 - Inequality Bounds</a></li>
-  <li><a href="#answer-3---euclids-formula-1" id="toc-answer-3---euclids-formula-1" class="nav-link" data-scroll-target="#answer-3---euclids-formula-1">Answer 3 - Euclid’s Formula</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Problem 9 - Special Pythagorean Triplet</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i></button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/prncevince/prncevince.xyz/blob/main/euler/problem/0009/index.qmd">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Problem 14 - Longest Collatz Sequence</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i></button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/prncevince/prncevince.xyz/blob/main/euler/problem/0014/index.qmd">View Source</a></li></ul></div></div>
   <div class="quarto-categories">
-    <div class="quarto-category">Sri Lanka</div>
-    <div class="quarto-category">Pythagorean</div>
-    <div class="quarto-category">Euclids formula</div>
-    <div class="quarto-category">inequality</div>
-    <div class="quarto-category">bounds</div>
+    <div class="quarto-category">Vietnam</div>
+    <div class="quarto-category">Collatz</div>
+    <div class="quarto-category">sequence</div>
   </div>
   </div>
 
@@ -363,14 +357,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 21, 2026</p>
+      <p class="date">February 10, 2026</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 9, 2026</p>
+      <p class="date-modified">February 11, 2026</p>
     </div>
   </div>
     
@@ -379,230 +373,129 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="../../assets/img/DJI_20250429081028_0768_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The foggy, mountainous countriside surrounding the railway over Black Bridge &amp; the Kuda Ravana waterfall   Ella, Sri Lanka - April 29th, 2025"><img src="../../assets/img/DJI_20250429081028_0768_D.jpg" class="img-fluid figure-img" alt="The foggy, mountainous countriside surrounding the railway over Black Bridge &amp; the Kuda Ravana waterfall   Ella, Sri Lanka - April 29th, 2025"></a></p>
-<figcaption>The foggy, mountainous countriside surrounding the railway over Black Bridge &amp; the Kuda Ravana waterfall <br> Ella, Sri Lanka - April 29th, 2025</figcaption></figure>
+<figure class="figure"><p><a href="../../assets/img/DJI_20250109052027_0030_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Nam Vien Square at sunset - featuring the unique architectural designs of the artichoke flower bud and wild sunflower buildings.   Da Lat, Vietnam - January 9th, 2025"><img src="../../assets/img/DJI_20250109052027_0030_D.jpg" class="img-fluid figure-img" alt="Nam Vien Square at sunset - featuring the unique architectural designs of the artichoke flower bud and wild sunflower buildings.   Da Lat, Vietnam - January 9th, 2025"></a></p>
+<figcaption>Nam Vien Square at sunset - featuring the unique architectural designs of the artichoke flower bud and wild sunflower buildings. <br> Da Lat, Vietnam - January 9th, 2025</figcaption></figure>
 </div>
-<p>A Pythagorean triplet is a set of three natural numbers, <span class="math inline">\(a \lt b \lt c\)</span>, for which, <span class="math display">\[a^2 + b^2 = c^2.\]</span></p>
-<p>For example, <span class="math inline">\(3^2 + 4^2 = 9 + 16 = 25 = 5^2\)</span>.</p>
-<p>There exists exactly one Pythagorean triplet for which <span class="math inline">\(a + b + c = 1000\)</span>.</p>
-<p>Find the product <span class="math inline">\(abc\)</span>.</p>
-<p><a href="https://projecteuler.net/problem=9" class="link-euler">https://projecteuler.net/problem=9</a></p>
-<section id="r" class="level2"><h2 class="anchored" data-anchor-id="r">R</h2>
-<p>We can brute force this problem by trying every combination of <span class="math inline">\(a, b, c\)</span> since there is exactly one triplet.</p>
+<p>The following iterative sequence is defined for the set of positive integers:</p>
+<ul style="list-style-type:none;">
+<li>
+<span class="math inline">\(n \to n/2\)</span> (<span class="math inline">\(n\)</span> is even)
+</li>
+<li>
+<span class="math inline">\(n \to 3n + 1\)</span> (<span class="math inline">\(n\)</span> is odd)
+</li>
+</ul>
+<p>
+Using the rule above and starting with <span class="math inline">\(13\)</span>, we generate the following sequence: <span class="math display">\[
+13 \to 40 \to 20 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1.
+\]</span>
+</p>
+<p>
+It can be seen that this sequence (starting at <span class="math inline">\(13\)</span> and finishing at <span class="math inline">\(1\)</span>) contains <span class="math inline">\(10\)</span> terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at <span class="math inline">\(1\)</span>.
+</p>
+<p>
+Which starting number, under one million, produces the longest chain?
+</p>
+<p class="note">
+<b>NOTE:</b> Once the chain starts the terms are allowed to go above one million.
+</p>
+<p><a href="https://projecteuler.net/problem=14" class="link-euler">https://projecteuler.net/problem=14</a></p>
+<section id="development" class="level2"><h2 class="anchored" data-anchor-id="development">Development</h2>
+<p>Brute forcing this problem is okay. It’s perfectly fine to loop through all posibilities. However, as you’ll see below, we cover the programming snag of variable list assignment.</p>
+</section><section id="r" class="level2"><h2 class="anchored" data-anchor-id="r">R</h2>
 <section id="answer-1---brute-force" class="level3"><h3 class="anchored" data-anchor-id="answer-1---brute-force">Answer 1 - Brute Force</h3>
+<p>My first attempt at a brute force method actually takes 20 minutes … which is insane …</p>
+<p>This is due to one reason, list concatenation is <strong><em>slowww</em></strong>, it does not matter whether it is in <a href="#python">Python</a> or R.</p>
+<p>Thus, changing the list at the end of the <code>for</code>-loop to an <code>if</code>-statement where we store individual variables fixes this. Kinda crazy. I don’t even bother evaluating the list version to output.</p>
+<section id="list-concatenation" class="level4"><h4 class="anchored" data-anchor-id="list-concatenation">List Concatenation</h4>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">brute</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="kw">for</span> <span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="va">i</span>, b <span class="op">=</span> <span class="va">j</span>, c <span class="op">=</span> <span class="va">k</span><span class="op">)</span></span>
-<span>        <span class="kw">if</span> <span class="op">(</span><span class="va">l</span><span class="op">$</span><span class="va">a</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="va">l</span><span class="op">$</span><span class="va">b</span><span class="op">^</span><span class="fl">2</span> <span class="op">==</span> <span class="va">l</span><span class="op">$</span><span class="va">c</span><span class="op">^</span><span class="fl">2</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">l</span><span class="op">$</span><span class="va">a</span>, <span class="va">l</span><span class="op">$</span><span class="va">b</span>, <span class="va">l</span><span class="op">$</span><span class="va">c</span><span class="op">)</span> <span class="op">==</span> <span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>          <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">l</span>, prod<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">l</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span>        <span class="op">}</span></span>
-<span>      <span class="op">}</span></span>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">collatz.long</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">n</span> <span class="kw">in</span> <span class="va">x</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">j</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span>    <span class="kw">while</span><span class="op">(</span><span class="va">n</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="kw">if</span> <span class="op">(</span><span class="va">n</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="va">n</span> <span class="op">&lt;-</span> <span class="va">n</span><span class="op">/</span><span class="fl">2</span></span>
+<span>      <span class="kw">else</span> <span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">n</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span>      <span class="va">j</span> <span class="op">&lt;-</span> <span class="va">j</span> <span class="op">+</span> <span class="fl">1</span></span>
 <span>    <span class="op">}</span></span>
+<span>    <span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">j</span>, <span class="va">l</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
+<span>  <span class="va">i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">l</span><span class="op">)</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>n <span class="op">=</span> <span class="va">i</span>, length <span class="op">=</span> <span class="va">l</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu">tic</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu">brute</span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="fu">collatz.long</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1e6</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu">toc</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>$a
-[1] 200
-
-$b
-[1] 375
-
-$c
-[1] 425
-
-$prod
-[1] 31875000
-
-146.78 sec elapsed</code></pre>
+</details>
 </div>
-</div>
-<p>Repetitive assignments are very, very, slow in R … below is 8 times faster.</p>
+</section><section id="nd-attempt" class="level4"><h4 class="anchored" data-anchor-id="nd-attempt">2nd Attempt</h4>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">brute2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="kw">for</span> <span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="kw">if</span> <span class="op">(</span><span class="va">i</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="va">j</span><span class="op">^</span><span class="fl">2</span> <span class="op">==</span> <span class="va">k</span><span class="op">^</span><span class="fl">2</span> <span class="op">&amp;</span> <span class="va">i</span><span class="op">+</span><span class="va">j</span><span class="op">+</span><span class="va">k</span> <span class="op">==</span> <span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>          <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>a <span class="op">=</span> <span class="va">i</span>, b <span class="op">=</span> <span class="va">j</span>, c <span class="op">=</span> <span class="va">k</span>, prod <span class="op">=</span> <span class="va">i</span><span class="op">*</span><span class="va">j</span><span class="op">*</span><span class="va">k</span><span class="op">)</span><span class="op">)</span></span>
-<span>        <span class="op">}</span></span>
-<span>      <span class="op">}</span></span>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">collatz.long</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">m</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">n</span> <span class="kw">in</span> <span class="va">x</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">j</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span>    <span class="va">n0</span> <span class="op">&lt;-</span> <span class="va">n</span></span>
+<span>    <span class="kw">while</span> <span class="op">(</span><span class="va">n</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="kw">if</span> <span class="op">(</span><span class="va">n</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="va">n</span> <span class="op">&lt;-</span> <span class="va">n</span><span class="op">/</span><span class="fl">2</span></span>
+<span>      <span class="kw">else</span> <span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">3</span> <span class="op">*</span> <span class="va">n</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span>      <span class="va">j</span> <span class="op">&lt;-</span> <span class="va">j</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span>    <span class="op">}</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">j</span> <span class="op">&gt;</span> <span class="va">m</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="va">m</span> <span class="op">&lt;-</span> <span class="va">j</span></span>
+<span>      <span class="va">i</span> <span class="op">&lt;-</span> <span class="va">n0</span></span>
 <span>    <span class="op">}</span></span>
 <span>  <span class="op">}</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>n <span class="op">=</span> <span class="va">i</span>, length <span class="op">=</span> <span class="va">m</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu">tic</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu">brute2</span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="fu">collatz.long</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1e6</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu">toc</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>       a        b        c     prod 
-     200      375      425 31875000 
-19.564 sec elapsed</code></pre>
-</div>
-</div>
-</section><section id="answer-2---inequality-bounds" class="level3"><h3 class="anchored" data-anchor-id="answer-2---inequality-bounds">Answer 2 - Inequality Bounds</h3>
-<p>We can limit the number of looping iterations by setting bounds for our variables.</p>
-<p>Resources:</p>
-<ul>
-<li><a href="https://martin-ueding.de/posts/project-euler-solution-9-special-pythagorean-triplet/" class="uri">https://martin-ueding.de/posts/project-euler-solution-9-special-pythagorean-triplet/</a></li>
-</ul>
-<p>Since <span class="math inline">\(c &gt; b &gt; a\)</span> and <span class="math inline">\(c = 1000 - a - b\)</span>, combining these gives us: <span class="math display">\[1000 - a - b &gt; b;\: 1000 - a &gt; 2b;\: b &lt; 500 - \frac{a}{2}\]</span></p>
-<p>Additionally, since <span class="math inline">\(a &lt; b &lt; c\)</span> &amp; <span class="math inline">\(c = 1000 - a - b\)</span> &amp; <span class="math inline">\(a = 1000 - b - c\)</span>, then <span class="math display">\[1000 - a - c \lt c; \: 1000 - a \lt 2c; \:\frac{1000 - a}{2}\lt c\]</span></p>
-<p>We can use these bounds on <span class="math inline">\(b\)</span> &amp; <span class="math inline">\(c\)</span> to search for the answer faster than the brute force method.</p>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bounds</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="va">i</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="op">(</span><span class="va">p</span> <span class="op">-</span> <span class="va">i</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="kw">for</span> <span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="op">(</span><span class="va">p</span> <span class="op">-</span> <span class="va">i</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">:</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="kw">if</span> <span class="op">(</span><span class="va">i</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="va">j</span><span class="op">^</span><span class="fl">2</span> <span class="op">==</span> <span class="va">k</span><span class="op">^</span><span class="fl">2</span> <span class="op">&amp;</span> <span class="va">i</span><span class="op">+</span><span class="va">j</span><span class="op">+</span><span class="va">k</span> <span class="op">==</span> <span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>          <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>a <span class="op">=</span> <span class="va">i</span>, b <span class="op">=</span> <span class="va">j</span>, c <span class="op">=</span> <span class="va">k</span>, prod <span class="op">=</span> <span class="va">i</span><span class="op">*</span><span class="va">j</span><span class="op">*</span><span class="va">k</span><span class="op">)</span><span class="op">)</span></span>
-<span>        <span class="op">}</span></span>
-<span>      <span class="op">}</span></span>
-<span>    <span class="op">}</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="fu">tic</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu">bounds</span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span></span>
-<span><span class="fu">toc</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>       a        b        c     prod 
-     200      375      425 31875000 
-3.728 sec elapsed</code></pre>
-</div>
-</div>
-</section><section id="answer-3---euclids-formula" class="level3"><h3 class="anchored" data-anchor-id="answer-3---euclids-formula">Answer 3 - Euclid’s Formula</h3>
-<p>We can use <a href="https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple">Euclid’s formula</a>.</p>
-<p>Resources:</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple" class="uri">https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple</a></li>
-<li><a href="https://www.cuemath.com/pythagorean-triples-formula/" class="uri">https://www.cuemath.com/pythagorean-triples-formula/</a></li>
-<li><a href="https://math.stackexchange.com/a/3378595" class="uri">https://math.stackexchange.com/a/3378595</a></li>
-</ul>
-<p>Euclid’s formula states that for <span class="math inline">\(a^2 + b^2 = c^2\)</span>, there exists <span class="math inline">\(0 &lt; n &lt; m\)</span> such that: <span class="math display">\[a = m^2 - n^2, b = 2mn, c = m^2+n^2\]</span></p>
-<p>Since Euclid’s formula states that <span class="math inline">\(a = m^2 - n^2, b = 2mn, c = m^2+n^2\)</span>, we can also say for <span class="math inline">\(a + b + c = 1000 = P\)</span> that: <span class="math display">\[P = m^2 - n^2 + 2mn + m^2 + n^2 = 2m^2 + 2mn\]</span></p>
-<p>Thus, we can solve for <span class="math inline">\(n\)</span>: <span class="math display">\[\frac{P - 2m^2}{2m} = n\]</span></p>
-<p>Because <span class="math inline">\(m &gt; n &gt; 0\)</span>, we can define limits to <strong><em>search</em></strong> for <span class="math inline">\(m\)</span>.</p>
-<p>To find the lower limit such that <span class="math inline">\(n &lt; m\)</span>: <span class="math display">\[\frac{P - 2m^2}{2m} = n \lt m ;\: P - 2m^2 &lt; 2m^2; \: P \lt 4m^2 ;\: \frac{\sqrt{P}}{2} \lt m\]</span></p>
-<p>To find the upper limit such that <span class="math inline">\(n &gt; 0\)</span> <span class="math display">\[\frac{P - 2m^2}{2m} = n \gt 0 ;\: P - 2m^2 &gt; 0; \: P \gt 2m^2; \: m \lt \sqrt{\frac{P}{2}}\]</span></p>
-<p>Thus, <span class="math display">\[\frac{\sqrt{P}}{2} \lt m \lt \sqrt{\frac{P}{2}}\]</span></p>
-<p>And because <span class="math inline">\(m\)</span> is a whole number: <span class="math display">\[ \lceil{\frac{\sqrt{P}}{2}\rceil} \leq m \leq \lfloor{ \sqrt{\frac{P}{2}}}\rfloor\]</span></p>
-<p>Replacing <span class="math inline">\(P\)</span> with <span class="math inline">\(1000\)</span> <span class="math display">\[ \lceil{\frac{\sqrt{1000}}{2}\rceil} \leq m \leq \lfloor{ \sqrt{\frac{1000}{2}}}\rfloor\]</span></p>
-<p>So <span class="math display">\[16 \leq m \leq 22\]</span></p>
-<section id="no-code" class="level4"><h4 class="anchored" data-anchor-id="no-code">No Code</h4>
-<p>We have enough information here to try a few combinations to find our answer.</p>
-<p>Since <span class="math inline">\(\frac{P - 2m^2}{2m} = n; \: \frac{500 - m^2}{m} = n\)</span> &amp; <span class="math inline">\(n\)</span> must be an integer, the only value of <span class="math inline">\(m\)</span> for <span class="math inline">\(16 \leq m \leq 22\)</span> is <span class="math inline">\(m=20\)</span> where <span class="math inline">\(n = \frac{1000-2*20^2}{2*20} = (2*20)*\frac{25-20}{2*20} = 25 - 20 = 5\)</span></p>
-<p>Thus, <span class="math display">\[n = 5, m = 20\]</span> &amp; <span class="math display">\[a = 2*5*20 = 200,\: b = 20^2-5^2 = 375; \: c = 5^2 + 20^2 = 425\]</span></p>
-<p>Where <span class="math display">\[a*b*c = 200*375*425 = 31875000\]</span></p>
-</section><section id="code" class="level4"><h4 class="anchored" data-anchor-id="code">Code</h4>
-<p>The <a href="#no-code">No Code</a> solution above can be written as code simply via:</p>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fl">1000</span></span>
-<span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">p</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="va">m1</span><span class="op">:</span><span class="va">m2</span></span>
-<span><span class="co"># can use this because n = (p-2m^2)/(2m) &amp; n is an integer</span></span>
-<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="va">m</span><span class="op">[</span><span class="op">(</span><span class="va">p</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="va">m</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">m</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span><span class="op">]</span></span>
-<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">p</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="va">m</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">m</span><span class="op">)</span></span>
-<span><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>  <span class="co"># switch a &amp; b here b/c 2mn &gt; m^2 - n^2 | they can be interchanged b/c a^2+b^2 = b^2+a^2 = c^2</span></span>
-<span>  a <span class="op">=</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">m</span> <span class="op">*</span> <span class="va">n</span>,</span>
-<span>  b <span class="op">=</span> <span class="va">m</span><span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="va">n</span><span class="op">^</span><span class="fl">2</span>,</span>
-<span>  c <span class="op">=</span> <span class="va">m</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="va">n</span><span class="op">^</span><span class="fl">2</span></span>
-<span><span class="op">)</span></span>
-<span><span class="va">l</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">l</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>$a
-[1] 200
+<pre><code>$n
+[1] 837799
 
-$b
-[1] 375
+$length
+[1] 525
 
-$c
-[1] 425
-
-[1] 31875000</code></pre>
+12.33 sec elapsed</code></pre>
 </div>
 </div>
 </section></section></section><section id="python" class="level2"><h2 class="anchored" data-anchor-id="python">Python</h2>
 <section id="answer-1---brute-force-1" class="level3"><h3 class="anchored" data-anchor-id="answer-1---brute-force-1">Answer 1 - Brute Force</h3>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> brute2(p: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, p<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, p<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, p<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> j<span class="op">**</span><span class="dv">2</span> <span class="op">==</span> k<span class="op">**</span><span class="dv">2</span> <span class="kw">and</span> i<span class="op">+</span>j<span class="op">+</span>k <span class="op">==</span> p:</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span>({<span class="st">'a'</span>: i, <span class="st">'b'</span>: j, <span class="st">'c'</span>: k, <span class="st">'prod'</span>: i<span class="op">*</span>j<span class="op">*</span>k})</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> time.perf_counter()</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(brute2(<span class="dv">1000</span>))</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> time.perf_counter()</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> t1 <span class="op">-</span> t0</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>t<span class="sc">:.3f}</span><span class="ss"> sec elapsed'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> collatz_long(x: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  m <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">int</span>(x)<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    j <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    n0 <span class="op">=</span> n</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>: n<span class="op">/=</span><span class="dv">2</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span>: n <span class="op">=</span> <span class="dv">3</span><span class="op">*</span>n<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> j <span class="op">&gt;</span> m:</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      m <span class="op">=</span> j</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      i <span class="op">=</span> n0</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span>({<span class="st">'n'</span>: i, <span class="st">'length'</span>: m})</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> time.perf_counter()</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(collatz_long(x<span class="op">=</span><span class="fl">1e6</span>))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> time.perf_counter()</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> t1 <span class="op">-</span> t0</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>t<span class="sc">:.3f}</span><span class="ss"> sec elapsed'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>{'a': 200, 'b': 375, 'c': 425, 'prod': 31875000}
-13.736 sec elapsed</code></pre>
-</div>
-</div>
-</section><section id="answer-2---inequality-bounds-1" class="level3"><h3 class="anchored" data-anchor-id="answer-2---inequality-bounds-1">Answer 2 - Inequality Bounds</h3>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> floor</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bounds(p: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, p<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i, floor((p<span class="op">-</span>i)<span class="op">/</span><span class="dv">2</span>)<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(floor((p<span class="op">-</span>i)<span class="op">/</span><span class="dv">2</span>), p<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> j<span class="op">**</span><span class="dv">2</span> <span class="op">==</span> k<span class="op">**</span><span class="dv">2</span> <span class="kw">and</span> i<span class="op">+</span>j<span class="op">+</span>k <span class="op">==</span> p:</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span>({<span class="st">'a'</span>: i, <span class="st">'b'</span>: j, <span class="st">'c'</span>: k, <span class="st">'prod'</span>: i<span class="op">*</span>j<span class="op">*</span>k})</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> time.perf_counter()</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bounds(<span class="dv">1000</span>))</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> time.perf_counter()</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> t1 <span class="op">-</span> t0</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>t<span class="sc">:.3f}</span><span class="ss"> sec elapsed'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>{'a': 200, 'b': 375, 'c': 425, 'prod': 31875000}
-2.679 sec elapsed</code></pre>
-</div>
-</div>
-</section><section id="answer-3---euclids-formula-1" class="level3"><h3 class="anchored" data-anchor-id="answer-3---euclids-formula-1">Answer 3 - Euclid’s Formula</h3>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> ceil, floor, prod</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>m1 <span class="op">=</span> ceil(p<span class="op">**</span><span class="fl">0.5</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>m2 <span class="op">=</span> floor((p<span class="op">/</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(m1, m2<span class="op">+</span><span class="dv">1</span>))</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># can use this because n = (p-2m^2)/(2m) &amp; n is an integer</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> m <span class="cf">if</span> (p<span class="op">-</span><span class="dv">2</span><span class="op">*</span>i<span class="op">**</span><span class="dv">2</span>) <span class="op">%</span> (<span class="dv">2</span><span class="op">*</span>i) <span class="op">==</span> <span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> (p<span class="op">-</span><span class="dv">2</span><span class="op">*</span>m<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>m)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># switch a &amp; b here b/c 2mn &gt; m^2 - n^2 | they can be interchanged b/c a^2+b^2 = b^2+a^2 = c^2</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> {</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'a'</span>: <span class="dv">2</span> <span class="op">*</span> m <span class="op">*</span> n,</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'b'</span>: m<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> n<span class="op">**</span><span class="dv">2</span>,</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'c'</span>: m<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> n<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d)</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(prod(d.values()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>{'a': 200.0, 'b': 375.0, 'c': 425.0}
-31875000.0</code></pre>
+<pre><code>{'n': 837799, 'length': 525}
+12.835 sec elapsed</code></pre>
 </div>
 </div>
 
 
 </section></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>© 2023-2026 Vincent Clemson | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-clemson2026" class="csl-entry quarto-appendix-citeas" role="listitem">
-Clemson, Vincent. 2026. <span>“Problem 9 - Special Pythagorean
-Triplet.”</span> January 21, 2026. <a href="https://prncevince.xyz/euler/problem/0009/">https://prncevince.xyz/euler/problem/0009/</a>.
+Clemson, Vincent. 2026. <span>“Problem 14 - Longest Collatz
+Sequence.”</span> February 10, 2026. <a href="https://prncevince.xyz/euler/problem/0014/">https://prncevince.xyz/euler/problem/0014/</a>.
 </div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1113,14 +1006,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><script src="https://giscus.app/client.js" data-repo="prncevince/prncevince.xyz" data-repo-id="R_kgDOKfrJMA" data-category="Comments" data-category-id="DIC_kwDOKfrJMM4CaFyh" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
 </script><input type="hidden" id="giscus-base-theme" value="preferred_color_scheme"><input type="hidden" id="giscus-alt-theme" value="preferred_color_scheme"><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../../euler/problem/0008/index.html" class="pagination-link" aria-label="Problem 8 - Largest Product in a Series">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problem 8 - Largest Product in a Series</span>
+      <a href="../../../euler/problem/0013/index.html" class="pagination-link" aria-label="Problem 13 - Large Sum">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problem 13 - Large Sum</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../euler/problem/0010/index.html" class="pagination-link" aria-label="Problem 10 - Summation of Primes">
-        <span class="nav-page-text">Problem 10 - Summation of Primes</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1181,7 +1071,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer><div id="scroll-padding"></div>
-<script src="../../../assets/js/sidebar.js"></script><script src="../../../assets/js/site.js"></script><script src="../../../assets/js/posts.js"></script><script src="../../../assets/js/sourceCode.js"></script><script src="../../../assets/js/euler.js"></script><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false});
+<script src="../../../assets/js/sidebar.js"></script><script src="../../../assets/js/site.js"></script><script src="../../../assets/js/posts.js"></script><script src="../../../assets/js/sourceCode.js"></script><script src="../../../assets/js/euler.js"></script><script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

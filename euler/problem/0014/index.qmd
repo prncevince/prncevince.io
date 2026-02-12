@@ -1,0 +1,111 @@
+---
+title: Problem 14 - Longest Collatz Sequence
+order: 14
+date: 2026-02-10
+draft: false
+link: <https://projecteuler.net/problem=14>{.link-euler}
+image: ../../assets/img/DJI_20250109052027_0030_D.jpg
+categories: ["Vietnam", "Collatz", "sequence"]
+---
+
+```{r}
+#| include: false
+#| file: euler/utils/setup.R
+```
+
+![ 
+  Nam Vien Square at sunset - featuring the unique architectural designs of the artichoke flower bud and wild sunflower buildings.
+  <br>
+  Da Lat, Vietnam - January 9th, 2025
+](../../assets/img/DJI_20250109052027_0030_D.jpg)
+
+The following iterative sequence is defined for the set of positive integers:
+
+<ul style="list-style-type:none;">
+<li>$n \to n/2$ ($n$ is even)</li>
+<li>$n \to 3n + 1$ ($n$ is odd)</li></ul>
+
+<p>Using the rule above and starting with $13$, we generate the following sequence:
+$$
+13 \to 40 \to 20 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1.
+$$
+</p>
+<p>It can be seen that this sequence (starting at $13$ and finishing at $1$) contains $10$ terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at $1$.
+</p>
+<p>Which starting number, under one million, produces the longest chain?
+</p>
+<p class="note"><b>NOTE:</b> Once the chain starts the terms are allowed to go above one million.
+</p>
+
+{{< meta link >}}
+
+## Development
+
+Brute forcing this problem is okay. It's perfectly fine to loop through all posibilities. However, as you'll see below, we cover the programming snag of variable list assignment.
+
+## R
+
+### Answer 1 - Brute Force
+
+My first attempt at a brute force method actually takes 20 minutes ... which is insane ... 
+
+This is due to one reason, list concatenation is ***slowww***, it does not matter whether it is in [Python](#python) or R.
+
+Thus, changing the list at the end of the `for`-loop to an `if`-statement where we store individual variables fixes this. Kinda crazy. I don't even bother evaluating the list version to output.
+
+#### List Concatenation
+
+```{r}
+#| label: r-brute-force-1
+#| eval: false
+
+collatz.long <- function(x) {
+  l <- c()
+  for (n in x:1) {
+    j <- 1
+    while(n > 1) {
+      if (n %% 2 == 0) n <- n/2
+      else n <- 3 * n + 1
+      j <- j + 1
+    }
+    l <- c(j, l)
+  }
+  i <- which.max(l)
+  return(list(n = i, length = l[i]))
+}
+
+tic()
+collatz.long(x = 1e6-1)
+toc()
+```
+
+#### 2nd Attempt
+
+```{r}
+#| cache: true
+#| label: r-brute-force-2
+
+collatz.long <- function(x) {
+  m <- 0
+  for (n in x:1) {
+    j <- 1
+    n0 <- n
+    while (n > 1) {
+      if (n %% 2 == 0) n <- n/2
+      else n <- 3 * n + 1
+      j <- j + 1
+    }
+    if (j > m) {
+      m <- j
+      i <- n0
+    }
+  }
+  return(list(n = i, length = m))
+}
+
+tic()
+collatz.long(x = 1e6-1)
+toc()
+```
+
+{{< include _index.qmd >}}

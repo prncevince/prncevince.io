@@ -15,7 +15,19 @@
 <link>https://prncevince.xyz/euler/</link>
 </image>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Thu, 05 Feb 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 10 Feb 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Problem 14 - Longest Collatz Sequence</title>
+  <dc:creator>Vincent Clemson</dc:creator>
+  <link>https://prncevince.xyz/euler/problem/0014/</link>
+  <description><![CDATA[ <a href="../../assets/img/DJI_20250109052027_0030_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Nam Vien Square at sunset - featuring the unique architectural designs of the artichoke flower bud and wild sunflower buildings.   Da Lat, Vietnam - January 9th, 2025"><img src="https://prncevince.xyz/euler/assets/img/DJI_20250109052027_0030_D.jpg" class="img-fluid figure-img" alt="Nam Vien Square at sunset - featuring the unique architectural designs of the artichoke flower bud and wild sunflower buildings.   Da Lat, Vietnam - January 9th, 2025"></a> ]]></description>
+  <category>Vietnam</category>
+  <category>Collatz</category>
+  <category>sequence</category>
+  <guid>https://prncevince.xyz/euler/problem/0014/</guid>
+  <pubDate>Tue, 10 Feb 2026 03:00:00 GMT</pubDate>
+  <media:content url="https://prncevince.xyz/euler/assets/img/DJI_20250109052027_0030_D.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Problem 13 - Large Sum</title>
   <dc:creator>Vincent Clemson</dc:creator>

@@ -1133,10 +1133,7 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "1.1.7",
-      "OS_type": null,
-      "NeedsCompilation": "no",
-      "Repository": "CRAN",
+      "Version": "1.1.4",
       "Source": "Repository"
     },
     "reticulate": {
