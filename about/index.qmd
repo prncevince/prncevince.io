@@ -26,7 +26,7 @@ css: [/assets/css/non-posts.css, /assets/css/about.css]
 sidebar: false
 ---
 
-👋 I'm Vince. In 2017, I received my Bachelor of Science in mathematics & a minor in statistics from <a href="https://www.psu.edu" style="color: #1e407c">Penn State</a>. Afterward, I spent 5+ years at what is now [Peraton](https://www.peraton.com) working a few Geospatial Intelligence data science missions on the [NGA's](https://www.nga.mil) enterprise systems engineering contract. Recently, I was an AI Engineer at Booz Allen where I conducted statistical performance analyses against Earth observing satellite imagery object detection algorithms. 
+👋 I'm Vincent. In 2017, I received my Bachelor of Science in mathematics & a minor in statistics from <a href="https://www.psu.edu" style="color: #1e407c">Penn State</a>. Afterward, I spent 5+ years at what is now [Peraton](https://www.peraton.com) working a few Geospatial Intelligence data science missions on the [NGA's](https://www.nga.mil) enterprise systems engineering contract. Recently, I was an AI Engineer at Booz Allen where I conducted statistical performance analyses against Earth observing satellite imagery object detection algorithms. 
 
 I've been traveling a lot lately.
 

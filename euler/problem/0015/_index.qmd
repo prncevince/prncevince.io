@@ -1,0 +1,17 @@
+## Python
+
+### Answer 1 - Combinatorial
+
+```{python}
+import time
+from math import factorial
+
+def choose(n: int, k: int) -> int:
+  return(int(factorial(n)/(factorial(k)*factorial(n-k))))
+
+t0 = time.perf_counter()
+print(choose(n = 40, k = 20))
+t1 = time.perf_counter()
+t = t1 - t0
+print(f'{t:.3f} sec elapsed')
+```

@@ -15,7 +15,19 @@
 <link>https://prncevince.xyz/euler/</link>
 </image>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Tue, 10 Feb 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 12 Feb 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Problem 15 - Lattice Paths</title>
+  <dc:creator>Vincent Clemson</dc:creator>
+  <link>https://prncevince.xyz/euler/problem/0015/</link>
+  <description><![CDATA[ <a href="../../assets/img/DJI_20250109061740_0076_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Aerial top down view of a Nhà Kính (greenhouse) lit up in warm yellow/orange light at night. Abundant usage of greenhouseses &amp; grow lights became popular in Da Lat in the early 2000s as it guaranteed nearly double the output per year of crops foreign to the region.   Da Lat, Vietnam - January 9th, 2025"><img src="https://prncevince.xyz/euler/assets/img/DJI_20250109061740_0076_D.jpg" class="img-fluid figure-img" alt="Aerial top down view of a Nhà Kính (greenhouse) lit up in warm yellow/orange light at night. Abundant usage of greenhouseses &amp; grow lights became popular in Da Lat in the early 2000s as it guaranteed nearly double the output per year of crops foreign to the region.   Da Lat, Vietnam - January 9th, 2025"></a> ]]></description>
+  <category>Vietnam</category>
+  <category>lattice</category>
+  <category>combinatorics</category>
+  <guid>https://prncevince.xyz/euler/problem/0015/</guid>
+  <pubDate>Thu, 12 Feb 2026 03:00:00 GMT</pubDate>
+  <media:content url="https://prncevince.xyz/euler/assets/img/DJI_20250109061740_0076_D.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Problem 14 - Longest Collatz Sequence</title>
   <dc:creator>Vincent Clemson</dc:creator>

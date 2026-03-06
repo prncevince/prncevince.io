@@ -5,8 +5,8 @@
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Vincent Clemson">
-<meta name="dcterms.date" content="2026-01-17">
-<title>Problem 4 - Largest Palindrome Product | Vincent Clemson</title>
+<meta name="dcterms.date" content="2026-02-12">
+<title>Problem 15 - Lattice Paths | Vincent Clemson</title>
 <script src="../../../stats/js/script.js" data-api="/stats/api/event/" data-domain="prncevince.xyz"></script><script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script><script defer="" src="../../../_vercel/insights/script.js"></script><style>
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../euler/problem/0005/index.html" rel="next">
-<link href="../../../euler/problem/0003/index.html" rel="prev">
+<link href="../../../euler/problem/0014/index.html" rel="prev">
 <link href="../../..//assets/img/favicon.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -113,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../../assets/css/posts.css">
 <link rel="stylesheet" href="../../../assets/css/sidebar.css">
 <link rel="stylesheet" href="../../../assets/css/lightbox.css">
-<meta property="og:title" content="Problem 4 - Largest Palindrome Product">
+<meta property="og:title" content="Problem 15 - Lattice Paths">
 <meta property="og:description" content="A collection of unique spatial data science content by Vincent Clemson">
-<meta property="og:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250429081018_0767_D.jpg">
+<meta property="og:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250109061740_0076_D.jpg">
 <meta property="og:site_name" content="Vincent Clemson">
-<meta name="twitter:title" content="Problem 4 - Largest Palindrome Product">
+<meta name="twitter:title" content="Problem 15 - Lattice Paths">
 <meta name="twitter:description" content="A collection of unique spatial data science content by Vincent Clemson">
-<meta name="twitter:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250429081018_0767_D.jpg">
+<meta name="twitter:image" content="https://prncevince.xyz/euler/assets/img/DJI_20250109061740_0076_D.jpg">
 <meta name="twitter:creator" content="@prncevincecares">
 <meta name="twitter:site" content="@prncevincecares">
 <meta name="twitter:card" content="summary_large_image">
@@ -195,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Problem 4 - Largest Palindrome Product</h1>
+          <h1 class="quarto-secondary-nav-title">Problem 15 - Lattice Paths</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -239,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../euler/problem/0004/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../euler/problem/0004/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem 4 - Largest Palindrome Product</span></a>
   </div>
 </li>
@@ -305,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../euler/problem/0015/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../euler/problem/0015/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Problem 15 - Lattice Paths</span></a>
   </div>
 </li>
@@ -319,31 +318,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#thoughts" id="toc-thoughts" class="nav-link active" data-scroll-target="#thoughts">Thoughts</a></li>
+<li><a href="#resources" id="toc-resources" class="nav-link active" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#development" id="toc-development" class="nav-link" data-scroll-target="#development">Development</a></li>
   <li>
 <a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a>
   <ul>
-<li><a href="#answer-1" id="toc-answer-1" class="nav-link" data-scroll-target="#answer-1">Answer 1</a></li>
-  <li><a href="#answer-2" id="toc-answer-2" class="nav-link" data-scroll-target="#answer-2">Answer 2</a></li>
+<li><a href="#answer-1a---combinatorial" id="toc-answer-1a---combinatorial" class="nav-link" data-scroll-target="#answer-1a---combinatorial">Answer 1a - Combinatorial</a></li>
+  <li><a href="#answer-1b---combinatorial-built-in" id="toc-answer-1b---combinatorial-built-in" class="nav-link" data-scroll-target="#answer-1b---combinatorial-built-in">Answer 1b - Combinatorial Built-In</a></li>
   </ul>
 </li>
   <li>
 <a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a>
   <ul>
-<li><a href="#answer-1-1" id="toc-answer-1-1" class="nav-link" data-scroll-target="#answer-1-1">Answer 1</a></li>
+<li><a href="#answer-1---combinatorial" id="toc-answer-1---combinatorial" class="nav-link" data-scroll-target="#answer-1---combinatorial">Answer 1 - Combinatorial</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Problem 4 - Largest Palindrome Product</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i></button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/prncevince/prncevince.xyz/blob/main/euler/problem/0004/index.qmd">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Problem 15 - Lattice Paths</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i></button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button" data-quarto-source-url="https://github.com/prncevince/prncevince.xyz/blob/main/euler/problem/0015/index.qmd">View Source</a></li></ul></div></div>
   <div class="quarto-categories">
-    <div class="quarto-category">Sri Lanka</div>
-    <div class="quarto-category">palindrome</div>
-    <div class="quarto-category">product</div>
-    <div class="quarto-category">brute force</div>
-    <div class="quarto-category">text</div>
+    <div class="quarto-category">Vietnam</div>
+    <div class="quarto-category">lattice</div>
+    <div class="quarto-category">combinatorics</div>
   </div>
   </div>
 
@@ -361,14 +359,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 17, 2026</p>
+      <p class="date">February 12, 2026</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 9, 2026</p>
+      <p class="date-modified">March 6, 2026</p>
     </div>
   </div>
     
@@ -377,144 +375,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="../../assets/img/DJI_20250429081018_0767_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Black Bridge overlooking the top of Kuda Ravana waterfall &amp; surrounding valley   Ella, Sri Lanka - April 29th, 2025"><img src="../../assets/img/DJI_20250429081018_0767_D.jpg" class="img-fluid figure-img" alt="Black Bridge overlooking the top of Kuda Ravana waterfall &amp; surrounding valley   Ella, Sri Lanka - April 29th, 2025"></a></p>
-<figcaption>Black Bridge overlooking the top of Kuda Ravana waterfall &amp; surrounding valley <br> Ella, Sri Lanka - April 29th, 2025</figcaption></figure>
+<figure class="figure"><p><a href="../../assets/img/DJI_20250109061740_0076_D.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Aerial top down view of a Nhà Kính (greenhouse) lit up in warm yellow/orange light at night. Abundant usage of greenhouseses &amp; grow lights became popular in Da Lat in the early 2000s as it guaranteed nearly double the output per year of crops foreign to the region.   Da Lat, Vietnam - January 9th, 2025"><img src="../../assets/img/DJI_20250109061740_0076_D.jpg" class="img-fluid figure-img" alt="Aerial top down view of a Nhà Kính (greenhouse) lit up in warm yellow/orange light at night. Abundant usage of greenhouseses &amp; grow lights became popular in Da Lat in the early 2000s as it guaranteed nearly double the output per year of crops foreign to the region.   Da Lat, Vietnam - January 9th, 2025"></a></p>
+<figcaption>Aerial top down view of a Nhà Kính (greenhouse) lit up in warm yellow/orange light at night. Abundant usage of greenhouseses &amp; grow lights became popular in Da Lat in the early 2000s as it guaranteed nearly double the output per year of crops foreign to the region. <br> Da Lat, Vietnam - January 9th, 2025</figcaption></figure>
 </div>
-<p>A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is <span class="math inline">\(9009 = 91 \times 99\)</span>. <br> Find the largest palindrome made from the product of two 3-digit numbers.</p>
-<p><a href="https://projecteuler.net/problem=4" class="link-euler">https://projecteuler.net/problem=4</a></p>
-<section id="thoughts" class="level2"><h2 class="anchored" data-anchor-id="thoughts">Thoughts</h2>
-<p>One of the lessons of working through the Project Euler problems is to learn to see &amp; use patterns as mathematical shortcuts.</p>
-<p>An observation that a <a href="https://stackoverflow.com/a/69358673">user on Stackoverflow</a> made is that all even digit palindromes (e.g.&nbsp;for even values of <code>n</code> in the answers below) are <a href="https://math.stackexchange.com/questions/697096/prove-that-any-palindrome-with-an-even-number-of-digits-is-divisible-by-11%5D">divisible by <code>11</code></a>.</p>
-<p>Increasing <code>n</code> in this problem is a great example of the battle between writing efficient logic &amp; conducting in-memory compute.</p>
-<p>I do not implement the divisible by <code>11</code> logic in any of the answers below, but I do share my thoughts on 1st order improvements to my original answers to handle runtime complexity. I may come back to implementing this pattern sometime to discover calculating larger even digit palindromes.</p>
-<p>None of the answers are optimized for values of <span class="math inline">\(m &gt; 2\)</span>.</p>
+<p>Starting in the top left corner of a <span class="math inline">\(2 \times 2\)</span> grid, and only being able to move to the right and down, there are exactly <span class="math inline">\(6\)</span> routes to the bottom right corner.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="0015.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="0015.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+<p>How many such routes are there through a <span class="math inline">\(20 \times 20\)</span> grid?</p>
+<p><a href="https://projecteuler.net/problem=15" class="link-euler">https://projecteuler.net/problem=15</a></p>
+<section id="resources" class="level2"><h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=UplqE9mm490">Lattice Paths Problem | Algorithmic And Combinatorial Solution | FelixTechTips YouTube Video</a></li>
+<li><a href="https://www.mathsisfun.com/combinatorics/combinations-permutations.html">Combinations and Permutations</a></li>
+</ul></section><section id="development" class="level2"><h2 class="anchored" data-anchor-id="development">Development</h2>
+<p>We see that at every vertex on the lattice that we only have 2 directions to choose from: right or down.</p>
+<p>Another simple observation shows us that for any sized grid, because of the above mentioned rule, every single unique path is of the same length.</p>
+<p>For the <span class="math inline">\(2 \times 2\)</span> grid, this is of length 4 (i.e.&nbsp;<span class="math inline">\(2*2\)</span>), and for the <span class="math inline">\(20 \times 20\)</span> grid, this is length 40 (i.e.&nbsp;<span class="math inline">\(2*20\)</span>).</p>
+<p>Additionally, this length correlates 1-to-1 to the number of vertexes that each route runs through, where a right/down decision is made at each vertex.</p>
+<p>Because only 2 directions can be chosen at each vertex, we understand that the total number of unique routes that can be taken can be modeled by calculating the non-repeated combinations on the lattice of directions that are made in a route.</p>
+<p>This can be modeled as the length of the route (or number of vertexes where we make a decision on the lattice) (e.g.&nbsp;<span class="math inline">\(n\)</span>) “choose” half of the length of the route (e.g.&nbsp;<span class="math inline">\(k\)</span>), said colloquially as “n choose k”. Why?</p>
+<p>Since there are only 2 decisions/directions that can be made at each vertex on the lattice, we know that half of the directions choosen in the route will be down, and the other half will be right.</p>
+<p>Righting out the combinations, say for <span class="math inline">\(2 \times 2\)</span>, with <span class="math inline">\(D\)</span> for down, and <span class="math inline">\(R\)</span> for right, these 6 non-repeated combinations (routes) are the following:</p>
+<p><span class="math display">\[\{RRDD, RDRD, RDDR, DDRR, DRDR, DRRD}\]</span></p>
+<p>“n choose k” is written &amp; calculated via the below formula. It is known as the combinations formula, and it is also called the <a href="https://www.mathsisfun.com/data/binomial-distribution.html">binomial coefficient</a>.</p>
+<p><span class="math display">\[\binom{n}{k} = \frac{n!}{(n-k)!}*\frac{1}{k!} = \frac{n!}{k!(n-k)!}\]</span></p>
+<p>Thus, for the <span class="math inline">\(2 \times 2\)</span> grid, the total number of routes (4 choose 2) is calculated as:</p>
+<p><span class="math display">\[\binom{4}{2} = \frac{4!}{2!(4-2)!} = 6\]</span></p>
+<p>Which correlates to the length of our set of routes above.</p>
+<p>For the <span class="math inline">\(20 \times 20\)</span> grid, likewise, we calculate number of routes (40 choose 2) via the following:</p>
+<p><span class="math display">\[\binom{40}{40/2} = \binom{40}{20} = \frac{40!}{20!(40-20)!} = \frac{40!}{20!^2}\]</span></p>
 </section><section id="r" class="level2"><h2 class="anchored" data-anchor-id="r">R</h2>
-<section id="answer-1" class="level3"><h3 class="anchored" data-anchor-id="answer-1">Answer 1</h3>
+<section id="answer-1a---combinatorial" class="level3"><h3 class="anchored" data-anchor-id="answer-1a---combinatorial">Answer 1a - Combinatorial</h3>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">palindrome_m2n3</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">m</span> <span class="op">=</span> <span class="fl">2</span>, <span class="va">n</span> <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="co"># check from largest to least of product of m n-digit numbers</span></span>
-<span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">(</span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="va">n</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">^</span><span class="va">m</span>, <span class="fl">1</span><span class="op">)</span></span>
-<span>  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="co"># find reverse digits &amp; check if palindrome </span></span>
-<span>    <span class="co"># then check for compatible n-digit m-factor product</span></span>
-<span>    <span class="va">yr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="st">""</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
-<span>    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="va">yr</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="co"># n-digit sequence</span></span>
-<span>      <span class="va">f_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="va">n</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">10</span><span class="op">^</span><span class="op">(</span><span class="va">n</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span>      <span class="co"># booleans of the factor</span></span>
-<span>      <span class="va">f_x0</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="va">f_i</span> <span class="op">==</span> <span class="fl">0</span></span>
-<span>      <span class="va">f_x</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">/</span> <span class="va">f_i</span></span>
-<span>      <span class="co"># compatibility check: of factor 'f2'</span></span>
-<span>      <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="va">f_x0</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="co"># compatibility check: of n-digit factor 'f2'</span></span>
-<span>        <span class="va">bool_n</span> <span class="op">&lt;-</span> <span class="va">f_x</span><span class="op">[</span><span class="va">f_x0</span><span class="op">]</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">f_i</span></span>
-<span>        <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="va">bool_n</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>          <span class="va">i_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">f_i</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">f_x</span><span class="op">[</span><span class="va">f_x0</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span>          <span class="va">f1</span> <span class="op">&lt;-</span> <span class="va">f_i</span><span class="op">[</span><span class="va">i_f</span><span class="op">]</span></span>
-<span>          <span class="va">f2</span> <span class="op">&lt;-</span> <span class="va">f_x</span><span class="op">[</span><span class="va">i_f</span><span class="op">]</span></span>
-<span>          <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>p <span class="op">=</span> <span class="va">x</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="va">f1</span>, <span class="va">f2</span>, iter <span class="op">=</span> <span class="va">i</span><span class="op">)</span><span class="op">)</span></span>
-<span>        <span class="op">}</span></span>
-<span>      <span class="op">}</span></span>
-<span>    <span class="op">}</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">}</span></span>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">40</span></span>
+<span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">20</span></span>
 <span></span>
 <span><span class="fu">tic</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu">palindrome_m2n3</span><span class="op">(</span>m <span class="op">=</span> <span class="fl">2</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="va">k</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></span>
 <span><span class="fu">toc</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>       p  f1  f2  iter
-1 906609 993 913 91393
-0.616 sec elapsed</code></pre>
+<pre><code>[1] 137846528820
+0.001 sec elapsed</code></pre>
 </div>
 </div>
-</section><section id="answer-2" class="level3"><h3 class="anchored" data-anchor-id="answer-2">Answer 2</h3>
-<p>The real machine memory/RAM issues occur when we increase <code>n</code>.</p>
-<p>We can make this more efficient by looping through a sequence of products. Storing a sequence of products with increasing values of n (e.g.&nbsp;<code>n = 5</code>) will lead to out of memory errors, possibly due to the fact that R is not allowing to store tables in memory larger than ~2 billion rows (2^31).</p>
-<p>One way to deal with these out of memory errors is to chunk/partition the sequence of product results incrementally. Additionally, we should not even attempt to push the matrix row upper bound limit of 2^31 rows, because it is inefficient to store in memory &amp; slow to generate.</p>
-<p>Thus, we should use a max rational increment, such as <span class="math inline">\(10^{n-1}\)</span>, but also keep it well below <span class="math inline">\(\sqrt{2^{31}}=46,340.95\)</span> — striking a good balance. The loop iterations to find the palindrome is the main bottleneck, not the matrix product calculations.</p>
-<p>After running some tests, it seems like setting increment to <span class="math inline">\(10^3 = 1,000\)</span> is a good idea b/c <code>outer(1:10^3, 1:10^3)</code> calculates fast.</p>
-<p>I’ve discovered below does not fully check the correct possibilities.</p>
-<p>e.g.&nbsp;only taking outer products of the indices <code>seq((j-1)*inc + 1, j*inc)</code> of <code>s</code> &amp; not checking <code>j+1</code>, <code>j+2</code>, etc.</p>
-<p>i.e.&nbsp;more complexity is added when chunking by <code>inc=1000</code> than I had accounted for.</p>
+</section><section id="answer-1b---combinatorial-built-in" class="level3"><h3 class="anchored" data-anchor-id="answer-1b---combinatorial-built-in">Answer 1b - Combinatorial Built-In</h3>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">palindrome_m2n3</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">m</span> <span class="op">=</span> <span class="fl">2</span>, <span class="va">n</span> <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="co"># check from largest to least of product of m (10^n)-1 digit numbers</span></span>
-<span>  <span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="va">n</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">10</span><span class="op">^</span><span class="op">(</span><span class="va">n</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="va">inc</span> <span class="op">&lt;-</span> <span class="fl">10</span><span class="op">^</span><span class="fl">3</span></span>
-<span>  <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span><span class="op">/</span><span class="va">inc</span></span>
-<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">so</span> <span class="op">&lt;-</span> <span class="va">s</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">(</span><span class="va">j</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">*</span><span class="va">inc</span> <span class="op">+</span> <span class="fl">1</span>, <span class="va">j</span><span class="op">*</span><span class="va">inc</span><span class="op">)</span><span class="op">]</span></span>
-<span>    <span class="va">xo</span> <span class="op">&lt;-</span> <span class="va">so</span></span>
-<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">m</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="va">xo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/outer.html">outer</a></span><span class="op">(</span><span class="va">xo</span>, <span class="va">so</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
-<span>    <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">xo</span><span class="op">)</span></span>
-<span>    <span class="co"># find reverse digits &amp; check if palindrome </span></span>
-<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">xo</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="va">ij</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">j</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">*</span><span class="va">inc</span><span class="op">+</span><span class="va">i</span></span>
-<span>      <span class="va">yr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="st">""</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
-<span>      <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="va">yr</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="va">p</span> <span class="op">=</span> <span class="va">xo</span><span class="op">[</span><span class="va">i</span><span class="op">]</span></span>
-<span>        <span class="co"># conduct reverse lookup for factors of palindrome product</span></span>
-<span>        <span class="co"># Note: this is unnecessary if we store factors with outer products in a dataframe</span></span>
-<span>        <span class="co"># booleans of the factor</span></span>
-<span>        <span class="va">f_x0</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="va">so</span> <span class="op">==</span> <span class="fl">0</span></span>
-<span>        <span class="va">f_x</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">/</span> <span class="va">so</span></span>
-<span>        <span class="va">i_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">so</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">f_x</span><span class="op">[</span><span class="va">f_x0</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
-<span>        <span class="va">f1</span> <span class="op">&lt;-</span> <span class="va">so</span><span class="op">[</span><span class="va">i_f</span><span class="op">]</span></span>
-<span>        <span class="va">f2</span> <span class="op">&lt;-</span> <span class="va">f_x</span><span class="op">[</span><span class="va">i_f</span><span class="op">]</span></span>
-<span>        <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>p <span class="op">=</span> <span class="va">p</span>, <span class="va">f1</span>, <span class="va">f2</span>, iter <span class="op">=</span> <span class="va">ij</span>, <span class="va">j</span><span class="op">)</span><span class="op">)</span></span>
-<span>      <span class="op">}</span></span>
-<span>    <span class="op">}</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="fu">tic</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu">palindrome_m2n3</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tic</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">20</span><span class="op">)</span></span>
 <span><span class="fu">toc</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>           p    f1    f2  iter j
-1 9966006699 99979 99681 28880 1
-0.269 sec elapsed</code></pre>
+<pre><code>[1] 137846528820
+0 sec elapsed</code></pre>
 </div>
 </div>
 </section></section><section id="python" class="level2"><h2 class="anchored" data-anchor-id="python">Python</h2>
-<section id="answer-1-1" class="level3"><h3 class="anchored" data-anchor-id="answer-1-1">Answer 1</h3>
+<section id="answer-1---combinatorial" class="level3"><h3 class="anchored" data-anchor-id="answer-1---combinatorial">Answer 1 - Combinatorial</h3>
 <div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> palindrome_m2n3(m: <span class="bu">int</span>, n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check from largest to least of product of m n-digit numbers</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(((<span class="dv">10</span><span class="op">**</span>n)<span class="op">-</span><span class="dv">1</span>)<span class="op">**</span>m, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>)]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># n-digit sequence</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  f_i <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span><span class="op">**</span>n<span class="op">-</span><span class="dv">1</span>, <span class="dv">10</span><span class="op">**</span>(n<span class="op">-</span><span class="dv">1</span>)<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)]</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> x:</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># find reverse digits &amp; check if palindrome </span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># then check for compatible n-digit m-factor product</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">str</span>(i) <span class="op">==</span> <span class="bu">str</span>(i)[::<span class="op">-</span><span class="dv">1</span>]:</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      <span class="co"># compatibility check: of an n-digit factor</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      f_x <span class="op">=</span> [i <span class="op">/</span> j <span class="cf">for</span> j <span class="kw">in</span> f_i]</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      f <span class="op">=</span> [j <span class="cf">for</span> j <span class="kw">in</span> f_x <span class="cf">if</span> j <span class="op">==</span> <span class="bu">int</span>(j) <span class="kw">and</span> j <span class="kw">in</span> f_i]</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> <span class="bu">len</span>(f) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        f1 <span class="op">=</span> f[<span class="dv">0</span>]</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        f2 <span class="op">=</span> i <span class="op">/</span> f1</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">'p'</span>: i, <span class="st">'f1'</span>: f1, <span class="st">'f2'</span>: f2, <span class="st">'iter'</span>: x.index(i)<span class="op">+</span><span class="dv">1</span>}</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> time.perf_counter()</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(palindrome_m2n3(m<span class="op">=</span><span class="dv">2</span>, n<span class="op">=</span><span class="dv">3</span>))</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> time.perf_counter()</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> t1 <span class="op">-</span> t0</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>t<span class="sc">:.3f}</span><span class="ss"> sec elapsed'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> factorial</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> choose(n: <span class="bu">int</span>, k: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span>(<span class="bu">int</span>(factorial(n)<span class="op">/</span>(factorial(k)<span class="op">*</span>factorial(n<span class="op">-</span>k))))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> time.perf_counter()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(choose(n <span class="op">=</span> <span class="dv">40</span>, k <span class="op">=</span> <span class="dv">20</span>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> time.perf_counter()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> t1 <span class="op">-</span> t0</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>t<span class="sc">:.3f}</span><span class="ss"> sec elapsed'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>{'p': 906609, 'f1': 913.0, 'f2': 993.0, 'iter': 91393}
-0.046 sec elapsed</code></pre>
+<pre><code>137846528820
+0.003 sec elapsed</code></pre>
 </div>
 </div>
 
 
 </section></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>© 2023-2026 Vincent Clemson | This post is licensed under &lt;a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'&gt;CC BY-NC-SA 4.0&lt;/a&gt;</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-clemson2026" class="csl-entry quarto-appendix-citeas" role="listitem">
-Clemson, Vincent. 2026. <span>“Problem 4 - Largest Palindrome
-Product.”</span> January 17, 2026. <a href="https://prncevince.xyz/euler/problem/0004/">https://prncevince.xyz/euler/problem/0004/</a>.
+Clemson, Vincent. 2026. <span>“Problem 15 - Lattice Paths.”</span>
+February 12, 2026. <a href="https://prncevince.xyz/euler/problem/0015/">https://prncevince.xyz/euler/problem/0015/</a>.
 </div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1025,14 +964,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><script src="https://giscus.app/client.js" data-repo="prncevince/prncevince.xyz" data-repo-id="R_kgDOKfrJMA" data-category="Comments" data-category-id="DIC_kwDOKfrJMM4CaFyh" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
 </script><input type="hidden" id="giscus-base-theme" value="preferred_color_scheme"><input type="hidden" id="giscus-alt-theme" value="preferred_color_scheme"><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../../euler/problem/0003/index.html" class="pagination-link" aria-label="Problem 3 - Largest Prime Factor">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problem 3 - Largest Prime Factor</span>
+      <a href="../../../euler/problem/0014/index.html" class="pagination-link" aria-label="Problem 14 - Longest Collatz Sequence">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problem 14 - Longest Collatz Sequence</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../euler/problem/0005/index.html" class="pagination-link" aria-label="Problem 5 - Smallest Multiple">
-        <span class="nav-page-text">Problem 5 - Smallest Multiple</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1093,7 +1029,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer><div id="scroll-padding"></div>
-<script src="../../../assets/js/sidebar.js"></script><script src="../../../assets/js/site.js"></script><script src="../../../assets/js/posts.js"></script><script src="../../../assets/js/sourceCode.js"></script><script src="../../../assets/js/euler.js"></script><script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});
+<script src="../../../assets/js/sidebar.js"></script><script src="../../../assets/js/site.js"></script><script src="../../../assets/js/posts.js"></script><script src="../../../assets/js/sourceCode.js"></script><script src="../../../assets/js/euler.js"></script><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
