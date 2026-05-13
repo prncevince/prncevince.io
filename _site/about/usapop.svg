@@ -3296,7 +3296,10 @@ svgChoro.onmouseover = function(e) {
 
 svgBords.onmouseleave = hideTooltip
 // Chrome compatibility
-svgChoro.onmouseleave = hideTooltip
+// 03/16/26 removed due to caught bug - stills provides most hover functionality
+// need to test how to implement upon leaving entire figure 
+// seems to be applied twice in Chrome & Firefox, which removes style='visible' instantly
+// svgChoro.onmouseleave = hideTooltip
 
 function hideTooltip(e) {
   tooltipG.style.visibility = 'hidden'

@@ -68,7 +68,7 @@ Where the number of divisors of $n$ is:
 
 $$d_n = (\alpha_1 + 1) (\alpha_2 + 1) \times \ldots \times (\alpha_k + 1)$$
 
-To efficiently find the prime factors, we can use the Sieve of Eratosthenes from previous problems (e.g. [Problem 10](0010.html#answer-3---sieve-of-eratosthenes)), calculating all possible primes up till $\sqrt{n}$, then use trial division to obtain the prime factor list. 
+To efficiently find the prime factors, we can use the Sieve of Eratosthenes from previous problems (e.g. [Problem 10](../0010/index.qmd#answer-3---sieve-of-eratosthenes)), calculating all possible primes up till $\sqrt{n}$, then use trial division to obtain the prime factor list. 
 
 
 ## R

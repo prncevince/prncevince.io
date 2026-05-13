@@ -1,31 +1,31 @@
 [
   {
-    "listing": "/posts/index.html",
+    "listing": "/posts/",
     "items": [
-      "/posts/misc/gke-autopilot-walkthrough/index.html",
-      "/posts/geo/maps-ggplot-svglite/index.html",
-      "/posts/geo/north-india-floods-2023/index.html",
-      "/posts/geo/natural-disasters-maxar-open-data/index.html"
+      "/posts/misc/gke-autopilot-walkthrough/",
+      "/posts/geo/maps-ggplot-svglite/",
+      "/posts/geo/north-india-floods-2023/",
+      "/posts/geo/natural-disasters-maxar-open-data/"
     ]
   },
   {
-    "listing": "/euler/index.html",
+    "listing": "/euler/",
     "items": [
-      "/euler/problem/0002/index.html",
-      "/euler/problem/0003/index.html",
-      "/euler/problem/0001/index.html",
-      "/euler/problem/0006/index.html",
-      "/euler/problem/0004/index.html",
-      "/euler/problem/0005/index.html",
-      "/euler/problem/0008/index.html",
-      "/euler/problem/0007/index.html",
-      "/euler/problem/0009/index.html",
-      "/euler/problem/0010/index.html",
-      "/euler/problem/0011/index.html",
-      "/euler/problem/0012/index.html",
-      "/euler/problem/0013/index.html",
-      "/euler/problem/0014/index.html",
-      "/euler/problem/0015/index.html"
+      "/euler/problem/0002/",
+      "/euler/problem/0003/",
+      "/euler/problem/0001/",
+      "/euler/problem/0006/",
+      "/euler/problem/0004/",
+      "/euler/problem/0005/",
+      "/euler/problem/0008/",
+      "/euler/problem/0007/",
+      "/euler/problem/0009/",
+      "/euler/problem/0010/",
+      "/euler/problem/0011/",
+      "/euler/problem/0012/",
+      "/euler/problem/0013/",
+      "/euler/problem/0014/",
+      "/euler/problem/0015/"
     ]
   }
 ]

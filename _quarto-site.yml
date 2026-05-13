@@ -5,6 +5,8 @@ project:
   render: ["*.qmd", "*.ipynb", "*.Rmd", "*.md", "!SETUP.md", "!LICENSE.md", "!.notes/"]
   post-render:
     - /opt/homebrew/bin/gcp -au resume _site/.
+    - python3 utils/seo-canonical-search-json.py
+    - python3 utils/seo-canonical-listings-json.py
 website:
   draft-mode: gone
   title: Vincent Clemson

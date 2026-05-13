@@ -1,5 +1,12 @@
 {
   "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/(.*)/index.html",
+      "destination": "/$1/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/stats/js/script.js",

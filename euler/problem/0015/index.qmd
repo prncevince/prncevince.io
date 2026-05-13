@@ -50,7 +50,7 @@ Since there are only 2 decisions/directions that can be made at each vertex on t
 
 Righting out the combinations, say for $2 \times 2$, with $D$ for down, and $R$ for right, these 6 non-repeated combinations (routes) are the following:
 
-$$\{RRDD, RDRD, RDDR, DDRR, DRDR, DRRD}$$
+$$\{RRDD, RDRD, RDDR, DDRR, DRDR, DRRD\}$$
 
 "n choose k" is written & calculated via the below formula. It is known as the combinations formula, and it is also called the [binomial coefficient](https://www.mathsisfun.com/data/binomial-distribution.html).
 

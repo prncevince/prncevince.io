@@ -19,7 +19,12 @@ data/
 # Quarto
 /_freeze/
 /.quarto-cli/
+/.quarto/
 .quarto/
+**/*.quarto_ipynb
+# VSCode
+## Quarto Plugin generated and LuaLS
+/.luarc.json
 # User RStudio & R Markdown to preview markdown files before on remote repo
 /README.html
 README_files/
@@ -30,9 +35,6 @@ README_files/
 *.swp
 # OS
 .DS_Store
-/.quarto/
 # pnpm
 node_modules/
 .vercel/
-
-**/*.quarto_ipynb

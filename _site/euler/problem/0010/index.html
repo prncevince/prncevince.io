@@ -376,7 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 9, 2026</p>
+      <p class="date-modified">May 13, 2026</p>
     </div>
   </div>
     
@@ -429,7 +429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 0.045 sec elapsed</code></pre>
 </div>
 </div>
-<p>This is much faster than <a href="#answer-1---sieve">Answer 1</a>. How can we make our implementation faster?</p>
+<p>This is much faster than <a href="#answer-1---trial-division">Answer 1</a>. How can we make our implementation faster?</p>
 </section><section id="answer-3---sieve-of-eratosthenes" class="level3"><h3 class="anchored" data-anchor-id="answer-3---sieve-of-eratosthenes">Answer 3 - Sieve of Eratosthenes</h3>
 <p>This idea is <strong><em>very</em></strong> similar to our implementation, but an order of magnitude more efficient. The Sieve of Eratosthenes does appear to implement an elimination logic, but it is not done by <strong>trial division</strong>.</p>
 <p>The <code>x &lt;- x[x %% x[1] != 0]</code> line is technically running trial division by the <span class="math inline">\(j^{th}\)</span> prime on every number in the set. However, this is inefficient.</p>
@@ -1144,7 +1144,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer><div id="scroll-padding"></div>
-<script src="../../../assets/js/sidebar.js"></script><script src="../../../assets/js/site.js"></script><script src="../../../assets/js/posts.js"></script><script src="../../../assets/js/sourceCode.js"></script><script src="../../../assets/js/euler.js"></script><script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
+<script src="../../../assets/js/sidebar.js"></script><script src="../../../assets/js/site.js"></script><script src="../../../assets/js/posts.js"></script><script src="../../../assets/js/sourceCode.js"></script><script src="../../../assets/js/euler.js"></script><script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

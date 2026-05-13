@@ -15,8 +15,8 @@ sidebar: false
 
 # 👋 Welcome to my site
 
-- You can learn more about me [here](/about).
-- You can find my blog posts on spatial analytics [here](/posts).
-- You can check out my travel themed Project Euler problem answers with my original photos [here](/euler).
+- You can learn more about me [here](/about/index.qmd).
+- You can find my blog posts on spatial analytics [here](/posts/index.qmd).
+- You can check out my travel themed Project Euler problem answers with my original photos [here](/euler/index.qmd).
 
 # Thanks for stopping by ✌️
