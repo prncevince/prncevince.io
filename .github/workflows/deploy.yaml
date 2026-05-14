@@ -32,20 +32,15 @@ jobs:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     # cache's used:
-    #   - pnpm/action-setup: hash of pnpm-lock.yaml
     #   - actions/setup-node: hash of pnpm-lock.yaml if `cache: "pnpm"`
     #   Docs:
     #     - https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#pnpm
     #     - https://pnpm.io/continuous-integration#github-actions
-    #     - https://github.com/pnpm/action-setup#cache
+    # Note: homebrew installed pnpm boostraps pnpm via pinned pnpm version during pnpm install
+    #       in "packageManager" field of package.json. This is all pnpm setup required.
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
-      - name: Setup/Install pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: ${{ matrix.pnpm-version }}
-          cache: true
       - name: Setup/Install Node.js
         uses: actions/setup-node@v6
         with:
