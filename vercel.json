@@ -1,5 +1,8 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": true,
+  "cleanUrls": false,
+  "outputDirectory": "_site",
   "rewrites": [
     {
       "source": "/stats/js/script.js",
