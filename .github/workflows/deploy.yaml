@@ -32,7 +32,8 @@ jobs:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     # Note: corepack boostraps pnpm via pinned pnpm version via
-    #       "packageManager" field of package.json. This is all pnpm setup required.
+    #       "packageManager" field of package.json *during* pnpm install.
+    #       Thus, enabling corepack & the install steps are all the pnpm setup required.
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6

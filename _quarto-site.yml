@@ -7,6 +7,7 @@ project:
     - /opt/homebrew/bin/gcp -au resume _site/.
     - python3 utils/seo-canonical-search-json.py
     - python3 utils/seo-canonical-listings-json.py
+    - python3 utils/seo-canonical-normalize-html.py _site
 website:
   draft-mode: gone
   title: Vincent Clemson
@@ -30,7 +31,7 @@ website:
       contents: 
         - section: Project Euler
           href: euler/index.qmd
-          contents: euler/problem/**
+          contents: "euler/problem/**/*.qmd"
   navbar:
     collapse-below: lg
     right:
