@@ -41,12 +41,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
-      - name: Install pnpm
+      - name: Setup/Install pnpm
         uses: pnpm/action-setup@v6
         with:
           version: ${{ matrix.pnpm-version }}
           cache: true
-      - name: Install Node.js
+      - name: Steup/Install Node.js
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
