@@ -2,10 +2,10 @@ name: Publish Site to Vercel
 on:
   push:
     branches: [main]
-    paths: ['_site/**', '.github/workflows/deploy.yaml']
+    paths: ['_site/**', '.github/workflows/deploy.yaml', 'vercel.json']
   pull_request:
     branches: [main]
-    paths: ['_site/**', '.github/workflows/deploy.yaml']
+    paths: ['_site/**', '.github/workflows/deploy.yaml', 'vercel.json']
   workflow_dispatch:
 permissions:
   contents: write
