@@ -31,13 +31,8 @@ jobs:
       RENV_CONFIG_REPOS_OVERRIDE: ${{ matrix.r-repo }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-    # cache's used:
-    #   - actions/setup-node: hash of pnpm-lock.yaml if `cache: "pnpm"`
-    #   Docs:
-    #     - https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#pnpm
-    #     - https://pnpm.io/continuous-integration#github-actions
-    # Note: homebrew installed pnpm boostraps pnpm via pinned pnpm version during pnpm install
-    #       in "packageManager" field of package.json. This is all pnpm setup required.
+    # Note: corepack boostraps pnpm via pinned pnpm version via
+    #       "packageManager" field of package.json. This is all pnpm setup required.
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
@@ -45,7 +40,8 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+      - name: Enable corepack for pnpm Install/Setup 
+        run: corepack enable
       - name: Install Node.js dependencies
         run: pnpm i
       - name: Deploy site to Vercel 🚀
