@@ -1,5 +1,9 @@
 {
+  "engines": {
+      "node": ">=24.15",
+      "pnpm": ">=10.24.0"
+  },
 	"dependencies": {
-		"vercel": "latest"
+		"vercel": "^53.4.0"
 	}
 }

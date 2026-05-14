@@ -2,10 +2,10 @@ name: Publish Site to Vercel
 on:
   push:
     branches: [main]
-    paths: ['_site/**']
+    paths: ['_site/**', '.github/workflows/deploy.yaml']
   pull_request:
     branches: [main]
-    paths: ['_site/**']
+    paths: ['_site/**', '.github/workflows/deploy.yaml']
   workflow_dispatch:
 permissions:
   contents: write
@@ -19,7 +19,9 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-latest]
-        r: ['release']
+        node-version: ['lts/*']
+        pnpm-version: ['11']
+        r-version: ['release']
         r-repo: ['https://cloud.r-project.org']
     # Only runs PR jobs concurrently & uses same group as other vercel- jobs
     # PR jobs run in their own branch & do not deploy anything - so we assume they can run concurrently
@@ -29,15 +31,30 @@ jobs:
       RENV_CONFIG_REPOS_OVERRIDE: ${{ matrix.r-repo }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    # cache's used:
+    #   - pnpm/action-setup: hash of pnpm-lock.yaml
+    #   - actions/setup-node: hash of pnpm-lock.yaml if `cache: "pnpm"`
+    #   Docs:
+    #     - https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#pnpm
+    #     - https://pnpm.io/continuous-integration#github-actions
+    #     - https://github.com/pnpm/action-setup#cache
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v6
       - name: Install pnpm
-        run: brew install pnpm
-      - name: Install Node dependencies
+        uses: pnpm/action-setup@v6
+        with:
+          version: ${{ matrix.pnpm-version }}
+          cache: true
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+      - name: Install Node.js dependencies
         run: pnpm i
       - name: Deploy site to Vercel 🚀
         if: github.event_name != 'pull_request'
         run: |
           pnpm vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
           pnpm vercel deploy _site --prod --token=${{ secrets.VERCEL_TOKEN }}
-
