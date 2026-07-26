@@ -11,7 +11,9 @@ $base-dropdown-link-hover-bg: #ecc187;
 $btn-active-border-color: $base-dropdown-link-hover-bg;
 // Navbar
 $base-navbar-bg: #376550;
-$navbar-bg: rgba(58, 100, 57, .90);
+// naming convention temporarily used so that mistakes don't perpetuate on rebuilds
+$base-1-navbar-bg: rgba(58, 100, 57);
+$navbar-bg: rgba($base-1-navbar-bg, .90);
 $navbar-color: $body-bg;
 $navbar-brand-color: $navbar-color;
 $navbar-hover-color: rgba(145, 177, 128, .88); 
@@ -43,6 +45,16 @@ a:hover, .nav-footer a:hover, .quarto-listing-category > .category:hover {
 }
 .nav-footer-left a {
   color: $primary;
+}
+/* Modern browsers */
+::selection {
+  background-color: lighten($primary, 20%); /* The selection background highlight color */
+  // color: #ffffff;            /* The font text color when highlighted */
+}
+/* Fallback fix specifically for older Mozilla/Firefox builds */
+::-moz-selection {
+  background-color: lighten($primary, 20%);
+  // color: #ffffff;
 }
 
 /* Sidebar  */
@@ -155,6 +167,31 @@ div > details > summary {
 /* Title Headers */
 h1, h2, h3, h4, h5, h6 {
   color: $primary;
+}
+
+/* Homepage */
+// blockquote
+.blockquote {
+  color: rgb(236 193 135 / 100%);
+  border-image: linear-gradient(0deg, rgb(249 169 61 / 50%), rgba($base-1-navbar-bg, .80)) 1;
+}
+.blockquote em::selection {
+  background-clip: text;
+  color: white;
+  -webkit-text-fill-color: unset;
+}
+.blockquote .em1 {
+  color: rgba($base-1-navbar-bg, .80);
+  font-weight: 600;
+  font-style: italic;
+}
+.blockquote .em2 {
+  color: rgba($base-1-navbar-bg, .80);
+  font-weight: 600;
+}
+.blockquote .em3 {
+  color: rgb(249 189 110);
+  // color: darken($color: rgb(236 193 135), $amount: 7.5%);
 }
 
 /* Listing Posts */

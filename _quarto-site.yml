@@ -41,6 +41,8 @@ website:
         menu:
           - text: Project Euler
             href: euler/index.qmd
+          - text: Filmmaking
+            href: film/index.qmd
       - text: "[Contacts]{class='quarto-navbar-tools-item'}"
         menu:
           - text: About Me

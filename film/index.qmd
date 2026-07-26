@@ -1,0 +1,14 @@
+---
+include-after-body:
+  text: |
+    <script src='/assets/js/site.js'></script>
+    <script src='/assets/js/non-posts.js'></script>
+    <script src='/assets/js/reveal.js'></script>
+css: [/assets/css/non-posts.css, /assets/css/index.css]
+anchor-sections: false
+sidebar: false
+---
+
+# Adventure Filmmaking
+
+I'm producing cinematic documentaries and experimenting with Al-assisted creative workflows.

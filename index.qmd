@@ -6,17 +6,188 @@ twitter-card:
   title: Vincent Clemson
 include-after-body:
   text: |
+    <div id="scroll-padding"></div>
     <script src='/assets/js/site.js'></script>
     <script src='/assets/js/non-posts.js'></script>
-css: [/assets/css/non-posts.css]
-back-to-top-navigation: false
+    <script src='/assets/js/reveal.js'></script>
+css: [/assets/css/non-posts.css, /assets/css/index.css]
+grid:
+  body-width: 1400px
+  sidebar-width: 100px
+  margin-width: 100px
+  gutter-width: 1.5rem
+anchor-sections: false
+back-to-top-navigation: true
 sidebar: false
 ---
 
-# 👋 Welcome to my site
+<section class="hero">
 
-- You can learn more about me [here](/about/index.qmd).
-- You can find my blog posts on spatial analytics [here](/posts/index.qmd).
-- You can check out my travel themed Project Euler problem answers with my original photos [here](/euler/index.qmd).
+::: {.wrap .reveal}
 
-# Thanks for stopping by ✌️
+::: {.eyebrow}
+[]{.rule style="margin-right:10px;"}
+[AI Evaluation · Data Systems · Geospatial Analytics · Open Source]{}
+[]{.rule style="margin-left:10px;"}
+:::
+
+# Vincent Clemson
+
+::: {.reveal .ltr .q1}
+> Exploring [complex systems]{.em1} through [**data**]{.em3}, [**software**]{.em3}, and [**storytelling**]{.em3} to make difficult ideas become <em>**possible.**</em>
+:::
+
+::: {.statement}
+👋 Welcome.
+
+I build analytical systems to understand complex problems. Along the way, that has meant geospatial analysis, mathematical modeling, documentary filmmaking, and increasingly AI evaluation. This is where I document that journey, publishing the work, the experiments, and the lessons learned along the way.
+:::
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.ratio .ratio-16x9}
+![](/euler/assets/img/DJI_20250430211849_0811_D.jpg)
+:::
+
+::: {.card-body}
+### Hiring? Start Here 📜 
+::: {.card-body-center}
+My resume. A snapshot of the journey.
+<br>
+Experience across intelligence, space & defense, geospatial analytics, software, and AI.
+:::
+
+[](/resume/){.stretched-link target='_blank'}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.ratio .ratio-16x9 .euler}
+![](/assets/img/Leonhard_Euler_2.jpg)
+:::
+::: {.card-body}
+### Reasoning 🧠 Project Euler 🧮
+::: {.card-body-center}
+Solving mathematical problems with R, Python, and computational thinking through Project Euler.
+:::
+
+[](/euler/index.qmd){.stretched-link target='_blank'}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.ratio .ratio-16x9}
+![](/assets/img/big-and-tiny-spatial-thougts-9x16-1.png)
+:::
+::: {.card-body}
+### 💻 The Blog 🗺️ 
+::: {.card-body-center}
+Technical articles, interactive data visualizations, and long-form exploration.
+<br>
+Here I dive deep into cloud computing & geospatial analytics to make sense of complex technologies.
+:::
+
+[](/posts/index.qmd){.stretched-link target='_blank'}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card} 
+::: {.ratio .ratio-16x9}
+![](/euler/assets/img/DJI_20250502210006_0864_D.jpg)
+:::
+::: {.card-body}
+### 👾 Open Source - GitHub 👨‍💻
+::: {.card-body-center}
+Custom open source tools, experiments, and software built to solve real analytical problems.
+<br>
+Including the source of this website. 
+::: 
+
+[](https://github.com/prncevince){.stretched-link target='_blank'}
+:::
+:::
+:::
+
+:::
+
+:::
+
+[![](/assets/img/_DSC9269-2x3.jpg "About me."){.bg .reveal}](/about/index.qmd){target='_blank'}
+
+</section>
+
+<section class="journal">
+
+::: {.wrap .reveal}
+
+## The Field Journal
+
+::: {.reveal .rtl .q2}
+> Seeking out <em>**ground truth**</em><br>above [all else.]{.em2}
+:::
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.ratio .ratio-16x9}
+<video autoplay loop muted playsinline preload="metadata">
+  <source src="/assets/vid/savi-2026-07-24.webm" type="video/webm; codecs=vp9"/>
+</video>
+:::
+::: {.card-body}
+### 🛰️ &nbsp;Mission Planning Prototype&nbsp; 📡
+::: {.card-body-center}
+A web app for predicting satellite coverage to facilitate scheduling for NGA mission analysts to monitor high priority National Security intelligence targets.
+:::
+
+[](https://prncevince-sat-viz.hf.space){.stretched-link target='_blank'}
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card}
+::: {.ratio .ratio-16x9}
+<video autoplay loop muted playsinline preload="metadata">
+  <source src="/assets/vid/trailer-chasing-freedom-720p-1200kbps-dn.webm" type="video/webm; codecs=vp9"/>
+</video>
+:::
+::: {.card-body}
+### 🎥 &nbsp;Adventure Filmmaking&nbsp; 🚁
+::: {.card-body-center}
+Featuring my journey around the world.
+<br>
+[[Directed, edited, and filmmed by me]{.split-1} [(+ my best friend 🙂)]{.split-2}]{.split .col .sm}
+[When life doesn't provide you the luxury of a film crew ... Why not go it alone?]{style="display: block"}
+I'm producing cinematic documentaries and experimenting with Al-assisted creative workflows.
+:::
+
+[](/film/index.qmd){.stretched-link target='_blank'}
+:::
+:::
+:::
+
+:::
+
+:::
+
+</section>
+
+<section class="message">
+
+::: {.wrap .reveal}
+
+## Thanks for stopping by ✌️
+
+:::
+
+</section>

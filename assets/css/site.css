@@ -177,6 +177,7 @@ a.navbar-brand {
 /*-- Back to Top Button --*/
 #quarto-back-to-top {
   bottom: 1.5em;
+  z-index: 99; /* must be on top of image cards / links */
 }
 #scroll-padding {
   padding: 1.5em;
