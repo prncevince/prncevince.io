@@ -91,6 +91,11 @@ h2 {
   font-size: clamp(1.4rem, 2.2vw, 1.7rem);
   margin-left: 30px;
 }
+@media (max-width: 576px) {
+  .q2 .blockquote {
+    margin-left: 25px;
+  }
+}
 .blockquote em {
     /* 1. Define the linear gradient background */
   background: linear-gradient(-135deg, rgb(249 189 110) 10%, rgb(228 25 186 / 67%) 100%);
@@ -334,6 +339,11 @@ div.card section.card-body p {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+video.loop {
+  /* Force iOS Chrome to use hardware GPU layers, preventing disappearing bugs */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 div.card .euler img {
   object-position: 50% 42%;

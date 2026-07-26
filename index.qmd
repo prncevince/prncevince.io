@@ -10,6 +10,7 @@ include-after-body:
     <script src='/assets/js/site.js'></script>
     <script src='/assets/js/non-posts.js'></script>
     <script src='/assets/js/reveal.js'></script>
+    <script src='/assets/js/video-pause-play-view.js'></script>
 css: [/assets/css/non-posts.css, /assets/css/index.css]
 grid:
   body-width: 1400px
@@ -32,7 +33,7 @@ sidebar: false
 :::
 
 # Vincent Clemson
-
+ 
 ::: {.reveal .ltr .q1}
 > Exploring [complex systems]{.em1} through [**data**]{.em3}, [**software**]{.em3}, and [**storytelling**]{.em3} to make difficult ideas become <em>**possible.**</em>
 :::
@@ -139,7 +140,7 @@ Including the source of this website.
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card}
 ::: {.ratio .ratio-16x9}
-<video autoplay loop muted playsinline preload="metadata">
+<video autoplay loop muted playsinline preload="metadata" class="loop">
   <source src="/assets/vid/savi-2026-07-24.webm" type="video/webm; codecs=vp9"/>
 </video>
 :::
@@ -157,7 +158,7 @@ A web app for predicting satellite coverage to facilitate scheduling for NGA mis
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card}
 ::: {.ratio .ratio-16x9}
-<video autoplay loop muted playsinline preload="metadata">
+<video autoplay loop muted playsinline preload="metadata" class="loop">
   <source src="/assets/vid/trailer-chasing-freedom-720p-1200kbps-dn.webm" type="video/webm; codecs=vp9"/>
 </video>
 :::
