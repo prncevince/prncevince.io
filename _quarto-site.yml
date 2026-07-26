@@ -13,15 +13,15 @@ website:
   title: Vincent Clemson
   favicon: /assets/img/favicon.png
   site-url: https://prncevince.xyz
-  description: 'A collection of unique spatial data science content by Vincent Clemson'
+  description: Analytical systems, geospatial intelligence, AI evaluation, open-source engineering, mathematics, and documentary storytelling.
   repo-branch: main
   repo-url: https://github.com/prncevince/prncevince.xyz
   open-graph:
-    image: /assets/img/logo-og.png
+    image: /assets/img/og-index-1.jpg
   twitter-card:
     creator: "@prncevincecares"
     site: "@prncevincecares"
-    image: /assets/img/logo-og.png
+    image: /assets/img/og-index-1.jpg
   back-to-top-navigation: true
   bread-crumbs: false
   sidebar:
