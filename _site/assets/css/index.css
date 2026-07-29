@@ -237,7 +237,8 @@ body, html {
 
 /* JOURNAL */
 .journal div.card section.card-body {
-  border-width: 2px 0px 0px 0px;
+  margin-top: -0.5px;
+  border-width: 2.5px 0px 0px 0px;
 }
 .journal .ratio-16x9 {
   --bs-aspect-ratio: 62.5%;
