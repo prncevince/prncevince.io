@@ -1,4 +1,35 @@
-/* page size */
+/* 
+This stylesheet orignally builds off of a {pagedown} example.
+Overtime, it has been built up for styling my resume of the
+pagedown generated html content that utilizes the page-site.html pandoc template.
+
+Paged.js transforms this generated HTML content *in browser* via unique `@` rules.
+
+The <body> of the index.html is scraped and the original DOM is re-created / transformed on page load. 
+
+In true R Markdown fashion, stylesheets are chosen to not be embedded into index.html. 
+Thus, paged.js sources stylesheets & their corresponding `@` rules via the below: 
+<link rel="stylesheet" href="assets/css/style.css" type="text/css"/>
+
+It is CRITICAL to understand how Paged.js `@page` rules work
+Please see the following documentation sources for reference: 
+https://pagedjs.org/en/documentation/5-web-design-for-print/
+https://pagedjs.org/en/documentation/7-generated-content-in-margin-boxes/
+
+It is also, CRITICAL to understand the idea of generating "running element" content via
+the usage of `element` & `running` CSS functions.
+There is a specific convention of injecting the full HTML structure as a "running element" 
+into the generated margin boxes of the page via the
+`.my-class {position: running(myClassElement)}` & `content: element(myClassElement)` ruleset.
+
+Specifically, this documentation MUST be studied to understand correct positioning:
+  - "Running elements: headers/footer with specific (complex) content"
+    - https://pagedjs.org/en/documentation/7-generated-content-in-margin-boxes/#running-elements%3A-headers%2Ffooter-with-specific-(complex)-content
+
+Fin
+*/
+
+/* core PAGE `@` rule size &  */
 @page {
   size: letter;
   /*size: 6in 9in;*/
@@ -19,17 +50,29 @@
   }
 }
 
+/* GENERATED MARGIN CONTENT Positioning */
 .update {
   position: running(updateRunning);
 }
-
 .clearance {
   position: running(clearanceRunning);
 }
-
 .footer {
   position: running(footerRunning);
 }
+/* grid margin top */
+.pagedjs_margin-top {
+  padding-top: 8px;
+}
+/* grid margin bottom */
+.pagedjs_margin-bottom-center > .pagedjs_margin-content {
+  padding-top: 10px;
+}
+/* .pagedjs_left_page .pagedjs_margin-bottom {
+  grid-template-columns: .85fr 1.15fr 1fr !important;
+} */
+
+/* CORE PAGE GRID */
 /* allows links in footer to come through when covered by element */
 .pagedjs_margin.pagedjs_margin-bottom-center.hasContent {
   z-index: 1;
@@ -37,30 +80,61 @@
 /*.footnotes, .page2-end {
   z-index: 2;
 }*/
-
-/* grids */
-/* grid page 1 */
-.top {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-.linkedin, .site {
-  text-align: center;
-}
-.email, .twitter {
-  text-align: right;
-}
-/* grid page 2 */
+/* this shows overflow content within div.pagedjs_area over the other div.pagedjs_pagebox items */
+/* Otherwise, it is not shown */
 .pagedjs_page_content > div {
-  /* this shows overflow content within div.pagedjs_area over the other div.pagedjs_pagebox items */
   position: absolute; 
 }
+
+/* PAGE GRID */
+/* 
+  The original pandoc page-site.html template's `body.main` element is buried deep within the generated Paged.js Page area
+  Essentially everything in <body> is put into the Page area.
+  In the generated content hierachy of the DOM, this is as follows:
+    - .pagedjs_pages > pagedjs_page > .pagedjs_sheet > .pagedjs_pagebox > .pagedjs_area > .pagedjs_page_content > div > div.main
+  Using class main targets for all *Page* content (not the margin generated content).
+*/
 .main {
   display: grid;
   /*grid-gap: 1rem;*/
   /*overflow: hidden;*/ /* this actually breaks the chrome capture tool */
   grid-template-rows: 1fr;
   grid-template-columns: 50% 50%;
+}
+
+/* PAGE SECTION GRIDS */
+/* TOP */
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.tech {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: 1fr;
+  grid-row-gap: 2px;
+  text-align: center;
+  /* border: 2px dashed #4e734d; */
+  padding: 6px;
+  margin: 4px;
+  border-radius: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%27100%25%27%20height%3D%27100%25%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%25%27%20y1%3D%270%25%27%20x2%3D%27100%25%27%20y2%3D%27100%25%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27rgb%2878%2C115%2C77%29%27/%3E%3Cstop%20offset%3D%2750%25%27%20stop-color%3D%27rgb%28236%2C193%2C135%29%27/%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27rgb%28119%2C5%2C5%29%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20fill%3D%27none%27%20rx%3D%2720%27%20ry%3D%2720%27%20stroke%3D%27url%28%23g%29%27%20stroke-width%3D%274%27%20stroke-dasharray%3D%2710%2C%2010%2C%202%2C%201%27%20stroke-dashoffset%3D%270%27%20stroke-linecap%3D%27square%27/%3E%3C/svg%3E");
+}
+
+.tech > .sub {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 0.8fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin-top: 2px;
+}
+.tech > .title {
+  text-align: center;
+  font-family: monospace;
+  font-size: larger;
+  color: #4e734d;
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
 }
 .section.level1 {
   grid-column: 1 / 3;
@@ -83,32 +157,34 @@ div.page2-end img {
   grid-column: 1 / 2;
   font-size: 80%;
 }
-/* grid margin top */
-.pagedjs_margin-top {
-  padding-top: 8px;
-}
-/* grid margin bottom */
-.pagedjs_margin-bottom-center > .pagedjs_margin-content {
-  padding-top: 10px;
-}
-.pagedjs_left_page .pagedjs_margin-bottom {
-  grid-template-columns: .85fr 1.15fr 1fr !important;
-}
+
 /*
 Aligns footer 
 .pagedjs_left_page .pagedjs_margin-bottom-center > .pagedjs_margin-content {
   text-align: left;
 }*/
 
-div.education > h2 {
-  background-image: url(../img/nittany-lion.png);
-  background-repeat: no-repeat;
-  background-position: 58% 75%;
-  background-size: 30px;
-  padding-top: 4px;
+/* OVERALL STYLING */
+/* font highlighting */
+::selection {
+  background-color: #7fa87e;
+}
+p:has(> br:first-child) {
+  line-height: 8px;
+}
+p {
+  margin: 0;
+}
+
+/* SECTION SYLING */
+.site-pre, .site {
+  text-align: center;
+}
+.email, .linkedin, .twitter {
+  text-align: right;
 }
 div.top a {
-  color: black;
+  color: rgb(80, 84, 87);
   text-decoration: none;
 }
 /*div.top a:hover {
@@ -165,6 +241,19 @@ a:not(.footnote-ref) {
   background-size: 20px;
   padding-left: 22px;
 }
+/* Expertise Section */
+.section.expertise > p:nth-of-type(1) {
+  text-align: center;
+  margin-bottom: 8px;
+}
+/* Education Section */
+.top > .education {
+  background-image: url(../img/nittany-lion.png);
+  background-repeat: no-repeat;
+  background-position: 96% 75%;
+  background-size: 30px;
+  padding-top: 4px;
+}
 
 .pagedjs_sheet {
   padding: 5px;
@@ -184,11 +273,6 @@ p:has(> br) {
 /* 2nd page ML Lists */
 h2 ~ center ~ ul:not(.os) {
   padding-top: 4px;
-}
-
-p {
-  margin: 0;
-  line-height: 8px;
 }
 
 .footnotes > ol {
@@ -267,6 +351,9 @@ li.li-mac::marker {
   content: '💻';
 }
 
+div.indy > h3::after {
+   content: 'Remote - 2023 – Present';
+}
 div.booz > h3::after {
   content: 'Remote - February 2023 – October 2023';
 }

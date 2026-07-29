@@ -46,12 +46,13 @@ a:hover, .nav-footer a:hover, .quarto-listing-category > .category:hover {
 .nav-footer-left a {
   color: $primary;
 }
-/* Modern browsers */
+// Font Selection Highlighting
+// Modern browsers
 ::selection {
   background-color: lighten($primary, 20%); /* The selection background highlight color */
   // color: #ffffff;            /* The font text color when highlighted */
 }
-/* Fallback fix specifically for older Mozilla/Firefox builds */
+// Fallback fix specifically for older Mozilla/Firefox builds
 ::-moz-selection {
   background-color: lighten($primary, 20%);
   // color: #ffffff;
